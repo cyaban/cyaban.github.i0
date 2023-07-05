@@ -1,0 +1,20 @@
+ {
+    "$schema": "http://json.schemastore.org/web-manifest",
+    "manifest_version": 2,
+    "version": "1.0",
+    "name": "Toutapprendre - Cours / Presse / Livres & BD / Services",
+    "short_name": "Toutapprendre - Cours / Presse / Livres & BD / Services",
+    "scope": "/",
+    "start_url": "/",
+    "icons": [
+      {
+        "src": "/img/homeicon.png",
+        "sizes": "512x512",
+        "type": "image/png"
+      }
+    ],
+    "theme_color": "#ffffff",
+    "background_color": "#ffffff",
+    "display": "standalone",
+    "orientation": "any"
+  }
