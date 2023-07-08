@@ -45,7 +45,24 @@ body {
  font-size: 40px;
  filter: drop-shadow(2px 2px 5px rgb(0 0 0 / 0.4));
 }
-
+.accueil .error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.accueil .error h1 {
+  color: var(--text-color);
+ font-weight: 500;
+ font-size: 40px;
+ filter: drop-shadow(2px 2px 5px rgb(0 0 0 / 0.4));
+}
+.accueil .error h5 {
+  color: var(--text-color);
+ font-weight: 500;
+ font-size: 20px;
+ filter: drop-shadow(2px 2px 5px rgb(0 0 0 / 0.4));
+}
 .accueil .title svg {
   height: 50px;
   width: 50px;
@@ -185,7 +202,7 @@ body {
 .bottombar .meteo{
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   background-color: var(--box-bg);
   height: 60px;
   width: 150px;
@@ -213,6 +230,13 @@ body {
   color: var(--text-color);
   margin: 0px;
   filter: drop-shadow(2px 2px 2px rgb(0 0 0 / 0.4));
+}
+.bottombar .temp {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  position: absolute;
+  left: 60px;
 }
 .bottombar .datetime{
   margin: 7px;
@@ -262,7 +286,7 @@ body {
   margin: 7px;
   border-radius: 10px;
   height: 40px;
-  width: 130px;
+  width: 160px;
   background-color: var(--tab-bg);
   left: 0;
   display: flex;
@@ -271,6 +295,14 @@ body {
   display: flex;
   justify-content: center;
   backdrop-filter: blur(5px);
+}
+.topbar .left .logo svg{
+  height: 20px;
+  width: 20px;
+  margin-top: 7px;
+  margin-right: 5px;
+  margin-left: 7px;
+  filter: drop-shadow(2px 2px 5px rgb(0 0 0 / 0.4));
 }
 .topbar i.close{
   font-size: 25px;
@@ -377,6 +409,7 @@ iframe {
   margin-top: 60px;
 }
 .show {
+  background-color: #8b8b8b73;
   top: 10px;
   border-radius: 10px;
   height: 40px;
@@ -389,6 +422,7 @@ iframe {
   align-items: center;
   box-shadow: 2px 2px 5px #5555555e;
   backdrop-filter: blur(5px);
+  z-index: 1;
 }
 
 
@@ -407,8 +441,10 @@ iframe {
   border-radius: 10px;
   z-index: 10;
   background-color: var(--box-bg);
-  width: 500px;
+  width: 60vw;
   max-width: 80%;
+  filter: drop-shadow(2px 2px 5px rgb(0 0 0 / 0.4));
+  
 }
 
 .modal.active {
@@ -420,13 +456,13 @@ iframe {
   display: flex;
   justify-content: center;
   align-items: center;
-
 }
 
 .modal-header .title {
-  font-size: 1.25rem;
-  font-weight: bold;
+  font-size: 20px;
+  font-weight: 500;
   color: var(--text-color);
+  filter: drop-shadow(2px 2px 5px rgb(0 0 0 / 0.4));
 }
 
 .modal-header .close-button {
@@ -439,11 +475,12 @@ iframe {
   font-size: 1.25rem;
   font-weight: bold;
   color: var(--text-color);
+  filter: drop-shadow(2px 2px 5px rgb(0 0 0 / 0.4));
 }
 
 .modal-body {
   padding: 10px 15px;
-  color: var(--text-color);
+  color: var(--text-color-alt);
 }
 
 #overlay {
@@ -462,5 +499,5 @@ iframe {
   z-index: 1;
   opacity: 1;
   pointer-events: all;
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(20px);
 }
