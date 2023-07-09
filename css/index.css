@@ -497,7 +497,7 @@ iframe {
 }
 
 .slider {
-  background-color: #ccc;
+  background-color: var(--tab-bg);
   bottom: 0;
   cursor: pointer;
   left: 0;
@@ -522,7 +522,7 @@ iframe {
 }
 
 .slider:before {
-  background-color: #fff;
+  background-color: var(--tab-bg);
   bottom: 4px;
   content: "";
   height: 22px;

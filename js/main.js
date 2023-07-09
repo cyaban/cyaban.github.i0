@@ -56,7 +56,7 @@ setInterval(() => {
 }, 200);
 
 if ((localStorage.getItem('searchmode')) === null) {
-  localStorage.setItem('searchmode', 'normal')
+  localStorage.setItem('searchmode', 'proxy')
 }
 
 

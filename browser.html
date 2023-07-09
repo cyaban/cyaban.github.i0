@@ -10,7 +10,7 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   </head>
 
-  <body class="body" id="body" onload="crate.hide()">
+  <body class="body" id="body" onload="crate.hide();crate.toggle()">
     <div class="topbar" id="topbar">
       <div class="left">
         <a href="tab.html" target="iframe"><div class="logo">
@@ -32,18 +32,16 @@
         </div>
       </div>
       <div class="right">
-        <i onclick="document.getElementById('topbar').style.visibility = 'hidden';document.getElementById('show').style.visibility = 'visible';document.getElementById('iframeurl').style.height = '100vh';document.getElementById('iframeurl').style.marginTop = '0'" class='bx bx-hide'></i>
         <i onclick="discord()" class='bx bx-chat small'></i>
+        <i onclick="document.getElementById('topbar').style.visibility = 'hidden';document.getElementById('show').style.visibility = 'visible';document.getElementById('iframeurl').style.height = '100vh';document.getElementById('iframeurl').style.marginTop = '0'" class='bx bx-hide'></i>
         <i data-modal-target="#modal" class='bx bx-cog small' ></i>
         <i onclick="window.location.href = './'" class='bx bx-exit small'></i>
         <script>
           function discord(){
             if (localStorage.getItem('chaton')==="off"){
-              crate.toggle()
               crate.show()
               localStorage.setItem('chaton', 'on')
             }else{
-              crate.toggle()
               crate.hide()
               localStorage.setItem('chaton', 'off')
             }
@@ -67,7 +65,7 @@
     <iframe name="iframe" id="iframeurl" src="tab.html"></iframe>
     <script src="https://cdn.jsdelivr.net/npm/@widgetbot/crate@3" async>
           const discord = new Crate({
-            location: [40, -100],
+            location: [0, -180],
             server: '1086990232349581434',
             channel: '1087008199363805345',
           })
