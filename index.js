@@ -22,6 +22,9 @@ const errorCode = document.getElementById("uv-error-code");
 
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
+  const url = search(address.value, searchEngine.value);
+  if (localStorage.getItem('searchmode')==="proxy"){
+    
 
   try {
     await registerSW();
@@ -30,8 +33,10 @@ form.addEventListener("submit", async (event) => {
     errorCode.textContent = err.toString();
     throw err;
   }
-
-  const url = search(address.value, searchEngine.value);
-  location.href = __uv$config.prefix + __uv$config.encodeUrl(url);
+    location.href = __uv$config.prefix + __uv$config.encodeUrl(url);
+  }else{
+    location.href = url
+  }
+  
 });
 
