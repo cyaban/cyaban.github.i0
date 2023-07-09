@@ -35,7 +35,7 @@ form.addEventListener("submit", async (event) => {
   }
     location.href = __uv$config.prefix + __uv$config.encodeUrl(url);
   }else{
-    location.href = url
+    window.open(url)
   }
   
 });
