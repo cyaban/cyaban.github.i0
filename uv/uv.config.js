@@ -1,7 +1,7 @@
 
 self.__uv$config = {
   prefix: "/uv/service/",
-  bare: "https://lmath.lolmath.tk/bare/",
+  bare: "https://astroid.gg/bare/",
   encodeUrl: Ultraviolet.codec.xor.encode,
   decodeUrl: Ultraviolet.codec.xor.decode,
   handler: "/uv/uv.handler.js",
