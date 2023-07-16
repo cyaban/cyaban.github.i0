@@ -41,7 +41,7 @@ form.addEventListener("submit", async (event) => {
 });
 
 function openURL(value) {
-  window.navigator.serviceWorker.register("/sw.js", {
+  window.navigator.serviceWorker.register("/uv/sw.js", {
     scope: __uv$config.prefix
   })
   .then(() => {
