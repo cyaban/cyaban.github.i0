@@ -40,3 +40,20 @@ form.addEventListener("submit", async (event) => {
   
 });
 
+function openURL(value) {
+  window.navigator.serviceWorker.register("/sw.js", {
+    scope: __uv$config.prefix
+  })
+  .then(() => {
+    console.log("Service worker registration successful");
+
+    let url = value.trim();
+    if (!(url.startsWith("https://") || url.startsWith("http://"))) {
+      url = "https://" + url;
+    }
+    location.href = __uv$config.prefix + __uv$config.encodeUrl(url);
+  })
+  .catch((error) => {
+    console.error("Failed to register service worker.", error);
+  });
+}
