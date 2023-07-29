@@ -29,7 +29,7 @@
         <form id="uv-form" class="flex-center">
           <input
             id="uv-search-engine"
-            value="https://www.google.com/search?q=%s"
+            value=""
             type="hidden"
           />
           <input id="uv-address" type="text" placeholder="Rechercher sur le Web" />
@@ -56,6 +56,7 @@
       
     <div class="bottombar">
       <div class="categories">
+        <i onclick="window.location.href = 'tab.html'" class='bx bx-home'></i>
         <i onclick="window.location.href = 'ettm.html'" class='bx bx-joystick'></i>
         <i onclick="window.location.href = 'apps.html'" class='bx bxs-grid' ></i>
         <i onclick="window.location.href = 'cld.html'" class='bx bx-cloud' ></i>
@@ -67,5 +68,8 @@
     </div>
     </div>
     <script src="js/main.js"></script>
+    <script>
+      document.getElementById("uv-search-engine").setAttribute("value", `https://${localStorage.getItem('searchengine')}.com/search?q=%s`);
+    </script>
   </body>
 </html>

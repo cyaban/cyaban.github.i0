@@ -6,7 +6,7 @@
     <title>Toutapprendre - Cours / Presse / Livres & BD / Services</title>
     <link rel="icon" type="image/x-icon" href="./img/homeicon.png">
     <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="css/bluepurple.css">
+    <link rel="stylesheet" id="themestyle">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   </head>
 
@@ -60,14 +60,68 @@
         <i data-close-button class="bx bx-x close-button"></i>
       </div>
       <div class="modal-body">
-        
+        <div class="set">
+          <h3><i class='bx bx-palette'></i> Thème</h3>
+          <p>Les thèmes appliques au nouveaux onglets</p>
+          <select id="themeSelect">
+            <option value="bluepurple">Bleu violet</option>
+            <option value="turquoise">Turquoise</option>
+         </select>
+         <script>
+            function initThemeSelector () {
+            const themeSelect = document.getElementById("themeSelect")
+            const themestyle = document.getElementById("themestyle")
+            const currentTheme = localStorage.getItem("theme") || "bluepurple";
+
+            function activateTheme(cssname) {
+                themestyle.setAttribute("href", `css/${cssname}.css`);
+            }
+
+            themeSelect.addEventListener("change", () => {
+                activateTheme(themeSelect.value);
+                localStorage.setItem("theme", themeSelect.value)
+            });
+
+            themeSelect.value = currentTheme;
+
+            activateTheme(currentTheme)
+            }
+            initThemeSelector();
+         </script>
+        </div>
+        <div class="set">
+          <h3><i class='bx bx-planet' ></i> Moteur de recherche</h3>
+          <p>Moteur de recherche utilisé dans la barre de recherche</p>
+          <select id="searchengine">
+            <option value="google">Google</option>
+            <option value="bing">Bing</option>
+            <option value="duckduckgo">DuckduckGo</option>
+            <option value="qwant">Qwant</option>
+            <option value="search.brave">Brave</option>
+         </select>
+         <script>
+          function initEngineSelector () {
+          const searchengine = document.getElementById("searchengine")
+          const currentEngine = localStorage.getItem("searchengine") || "bottomright";
+
+          searchengine.addEventListener("change", () => {
+              localStorage.setItem("searchengine", searchengine.value)
+              window.open('tab.html', target='iframe')
+          });
+
+          searchengine.value = currentEngine;
+
+          }
+          initEngineSelector();
+       </script>
+        </div>
       </div>
     </div>   
     <div id="overlay"></div>
     <iframe name="iframe" id="iframeurl" src="tab.html"></iframe>
     <script src="https://cdn.jsdelivr.net/npm/@widgetbot/crate@3" async>
           const discord = new Crate({
-            location: [0, -180],
+            location: [0, -200],
             server: '1086990232349581434',
             channel: '1087008199363805345',
           })
