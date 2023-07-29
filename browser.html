@@ -102,7 +102,7 @@
          <script>
           function initEngineSelector () {
           const searchengine = document.getElementById("searchengine")
-          const currentEngine = localStorage.getItem("searchengine") || "bottomright";
+          const currentEngine = localStorage.getItem("searchengine") || "google";
 
           searchengine.addEventListener("change", () => {
               localStorage.setItem("searchengine", searchengine.value)
