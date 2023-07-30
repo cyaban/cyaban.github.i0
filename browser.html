@@ -19,8 +19,9 @@
         </div></a>
         <i onclick="history.back()" class='bx bx-chevron-left'></i>
         <i onclick="document.getElementById('iframeurl').contentWindow.location.reload(true);" class='bx bx-refresh medium'></i>
+        <i onclick="window.open('tab.html', target='iframe')" class="bx bx-home home"></i>
       </div>
-      <div class="tabs" style="visibility: hidden;">
+      <div class="tabs">
         <div class="tab focus">
           <img src="img/logo.png">
           <div class="text">
@@ -35,7 +36,7 @@
       <div class="right">
         <i onclick="discord()" class='bx bx-chat small'></i>
         <i class='bx bx-user small'></i>
-        <i onclick="document.getElementById('topbar').style.visibility = 'hidden';document.getElementById('show').style.visibility = 'visible';document.getElementById('iframeurl').style.height = '100vh';document.getElementById('iframeurl').style.marginTop = '0'" class='bx bx-hide'></i>
+        <i onclick="document.getElementById('topbar').style.visibility = 'hidden';document.getElementById('show').style.visibility = 'visible';document.getElementById('iframeurl').style.height = '100vh';document.getElementById('iframeurl').style.marginTop = '0';document.getElementById('iframeurl').style.height = '100vh'" class='bx bx-hide'></i>
         <i data-modal-target="#modal" class='bx bx-cog small' ></i>
         <i onclick="window.location.href = './'" class='bx bx-exit small'></i>
         <script>
@@ -62,7 +63,7 @@
       <div class="modal-body">
         <div class="set">
           <h3><i class='bx bx-palette'></i> Thème</h3>
-          <p>Les thèmes appliques au nouveaux onglets</p>
+          <p>Couleur utilisé pour le fond des onglets, s'adapte en fonction du mode</p>
           <select id="themeSelect">
             <option value="bluepurple">Bleu violet</option>
             <option value="turquoise">Turquoise</option>
@@ -113,9 +114,13 @@
           initEngineSelector();
        </script>
         </div>
+        <div class="set">
+          <h3><i class='bx bx-image'></i> Fond d'écran</h3>
+          <p>Image personalisé pour le fond d'écran des nouveaux onglets</p>
+        </div>
       </div>
     </div>   
-    <div id="overlay"></div>
+    <div id="overlay" class="browseroverlay"></div>
     <iframe name="iframe" id="iframeurl" src="tab.html"></iframe>
     <script src="https://cdn.jsdelivr.net/npm/@widgetbot/crate@3" async>
           const discord = new Crate({

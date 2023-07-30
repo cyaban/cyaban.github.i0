@@ -44,7 +44,7 @@
           <img src="./img/apps/youtube.jpg">
           <i class="bx bx-plus"></i>
         </div>
-        <div class="favbox empty">
+        <div class="favbox empty "  data-modal-target="#favbox">
           <img src="">
           <i class="bx bx-plus"></i>
         </div>
@@ -53,6 +53,14 @@
           <i class="bx bx-plus"></i>
         </div>
       </div>
+      <div class="modal" id="favbox">
+        <div class="modal-header">
+          <div class="title">Créer un favoris</div>
+          <i data-close-button class="bx bx-x close-button"></i>
+        </div>
+        <div class="modal-body">
+        </div>
+      </div>   
       
     <div class="bottombar">
       <div class="categories">
@@ -66,7 +74,8 @@
         <p class="date smaller"></p>
       </div>
     </div>
-    </div>
+    <div id="overlay" class="taboverlay"></div>
+    <script src="js/modal.js"></script>
     <script src="js/main.js"></script>
     <script>
       if (localStorage.getItem('searchengine')===null){
