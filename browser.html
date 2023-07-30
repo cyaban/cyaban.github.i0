@@ -62,6 +62,10 @@
       </div>
       <div class="modal-body">
         <div class="set">
+          <h3><i class='bx bx-home'></i> Général</h3>
+          
+        </div>
+        <div class="set">
           <h3><i class='bx bx-palette'></i> Thème</h3>
           <p>Couleur utilisé pour le fond des onglets, s'adapte en fonction du mode</p>
           <select id="themeSelect">
@@ -116,7 +120,23 @@
         </div>
         <div class="set">
           <h3><i class='bx bx-image'></i> Fond d'écran</h3>
-          <p>Image personalisé pour le fond d'écran des nouveaux onglets</p>
+          <p>Image personalisé pour le fond des nouveaux onglets</p>
+          <div class="inputurl">
+            <input type="text" id="bgurl" name="urlToOpen" size="150" placeholder="URL de l'image"></input>
+            <button onclick="applybg()">Appliquer</button>
+            <button onclick="resetbg()">Rénitialiser</button>
+          </div>
+                <script>
+                    const applybg = () =>{
+                        var bgurl = document.getElementById("bgurl").value;
+                        localStorage.setItem('bgurl', bgurl)
+                        document.getElementById("body").style="background-image: url('" + localStorage.getItem('bgurl') + "')"
+                    }
+                    function resetbg(){
+                      localStorage.removeItem('bgurl')
+                      document.getElementById("body").style="background-image: linear-gradient( 111.4deg, var(--grada) 6.5%, var(--gradb) 93.2% );"
+                    }
+                </script>
         </div>
       </div>
     </div>   
@@ -130,7 +150,13 @@
           })
     </script>
     <script>
+      if (localStorage.getItem('bgurl')===null){
+        document.getElementById("body").style="background-image: linear-gradient( 111.4deg, var(--grada) 6.5%, var(--gradb) 93.2% );"
+      }else{
+        document.getElementById("body").style="background-image: url('" + localStorage.getItem('bgurl') + "')"
+      }
       localStorage.setItem('chaton', 'off')
+
     </script>
     <script src="js/modal.js"></script>
   </body>

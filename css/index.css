@@ -22,6 +22,7 @@ body {
 }
 .body{
   background-image: linear-gradient( 111.4deg, var(--grada) 6.5%, var(--gradb) 93.2% );
+  background-size: cover;
 }
 
 .accueil {
@@ -604,6 +605,8 @@ input:checked + .slider:before {
   padding-bottom: 2px;
   margin-bottom: 20px;
   text-align: center;
+  border: 0;
+  filter: drop-shadow(2px 2px 5px rgb(0 0 0 / 0.4));
 }
 
 .topbar .left i:hover {
@@ -617,3 +620,44 @@ input:checked + .slider:before {
   border-radius: 5px;
 }
 
+.modal-body .set .inputurl {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+.modal-body .set .inputurl input{
+  margin: 5px;
+  border: 0;
+  width: 150px;
+  border-radius: 8px;
+  filter: drop-shadow(2px 2px 3px rgb(0 0 0 / 0.4));
+}
+.modal-body .set .inputurl button{
+  border: 0;
+  margin: 2px;
+  border-radius: 8px;
+  filter: drop-shadow(2px 2px 3px rgb(0 0 0 / 0.4));
+  font-weight: 100;
+  font-size: 12px;
+  padding: 3px;
+  background-color: white;
+  color: #000000;
+}
+.modal-body .set .inputurl button:hover{
+  border: 0;
+  margin: 2px;
+  border-radius: 8px;
+  filter: drop-shadow(2px 2px 3px rgb(0 0 0 / 0.4));
+  font-weight: 100;
+  font-size: 12px;
+  background-color: #333333;
+  color: white;
+  padding: 3px;
+}
+.inputurl input::placeholder{
+  color: #000000;
+  font-size: 10px;
+}
