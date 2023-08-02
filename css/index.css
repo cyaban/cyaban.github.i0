@@ -10,12 +10,14 @@ body {
 }
 :root {
   --box-bg: #ffffff7a;
+  --modal-bg: #a8a7a7;
   --text-color: #ffffff;
   --tab-bg: #525252b6;
 }
 @media (prefers-color-scheme: dark){
   :root {
     --box-bg: #525252b6;
+    --modal-bg: #353535;
     --text-color: #ffffff;
     --tab-bg: #ffffff7a;
   }
@@ -435,9 +437,9 @@ iframe {
   transition: 200ms ease-in-out;
   border-radius: 10px;
   z-index: 10;
-  background-color: var(--box-bg);
-  width: 900px;
-  max-width: 80%;
+  background-color: var(--modal-bg);
+  width: 1000px;
+  max-width: 90%;
   filter: drop-shadow(2px 2px 5px rgb(0 0 0 / 0.4));
 }
 
@@ -497,7 +499,6 @@ iframe {
   opacity: 1;
   pointer-events: all;
   backdrop-filter: blur(20px);
-  
 }
 .taboverlay {
   position: fixed;
@@ -507,7 +508,6 @@ iframe {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, .5);
   pointer-events: none;
 }
 .taboverlay.active {
@@ -517,18 +517,18 @@ iframe {
   backdrop-filter: blur(20px);
   
 }
-.theme-switch {
+.searchbar .theme-switch {
   display: inline-block;
   height: 30px;
   position: relative;
   width: 52px;
 }
 
-.theme-switch input {
+.searchbar .theme-switch input {
   display:none;
 }
 
-.slider {
+.searchbar .slider {
   background-color: var(--tab-bg);
   bottom: 0;
   cursor: pointer;
@@ -543,17 +543,17 @@ iframe {
   align-items: center;
 }
 
-.slider i {
+.searchbar .slider i {
   color: var(--box-bg);
 }
-.slider i.globe {
+.searchbar .slider i.globe {
   margin-left: 7px;
 }
-.slider i.mask {
+.searchbar .slider i.mask {
   margin-right: 6px;
 }
 
-.slider:before {
+.searchbar .slider:before {
   background-color: var(--tab-bg);
   bottom: 4px;
   content: "";
@@ -565,11 +565,11 @@ iframe {
   border-radius: 15px;
 }
 
-input:checked + .slider {
+.searchbar input:checked + .slider {
   background-color: var(--tab-bg);
 }
 
-input:checked + .slider:before {
+.searchbar input:checked + .slider:before {
   transform: translateX(23px);
 }
 .set {
@@ -581,6 +581,7 @@ input:checked + .slider:before {
   justify-content: center;
   align-items: center;
   margin: 5px;
+  height: 200px;
 }
 
 .set h3, p{
@@ -660,4 +661,67 @@ input:checked + .slider:before {
 .inputurl input::placeholder{
   color: #000000;
   font-size: 10px;
+}
+.set .switchtg {
+  display: inline-block;
+  height: 20px;
+  position: relative;
+  width: 36px;
+  filter: drop-shadow(2px 2px 3px rgb(0 0 0 / 0.4));
+  margin-right: 10px;
+}
+
+.set .switchtg input {
+  display:none;
+}
+
+.set .slider {
+  background-color: var(--tab-bg);
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: .4s;
+  border-radius: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.set .slider i {
+  color: var(--box-bg);
+}
+.set .slider:before {
+  background-color: var(--box-bg);
+  bottom: 1px;
+  top: 2px;
+  content: "";
+  height: 16px;
+  left: 2px;
+  position: absolute;
+  transition: .4s;
+  width: 16px;
+  border-radius: 15px;
+}
+
+.set input:checked + .slider {
+  background-color: var(--tab-bg);
+}
+
+.set input:checked + .slider:before {
+  right: 2px;
+  top: 2px;
+  bottom: 1px;
+  transform: translateX(16px)
+}
+
+.generalset {
+  display: flex;
+  flex-direction: column;
+}
+.generalset .line {
+  display: flex;
+  align-items: center;
 }

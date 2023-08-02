@@ -1,7 +1,7 @@
 const timeElement = document.querySelector(".time");
 const dateElement = document.querySelector(".date");
 const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
-const currentTheme = localStorage.getItem('theme');
+
 
 /**
  * @param {Date} date
@@ -58,11 +58,10 @@ setInterval(() => {
 if ((localStorage.getItem('searchmode')) === null) {
   localStorage.setItem('searchmode', 'proxy')
 }
+if ((localStorage.getItem('searchmode')) === 'proxy') {
+    toggleSwitch.checked = true;
+}
 
-
-    if ((localStorage.getItem('searchmode')) === 'proxy') {
-        toggleSwitch.checked = true;
-    }
 
 function switchTheme(e) {
     if (e.target.checked) {
@@ -74,3 +73,4 @@ function switchTheme(e) {
 }
 
 toggleSwitch.addEventListener('change', switchTheme, false);
+

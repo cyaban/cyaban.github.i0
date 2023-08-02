@@ -23,20 +23,39 @@ const errorCode = document.getElementById("uv-error-code");
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
   const url = search(address.value, searchEngine.value);
-  if (localStorage.getItem('searchmode')==="proxy"){
+  if (localStorage.getItem('openiframe')==="false"){
+    if (localStorage.getItem('searchmode')==="proxy"){
     
 
-  try {
-    await registerSW();
-  } catch (err) {
-    error.textContent = "Failed to register service worker.";
-    errorCode.textContent = err.toString();
-    throw err;
+      try {
+        await registerSW();
+      } catch (err) {
+        error.textContent = "Failed to register service worker.";
+        errorCode.textContent = err.toString();
+        throw err;
+      }
+        location.href = __uv$config.prefix + __uv$config.encodeUrl(url);
+      }else{
+        window.open(url)
+      }
   }
-    location.href = __uv$config.prefix + __uv$config.encodeUrl(url);
-  }else{
-    window.open(url)
+  if (localStorage.getItem('openiframe')==="true"){
+    if (localStorage.getItem('searchmode')==="proxy"){
+    
+
+      try {
+        await registerSW();
+      } catch (err) {
+        error.textContent = "Failed to register service worker.";
+        errorCode.textContent = err.toString();
+        throw err;
+      }
+        location.href = __uv$config.prefix + __uv$config.encodeUrl(url);
+      }else{
+        location.href = url
+      }
   }
+ 
   
 });
 

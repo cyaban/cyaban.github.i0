@@ -63,7 +63,29 @@
       <div class="modal-body">
         <div class="set">
           <h3><i class='bx bx-home'></i> Général</h3>
-          
+          <div class="generalset">
+            <div class="line">
+              <label class="switchtg iframe-switch" for="iframe">
+                <input type="checkbox" id="iframe">
+                <div class="slider"></div>
+              </label>
+              <p>Ouvrir les pages non proxié en iframe (risque de bug)</p>
+            </div>
+            <div class="line">
+              <label class="switchtg minimised-switch" for="mini">
+                <input type="checkbox" id="mini">
+                <div class="slider"></div>
+              </label>
+              <p>Retourner à l'accueil lorsque l'app est minimisée</p>
+            </div>
+            <div class="line">
+              <label class="switchtg ecoledirecte-switch" for="ecole">
+                <input type="checkbox" id="ecole">
+                <div class="slider"></div>
+              </label>
+              <p>Ouvrir EcoleDirecte quand le bouton quitter est pressé</p>
+            </div>
+          </div>
         </div>
         <div class="set">
           <h3><i class='bx bx-palette'></i> Thème</h3>
@@ -158,6 +180,7 @@
       localStorage.setItem('chaton', 'off')
 
     </script>
+    <script src="js/settings.js"></script>
     <script src="js/modal.js"></script>
   </body>
 </html>
