@@ -53,4 +53,3 @@ function switchmodemini(a) {
     }    
   }
   miniSwitch.addEventListener('change', switchmodemini, false);
-  

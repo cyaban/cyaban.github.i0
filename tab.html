@@ -81,7 +81,7 @@
       if (localStorage.getItem('searchengine')===null){
         localStorage.setItem('searchengine', 'google')
       }
-      document.getElementById("uv-search-engine").setAttribute("value", `https://${localStorage.getItem('searchengine')}.com/search?q=%s`);
+      document.getElementById("uv-search-engine").setAttribute("value", `${localStorage.getItem('searchengine')}`);
     </script>
   </body>
 </html>

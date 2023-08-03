@@ -10,7 +10,8 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   </head>
 
-  <body class="body" id="body" onload="crate.hide();crate.toggle()">
+  <body class="body" id="body" onload="crate.hide();crate.toggle();document.getElementById('body').style['backdrop-filter'] = `blur(${localStorage.getItem('bgblur')}px)`;
+  document.getElementById('body').style['-webkit-backdrop-filter'] = `blur(${localStorage.getItem('bgblur')}px)`;">
     <div class="topbar" id="topbar">
       <div class="left">
         <a href="tab.html" target="iframe">
@@ -120,9 +121,11 @@
           <h3><i class='bx bx-planet' ></i> Moteur de recherche</h3>
           <p>Moteur de recherche utilisé dans la barre de recherche</p>
           <select id="searchengine">
-            <option value="google">Google</option>
-            <option value="bing">Bing</option>
-            <option value="search.brave">Brave</option>
+            <option value="https://google.com/search?q=%s">Google</option>
+            <option value="https://bing.com/search?q=%s">Bing</option>
+            <option value="https://search.brave.com/search?q=%s">Brave</option>
+            <option value="https://duckduckgo.com/?q=%s">DuckduckGo</option>
+            <option value="https://qwant.com/?q=%s">Qwant</option>
          </select>
          <script>
           function initEngineSelector () {
@@ -160,6 +163,23 @@
                     }
                 </script>
         </div>
+        <div class="set">
+          <h3><i class='bx bx-paint'></i> Flou du fond d'écran</h3>
+          <p>Fonctionne uniquement si une image de fond a été appliqué</p>
+          <div class="inputurl">
+            <input type="text" id="bgblur" name="urlToOpen" size="150" placeholder="Quantité en pixel (px)"></input>
+            <button onclick="applyblur()">Appliquer</button>
+          </div>
+                <script>
+                    const applyblur = () =>{  
+                        var bgblurvar = document.getElementById('bgblur').value    
+                        localStorage.setItem('bgblur', bgblurvar)
+                        document.getElementById("body").style['backdrop-filter'] = `blur(${localStorage.getItem('bgblur')}px)`;
+                        document.getElementById("body").style['-webkit-backdrop-filter'] = `blur(${localStorage.getItem('bgblur')}px)`;
+                    }
+                    
+                </script>
+        </div>
       </div>
     </div>   
     <div id="overlay" class="browseroverlay"></div>
@@ -172,6 +192,7 @@
           })
     </script>
     <script>
+      
       if (localStorage.getItem('bgurl')===null){
         document.getElementById("body").style="background-image: linear-gradient( 111.4deg, var(--grada) 6.5%, var(--gradb) 93.2% );"
       }else{
