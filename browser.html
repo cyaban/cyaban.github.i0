@@ -70,21 +70,21 @@
                 <input type="checkbox" id="iframe">
                 <div class="slider"></div>
               </label>
-              <p>Ouvrir les pages non proxié en iframe (risque de bug)</p>
+              <p>Pages non proxié en iframe (risque de bug)</p>
             </div>
             <div class="line">
               <label class="switchtg minimised-switch" for="mini">
                 <input type="checkbox" id="mini">
                 <div class="slider"></div>
               </label>
-              <p>Retourner à l'accueil lorsque l'app est minimisée</p>
+              <p>Accueil lorsque l'app est minimisée</p>
             </div>
             <div class="line">
               <label class="switchtg ecoledirecte-switch" for="ecole">
                 <input type="checkbox" id="ecole">
                 <div class="slider"></div>
               </label>
-              <p>Ouvrir EcoleDirecte quand le bouton quitter est pressé</p>
+              <p>Ouvrir EcoleDirecte en appuyant sur <i class='bx bx-exit'></i></p>
             </div>
           </div>
         </div>
@@ -148,8 +148,8 @@
           <p>Image personalisé pour le fond des nouveaux onglets</p>
           <div class="inputurl">
             <input type="text" id="bgurl" name="urlToOpen" size="150" placeholder="URL de l'image"></input>
-            <button onclick="applybg()">Appliquer</button>
-            <button onclick="resetbg()">Rénitialiser</button>
+            <button onclick="applybg()"><i class='bx bx-tick'></i> Appliquer</button>
+            <button onclick="resetbg()"><i class='bx bx-refresh'></i> Rénitialiser</button>
           </div>
                 <script>
                     const applybg = () =>{
@@ -190,6 +190,10 @@
             server: '1086990232349581434',
             channel: '1087008199363805345',
           })
+    </script>
+    <script>
+      
+      document.addEventListener("visibilitychange", onchange);
     </script>
     <script>
       
