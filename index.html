@@ -1,326 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
 
-<!-- 
-**************************************************************************************************************************************
-    Biblio ToutApprendre V4                                                                                                                
-    Page de login
+    <link rel="shortcut icon" href="img/fav.png" type="image/x-icon">
 
-    Jean de La Taille 2022                                                                                                                 
-**************************************************************************************************************************************
--->
+    <link rel="stylesheet" href="games.css">
 
-<!DOCTYPE html>	
-<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
-    <head>
-        <!-- Base Meta                                        -->
-        <title>Toutapprendre - Cours / Presse / Livres & BD / Services </title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
-        <meta charset="UTF-8"/>
-        <meta name="description" content="Biblio V4 : Login"/>
-        <meta name="author" content="Jean de La Taille"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-        <!-- Sécurité : autorise uniquement les sources HTTPS, accepte le javascript et CSS en ligne  -->
-        <meta http-equiv="Content-Security-Policy" content="default-src https: 'unsafe-eval' 'unsafe-inline'; object-src 'none'">
+    <link rel="stylesheet" href="unpkg.com_swiper@7.3.1_swiper-bundle.min.css">
+</head>
 
-        <!-- Mobile specific -->
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        <!-- Javascript libs -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <script src="https://biblio.toutapprendre.com/newbiblio/js/toolbox.js"></script>
-        <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=b5eea78f-3a92-42fd-872c-6550a2b61b72"> </script>
+<body>
+    
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"/>
-        <link href="https://fonts.googleapis.com/css?family=Lato:300,400,500,600,700,800,900" rel="stylesheet" />   
+    <header>
+        <div class="nav container">
+            <a href="home.html" class="logo">Fu<span>sio</span>n</a>
+       <div class="nav-icons">
+        <a href="#" class="btn-1" id="btn-1">Join in</a>
+        <i class='bx bx-download'></i>
+        <div class="menu-icon">
+            <div class="lineA"></div>
+            <div class="lineB"></div>
+            <div class="lineC"></div>
+    
+    </div>
+       </div>
+       <div class="menu">
+        <img src="img/menu.gif" >
+<div class="navbar">
+    <li><a href="home.html">Home</a></li>
+    <li><a href="games.html">Games</a></li>
+    <li><a href="#">Chat</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#">Contact</a></li>
+    <li><a href="#">Settings</a></li>
 
-        <!-- CSS -->
-        <link href="https://biblio.toutapprendre.com/newbiblio/css/akwa3.css?" rel="stylesheet" />
-        <link href="https://biblio.toutapprendre.com/newbiblio/css/akwa2.css?" rel="stylesheet" />
-        <link href="https://biblio.toutapprendre.com/newbiblio/css/theme.css?" rel="stylesheet" />
+</div>
+    </div>
 
-        <!-- javascript -->
-        <script>
-            var domain = "";
-            var pkGroup = "0";
-
-            var loginBusy = false;
-
-            //*********************************************************************************************************************
-            // Bascule pour l'oeil
-            function togglePassword(id, btn) {
-                var t = $(id).attr('type');
-                if (t == 'text') {
-                    $(btn).removeClass("blue");
-                    $(id).attr('type', 'password');
-                } else {
-                    $(btn).addClass("blue");
-                    $(id).attr('type', 'text');
-                }
-                return false;
-            }
-
-            //*********************************************************************************************************************
-            // Requête de control du login/password
-            function loginControl(login, password) {
-                // Vérifie le "save me"
-                if ($("#saveMe").prop("checked")) {
-                    document.cookie = "login=" + encodeURIComponent(login) + "; expires=0; path=/";
-                    document.cookie = "paswd=" + encodeURIComponent(password) + "; expires=0; path=/";
-                } else {
-                    document.cookie = "login=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
-                    document.cookie = "paswd=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
-                }
-
-                // Lance la requète de login
-                webService("/virtual/ws/account.ws.php", {cmd: "login", login: login, password: password, token: 2141}, 
-                    function(data) { 
-                        loginBusy = false;
-                        // Contrôle du retour de login
-                        if (data.substr(0, 3) == 'NOK') {
-                            let message = data.substr(4);
-                            // Cas particulier : les CE qui ont expirés ont droit à un message spécial
-                            if (message == "CE")
-                                showPopup("<br/><br/>Par mesure de sécurité, vous devez vous connecter via le portail de votre CSE/Entreprise ou avec l’identifiant " + 
-                                    "initialement fourni, afin de mettre à jour votre compte individuel.<br/>Vous pourrez ensuite accéder normalement à votre compte individuel.");
-                            else
-                                smokeBox(message);
-                            return;
-                        }
-                        // Parse le résultat
-                        var json = JSON.parse(data);
-                        // Si c'est un compte unique -> page individuelle
-                        var compteGenerique = json["generic"];
-                        var noIndiv = json["noIndiv"];
-                        var forceIndiv = json["forceIndiv"] ? 1 : 0;
-                        // En cas de non indiv et compte générique, ni création de compte, ni profils
-                        if (noIndiv && compteGenerique)
-                            return location.href = "listing.php?pkGroup=" + pkGroup;
-                        // Si c'est un compte générique, renvoit sur l'écran de création de compte
-                        if (compteGenerique) 
-                            return location.href = "indexIndividuel.php?pkGroup=" + pkGroup;
-                        // Ecran des profils pour les autres cas
-                        location.href = "profils.php?pkGroup=" + pkGroup;
-                });
-            }
-
-            //*********************************************************************************************************************
-            // Login en cas de click sur le bouton login
-            function login() {
-                // Si on est déjà en mode busy, quitte et ne fait rien
-                if (loginBusy)
-                    return;
-                // Récupère les champs
-                var login = $("#id").val();
-                var password = $("#password").val();
-                if (login == "" || password == "")
-                    return;
-                // Passe en mode busy, pour ne pas pouvoir revalider tant qu'on n'a pas le retour
-                loginBusy = true;
-                loginControl(login, password, "0");
-            }
-
-            //*********************************************************************************************************************
-            // Page prête
-            $().ready(function () {
-
-                // Si on est en mode autologin (définit par le serveur), on se logue directement sans attendre (les champs sont déjà remplis)
-                //if (autoLogin)
-                //    loginControl("<%=login%>", "<%=password%>", "1");
-
-                // Vérifie si les identifiants sont sauvegardés
-                var cookies = document.cookie + ";";
-                var iLogin = cookies.indexOf("login=");
-                var iPaswd = cookies.indexOf("paswd=");
-                if (iLogin != -1) {
-                    var login = decodeURIComponent(cookies.substring(iLogin + 6, cookies.indexOf(';', iLogin)));
-                    var paswd = decodeURIComponent(cookies.substring(iPaswd + 6, cookies.indexOf(';', iPaswd)));
-                    $("#id").val(login);
-                    $("#password").val(paswd);
-                }
-            });
-
-        </script>
-
-        <style type="text/css">
-            body {
-                height: auto; 
-                min-height: 100%;
-            }
-            
-            #loginDiv {
-                max-width: 600px; 
-                width: 90%;
-            }
-
-            input[type=text], input[type=password], input[type=date] {
-                background: white;
-                border: 0;
-                outline: 0;
-                padding: 3mm 5mm;
-                width: 100%;
-                box-shadow: 0;
-            }
-
-            #legal {
-                position: fixed; bottom: 5px;
-            }
-
-            #bigBulles {
-                width: 25vw; 
-                height: 20vw; 
-                background-image: url(images/biblio31/BullesTA.svg); 
-                background-size: 120%; 
-                background-position: right top;
-            }
-
-            a.eye {
-                position: absolute; 
-                right: 3mm; 
-                top: 3mm;
-            }
-        </style>
-
-    </head>
-    <body style="min-height: 100%">
-        
-        <!-- Grosses bulles -->
-        <div class="absolute left bottom" id="bigBulles"></div>
-
-        <!-- Contenu principal de la page de login -->
-        <div class="content relative alignBox wide huge">
-
-            <!-- Fenêtre de login -->
-            <div class="relative middle bgWhite center textCenter" id="loginDiv">
-
-                <!-- Logo -->
-                <img class="col-1-4" src="https://biblio.toutapprendre.com/newbiblio/images/biblio31/Picto-BIBLIOsurPC.svg"/>
-                <div class="h2 wide bold">Bienvenue sur</div>
-                <img class="wide" src="https://biblio.toutapprendre.com/newbiblio/images/biblio31/TypoTA.svg"/>
-                <br>
-                <br>
-                <!-- Champs -->
-                <center>
-                    <div class="col-2-3">
-                        <!-- Login -->
-                        <div class="alignBox paddingBottom-m">
-                            <div class="middle large material-icons paddingRight-m">person</div>
-                            <input id="id" type="text" class="wide round-m framed middle medium">
-                        </div>
-                        <!-- Password -->
-                        <div class="alignBox paddingBottom-m">
-                            <span class="middle large material-icons paddingRight-m">lock</span>
-                            <span class="relative wide">
-                                <input id="password" type="password" class="wide round-m framed middle medium">
-                                <a class="eye material-icons" onclick="togglePassword('#password', this);">visibility</a>
-                            </span>
-                        </div>
+</div>
+    </header>
+    
+<section class="main container" id="main">
+    <img src="img/fotnite.jpg" alt="">
+    <!-- <div class="main-text"> -->
+        <a href="#" class="btn">Play Now</a>
+    <!-- </div> -->
+</section>
+<section class="trending container" id="trending">
+    <div class="heading">
+        <i class="fa-solid fa-star"></i>
+        <h2>Trending Now</h2>
+    </div>
+    <div class="trending-content swiper">
+       
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="box">
+                    <img src="img/watchdogs.jpg" alt="">
+                    <div class="box-text">
+                        <h2>Watch Dogs Legion</h2>
+                        <h3>Action</h3>
+                        <a href="#" class="box-btn"><i class="fa-solid fa-download"></i></a>
                     </div>
-                </center>
-
-                <a href="https://biblio.toutapprendre.com/newbiblio/password.php" class="blue small textRight">J'ai oublié mon mot de passe</a>
-                -
-                <input id="saveMe" type="checkbox" value="" />&nbsp;&nbsp;<label for="saveMe" class="small">Se souvenir de moi</label>
-                <br>
-                <span class="small">Vous n’arrivez pas à vous connecter ? <a class="blue" onclick="zE.activate();">Contactez-nous</a></span>
-                <br>
-
-                <button onclick="login()" 
-                    class="bgBlue white marginTop-m 
-                    paddingLeft-l paddingRight-l paddingTop-m paddingBottom-m 
-                    round-m pointer normal hoverZoom">
-                    Se connecter
-                </button>
-                
-            </div> 
-        </div>
-
-        <!-- Footer -->
-        <div class="footer">
-            ﻿    <!-- Footer ! -->
-    <div class="padding-l">
-        <center>
-            <div class="font-14pt bold paddingBottom-m"><b>©2022 toutapprendre</b></div>
-            <div class="font-12pt"> 
-                <a target="parent" href="https://www.toutapprendre.com/privacy" class="padding-m">Mentions légales</a> | 
-                <a target="parent" href="https://play.google.com/store/apps/details?id=com.toutapprendre&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1" class="padding-m">App Android</a> | 
-                <a target="parent" href="https://itunes.apple.com/fr/app/toutapprendre/id1439773174?l=fr&ls=1&mt=8" class="padding-m">App iOS</a> | 
-                <a target="parent" href="https://toutapprendre.zendesk.com/hc/fr" class="padding-m">Foire aux questions</a> | 
-                <a data-faciliti-popin aria-label="FACIL'iti : Adaptez l’affichage" class="padding-m">Accessibilité</a> | 
-                <a class="padding-m" href="javascript:parent.openAxeptioCookies()">Cookies</a>
+                </div>
             </div>
-            <br>
-        </center>
-    </div>        </div>
-    </body>
 
-    <script>
-        (function () {
-            var fs = document.createElement("script");
-            fs.setAttribute("src", "https://cdn.facil-iti.app/tags/faciliti-tag.min.js");
-            fs.dataset.applicationIdentifier = "6d12fbbe-c7db-49c7-bc64-fea051ed47ba";
-            document.head.appendChild(fs);
-        }());
-    </script>
+            <div class="swiper-slide">
+                <div class="box">
+                    <img src="img/trending3.jpg" alt="">
+                    <div class="box-text">
+                        <h2>Assassin's Creed Valhalla</h2>
+                        <h3>Action</h3>
+                        <a href="#" class="box-btn"><i class="fa-solid fa-download"></i></a>
+                    </div>
+                </div>
+            </div>
 
-    <!-- Axeptio - Bloc homologué de consentement des cookies -->
-    <script>
-        // Pramètres pour Axeptio
-        window.axeptioSettings = {
-            clientId: "6315a69dbcd6d2e0eaa3b579",
-        };
-        // Appel du script de façon asynchrone
-        (function(d, s) {
-            var t = d.getElementsByTagName(s)[0], e = d.createElement(s);
-            e.async = true; e.src = "//static.axept.io/sdk.js";
-            t.parentNode.insertBefore(e, t);
-        })(document, "script");
-    </script>
-</html>
+            <div class="swiper-slide">
+                <div class="box">
+                    <img src="img/trending1.webp" alt="">
+                    <div class="box-text">
+                        <h2>Cyberpunk 2077</h2>
+                        <h3>Action</h3>
+                        <a href="#" class="box-btn"><i class="fa-solid fa-download"></i></a>
+                    </div>
+                </div>
+            </div>
 
+            <div class="swiper-slide">
+                <div class="box">
+                    <img src="img/trending5.png" alt="">
+                    <div class="box-text">
+                        <h2>GTA V</h2>
+                        <h3>Action</h3>
+                        <a href="#" class="box-btn"><i class="fa-solid fa-download"></i></a>
+                    </div>
+                </div>
+            </div>
 
-<!--------------------------------------------------------------------------->
-<!-- Popup générique qui assombrit l'arrière plan                          -->
-<script>
-    // Vous pourrez ensuite accéder normalement à votre compte individuel.
-    function showPopup(content) {
-        var $container = $("#popupContainer");
-        $container.find("#popupContent").html(content);
-        $container.removeClass("closed");
-    }
-    // Ferme la popup et crée un cookie pour ne plus afficher la fenêtre
-    function closePopup() { $("#popupContainer").addClass("closed"); }
-</script>
-<style>
-    #popupContainer {
-        background: #00000077;
-        z-index: 999;
-        height: 100%;
-        overflow: hidden;
-        opacity: 1;
-        transition: opacity 0.5s 0s, height 0s 2s;
-    }
-    #popupContainer.closed {
-        height: 0;
-        opacity: 0;
-        transition: opacity 0.5s 0s, height 0s 2s;
-    }
-    #popupFrame {
-        width: 100%;
-        max-width: 900px;
-    }
-    #popupFrame #closePopup {
-        left: -5px;
-        top: -5px;
-    }
-</style>
-<div id="popupContainer" class="absolute top left wide alignBox closed" onclick="closePopup();">
-    <!-- Fenêtre de la popup -->
-    <div id="popupFrame" class="round-l shadow-l bgWhite padding-m relative center middle" onclick="event.stopPropagation(); return true;">
-        <!-- Case de fermeture --> 
-        <i onclick="closePopup();" id="closePopup" class="absolute material-icons h3 padding-m pointer">close</i>
-        <!-- Message -->
-        <div id="popupContent"></div>
+            <div class="swiper-slide">
+                <div class="box">
+                    <img src="img/trending7.png" alt="">
+                    <div class="box-text">
+                        <h2>Halo Infinite</h2>
+                        <h3>Action</h3>
+                        <a href="#" class="box-btn"><i class="fa-solid fa-download"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="swiper-slide">
+                <div class="box">
+                    <img src="img/trending6.jpg" alt="">
+                    <div class="box-text">
+                        <h2>Dying Light 2</h2>
+                        <h3>Action</h3>
+                        <a href="#" class="box-btn"><i class="fa-solid fa-download"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="swiper-slide">
+                <div class="box">
+                    <img src="img/trending2.jpg" alt="">
+                    <div class="box-text">
+                        <h2>Battlefield 2042</h2>
+                        <h3>Action</h3>
+                        <a href="#" class="box-btn"><i class="fa-solid fa-download"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="swiper-slide">
+                <div class="box">
+                    <img src="img/trending8.png" alt="">
+                    <div class="box-text">
+                        <h2>Resident Evil Village</h2>
+                        <h3>Action</h3>
+                      <a href="./iframe.html" onclick="localStorage.setItem('iframeurl', 'embed.html#https://bloxd.io'); localStorage.setItem('staturl', './iframe.html')" class="box-btn"><i class="fa-solid fa-download"></i></a>
+                    </div>
+                </div>
+            </div>
+
+          </div>
+    </div>
+</section>
+
+<section class="new container" id="new">
+    <div class="heading">
+        <i class="fa-solid fa-star"></i>
+        <h2>New Games</h2>
+    </div>
+<div class="new-content">
+
+    <div class="box">
+        <img src="6184C12B-D4AE-445A-845B-E156BA5458AA.png" alt="">
+        <div class="box-text">
+            <h2>2020</h2>
+            <h3>Action</h3>
+            <a href="./iframe.html" onclick="localStorage.setItem('iframeurl', 'embed.html#https://bloxd.io'); localStorage.setItem('staturl', './iframe.html')" class="box-btn"><i class="fa-solid fa-download"></i></a>
+        </div>
+    </div>
+
+    <div class="box">
+        <img src="img/69633359-D185-414C-8B86-286F717F4189.jpeg" alt="">
+        <div class="box-text">
+            <h2>2048</h2>
+            <h3>Action</h3>
+            <a href="./iframe.html" onclick="localStorage.setItem('iframeurl', 'embed.html#https://mathgames66.github.io/fa766670-f59d-4b2f-af24-0017ea34eb70/content/geekygames.github.io/2048/index.html'); localStorage.setItem('staturl', './iframe.html')" class="box-btn"><i class="fa-solid fa-download"></i></a>
+        </div>
+    </div>
+
+    <div class="box">
+        <img src="https://is5-ssl.mzstatic.com/image/thumb/Purple123/v4/18/5b/dc/185bdc08-28c2-9a10-712c-f2dc29a7eeb0/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/512x512bb.jpg" alt="">
+        <div class="box-text">
+            <h2>8BALL</h2>
+            <h3>Action</h3>
+            <a href="./iframe.html" onclick="localStorage.setItem('iframeurl', 'embed.html#https://mathgames66.github.io/8ballbilliardsclassic/index.html'); localStorage.setItem('staturl', './iframe.html')" class="box-btn"><i class="fa-solid fa-download"></i></a>
+        </div>
+    </div>
+
+    <div class="box">
+        <img src="https://img.poki.com/cdn-cgi/image/quality=78,width=600,height=600,fit=cover,f=auto/7646b2845cf9112ef42a3cd769eeac6e.png" alt="">
+        <div class="box-text">
+            <h2>A Small World Cup</h2></h2>
+            <h3>Action</h3>
+            <a href="./iframe.html" onclick="localStorage.setItem('iframeurl', 'embed.html#https://mathgames66.github.io/fc4e8813-3c89-4a21-bd68-18eb126e4e38/content/v6p9d9t4.ssl.hwcdn.net/html/1643267/index.html'); localStorage.setItem('staturl', './iframe.html')" class="box-btn"><i class="fa-solid fa-download"></i></a>
+        </div>
+    </div>
+
+    <div class="box">
+        <img src="https://m.media-amazon.com/images/M/MV5BMWU0Y2JhOGEtNzU4ZS00MTljLThhOWItYzA4ZTg0ZDU3MGQ0XkEyXkFqcGdeQXVyNTgyNTA4MjM@._V1_FMjpg_UX1000_.jpg" alt="">
+        <div class="box-text">
+            <h2>Among Us</h2>
+            <h3>Action</h3>
+            <a href="./iframe.html" onclick="localStorage.setItem('iframeurl', 'embed.html#https://mathgames66.github.io/493aca18-ee76-4134-9267-a72e6f4350f6/content/w8.snokido.com/games/html5/among-us/index.html'); localStorage.setItem('staturl', './iframe.html')" class="box-btn"><i class="fa-solid fa-download"></i></a>
+        </div>
+    </div>
+
+    <div class="box">
+        <img src="https://ik.imagekit.io/sjyfpsp1n/marketing/screens/landscape/Archery_World_Tour_Portrait1.jpeg?" alt="">
+        <div class="box-text">
+            <h2>Archery World Tour</h2>
+            <h3>Action</h3>
+            <a href="embed.html#https://mathgames66.github.io/e4c94df6-823f-48ee-bb7a-d63c748de1ae/content/sda.4399.com/4399swf/upload_swf/ftp24/gamehwq/20180316/15b/index.html" class="box-btn"><i class="fa-solid fa-download"></i></a>
+        </div>
+    </div>
+
+    <div class="box">
+        <img src="https://files.armorgames.com/blog/2012/01/Screen-Shot-2012-01-17-at-2.17.18-PM.png" alt="">
+        <div class="box-text">
+            <h2>Awesome Tanks</h2>
+            <h3>Action</h3>
+            <a href="embed.html#https://mathgames66.github.io/newgames/awesometanks/index.html" class="box-btn"><i class="fa-solid fa-download"></i></a>
+        </div>
+    </div>
+
+    <div class="box">
+        <img src="img/new8.jpg" alt="">
+        <div class="box-text"> 
+            <h2>Marvel Of Champions</h2>
+            <h3>Action</h3>
+            <a href="./iframe.html" onclick="localStorage.setItem('iframeurl', 'embed.html#https://bloxd.io'); localStorage.setItem('staturl', './iframe.html')" class="box-btn"><i class="fa-solid fa-download"></i></a>
+        </div>
+    </div>
+<div class="box">
+    <img src="https://assets-prd.ignimgs.com/2023/03/01/subwaysurfers-1677630205274.jpg" alt="">
+    <div class="box-text">
+        <h2>Subway Surfers</h2>
+        <h3>Action</h3>
+        <a href="./iframe.html" onclick="localStorage.setItem('iframeurl', 'embed.html#https://bloxd.io'); localStorage.setItem('staturl', './iframe.html')" class="box-btn"><i class="fa-solid fa-download"></i></a>
     </div>
 </div>
-<!--------------------------------------------------------------------------->
+
+  <div class="next-page">
+    <a href="#">Next Page</a>
+</div>
+
+
+
+
+
+
+
+</section>
+
+<div class="copyright container">
+    <a href="#" class="logo">Fu<span>sio</span>n</a>
+    <p>&#169; Team Fusion All Rights Reserved</p>
+</div>
+
+
+<script src="unpkg.com_swiper@7.3.1_swiper-bundle.min.js"></script>
+    <script src="/HOME/GAME PAGE/games.js"></script>      
+</body>
+</html>
