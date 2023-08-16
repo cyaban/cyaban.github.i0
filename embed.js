@@ -17,4 +17,4 @@ registerSW()
   })
   .catch((err) => {
     alert(`Encountered error:\n${err}`);
-  });
+  })
