@@ -30,3 +30,16 @@ var swiper = new Swiper(".trending-content", {
       },
     },
   });
+const favoriteButtons = document.querySelectorAll('.favorite-button');
+  favoriteButtons.forEach(button => {
+    button.addEventListener('click', addToFavorites);
+  });
+
+  function addToFavorites(event) {
+    const gameId = event.target.dataset.gameId;
+
+    const xhr = new XMLHttpRequest();
+    xhr.open('POST', '/api/favorites', true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.send(JSON.stringify({ gameId }));
+  }
