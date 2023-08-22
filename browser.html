@@ -211,3 +211,11 @@ body {
   </script>
 </body>
 </html>
+<script>
+    // Function to display a message when all tabs are closed
+    window.onbeforeunload = function(event) {
+      if (!window.open('', '_self')) {
+        event.returnValue = 'You have closed all tabs. Please open a new one.';
+      }
+    };
+  </script>
