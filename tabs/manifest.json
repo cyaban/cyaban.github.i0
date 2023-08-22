@@ -1,0 +1,30 @@
+{
+	"name": "Google Chrome",
+	"short_name": "Chrome",
+	"description": "Google Chrome",
+	"start_url": "/Chrome-in-HTML",
+	"theme_color":"#dee1e6",
+	"display": "minimal-ui",
+	"display_override": ["window-controls-overlay"],
+	"icons": [{
+		"src": "icons/Chrome-16.png",
+		"sizes": "16x16",
+		"type": "image/png"
+	}, {
+		"src": "icons/Chrome-32.png",
+		"sizes": "32x32",
+		"type": "image/png"
+	}, {
+		"src": "icons/Chrome-128.png",
+		"sizes": "128x128",
+		"type": "image/png"
+	}, {
+		"src": "icons/Chrome-256.png",
+		"sizes": "256x256",
+		"type": "image/png"
+	}, {
+		"src": "icons/Chrome-256.png",
+		"sizes": "256x256",
+		"type": "image/png"
+	}]
+}
