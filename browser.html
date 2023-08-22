@@ -208,7 +208,26 @@ body {
       updateCurrentDate();
       createNewTab();
     });
-    
+  </script>
+</body>
+</html>
+<script>
+    // Function to display a message when all tabs are closed
+    window.onbeforeunload = function(event) {
+      if (!window.open('', '_self')) {
+        event.returnValue = 'You have closed all tabs. Please open a new one.';
+      }
+    };
+  </script>
+<script>
+    // Function to redirect to custom content when all tabs are closed
+    window.onbeforeunload = function(event) {
+      if (!window.open('', '_self')) {
+        // All tabs are closed, redirect to closed.html
+        window.location.href = 'closed.html';
+      }
+    };
+  
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       const tabControls = document.querySelector('.tab-controls');
