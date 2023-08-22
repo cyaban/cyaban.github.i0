@@ -1,9 +1,6 @@
 // Get all the favorite buttons
 const favoriteButtons = document.querySelectorAll('.favorite-button');
 
-// Initialize an empty array to store favorite game IDs
-let favoriteGames = [];
-
 // Function to handle the favorite button click
 function handleFavoriteClick(event) {
     const gameID = event.target.getAttribute('data-game-id');
@@ -21,6 +18,9 @@ function handleFavoriteClick(event) {
 
     // You can store the favoriteGames array in localStorage for persistence
     localStorage.setItem('favoriteGames', JSON.stringify(favoriteGames));
+
+    // Redirect to the favorites page
+    window.location.href = 'favorites.html';
 }
 
 // Attach the click event listener to all favorite buttons
