@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Browser Tabs Example</title>
+  <script src="assets/js/winbox.bundle.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/notifications.js"></script>
+  <link href="assets/css/notifications.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="https://unpkg.com/eruda/eruda.min.css" />
+</head>
+
+<body>
+  <div id="notification-container"></div>
+  <div id="topbar">
+    <span id="settingsbtn" class="animate__animated animate__fadeInDown animate__delay-1s">
+      <i class="fa-solid fa-gear"></i>
+    </span>
+  </div>
+  <div class="browser">
+    <div class="sidebar">
+      <div class="navigation">
+        <button class="arrow backward"><i class="fas fa-chevron-left"></i></button>
+        <button class="arrow forward"><i class="fas fa-key"></i></button>
+            <button class="refresh" onclick="refreshIframe()">
+      <i class="fas fa-sync-alt"></i>
+    </button>
+            <script>
+      function refreshIframe() {
+        var iframe = document.getElementById('tabsframe');
+        iframe.contentDocument.location.reload(true);
+      }
+    </script>
+      </div>
+      <input type="text" class="url-bar" placeholder="Stingray">
+      <div class="actions">
+        <button class="action-button settings" id="settingsButton"><i class="fas fa-cog"></i></button>
+        <button class="action-button new-tab" id="openButton" onClick="const win = window.open('', 'owo', 'owo');win.document.body.innerHTML = `<iframe src='${window.location.href}'></iframe><style>___subtmpl0</style>`;window.location.replace('https://google.com')"><i class="fas fa-external-link-alt"></i></button>
+        <button class="action-button copy-url">
+  <a href="dev/index.html" target="_blank">
+    <i class="fas fa-terminal"></i>
+  </a>
+</button>
+      </div>
+      <div class="tabs" id="sortable">
+      </div>
+      <button class="add-tab-button" onclick="addNewTab()"><i class="fas fa-plus"></i> New tab</button>
+    </div>
+    <div class="tab-content">
+      <div id="home" class="tab-panel active">
+<h1 style="color: white; font-family: sans-serif; text-align: center; background-color: #333; padding: 10px 20px;">Create a new tab to start</h1>
+        <script src="uv/uv.bundle.js" defer></script>
+        <script src="uv/uv.config.js" defer></script>
+        <script src="index.js" defer></script>
+        <script src="https://cdn.jsdelivr.net/npm/eruda"></script>
+        <script>
+          eruda.init();
+        </script>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/tabs.js"></script>
+  <script src="assets/js/main.js"></script>
+
+  <script>
+    let settingsWin = null;
+    document.getElementById('settingsButton').addEventListener('click', function() {
+      if (settingsWin) {
+        settingsWin.close();
+        settingsWin = null;
+      } else {
+        settingsWin = new WinBox({
+          title: "Settings",
+          class: ["no-full", "no-max", "no-min"],
+          background: "#1C1D20",
+          width: 1500,
+          height: 500,
+          html: "<iframe src='settings.html'></iframe>",
+          x: "center",
+          y: "center",
+          onclose: function() {
+            settingsWin = null;
+          }
+        });
+      }
+    });
+  </script>
+<script>
+  // Call the function to apply settings when the page loads
+  window.onload = function () {
+    applySettings();
+  };
+
+  // Function to retrieve settings from Local Storage and apply them
+  function applySettings() {
+    var settingsData = localStorage.getItem('settings');
+    if (settingsData) {
+      settingsData = JSON.parse(settingsData);
+
+      // Apply the settings to your page elements
+      var panicKeyInput = document.getElementById('panicKeyInput');
+      panicKeyInput.value = settingsData.panicKey;
+
+      var titleInput = document.getElementById('title');
+      titleInput.value = settingsData.pageTitle;
+
+      // Apply other settings variables here if needed
+    }
+  }
+</script>
+</body>
+
+</html>
