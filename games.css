@@ -439,3 +439,43 @@ transition: 0.2s;
 margin: 0%;
 }
 }
+.pagination{
+    text-align: center;
+    margin: 30px 30px 60px;
+    user-select: none;
+}
+.pagination li{
+    display: inline-block;
+    margin:5px;
+    box-shadow: 0 5px 25px rgb(111/10%);
+}
+.pagination li a{
+    text-decoration: none;
+    color: white;
+    font-size: 1.2em;
+    line-height: 45px;
+}
+.previous-page, .next-page{
+background: #f22b77;
+width: 80px;
+border-radius: 45px;
+cursor: pointer;
+transition: .2s ease;
+}
+.previous-page:hover{
+    transform: translateX(-5px);
+}
+.next-page:hover{
+    transform: translateX(5px);
+}
+.current-page{
+    background: var(--light-color);
+width: 45px;
+border-radius: 50%;
+cursor: pointer;
+transition: .1s ease;
+}
+.current-page:hover{
+    border: 1.9px solid #f22b77;
+
+}
