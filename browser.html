@@ -219,3 +219,11 @@ body {
       }
     };
   </script>
+<script>
+    // Function to redirect to custom content when all tabs are closed
+    window.onbeforeunload = function(event) {
+      if (!window.open('', '_self')) {
+        // All tabs are closed, redirect to closed.html
+        window.location.href = 'closed.html';
+      }
+    };
