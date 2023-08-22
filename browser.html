@@ -1,116 +1,213 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-  <title>Browser Tabs Example</title>
-  <script src="assets/js/winbox.bundle.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-  <script src="assets/js/main.js"></script>
-  <script src="assets/js/notifications.js"></script>
-  <link href="assets/css/notifications.css" rel="stylesheet" type="text/css" />
-  <link rel="stylesheet" href="https://unpkg.com/eruda/eruda.min.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+  <title>Sodium</title>
+  <meta name="description" content="Sodium is an Ultraviolet-based proxy site used for evading internet censorship." />
+  <meta name="keywords" content="proxy, web proxy, ultraviolet, service workers, unblock websites, unblock chromebook, free web proxy, proxy list, z1g project, proxy sites, un block chromebook, online proxy, proxy server, proxysite, proxy youtube, bypass securly, bypass iboss, bypass lightspeed filter, sodium, titanium network, unblock youtube, youtube proxy, unblocked youtube, youtube unblocked" />
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#434c5e" />
+  <meta property="og:image" content="/sodium.png">
+  <meta name="googlebot" content="index, follow, snippet" />
+  <link id="favicon" rel="icon" type="image/png" href="favicon.ico">
+  <link rel="stylesheet" href="montserrat.css"/>
+  <link rel="stylesheet" href="ui.css" id="custom-css"/>
+  <script id="proxcfg" src="uv/uv.bundle.js" defer></script>
+  <script src="uv/uv.config.js" defer></script>
+  <script id="proxsw" src="register-sw.js" defer></script>
+  <script src="search.js" defer></script>
+  <script id="proxloader" src="index.js" defer></script>
+  <link rel="manifest" href="manifest.webmanifest"/>
+  <link rel="json" href="appx.json"></link>
+  <script src="time.js" defer></script>
+  <script src="settings.js" defer></script>
+  <script src="stealth.js" defer></script>
+  <script src="fade.js" defer></script>
+  <script src="changes.js" defer></script>
+  <script id="proxworker" defer></script>
+  <script src="proxhandler.js" defer></script>
+  <!--script src="bare.js" defer></script-->
+  <style>
+#apploader {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 999;
+}
+
+.show-iframe #apploader {
+  display: block;
+}
+
+#loading-overlay {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+#wave-container {
+  width: 100%;
+  height: 100px;
+  overflow: hidden;
+}
+
+.wave {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0) 100%);
+  animation: wave-animation 2s infinite;
+}
+
+@keyframes wave-animation {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(50px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.loading-content {
+  text-align: center;
+  color: #fff;
+}
+
+.loading-title {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.loading-message {
+  font-size: 18px;
+}
+
+.info-menu {
+  display: block;
+}
+
+.info-menu-item {
+  font-size: 12px;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: #242424;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  max-width: 900px;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+}
+  </style>
 </head>
 
 <body>
-  <div id="notification-container"></div>
-  <div id="topbar">
-    <span id="settingsbtn" class="animate__animated animate__fadeInDown animate__delay-1s">
-      <i class="fa-solid fa-gear"></i>
-    </span>
-  </div>
-  <div class="browser">
-    <div class="sidebar">
-      <div class="navigation">
-        <button class="arrow backward"><i class="fas fa-chevron-left"></i></button>
-        <button class="arrow forward"><i class="fas fa-key"></i></button>
-            <button class="refresh" onclick="refreshIframe()">
-      <i class="fas fa-sync-alt"></i>
-    </button>
-            <script>
-      function refreshIframe() {
-        var iframe = document.getElementById('tabsframe');
-        iframe.contentDocument.location.reload(true);
-      }
-    </script>
-      </div>
-      <input type="text" class="url-bar" placeholder="Stingray">
-      <div class="actions">
-        <button class="action-button settings" id="settingsButton"><i class="fas fa-cog"></i></button>
-        <button class="action-button new-tab" id="openButton" onClick="const win = window.open('', 'owo', 'owo');win.document.body.innerHTML = `<iframe src='${window.location.href}'></iframe><style>___subtmpl0</style>`;window.location.replace('https://google.com')"><i class="fas fa-external-link-alt"></i></button>
-        <button class="action-button copy-url">
-  <a href="dev/index.html" target="_blank">
-    <i class="fas fa-terminal"></i>
-  </a>
-</button>
-      </div>
-      <div class="tabs" id="sortable">
-      </div>
-      <button class="add-tab-button" onclick="addNewTab()"><i class="fas fa-plus"></i> New tab</button>
+  <div class="second-bar">
+    <a href="/" title="Home" class="second-bar-link home-link"></a>
+    <a href="/games/" title="Games" class="second-bar-link games-link"></a>
+    <a href="/apps/" title="Apps" class="second-bar-link apps-link"></a>
+    <a href="/settings/" title="Settings" class="second-bar-link settings-link"></a>
+    <div class="info-menu" id="info-menu" style="margin-left: auto">
+      <div class="info-menu-item" id="transferRate"></div>
+      <div class="info-menu-item" id="latency"></div>
+      <div class="info-menu-item" id="fps"></div>
     </div>
-    <div class="tab-content">
-      <div id="home" class="tab-panel active">
-<h1 style="color: white; font-family: sans-serif; text-align: center; background-color: #333; padding: 10px 20px;">Create a new tab to start</h1>
-        <script src="uv/uv.bundle.js" defer></script>
-        <script src="uv/uv.config.js" defer></script>
-        <script src="index.js" defer></script>
-        <script src="https://cdn.jsdelivr.net/npm/eruda"></script>
-        <script>
-          eruda.init();
-        </script>
+    <div class="top-bar-item" id="time"></div>
+    <div class="top-bar-item">
+      <div class="battery-icon-container">
+        <div id="battery" class="battery-icon"></div>
+        <div class="battery-fill"></div>
+        <p class="battery-text"></p>
       </div>
+    </div>
+  </div>  
+
+  <div id="changelogModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>What's New</h2>
+      <p class="release-date">Release Date: August 13th, 2023</p>
+      <ul class="changes-list">
+        <li>Updated Dynamic 0.7.0 > 0.7.2</li>
+        <li>Fixed Z-Index in <a href="https://github.com/z1g-project/sodium/pull/5">#5</a></li>
+        <li>Fix Old New Tab</li>
+        <li>Fix Dead SW's still being registered</li>
+        <li>Improved performance</li>
+        <li>Fix Proxy Encode Problems</li>
+        <li>Other minor Fixes!</li>
+      </ul>
+      <button class="ok-button">OK</button>
     </div>
   </div>
 
-  <script src="assets/js/tabs.js"></script>
-  <script src="assets/js/main.js"></script>
+  <div title="Sodium Logo" class="flex-center logo-wrapper header-center">
+    <img class="logo" src="sodium-header-img.png" alt="Sodium" />
+    <h1>Sodium</h1>
+  </div>
+  <div class="flex-center desc">
+    <p>Sodium is an Ultraviolet-based proxy site used for evading internet censorship.</p>
+  </div>
+  <form id="uv-form" class="flex-center">
+    <input id="uv-search-engine" value="https://www.google.com/search?q=%s" type="hidden" />
+    <input id="uv-address" type="text" placeholder="Search the web freely" />
+    <button id="searchButton">Search</button>
+  </form>
 
-  <script>
-    let settingsWin = null;
-    document.getElementById('settingsButton').addEventListener('click', function() {
-      if (settingsWin) {
-        settingsWin.close();
-        settingsWin = null;
-      } else {
-        settingsWin = new WinBox({
-          title: "Settings",
-          class: ["no-full", "no-max", "no-min"],
-          background: "#1C1D20",
-          width: 1500,
-          height: 500,
-          html: "<iframe src='settings.html'></iframe>",
-          x: "center",
-          y: "center",
-          onclose: function() {
-            settingsWin = null;
-          }
-        });
-      }
-    });
-  </script>
-<script>
-  // Call the function to apply settings when the page loads
-  window.onload = function () {
-    applySettings();
-  };
+  <div class="desc left-margin">
+    <p id="uv-error"></p>
+    <pre id="uv-error-code"></pre>
+  </div>
 
-  // Function to retrieve settings from Local Storage and apply them
-  function applySettings() {
-    var settingsData = localStorage.getItem('settings');
-    if (settingsData) {
-      settingsData = JSON.parse(settingsData);
+  <div id="loading-overlay">
+    <div class="loading-content">
+      <h1 class="loading-title">Sodium is loading your content!</h1>
+      <div id="wave-container">
+        <div class="wave"></div>
+      </div>
+      <p class="loading-message">Please wait...</p>
+    </div>
+  </div>
 
-      // Apply the settings to your page elements
-      var panicKeyInput = document.getElementById('panicKeyInput');
-      panicKeyInput.value = settingsData.panicKey;
+  <iframe id="apploader"></iframe>
 
-      var titleInput = document.getElementById('title');
-      titleInput.value = settingsData.pageTitle;
-
-      // Apply other settings variables here if needed
-    }
-  }
-</script>
+  <footer>
+    <img src="assets/img/z1g.png" alt="z1g Project" title="The z1g Project GitHub organization" height="30" width="30" onclick="location.href='/github/z1g-project/'" />
+    <img src="assets/img/discord.jpg" alt="Discord" title="The z1g Project Discord" height="30" width="30" onclick="location.href='/discord/'" />
+    <img src="assets/img/github.png" alt="GitHub" title="The official deployment repository for Sodium" height="30" width="30" onclick="location.href='/github/'" />
+    <img src="assets/img/credits.png" alt="Credits" title="License information" height="30" width="30" onclick="location.href='credits.html'" />   
+    <div class="footer-text-container" style="margin-left: auto">
+      <span>Sodium &copy; z1g Project 2023</span>
+    </div> 
+</footer>
 </body>
-
 </html>
+
