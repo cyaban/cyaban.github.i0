@@ -479,3 +479,26 @@ transition: .1s ease;
     border: 1.9px solid #f22b77;
 
 }
+.view-more{
+    margin-top: 0.3rem;
+}
+.view-more a{
+    text-decoration: none;
+    font-size: 19px;
+    color: white;
+font-weight: 500;
+}
+.view-more a:hover{
+    color: #f22b77;
+cursor: pointer;
+}      .view-more i{
+    color: white;
+    padding: 0;
+    background: transparent;
+    font-size:19px ;
+}
+.view-more i:hover{
+    color: #f22b77;
+cursor: pointer;
+}
+
