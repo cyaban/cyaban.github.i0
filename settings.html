@@ -25,32 +25,7 @@
       </div>
     </div>
 
-    <div class="card">
-      <div class="card-container">
-        <div class="title">
-          <h4>CSS Input</h4>
-        </div>
-        <div class="textarea-container">
-    <div class="line-numbers" id="cssLineNumbers"></div>
-    <textarea id="cssInput" class="code-editor" rows="5"></textarea>
-  </div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-container">
-        <div class="title">
-          <h4>JS Input</h4>
-        </div>
-        <div class="textarea-container">
-          <div class="line-numbers">
-            <span class="line-number"></span>
-            <br>
-          </div>
-          <textarea id="jsInput" class="code-editor" rows="5"></textarea>
-        </div>
-      </div>
-    </div>
+    
 
     <div class="card">
       <div class="card-container">
@@ -64,14 +39,40 @@
 
 
     <div class="card">
-      <div class="card-container">
-        <div class="title">
-          <h4>Set Page Title</h4>
-        </div>
-        <input type="text" id="title" class="input" placeholder="Set Page Title..." onkeyup="setTitle(this.value)">
-        <button onclick="resetTab()"><i class="fas fa-undo-alt"></i> Reset</button>
+    <div class="card-container">
+      <div class="title">
+        <h4>Set Page Title</h4>
       </div>
+      <input type="text" id="title" class="input" placeholder="Set Page Title..." onkeyup="setTitle(this.value)">
+      <button onclick="resetTab()"><i class="fas fa-undo-alt"></i> Reset</button>
     </div>
+  </div>
+
+  <script>
+    // Function to set the page title and store it in local storage
+    function setTitle(title) {
+      document.title = title;
+      localStorage.setItem('pageTitle', title);
+    }
+
+    // Function to reset the page title and clear it from local storage
+    function resetTab() {
+      document.title = ''; // Set an empty title
+      localStorage.removeItem('pageTitle'); // Remove the stored title
+      document.getElementById('title').value = ''; // Clear the input field
+    }
+
+    // Initialize the page title from local storage if available
+    document.addEventListener('DOMContentLoaded', function () {
+      var storedTitle = localStorage.getItem('pageTitle');
+      if (storedTitle) {
+        setTitle(storedTitle);
+        document.getElementById('title').value = storedTitle;
+      }
+    });
+  </script>
+</body>
+</html>
 
     <div class="card">
       <div class="card-container">
@@ -102,22 +103,42 @@
     <script>
 
 
+document.addEventListener('DOMContentLoaded', function () {
 
-      document.addEventListener('keydown', function (event) {
-        var panicKeyInput = document.getElementById('panicKeyInput');
-        var panicKey = panicKeyInput.value.trim().toLowerCase();
+  var storedPanicKey = localStorage.getItem('panicKey');
+  var storedWebsiteURL = localStorage.getItem('websiteURL');
 
-        if (event.key === panicKey) {
-          var websiteInput = document.getElementById('websiteInput');
-          var websiteURL = websiteInput.value.trim();
+  var panicKeyInput = document.getElementById('panicKeyInput');
+  var websiteInput = document.getElementById('websiteInput');
 
-          // Check if a valid URL is entered
-          if (websiteURL !== '') {
-            // Redirect to the entered URL
-            window.location.href = websiteURL;
-          }
-        }
-      });
+  // Set the input fields to the stored values if available
+  if (storedPanicKey) {
+    panicKeyInput.value = storedPanicKey;
+  }
+  if (storedWebsiteURL) {
+    websiteInput.value = storedWebsiteURL;
+  }
+
+  
+  document.addEventListener('keydown', function (event) {
+    var panicKey = panicKeyInput.value.trim().toLowerCase();
+
+    if (event.key === panicKey) {
+      var websiteURL = websiteInput.value.trim();
+
+     
+      if (websiteURL !== '') {
+        // Redirect to the entered URL
+        window.location.href = websiteURL;
+
+        
+        localStorage.setItem('panicKey', panicKey);
+        localStorage.setItem('websiteURL', websiteURL);
+      }
+    }
+  });
+});
+
 
     </script>
 </body>
