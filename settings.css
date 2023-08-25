@@ -104,7 +104,7 @@ input[type="text"]::placeholder {
 textarea,
 input[type="text"]:focus {
 
-  border-color: #55a630;
+  border-color: #f22b77;
   outline: none;
 }
 
