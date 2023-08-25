@@ -55,7 +55,7 @@ body {
 }
 
 .title {
-  box-shadow: 0 0.6px 0 0 #55a630;
+  box-shadow: 0 0.6px 0 0 #f22b77;
   font-weight: bolder;
   font-size: 1.2rem;
 }
@@ -64,7 +64,7 @@ button {
   width: 100%;
   background-color: #000000;
   backdrop-filter: blur(5px);
-  border: 1px solid #55A630;
+  border: 1px solid #f22b77;
   color: #fff;
   padding: 10px 20px;
   border-radius: 4px;
