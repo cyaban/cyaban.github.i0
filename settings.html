@@ -21,24 +21,41 @@
       <p>Clicking this button will open your tab in an about:blank tab. It will stop extensions from seeing your screen.</p>
       <button id="tabcloak">About:Blank Button</button>
     </div>
-  </div>
+</div>
+<script>
+    var urlObj = new window.URL(window.location.href);
+    var url = window.location;
 
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      var tabcloakButton = document.getElementById('tabcloak');
+    if (url) {
+        var win;
 
-      tabcloakButton.addEventListener('click', function () {
-        // Open a new tab with about:blank
-        var newTab = window.open('about:blank', '_blank');
+        document.querySelector('button').onclick = function() {
+            if (win) {
+                win.focus();
+            } else {
+                win = window.open();
+                win.document.body.style.margin = '0';
+                win.document.body.style.height = '100vh';
+                var iframe = win.document.createElement('iframe');
+                iframe.style.border = 'none';
+                iframe.style.width = '100%';
+                iframe.style.height = '100%';
+                iframe.style.margin = '0';
+                iframe.src = url;
+                win.document.body.appendChild(iframe);
+                window.location.replace("https://ixl.com");
 
-        setTimeout(function () {
-          newTab.location.href = 'https://classroom.google.com';
-        }, 1000); // 1000 milliseconds (1 second) delay
-      });
-    });
-  </script>
-</body>
-</html>
+                var interval = setInterval(function() {
+                    if (win.closed) {
+                        clearInterval(interval);
+                        win = undefined;
+                    }
+                }, 500);
+            }
+        };
+    }
+</script>
+
 
 
     
