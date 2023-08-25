@@ -62,7 +62,7 @@ body {
 
 button {
   width: 100%;
-  background-color: #00000090;
+  background-color: #000000;
   backdrop-filter: blur(5px);
   border: 1px solid #55A630;
   color: #fff;
