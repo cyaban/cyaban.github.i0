@@ -12,14 +12,23 @@
 <body>
   <canvas id="canvas"></canvas>
 
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About:Blank Cloaker</title>
+</head>
+<body>
   <div class="container">
-<div class="card">
-    <div class="card-container">
-      <div class="title">
-        <h4>About:Blank Cloaker</h4>
+    <div class="card">
+      <div class="card-container">
+        <div class="title">
+          <h4>About:Blank Cloaker</h4>
+        </div>
+        <p>Clicking this button will open a new window with Ixl.com after briefly displaying an about:blank page.</p>
+        <button id="tabcloak">About:Blank Button</button>
       </div>
-      <p>Clicking this button will open your tab in an about:blank tab. It will stop extensions from seeing your screen.</p>
-      <button id="tabcloak">About:Blank Button</button>
     </div>
   </div>
 
@@ -28,17 +37,19 @@
       var tabcloakButton = document.getElementById('tabcloak');
 
       tabcloakButton.addEventListener('click', function () {
-        // Open a new tab with about:blank
-        var newTab = window.open('about:blank', '_blank');
+        // Open a new window with about:blank
+        var newWindow = window.open('about:blank', '_blank');
 
+        // After a brief delay, change the location to Ixl.com
         setTimeout(function () {
-          newTab.location.href = 'https://ixl.com';
+          newWindow.location.href = 'https://ixl.com';
         }, 1000); // 1000 milliseconds (1 second) delay
       });
     });
   </script>
 </body>
 </html>
+
 
 
     
