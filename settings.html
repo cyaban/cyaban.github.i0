@@ -13,17 +13,33 @@
   <canvas id="canvas"></canvas>
 
   <div class="container">
-
-    <div class="card">
-      <div class="card-container">
-        <div class="title">
-          <h4>About:Blank Cloaker</h4>
-        </div>
-        <p>Clicking this button will open your tab in an about:blank tab. It will stop extensions from seeing your
-          screen.</p>
-        <button id="tabcloak">About:Blank Button</button>
+<div class="card">
+    <div class="card-container">
+      <div class="title">
+        <h4>About:Blank Cloaker</h4>
       </div>
+      <p>Clicking this button will open your tab in an about:blank tab. It will stop extensions from seeing your screen.</p>
+      <button id="tabcloak">About:Blank Button</button>
     </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var tabcloakButton = document.getElementById('tabcloak');
+
+      tabcloakButton.addEventListener('click', function () {
+        // Open a new tab with about:blank
+        var newTab = window.open('about:blank', '_blank');
+
+        setTimeout(function () {
+          newTab.location.href = 'https://classroom.google.com';
+        }, 1000); // 1000 milliseconds (1 second) delay
+      });
+    });
+  </script>
+</body>
+</html>
+
 
     
 
