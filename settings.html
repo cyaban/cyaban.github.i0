@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Classes</title>
+  <meta name="description" content="" />
+  <link rel="stylesheet" href="settings.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+</head>
+
+<body>
+  <canvas id="canvas"></canvas>
+
+  <div class="container">
+
+    <div class="card">
+      <div class="card-container">
+        <div class="title">
+          <h4>About:Blank Cloaker</h4>
+        </div>
+        <p>Clicking this button will open your tab in an about:blank tab. It will stop extensions from seeing your
+          screen.</p>
+        <button id="tabcloak">About:Blank Button</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-container">
+        <div class="title">
+          <h4>CSS Input</h4>
+        </div>
+        <div class="textarea-container">
+    <div class="line-numbers" id="cssLineNumbers"></div>
+    <textarea id="cssInput" class="code-editor" rows="5"></textarea>
+  </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-container">
+        <div class="title">
+          <h4>JS Input</h4>
+        </div>
+        <div class="textarea-container">
+          <div class="line-numbers">
+            <span class="line-number"></span>
+            <br>
+          </div>
+          <textarea id="jsInput" class="code-editor" rows="5"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-container">
+        <div class="title">
+          <h4>Panic Button</h4>
+        </div>
+        <input type="text" id="websiteInput" placeholder="Enter website URL">
+        <input type="text" id="panicKeyInput" placeholder="Enter panic key">
+      </div>
+    </div>
+
+
+    <div class="card">
+      <div class="card-container">
+        <div class="title">
+          <h4>Set Page Title</h4>
+        </div>
+        <input type="text" id="title" class="input" placeholder="Set Page Title..." onkeyup="setTitle(this.value)">
+        <button onclick="resetTab()"><i class="fas fa-undo-alt"></i> Reset</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-container">
+        <div class="title">
+          <h4>Favicon Cloaker</h4>
+        </div>
+        <input type="text" id="icon" class="input" placeholder="Set Page Favicon..."
+          onkeyup="setFavicon(this.value.trim())">
+        <button onclick="resetTab()"><i class="fas fa-undo-alt"></i> Reset</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-container">
+        <div class="title">
+          <h4>Custom Backgrounds</h4>
+        </div>
+        <input type="text" id="background-input" placeholder="Enter image URL">
+        <div class="btn-container">
+          <button id="save-button"><i class="fas fa-save"></i> Save</button>
+          <button id="reset-button"><i class="fas fa-undo-alt"></i> Reset</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="output"></div>
+
+    <script>
+
+
+
+      document.addEventListener('keydown', function (event) {
+        var panicKeyInput = document.getElementById('panicKeyInput');
+        var panicKey = panicKeyInput.value.trim().toLowerCase();
+
+        if (event.key === panicKey) {
+          var websiteInput = document.getElementById('websiteInput');
+          var websiteURL = websiteInput.value.trim();
+
+          // Check if a valid URL is entered
+          if (websiteURL !== '') {
+            // Redirect to the entered URL
+            window.location.href = websiteURL;
+          }
+        }
+      });
+
+      function injectCode() {
+        var cssCode = document.getElementById('cssInput').value;
+        var jsCode = document.getElementById('jsInput').value;
+
+        var style = document.createElement('style');
+        style.type = 'text/css';
+        style.appendChild(document.createTextNode(cssCode));
+        document.head.appendChild(style);
+
+        var script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.appendChild(document.createTextNode(jsCode));
+        document.head.appendChild(script);
+
+        var outputDiv = document.getElementById('output');
+        outputDiv.innerHTML = 'Code injected successfully!';
+      }
+
+      function toggleEruda() {
+        if (window.eruda) {
+          window.eruda.init();
+        } else {
+          var script = document.createElement('script');
+          script.src = 'https://cdn.jsdelivr.net/npm/eruda';
+          document.body.appendChild(script);
+          script.onload = function () {
+            window.eruda.init();
+          };
+        }
+      }
+
+      function setTitle(title) {
+        document.title = title;
+      }
+
+      function setFavicon(url) {
+        var link = document.querySelector("link[rel*='icon']") || document.createElement('link');
+        link.type = 'image/x-icon';
+        link.rel = 'shortcut icon';
+        link.href = url;
+        document.getElementsByTagName('head')[0].appendChild(link);
+      }
+
+      function resetTab() {
+        location.reload();
+      }
+
+  
+      function updateLineNumbers(textarea, lineNumberElement) {
+        const lines = textarea.value.split('\n');
+        let lineNumberText = '';
+
+        for (let i = 0; i < lines.length; i++) {
+          lineNumberText += `${i + 1}. ${lines[i]}\n`;
+        }
+
+        lineNumberElement.textContent = lineNumberText;
+      }
+
+      // Event listener to detect changes in the textarea
+      document.getElementById('cssInput').addEventListener('input', function () {
+        updateLineNumbers(this, document.querySelector('#cssInput + .line-numbers .line-number'));
+      });
+
+      document.getElementById('jsInput').addEventListener('input', function () {
+        updateLineNumbers(this, document.querySelector('#jsInput + .line-numbers .line-number'));
+      });
+
+      // Initial update of line numbers
+      updateLineNumbers(document.getElementById('cssInput'), document.querySelector('#cssInput + .line-numbers .line-number'));
+      updateLineNumbers(document.getElementById('jsInput'), document.querySelector('#jsInput + .line-numbers .line-number'));
+
+    </script>
+</body>
+
+</html>
