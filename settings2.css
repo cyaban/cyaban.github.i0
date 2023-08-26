@@ -1,18 +1,14 @@
-
-
+/* Default styles for all screens */
 body {
-
   line-height: 1.6;
   margin: 0;
   background: #000000;
   font-size: 1rem;
-
 }
 
 .card2 {
-  max-width: 1200px;
-  height: 100vh;
-  margin: 0 auto;
+  max-width: 100%; /* Use a percentage value to make it responsive */
+  padding: 0 20px; /* Add padding for smaller screens */
   display: flex;
   justify-content: center;
   align-content: center;
@@ -33,17 +29,15 @@ body {
   gap: 20px;
 }
 
-
-
 .card2 {
-  flex: 1 1 300px;
+  flex: 1 1 calc(33.33% - 20px); /* Use calc for responsive card width */
+  max-width: calc(33.33% - 20px); /* Limit card width for smaller screens */
   border: 1px solid #f22b77;
   border-radius: 4px;
   padding: 20px;
   background-color: transparent;
   backdrop-filter: blur(5px);
   color: #f22b77;
-
 }
 
 .title {
@@ -61,7 +55,6 @@ button {
   padding: 10px 20px;
   border-radius: 4px;
   cursor: pointer;
-
 }
 
 button i {
@@ -71,7 +64,6 @@ button i {
 button:hover {
   background-color: #f22b77;
 }
-
 
 /* Custom styles for text inputs */
 textarea,
@@ -95,7 +87,6 @@ input[type="text"]::placeholder {
 /* Style the text inputs when they are focused */
 textarea,
 input[type="text"]:focus {
-
   border-color: #f22b77;
   outline: none;
 }
@@ -134,21 +125,8 @@ input[type="text"]:focus {
 
 /* Media query for tablets and smaller screens */
 @media screen and (max-width: 768px) {
-  .card {
-    /* Change the flex-basis to a percentage value to make the cards wrap sooner */
-    flex-basis: 48%;
-    /* You can adjust the percentage value according to your design preferences */
+  .card2 {
+    flex: 1 1 calc(50% - 20px); /* Adjust card width for smaller screens */
+    max-width: calc(50% - 20px);
   }
-}
-
-canvas {
-  position: absolute;
-  /* Position the canvas absolutely */
-  top: 0;
-  left: 0;
-  z-index: -1;
-  /* Set the z-index to place it behind other elements */
-}
-
-
 }
