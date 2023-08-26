@@ -14,24 +14,9 @@ body {
   align-items: center; /* Changed from align-content to align-items */
   flex-wrap: wrap;
   gap: 20px;
-  flex: 1 1 calc(33.33% - 20px); /* Added flex property */
-}
-
-.card3 {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.btn-container {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  gap: 20px;
-}
-
-.card2 .card2 { /* Modified selector to avoid duplicate rules */
   flex: 1 1 300px;
+  width: 300px; /* Set width to make it square */
+  height: 300px; /* Set height to make it square */
   border: 1px solid #f22b77;
   border-radius: 4px;
   padding: 20px;
@@ -76,6 +61,8 @@ input[type="text"] {
   transition: border-color 0.3s ease;
   background-color: #2c2f33;
   font-family: "Courier New", monospace;
+  width: 100%; /* Set width to make it square */
+  height: 100px; /* Set height to make it square */
 }
 
 /* Style the placeholder text inside the inputs */
@@ -126,8 +113,8 @@ input[type="text"]:focus {
 /* Media query for tablets and smaller screens */
 @media screen and (max-width: 768px) {
   .card2 {
-    /* Change the flex-basis to a percentage value to make the cards wrap sooner */
-    flex: 1 1 calc(50% - 20px); /* Adjusted flex property */
+    width: 50%; /* Adjusted width to make it square */
+    height: 50%; /* Adjusted height to make it square */
   }
 }
 
