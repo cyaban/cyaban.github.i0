@@ -18,7 +18,7 @@ body {
   gap: 20px;
 }
 
-.card-container {
+.card3 {
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -33,7 +33,7 @@ body {
 
 
 
-.card {
+.card2 {
   flex: 1 1 300px;
   border: 1px solid #f22b77;
   border-radius: 4px;
