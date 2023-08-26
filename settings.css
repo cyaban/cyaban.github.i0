@@ -1,12 +1,4 @@
-/* Additional styles for responsiveness */
-@font-face {
-  font-family: 'Dubai-Bold';
-  src: url('Fonts/Dubai-Font/Dubai-Bold.ttf') format('truetype');
-}
 
-* {
-  font-family: 'Dubai-Bold';
-}
 
 body {
 
@@ -158,6 +150,5 @@ canvas {
   /* Set the z-index to place it behind other elements */
 }
 
-.sidebar a:nth-child(7).active {
-  color: var(--orange-hover);
+
 }
