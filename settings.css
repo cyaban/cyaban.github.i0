@@ -103,5 +103,43 @@
 .menu-icon div:hover {
     background: var(--main-color);
 }
+.container {
+  max-width: 1200px;
+  height: 100vh;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
 
-/* Rest of your CSS code... */
+.card-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.card {
+  flex: 1 1 300px;
+  border: 1px solid #f22b77;
+  border-radius: 4px;
+  padding: 20px;
+  background-color: transparent;
+  backdrop-filter: blur(5px);
+  color: #f22b77;
+}
+
+.title {
+  box-shadow: 0 0.6px 0 0 #f22b77;
+  font-weight: bolder;
+  font-size: 1.2rem;
+}
+
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
