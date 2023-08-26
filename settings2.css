@@ -1,0 +1,154 @@
+
+
+body {
+
+  line-height: 1.6;
+  margin: 0;
+  background: #000000;
+  font-size: 1rem;
+
+}
+
+.card2 {
+  max-width: 1200px;
+  height: 100vh;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.card3 {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.btn-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+
+
+.card2 {
+  flex: 1 1 300px;
+  border: 1px solid #f22b77;
+  border-radius: 4px;
+  padding: 20px;
+  background-color: transparent;
+  backdrop-filter: blur(5px);
+  color: #f22b77;
+
+}
+
+.title {
+  box-shadow: 0 0.6px 0 0 #f22b77;
+  font-weight: bolder;
+  font-size: 1.2rem;
+}
+
+button {
+  width: 100%;
+  background-color: #000000;
+  backdrop-filter: blur(5px);
+  border: 1px solid #f22b77;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+
+}
+
+button i {
+  margin-right: 10px;
+}
+
+button:hover {
+  background-color: #f22b77;
+}
+
+
+/* Custom styles for text inputs */
+textarea,
+input[type="text"] {
+  border: 2px solid #ccc;
+  color: #dedede;
+  font-size: 16px;
+  border-radius: 4px;
+  padding: 8px 12px;
+  transition: border-color 0.3s ease;
+  background-color: #2c2f33;
+  font-family: "Courier New", monospace;
+}
+
+/* Style the placeholder text inside the inputs */
+textarea::placeholder,
+input[type="text"]::placeholder {
+  color: #999;
+}
+
+/* Style the text inputs when they are focused */
+textarea,
+input[type="text"]:focus {
+
+  border-color: #f22b77;
+  outline: none;
+}
+
+.textarea-container {
+  display: flex;
+}
+
+.line-numbers {
+  counter-reset: line;
+  padding: 10px;
+  text-align: right;
+  user-select: none;
+  font-family: monospace;
+}
+
+.line-number {
+  counter-increment: line;
+}
+
+.line-number::before {
+  content: counter(line);
+  display: block;
+}
+
+.code-editor {
+  flex: 1;
+  font-family: monospace;
+}
+
+/* Vertically display line numbers */
+.line-numbers {
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+}
+
+/* Media query for tablets and smaller screens */
+@media screen and (max-width: 768px) {
+  .card {
+    /* Change the flex-basis to a percentage value to make the cards wrap sooner */
+    flex-basis: 48%;
+    /* You can adjust the percentage value according to your design preferences */
+  }
+}
+
+canvas {
+  position: absolute;
+  /* Position the canvas absolutely */
+  top: 0;
+  left: 0;
+  z-index: -1;
+  /* Set the z-index to place it behind other elements */
+}
+
+
+}
