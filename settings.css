@@ -121,10 +121,7 @@ input[type="text"]:focus {
   display: block;
 }
 
-.code-editor {
-  flex: 1;
-  font-family: monospace;
-}
+
 
 /* Vertically display line numbers */
 .line-numbers {
