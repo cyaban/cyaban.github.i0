@@ -1,4 +1,3 @@
-/* Default styles for all screens */
 body {
   line-height: 1.6;
   margin: 0;
@@ -7,13 +6,15 @@ body {
 }
 
 .card2 {
-  max-width: 100%; /* Use a percentage value to make it responsive */
-  padding: 0 20px; /* Add padding for smaller screens */
+  max-width: 1200px;
+  height: 100vh;
+  margin: 0 auto;
   display: flex;
   justify-content: center;
-  align-content: center;
+  align-items: center; /* Changed from align-content to align-items */
   flex-wrap: wrap;
   gap: 20px;
+  flex: 1 1 calc(33.33% - 20px); /* Added flex property */
 }
 
 .card3 {
@@ -29,9 +30,8 @@ body {
   gap: 20px;
 }
 
-.card2 {
-  flex: 1 1 calc(33.33% - 20px); /* Use calc for responsive card width */
-  max-width: calc(33.33% - 20px); /* Limit card width for smaller screens */
+.card2 .card2 { /* Modified selector to avoid duplicate rules */
+  flex: 1 1 300px;
   border: 1px solid #f22b77;
   border-radius: 4px;
   padding: 20px;
@@ -126,7 +126,16 @@ input[type="text"]:focus {
 /* Media query for tablets and smaller screens */
 @media screen and (max-width: 768px) {
   .card2 {
-    flex: 1 1 calc(50% - 20px); /* Adjust card width for smaller screens */
-    max-width: calc(50% - 20px);
+    /* Change the flex-basis to a percentage value to make the cards wrap sooner */
+    flex: 1 1 calc(50% - 20px); /* Adjusted flex property */
   }
+}
+
+canvas {
+  position: absolute;
+  /* Position the canvas absolutely */
+  top: 0;
+  left: 0;
+  z-index: -1;
+  /* Set the z-index to place it behind other elements */
 }
