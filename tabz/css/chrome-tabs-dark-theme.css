@@ -10,7 +10,7 @@
   .chrome-tab-background
   > svg
   .chrome-tab-geometry {
-  fill: #f22b77;
+  fill: #000000;
 }
 .chrome-tabs.chrome-tabs-dark-theme
   .chrome-tab[active]
