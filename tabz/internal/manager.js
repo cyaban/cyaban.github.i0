@@ -1,3 +1,3 @@
 const internal_pages = {
-   newtab: "tabz.html",
+   newtab: "https://fusionw.pages.dev/tabz",
 }
