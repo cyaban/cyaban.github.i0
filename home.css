@@ -22,7 +22,7 @@
  :root{
     --main-color:#000000;
     /**- second color:#0d81ec  -**/
---dark-color:#0f0f0f; 
+--dark-color:#000000; 
 --light-color:#000000;
 --text-color:rgb(243, 238, 238);
 }
