@@ -3,27 +3,27 @@
 }
 .chrome-tabs.chrome-tabs-dark-theme .chrome-tab .chrome-tab-dividers::before,
 .chrome-tabs.chrome-tabs-dark-theme .chrome-tab .chrome-tab-dividers::after {
-  background: #e2e5e9;
+  background: #f22b77;
 }
 .chrome-tabs.chrome-tabs-dark-theme
   .chrome-tab
   .chrome-tab-background
   > svg
   .chrome-tab-geometry {
-  fill: #e7ecf3;
+  fill: #f22b77;
 }
 .chrome-tabs.chrome-tabs-dark-theme
   .chrome-tab[active]
   .chrome-tab-background
   > svg
   .chrome-tab-geometry {
-  fill: #e7ecf0;
+  fill: #f22b77;
 }
 .chrome-tabs.chrome-tabs-dark-theme .chrome-tab .chrome-tab-title {
-  color: #000000;
+  color: #f22b77;
 }
 .chrome-tabs.chrome-tabs-dark-theme .chrome-tab[active] .chrome-tab-title {
-  color: #000000;
+  color: #f22b77;
 }
 .chrome-tabs.chrome-tabs-dark-theme .chrome-tab .chrome-tab-close {
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'><path stroke='rgba(154, 160, 166, .8)' stroke-linecap='square' stroke-width='1.5' d='M0 0 L8 8 M8 0 L0 8'></path></svg>");
