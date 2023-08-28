@@ -22,8 +22,8 @@
  :root{
     --main-color:#F907FC;
     /**- second color:#0d81ec  -**/
---dark-color:#0f0f0f; 
---light-color:#1f1e1e;
+--dark-color:#000000; 
+--light-color:#000000;
 --text-color:rgb(243, 238, 238);
 }
 ::selection{
