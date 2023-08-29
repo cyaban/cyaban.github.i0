@@ -1,47 +1,39 @@
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        // Get references to DOM elements
-        var panicKeyInput = document.getElementById('panicKeyInput');
-        var websiteInput = document.getElementById('websiteInput');
+document.addEventListener('DOMContentLoaded', function () {
+    // Retrieve user-defined panic key and website URL from local storage
+    var storedPanicKey = localStorage.getItem('panicKey');
+    var storedWebsiteURL = localStorage.getItem('websiteURL');
 
-        // Load stored values
-        loadStoredValues();
+    // Initialize input fields for panic key and website URL
+    var panicKeyInput = document.getElementById('panicKeyInput');
+    var websiteURLInput = document.getElementById('websiteInput');
 
-        // Add event listener for keydown event
-        document.addEventListener('keydown', function (event) {
-            handleKeyPress(event);
-        });
+    // Set the input fields to the stored values if available
+    if (storedPanicKey) {
+        panicKeyInput.value = storedPanicKey;
+    }
+    if (storedWebsiteURL) {
+        websiteURLInput.value = storedWebsiteURL;
+    }
 
-        // Function to load stored values from localStorage
-        function loadStoredValues() {
-            var storedPanicKey = localStorage.getItem('panicKey');
-            var storedWebsiteURL = localStorage.getItem('websiteURL');
+    // Add an event listener for any key press
+    document.addEventListener('keydown', function (event) {
+        // Get the user-defined panic key and website URL
+        var panicKey = panicKeyInput.value.trim().toLowerCase();
+        var websiteURL = websiteURLInput.value.trim();
 
-            // Set the input fields to the stored values if available
-            if (storedPanicKey) {
-                panicKeyInput.value = storedPanicKey;
-            }
-            if (storedWebsiteURL) {
-                websiteInput.value = storedWebsiteURL;
-            }
-        }
-
-        // Function to handle key press event
-        function handleKeyPress(event) {
-            var panicKey = panicKeyInput.value.trim().toLowerCase();
-
-            if (event.key === panicKey) {
-                var websiteURL = websiteInput.value.trim();
-
-                if (websiteURL !== '') {
-                    // Redirect to the entered URL
-                    window.location.href = websiteURL;
-
-                    // Store values in localStorage
-                    localStorage.setItem('panicKey', panicKey);
-                    localStorage.setItem('websiteURL', websiteURL);
-                }
-            }
+        // Check if the entered key matches the panic key
+        if (event.key.toLowerCase() === panicKey && websiteURL !== '') {
+            // Redirect to the specified website URL
+            window.location.href = websiteURL;
         }
     });
-</script>
+
+    // Add an event listener to update the stored values when the user changes them
+    panicKeyInput.addEventListener('change', function () {
+        localStorage.setItem('panicKey', panicKeyInput.value.trim().toLowerCase());
+    });
+
+    websiteURLInput.addEventListener('change', function () {
+        localStorage.setItem('websiteURL', websiteURLInput.value.trim());
+    });
+});
