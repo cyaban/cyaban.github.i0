@@ -15,8 +15,8 @@ document.addEventListener('DOMContentLoaded', function () {
         websiteURLInput.value = storedWebsiteURL;
     }
 
-    // Add an event listener for any key press
-    document.addEventListener('keydown', function (event) {
+    // Function to check if the entered key matches the panic key
+    function checkPanicKey(event) {
         // Get the user-defined panic key and website URL
         var panicKey = panicKeyInput.value.trim().toLowerCase();
         var websiteURL = websiteURLInput.value.trim();
@@ -26,7 +26,10 @@ document.addEventListener('DOMContentLoaded', function () {
             // Redirect to the specified website URL
             window.location.href = websiteURL;
         }
-    });
+    }
+
+    // Add an event listener for any key press
+    document.addEventListener('keydown', checkPanicKey);
 
     // Add an event listener to update the stored values when the user changes them
     panicKeyInput.addEventListener('change', function () {
@@ -35,5 +38,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
     websiteURLInput.addEventListener('change', function () {
         localStorage.setItem('websiteURL', websiteURLInput.value.trim());
+    });
+
+    // Add an event listener for a click anywhere on the page
+    document.addEventListener('click', function (event) {
+        // Check if the clicked element is not the panicKeyInput or websiteURLInput fields
+        if (event.target !== panicKeyInput && event.target !== websiteURLInput) {
+            // Check the panic key when the user clicks anywhere on the page
+            checkPanicKey(event);
+        }
     });
 });
