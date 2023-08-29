@@ -129,40 +129,7 @@
             </div>
 
             
-        </div>
-        <div id="output"></div>
-        <script>
-            document.addEventListener('DOMContentLoaded', function () {
-                var storedPanicKey = localStorage.getItem('panicKey');
-                var storedWebsiteURL = localStorage.getItem('websiteURL');
-
-                var panicKeyInput = document.getElementById('panicKeyInput');
-                var websiteInput = document.getElementById('websiteInput');
-
-                // Set the input fields to the stored values if available
-                if (storedPanicKey) {
-                    panicKeyInput.value = storedPanicKey;
-                }
-                if (storedWebsiteURL) {
-                    websiteInput.value = storedWebsiteURL;
-                }
-
-                document.addEventListener('keydown', function (event) {
-                    var panicKey = panicKeyInput.value.trim().toLowerCase();
-
-                    if (event.key === panicKey) {
-                        var websiteURL = websiteInput.value.trim();
-
-                        if (websiteURL !== '') {
-                            // Redirect to the entered URL
-                            window.location.href = websiteURL;
-
-                            localStorage.setItem('panicKey', panicKey);
-                            localStorage.setItem('websiteURL', websiteURL);
-                        }
-                    }
-                });
-            });
+     
         </script>
     </div>
     <script>
@@ -190,3 +157,39 @@
     </script>
 </body>
 </html>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var storedPanicKey = localStorage.getItem('panicKey');
+        var storedWebsiteURL = localStorage.getItem('websiteURL');
+
+        var panicKeyInput = document.getElementById('panicKeyInput');
+        var websiteInput = document.getElementById('websiteInput');
+        var panicButton = document.getElementById('panicButton');
+
+        // Set the input fields to the stored values if available
+        if (storedPanicKey) {
+            panicKeyInput.value = storedPanicKey;
+        }
+        if (storedWebsiteURL) {
+            websiteInput.value = storedWebsiteURL;
+        }
+
+        panicButton.addEventListener('click', function (event) {
+            var panicKey = panicKeyInput.value.trim();
+
+            // Check if the panic key matches the key press during the click event
+            if (panicKey.toLowerCase() === event.key.toLowerCase()) {
+                var websiteURL = websiteInput.value.trim();
+
+                if (websiteURL !== '') {
+                    // Redirect to the entered URL
+                    window.location.href = websiteURL;
+
+                    localStorage.setItem('panicKey', panicKey);
+                    localStorage.setItem('websiteURL', websiteURL);
+                }
+            }
+        });
+    });
+</script>
+
