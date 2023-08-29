@@ -1,3 +1,5 @@
+// script.js
+
 document.addEventListener('DOMContentLoaded', function () {
     // Retrieve user-defined panic key and website URL from local storage
     var storedPanicKey = localStorage.getItem('panicKey');
