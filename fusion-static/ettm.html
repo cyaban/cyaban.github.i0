@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Nouvel onglet</title>
+    <link rel="icon" type="image/x-icon" href="./img/favicon.ico">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="uv/uv.bundle.js" defer></script>
+    <script src="uv/uv.config.js" defer></script>
+    <script src="register-sw.js" defer></script>
+    <script src="search.js" defer></script>
+    <script src="index.js" defer></script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  </head>
+
+  <body>
+    <div class="accueil">
+      <div class="desc">
+        <p id="uv-error"></p>
+        <pre id="uv-error-code"></pre>
+      </div>
+      <div class="apps">
+        <h3>Divertissement</h3>
+        <div class="tiles">
+          <div class="tile">
+            <div class="image">
+              <img src="./img/ettm/subway.webp">
+            </div>
+            <div class="text">
+              <h5>Subway Surfers</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bottombar">
+        <div class="categories">
+          <i onclick="window.location.href = 'tab.html'" class='bx bx-home'></i>
+          <i onclick="window.location.href = 'ettm.html'" class='bx bx-joystick'></i>
+          <i onclick="window.location.href = 'apps.html'" class='bx bxs-grid' ></i>
+          <i onclick="window.location.href = 'cld.html'" class='bx bx-cloud' ></i>
+        </div>
+        <div class="datetime">
+          <p class="time"></p>
+          <p class="date smaller"></p>
+        </div>
+      </div>
+    </div>
+    <script src="js/time.js"></script>
+  </body>
+</html>
