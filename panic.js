@@ -30,3 +30,21 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
+
+document.addEventListener('keydown', function (event) {
+    console.log('Keydown event:', event);
+    const target = event.target;
+    const customCSS = localStorage.getItem('panicKey');
+    if (customCSS && (!target || (target.nodeName !== 'INPUT' || target.getAttribute('id') !== 'uv-address'))) {
+      const pressedKey = event.key.toLowerCase();
+      const emergencyHotkey = localStorage.getItem('panicKey');
+
+      if (pressedKey === emergencyHotkey) {
+        const emergencyURL = localStorage.getItem('websiteURL');
+
+        if (emergencyURL) {
+          window.location.href = emergencyURL;
+        }
+      }
+    }
+  });

@@ -17,29 +17,25 @@
     <header>
         <div class="nav container">
             <a href="home.html" class="logo">Fu<span>sio</span>n</a>
-            <div class="nav-icons">
-                <a href="#" class="btn-1" id="btn-1">Join in</a>
-                <i class='bx bx-download'></i>
-                <div class="menu-icon">
-                    <div class="lineA"></div>
-                    <div class="lineB"></div>
-                    <div class="lineC"></div>
-                </div>
-            </div>
-            <div class="menu">
-                <img src="img/menu.gif">
-                <div class="navbar">
-                    <ul>
-                        <li><a href="home.html">Home</a></li>
-                        <li><a href="games.html">Games</a></li>
-                        <li><a href="#">Chat</a></li>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Contact</a></li>
-                        <li><a href="#">Settings</a></li>
-                    </ul>
-                </div>
-            </div>
+       <div class="nav-icons">
+        <a href="#" class="btn-1" id="btn-1">Join in</a>
+        <i class="bx bx-download"></i>
+        <div class="menu-icon">
+            <div class="lineA"></div>
+            <div class="lineB"></div>
+            <div class="lineC"></div>
+    
+      </div>
+       </div>
+       <div class="menu">
+        <img src="img/menu.gif">
+        <div class="navbar">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="games.html">Games</a></li>
+            <li><a href="settings.html">Settings</a></li>  
         </div>
+       </div>
+     </div>
     </header>
     <canvas id="canvas"></canvas>
     <div class="container">
@@ -86,7 +82,6 @@
             }
         </script>
 
-
         <div class="allcards">
           <div class="card">
                 <div class="card-container">
@@ -128,25 +123,21 @@
                     <button onclick="resetTab()"><i class="fas fa-undo-alt"></i> Reset</button>
                 </div>
             </div>
-
-            
+   
         </div>
         <div id="output"></div>
         <script>
-            // Function to set the page title and store it in local storage
             function setTitle(title) {
                 document.title = title;
                 localStorage.setItem('pageTitle', title);
             }
 
-            // Function to reset the page title and clear it from local storage
             function resetTab() {
-                document.title = ''; // Set an empty title
-                localStorage.removeItem('pageTitle'); // Remove the stored title
-                document.getElementById('title').value = ''; // Clear the input field
+                document.title = '';
+                localStorage.removeItem('pageTitle');
+                document.getElementById('title').value = '';
             }
 
-            // Initialize the page title from local storage if available
             document.addEventListener('DOMContentLoaded', function () {
                 var storedTitle = localStorage.getItem('pageTitle');
                 if (storedTitle) {
@@ -162,7 +153,6 @@
                 var panicKeyInput = document.getElementById('panicKeyInput');
                 var websiteInput = document.getElementById('websiteInput');
 
-                // Set the input fields to the stored values if available
                 if (storedPanicKey) {
                     panicKeyInput.value = storedPanicKey;
                 }
@@ -178,7 +168,6 @@
                         var websiteURL = websiteInput.value.trim();
 
                         if (websiteURL !== '') {
-                            // Redirect to the entered URL
                             window.location.href = websiteURL;
 
                             localStorage.setItem('panicKey', panicKey);
