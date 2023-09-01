@@ -123,6 +123,26 @@
                     <button onclick="resetTab()"><i class="fas fa-undo-alt"></i> Reset</button>
                 </div>
             </div>
+
+            <h2>Addons</h2>
+      <div class="addon-controls">
+        <label for="addon-category">Category:</label>
+        <select id="addon-category" name="addonCategory" class="config-select">
+          <option value="all">All</option>
+          <option value="plugins">Plugins</option>
+          <option value="themes">Themes</option>
+        </select>
+        <input type="text" id="addon-search" class="config-input" placeholder="Search Addons">
+        <button onclick="window.open('https://forms.gle/QcnfUxXCc3UjChaG8', '_blank');">Submit New Addon</button>
+        <div class="settings-item">
+          <label for="use-proxy-checkbox">Use Proxy:</label>
+          <input type="checkbox" id="use-proxy-checkbox" onchange="saveUseProxySetting(this.checked)">
+        </div>            
+      </div>
+      <div class="addon-grid">
+      </div>
+      <script src="addons.js"></script>
+      
    
         </div>
         <div id="output"></div>
