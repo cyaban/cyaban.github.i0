@@ -20,6 +20,19 @@
     border-radius: 6px;
 }
 
+.addon-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  .addon-item {
+    border: 1px solid #ddd;
+    padding: 20px;
+    text-align: center;
+  }
+
 :root {
     --main-color: #f22b77;
     --dark-color: #0f0f0f;
