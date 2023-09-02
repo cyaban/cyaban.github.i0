@@ -11,6 +11,56 @@
     <link rel="manifest" href="ma.json">
     <link rel="prefetch" href="index.html" />
     <title>IFRAME</title>
+    <style>
+#loading-overlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 40px;
+  left: 0;
+  width: 100%;
+  height: calc(100% - 85px);
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+#wave-container {
+  width: 100%;
+  height: 100px;
+  overflow: hidden;
+}
+
+.wave {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0) 100%);
+  animation: wave-animation 2s infinite;
+}
+
+@keyframes wave-animation {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(50px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.loading-content {
+  text-align: center;
+  color: #fff;
+}
+
+.loading-title {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+    </style>
 </head>
 <body>
     <div class="topnav">
@@ -34,6 +84,15 @@
             document.getElementById("imageapp").src = localStorage.getItem('image');
         </script>
     </div>
+    <div id="loading-overlay">
+        <div class="loading-content">
+          <h1 class="loading-title">Fusion is loading your content!</h1>
+          <div id="wave-container">
+            <div class="wave"></div>
+          </div>
+          <p class="loading-message">Please wait...</p>
+        </div>
+      </div>
     <div class="iframe">
       <iframe id="iframeurl" src="" style="border: 0; height: calc(100vh - 50px); left: 0; position: absolute; top: 0; width: 100%; bottom: 0; margin-top: 50px;"></iframe>
       <script>
@@ -61,7 +120,16 @@
                   iframeDocument.head.appendChild(script);
                   console.log(`Plugin injected into the iframe: ${pluginUrl}`);
               });
+              iframe.style.display = "block";
+              const loadingOverlay = document.getElementById('loading-overlay');
+              loadingOverlay.style.display = 'none';
           }
+
+          iframe.addEventListener('loadstart', () => {
+            iframe.style.display = 'none';
+            const loadingOverlay = document.getElementById('loading-overlay');
+            loadingOverlay.style.display = 'flex';
+        });
       </script>      
     </div>
 </body>
