@@ -29,7 +29,8 @@
         script.src = pluginUrl;
       }
       
-      const iframeDocument = iframe.contentWindow.document;
+      const userframe = document.getElementById("iframeurl")
+      const iframeDocument = userframe.contentWindow.document;
       iframeDocument.head.appendChild(script);
       console.log(`Plugin injected into the iframe: ${pluginUrl}`);
     });
