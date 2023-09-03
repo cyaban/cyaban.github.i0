@@ -1,13 +1,13 @@
-function search_game() {
+function searchGame() {
   let input = document.getElementById("searchbar").value.toLowerCase();
-  let x = document.getElementsByClassName("swiper-slide");
+  let games = document.querySelectorAll(".swiper-slide");
 
-  for (let i = 0; i < x.length; i++) {
-    let gameTitle = x[i].querySelector("h2").textContent.toLowerCase();
-    if (!gameTitle.includes(input)) {
-      x[i].style.display = "none";
+  games.forEach((game) => {
+    let gameTitle = game.querySelector("h2").textContent.toLowerCase();
+    if (gameTitle.includes(input)) {
+      game.style.display = "block";
     } else {
-      x[i].style.display = "block";
+      game.style.display = "none";
     }
-  }
+  });
 }
