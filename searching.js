@@ -1,6 +1,6 @@
 function search_game() {
     let input = document.getElementById("searchbarbottom").value.toLowerCase();
-    let games = document.querySelectorAll('.swiper-slide .fullscreendiv');
+    let games = document.querySelectorAll('.swiper-slide');
 
     games.forEach(game => {
         const gameTitle = game.querySelector('h2').textContent.toLowerCase();
@@ -13,3 +13,4 @@ function search_game() {
         }
     });
 }
+
