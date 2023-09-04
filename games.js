@@ -5,33 +5,7 @@ menu.onclick = () => {
     menu.classList.toggle('move');
 };
 
-// Initialize Swiper
-var swiper = new Swiper(".trending-content", {
-    slidesPerView: 1,
-    spaceBetween: 10,
-    pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-    },
-    autoplay: {
-        delay: 3000,
-        disableOnInteraction: false,
-    },
-    breakpoints: {
-        640: {
-            slidesPerView: 2,
-            spaceBetween: 10,
-        },
-        768: {
-            slidesPerView: 3,
-            spaceBetween: 15,
-        },
-        1068: {
-            slidesPerView: 4,
-            spaceBetween: 20,
-        },
-    },
-});
+let swiper = initializeSwiper(); // Initialize Swiper
 
 const favoriteButtons = document.querySelectorAll('.favorite-button');
 favoriteButtons.forEach(button => {
@@ -47,11 +21,43 @@ function addToFavorites(event) {
     xhr.send(JSON.stringify({ gameId }));
 }
 
-// Flag to track whether swiper should be disabled
-let swiperDisabled = false;
+// Function to initialize Swiper
+function initializeSwiper() {
+    return new Swiper(".trending-content", {
+        slidesPerView: 1,
+        spaceBetween: 10,
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+        autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+        },
+        breakpoints: {
+            640: {
+                slidesPerView: 2,
+                spaceBetween: 10,
+            },
+            768: {
+                slidesPerView: 3,
+                spaceBetween: 15,
+            },
+            1068: {
+                slidesPerView: 4,
+                spaceBetween: 20,
+            },
+        },
+    });
+}
 
 // Function to handle the search input
 function searchGames() {
+    // Destroy the current Swiper instance
+    if (swiper) {
+        swiper.destroy();
+    }
+
     // Get the search input element
     var input = document.querySelector('.search-txt');
     // Get the game cards
@@ -76,21 +82,9 @@ function searchGames() {
         }
     });
 
-    // Check the number of displayed cards and handle accordingly
-    if (displayedCardCount === 1 || displayedCardCount === 2) {
-        // Handle when 1 or 2 cards are displayed (e.g., disable swiping)
-        swiper.allowSlidePrev = swiper.allowSlideNext = false;
-        swiperDisabled = true;
-    } else {
-        // Enable swiping when more than 2 cards are displayed
-        swiper.allowSlidePrev = swiper.allowSlideNext = true;
-        swiperDisabled = false;
-    }
-
-    // If swiper was disabled and search is complete, re-enable it
-    if (!swiperDisabled) {
-        swiper.slideTo(0); // Reset swiper to the first slide
-        swiper.autoplay.start();
+    // Reinitialize Swiper when the search is complete
+    if (displayedCardCount > 0) {
+        swiper = initializeSwiper();
     }
 }
 
