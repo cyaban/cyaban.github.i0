@@ -1,86 +1,48 @@
-// Get references to elements
-const menu = document.querySelector('.menu-icon');
-const navbar = document.querySelector('.menu');
-const searchInput = document.querySelector('.search-txt');
-const trendingContent = document.querySelector('.trending-content');
-let isSearching = false; // Variable to track whether the user is searching
-
-// Event listener for the menu icon
-menu.addEventListener('click', () => {
+let menu=document.querySelector('.menu-icon');
+let navbar=document.querySelector('.menu');
+menu.onclick=()=>{
     navbar.classList.toggle('active');
     menu.classList.toggle('move');
-});
-
-// Initialize the Swiper
-const swiper = new Swiper(".trending-content", {
+}
+var swiper = new Swiper(".trending-content", {
     slidesPerView: 1,
     spaceBetween: 10,
     pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
+      el: ".swiper-pagination",
+      clickable: true,
     },
     autoplay: {
-        delay: 3000,
-        disableOnInteraction: false,
+    delay:3000,
+    disableOnInteraction: false,
     },
     breakpoints: {
-        640: {
-            slidesPerView: 2,
-            spaceBetween: 10,
-        },
-        768: {
-            slidesPerView: 3,
-            spaceBetween: 15,
-        },
-        1068: {
-            slidesPerView: 4,
-            spaceBetween: 20,
-        },
+      640: {
+        slidesPerView: 2,
+        spaceBetween: 10,
+      },
+      768: {
+        slidesPerView: 3,
+        spaceBetween: 15,
+      },
+      1068: {
+        slidesPerView: 4,
+        spaceBetween: 20,
+      },
     },
-});
+  });
+const favoriteButtons = document.querySelectorAll('.favorite-button');
+  favoriteButtons.forEach(button => {
+    button.addEventListener('click', addToFavorites);
+  });
 
-// Event listener for the search input
-searchInput.addEventListener('input', searchGames);
+  function addToFavorites(event) {
+    const gameId = event.target.dataset.gameId;
 
-// Event delegation for favorite button clicks
-trendingContent.addEventListener('click', (event) => {
-    if (event.target.classList.contains('favorite-button')) {
-        // Handle favorite button click here
-        // You can add your favorite functionality if needed
-        // const gameId = event.target.dataset.gameId;
-        // addToFavorites(gameId);
-    }
-});
-
-// Function to handle the search input
-function searchGames() {
-    const searchTerm = searchInput.value.toLowerCase();
-    const gameCards = document.querySelectorAll('.swiper-slide');
-
-    gameCards.forEach((card) => {
-        const title = card.querySelector('h2').textContent.toLowerCase();
-
-        if (title.includes(searchTerm)) {
-            card.style.display = 'block';
-        } else {
-            card.style.display = 'none';
-        }
-    });
-
-    const swiperInstance = swiper; // Use the swiper instance initialized earlier
-
-    if (searchTerm === '') {
-        swiperInstance.autoplay.start();
-        isSearching = false;
-    } else {
-        swiperInstance.autoplay.stop();
-        isSearching = true;
-    }
-
-    // Disable swiper's ability to slide during a search
-    swiperInstance.allowSlideNext = !isSearching;
-    swiperInstance.allowSlidePrev = !isSearching;
-}
+    const xhr = new XMLHttpRequest();
+    xhr.open('POST', '/api/favorites', true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.send(JSON.stringify({ gameId }));
+  }
 
 
 
