@@ -5,6 +5,8 @@ menu.onclick = () => {
   menu.classList.toggle('move');
 }
 
+var autoplayEnabled = true; // Flag to track autoplay state
+
 var swiper = new Swiper(".trending-content", {
   slidesPerView: 1,
   spaceBetween: 10,
@@ -56,6 +58,18 @@ function searchGames() {
   // Convert the search input value to lowercase for case-insensitive search
   var searchTerm = input.value.toLowerCase();
 
+  // Pause autoplay when the search input is focused
+  if (autoplayEnabled && document.activeElement === input) {
+    swiper.autoplay.stop();
+    autoplayEnabled = false;
+  }
+
+  // Resume autoplay when the search input is blurred
+  if (!autoplayEnabled && document.activeElement !== input) {
+    swiper.autoplay.start();
+    autoplayEnabled = true;
+  }
+
   // Loop through all game cards
   gameCards.forEach(function (card) {
     var title = card.querySelector('h2').textContent.toLowerCase(); // Get the game title
@@ -73,15 +87,6 @@ function searchGames() {
 var searchInput = document.querySelector('.search-txt');
 searchInput.addEventListener('input', searchGames);
 
-// Resume autoplay when the search input is blurred
-searchInput.addEventListener('blur', function () {
-  swiper.autoplay.start();
-});
-
-// Pause autoplay when the search input is focused
-searchInput.addEventListener('focus', function () {
-  swiper.autoplay.stop();
-});
 
 
 
