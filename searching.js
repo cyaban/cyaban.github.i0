@@ -1,31 +1,29 @@
-// Function to handle the search input
 function searchGames() {
-    const searchTerm = searchInput.value.toLowerCase();
-    const gameCards = document.querySelectorAll('.swiper-slide');
+  // Get the search input element
+  var input = document.querySelector('.search-txt');
+  // Get the game cards
+  var gameCards = document.querySelectorAll('.swiper-slide');
 
-    gameCards.forEach((card) => {
-        const title = card.querySelector('h2').textContent.toLowerCase();
+  // Convert the search input value to lowercase for case-insensitive search
+  var searchTerm = input.value.toLowerCase();
 
-        if (title.includes(searchTerm)) {
-            card.style.display = 'block';
-        } else {
-            card.style.display = 'none';
-        }
-    });
+  // Pause the Swiper autoplay while searching
+  swiper.autoplay.stop();
 
-    const swiperInstance = swiper; // Use the swiper instance initialized earlier
+  // Loop through all game cards
+  gameCards.forEach(function (card) {
+    var title = card.querySelector('h2').textContent.toLowerCase(); // Get the game title
 
-    if (searchTerm === '') {
-        swiperInstance.autoplay.start();
-        swiperInstance.allowSlidePrev = true;  // Enable swiping
-        swiperInstance.allowSlideNext = true;
-        isSearching = false;
+    // Check if the game title contains the search term
+    if (title.includes(searchTerm)) {
+      card.style.display = 'block'; // Show the card if it matches the search term
     } else {
-        swiperInstance.autoplay.stop();
-        swiperInstance.allowSlidePrev = false;  // Disable swiping
-        swiperInstance.allowSlideNext = false;
-        isSearching = true;
+      card.style.display = 'none'; // Hide the card if it doesn't match
     }
+  });
+
+  // Resume the Swiper autoplay after the search
+  swiper.autoplay.start();
 }
 
 
