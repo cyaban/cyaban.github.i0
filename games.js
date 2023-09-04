@@ -10,13 +10,10 @@ function searchGames() {
   // Convert the search input value to lowercase for case-insensitive search
   var searchTerm = input.value.toLowerCase();
 
-  // Toggle autoplay based on search input
-  if (searchTerm.length > 0 && autoplayEnabled) {
+  // Always stop autoplay when searching
+  if (autoplayEnabled) {
     swiper.autoplay.stop();
     autoplayEnabled = false;
-  } else if (searchTerm.length === 0 && !autoplayEnabled) {
-    swiper.autoplay.start();
-    autoplayEnabled = true;
   }
 
   // Loop through all game cards
