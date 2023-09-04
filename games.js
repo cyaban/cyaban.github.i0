@@ -3,6 +3,7 @@ const menu = document.querySelector('.menu-icon');
 const navbar = document.querySelector('.menu');
 const searchInput = document.querySelector('.search-txt');
 const trendingContent = document.querySelector('.trending-content');
+let isSearching = false; // Variable to track whether the user is searching
 
 // Event listener for the menu icon
 menu.addEventListener('click', () => {
@@ -66,13 +67,19 @@ function searchGames() {
         }
     });
 
-    const swiperInstance = trendingContent.swiper;
+    const swiperInstance = swiper; // Use the swiper instance initialized earlier
 
     if (searchTerm === '') {
         swiperInstance.autoplay.start();
+        isSearching = false;
     } else {
         swiperInstance.autoplay.stop();
+        isSearching = true;
     }
+
+    // Disable swiper's ability to slide during a search
+    swiperInstance.allowSlideNext = !isSearching;
+    swiperInstance.allowSlidePrev = !isSearching;
 }
 
 
