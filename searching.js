@@ -8,54 +8,27 @@ function searchGames() {
     // Convert the search input value to lowercase for case-insensitive search
     var searchTerm = input.value.toLowerCase();
 
+    // Disable swiper
+    swiper.autoplay.stop();
+    swiper.detachEvents();
+
     // Loop through all game cards
     gameCards.forEach(function(card) {
         var title = card.querySelector('h2').textContent.toLowerCase(); // Get the game title
 
         // Check if the game title contains the search term
         if (title.includes(searchTerm)) {
-            card.style.display = ''; // Show the card if it matches the search term
+            card.style.display = 'block'; // Show the card if it matches the search term
         } else {
             card.style.display = 'none'; // Hide the card if it doesn't match
         }
     });
+
+    // Re-enable swiper
+    swiper.autoplay.start();
+    swiper.attachEvents();
 }
 
 // Add an event listener to the search input
 var searchInput = document.querySelector('.search-txt');
 searchInput.addEventListener('input', searchGames);
-
-// The rest of your code remains unchanged
-let menu = document.querySelector('.menu-icon');
-let navbar = document.querySelector('.menu');
-menu.onclick = () => {
-    navbar.classList.toggle('active');
-    menu.classList.toggle('move');
-}
-
-var swiper = new Swiper(".trending-content", {
-    slidesPerView: 1,
-    spaceBetween: 10,
-    pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-    },
-    autoplay: {
-        delay: 3000,
-        disableOnInteraction: false,
-    },
-    breakpoints: {
-        640: {
-            slidesPerView: 2,
-            spaceBetween: 10,
-        },
-        768: {
-            slidesPerView: 3,
-            spaceBetween: 15,
-        },
-        1068: {
-            slidesPerView: 4,
-            spaceBetween: 20,
-        },
-    },
-});
