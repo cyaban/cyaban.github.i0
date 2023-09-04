@@ -12,7 +12,7 @@ var swiper = new Swiper(".trending-content", {
       clickable: true,
     },
     autoplay: {
-    delay:3000,
+    delay:300000000000000000000000000,
     disableOnInteraction: false,
     },
     breakpoints: {
