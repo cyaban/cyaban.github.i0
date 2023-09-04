@@ -3,7 +3,7 @@ let navbar = document.querySelector('.menu');
 menu.onclick = () => {
   navbar.classList.toggle('active');
   menu.classList.toggle('move');
-}
+};
 
 var swiper = new Swiper(".trending-content", {
   slidesPerView: 1,
@@ -67,11 +67,15 @@ function searchGames() {
       card.style.display = 'none'; // Hide the card if it doesn't match
     }
   });
+
+  // Pause autoplay when the search input is focused
+  if (searchTerm.length > 0) {
+    swiper.autoplay.stop();
+  } else {
+    swiper.autoplay.start();
+  }
 }
 
 // Add an event listener to the search input
 var searchInput = document.querySelector('.search-txt');
 searchInput.addEventListener('input', searchGames);
-
-
-
