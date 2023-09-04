@@ -80,3 +80,7 @@ function searchGames() {
 var searchInput = document.querySelector('.search-txt');
 searchInput.addEventListener('input', searchGames);
 
+// Ensure autoplay stops when the page loads
+swiper.autoplay.stop();
+
+
