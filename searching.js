@@ -8,39 +8,68 @@ function searchGames() {
     // Convert the search input value to lowercase for case-insensitive search
     var searchTerm = input.value.toLowerCase();
 
-    // Determine the number of matching game cards
-    var matchingGameCards = [];
+    // Variable to keep track of the number of cards displayed
+    var displayedCardCount = 0;
 
     // Loop through all game cards
-    gameCards.forEach(function(card) {
+    gameCards.forEach(function (card) {
         var title = card.querySelector('h2').textContent.toLowerCase(); // Get the game title
 
         // Check if the game title contains the search term
         if (title.includes(searchTerm)) {
-            matchingGameCards.push(card);
+            card.style.display = 'block'; // Show the card if it matches the search term
+            displayedCardCount++;
+        } else {
+            card.style.display = 'none'; // Hide the card if it doesn't match
         }
-
-        // Reset card style and swiper if not matching
-        card.style.display = 'none';
-        card.swiper.disable(); // Disable swiper for all cards initially
     });
 
-    // If there are 1 or 2 matching game cards, enable swiper for them
-    if (matchingGameCards.length === 1 || matchingGameCards.length === 2) {
-        matchingGameCards.forEach(function(card) {
-            card.style.display = 'block'; // Show the card
-            card.swiper.enable(); // Enable swiper for these cards
-        });
+    // Check the number of displayed cards and handle accordingly
+    if (displayedCardCount === 1 || displayedCardCount === 2) {
+        // Disable swiping when 1 or 2 cards are displayed
+        swiper.allowSlidePrev = swiper.allowSlideNext = false;
     } else {
-        // For more than 2 matching game cards, keep swiper disabled
-        matchingGameCards.forEach(function(card) {
-            card.style.display = 'block'; // Show the card
-        });
+        // Enable swiping when more than 2 cards are displayed
+        swiper.allowSlidePrev = swiper.allowSlideNext = true;
     }
 }
 
-// Add an event listener to the search input
+// Add an event listener to the search input to trigger search on input change
 var searchInput = document.querySelector('.search-txt');
 searchInput.addEventListener('input', searchGames);
+
+// Initialize Swiper
+var swiper = new Swiper(".trending-content", {
+    slidesPerView: 1,
+    spaceBetween: 10,
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+    },
+    autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+    },
+    breakpoints: {
+        640: {
+            slidesPerView: 2,
+            spaceBetween: 10,
+        },
+        768: {
+            slidesPerView: 3,
+            spaceBetween: 15,
+        },
+        1068: {
+            slidesPerView: 4,
+            spaceBetween: 20,
+        },
+    },
+});
+
+// Initial display of cards (modify as needed)
+searchGames();
+
+// Rest of your code...
+
 
 
