@@ -12,8 +12,8 @@ var swiper = new Swiper(".trending-content", {
       clickable: true,
     },
     autoplay: {
-    delay:0.1111,
-    disableOnInteraction: true,
+    delay:3000,
+    disableOnInteraction: false,
     },
     breakpoints: {
       640: {
@@ -43,6 +43,7 @@ const favoriteButtons = document.querySelectorAll('.favorite-button');
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.send(JSON.stringify({ gameId }));
   }
+
 
 
 
