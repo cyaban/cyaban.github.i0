@@ -8,68 +8,34 @@ function searchGames() {
     // Convert the search input value to lowercase for case-insensitive search
     var searchTerm = input.value.toLowerCase();
 
-    // Variable to keep track of the number of cards displayed
-    var displayedCardCount = 0;
-
     // Loop through all game cards
-    gameCards.forEach(function (card) {
+    gameCards.forEach(function(card) {
         var title = card.querySelector('h2').textContent.toLowerCase(); // Get the game title
 
         // Check if the game title contains the search term
         if (title.includes(searchTerm)) {
             card.style.display = 'block'; // Show the card if it matches the search term
-            displayedCardCount++;
         } else {
             card.style.display = 'none'; // Hide the card if it doesn't match
         }
     });
 
-    // Check the number of displayed cards and handle accordingly
-    if (displayedCardCount === 1 || displayedCardCount === 2) {
-        // Disable swiping when 1 or 2 cards are displayed
-        swiper.allowSlidePrev = swiper.allowSlideNext = false;
+    // Access the swiper instance
+    var swiper = document.querySelector(".trending-content").swiper;
+
+    if (searchTerm === '') {
+        // Re-enable autoplay if the search term is empty
+        swiper.autoplay.start();
     } else {
-        // Enable swiping when more than 2 cards are displayed
-        swiper.allowSlidePrev = swiper.allowSlideNext = true;
+        // Disable autoplay if a search term is entered
+        swiper.autoplay.stop();
     }
 }
 
-// Add an event listener to the search input to trigger search on input change
+// Add an event listener to the search input
 var searchInput = document.querySelector('.search-txt');
 searchInput.addEventListener('input', searchGames);
 
-// Initialize Swiper
-var swiper = new Swiper(".trending-content", {
-    slidesPerView: 1,
-    spaceBetween: 10,
-    pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-    },
-    autoplay: {
-        delay: 3000,
-        disableOnInteraction: false,
-    },
-    breakpoints: {
-        640: {
-            slidesPerView: 2,
-            spaceBetween: 10,
-        },
-        768: {
-            slidesPerView: 3,
-            spaceBetween: 15,
-        },
-        1068: {
-            slidesPerView: 4,
-            spaceBetween: 20,
-        },
-    },
-});
-
-// Initial display of cards (modify as needed)
-searchGames();
-
-// Rest of your code...
 
 
 
