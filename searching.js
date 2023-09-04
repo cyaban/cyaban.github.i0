@@ -4,6 +4,8 @@ function searchGames() {
   var input = document.querySelector('.search-txt');
   // Get the game cards
   var gameCards = document.querySelectorAll('.swiper-slide');
+  // Get the swiper instance
+  var swiper = document.querySelector('.swiper-container').swiper;
 
   // Convert the search input value to lowercase for case-insensitive search
   var searchTerm = input.value.toLowerCase();
