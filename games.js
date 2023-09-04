@@ -1,74 +1,36 @@
-let swiper;
-
-document.addEventListener('DOMContentLoaded', function () {
-  swiper = new Swiper(".trending-content", {
-    slidesPerView: 1,
-    spaceBetween: 10,
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
-    autoplay: {
-      delay: 3000,
-      disableOnInteraction: false,
-    },
-    breakpoints: {
-      640: {
-        slidesPerView: 2,
-        spaceBetween: 10,
-      },
-      768: {
-        slidesPerView: 3,
-        spaceBetween: 15,
-      },
-      1068: {
-        slidesPerView: 4,
-        spaceBetween: 20,
-      },
-    },
-  });
-});
-
-// Function to handle the search input
-function searchGames() {
-  // Get the search input element
-  var input = document.querySelector('.search-txt');
-  // Get the game cards
-  var gameCards = document.querySelectorAll('.swiper-slide');
-
-  // Convert the search input value to lowercase for case-insensitive search
-  var searchTerm = input.value.toLowerCase();
-
-  // Pause the Swiper autoplay while searching
-  swiper.autoplay.stop();
-
-  // Loop through all game cards
-  gameCards.forEach(function (card) {
-    var title = card.querySelector('h2').textContent.toLowerCase(); // Get the game title
-
-    // Check if the game title contains the search term
-    if (title.includes(searchTerm)) {
-      card.style.display = 'block'; // Show the card if it matches the search term
-    } else {
-      card.style.display = 'none'; // Hide the card if it doesn't match
-    }
-  });
-
-  // Resume the Swiper autoplay after the search
-  swiper.autoplay.start();
-}
-
-// Add an event listener to the search input
-var searchInput = document.querySelector('.search-txt');
-searchInput.addEventListener('input', searchGames);
-
-// Rest of your code for menu and favorite buttons
-const menu = document.querySelector('.menu-icon');
-const navbar = document.querySelector('.menu');
+let menu = document.querySelector('.menu-icon');
+let navbar = document.querySelector('.menu');
 menu.onclick = () => {
   navbar.classList.toggle('active');
   menu.classList.toggle('move');
-};
+}
+
+var swiper = new Swiper(".trending-content", {
+  slidesPerView: 1,
+  spaceBetween: 10,
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+  autoplay: {
+    delay: 3000,
+    disableOnInteraction: false,
+  },
+  breakpoints: {
+    640: {
+      slidesPerView: 2,
+      spaceBetween: 10,
+    },
+    768: {
+      slidesPerView: 3,
+      spaceBetween: 15,
+    },
+    1068: {
+      slidesPerView: 4,
+      spaceBetween: 20,
+    },
+  },
+});
 
 const favoriteButtons = document.querySelectorAll('.favorite-button');
 favoriteButtons.forEach(button => {
@@ -83,6 +45,41 @@ function addToFavorites(event) {
   xhr.setRequestHeader('Content-Type', 'application/json');
   xhr.send(JSON.stringify({ gameId }));
 }
+
+// Function to handle the search input
+function searchGames() {
+  // Get the search input element
+  var input = document.querySelector('.search-txt');
+  // Get the game cards
+  var gameCards = document.querySelectorAll('.swiper-slide');
+
+  // Convert the search input value to lowercase for case-insensitive search
+  var searchTerm = input.value.toLowerCase();
+
+  // Pause autoplay when the user interacts with the search input
+  swiper.autoplay.stop();
+
+  // Loop through all game cards
+  gameCards.forEach(function (card) {
+    var title = card.querySelector('h2').textContent.toLowerCase(); // Get the game title
+
+    // Check if the game title contains the search term
+    if (title.includes(searchTerm)) {
+      card.style.display = 'block'; // Show the card if it matches the search term
+    } else {
+      card.style.display = 'none'; // Hide the card if it doesn't match
+    }
+  });
+}
+
+// Add an event listener to the search input
+var searchInput = document.querySelector('.search-txt');
+searchInput.addEventListener('input', searchGames);
+
+// Resume autoplay when the search input is blurred
+searchInput.addEventListener('blur', function () {
+  swiper.autoplay.start();
+});
 
 
 
