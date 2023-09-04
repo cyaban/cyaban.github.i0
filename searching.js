@@ -14,7 +14,7 @@ function searchGames() {
 
         // Check if the game title contains the search term
         if (title.includes(searchTerm)) {
-            card.style.display = 'block'; // Show the card if it matches the search term
+            card.style.display = ''; // Show the card if it matches the search term
         } else {
             card.style.display = 'none'; // Hide the card if it doesn't match
         }
@@ -59,4 +59,3 @@ var swiper = new Swiper(".trending-content", {
         },
     },
 });
-
