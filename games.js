@@ -79,3 +79,6 @@ function searchGames() {
 // Add an event listener to the search input
 var searchInput = document.querySelector('.search-txt');
 searchInput.addEventListener('input', searchGames);
+
+// Ensure autoplay stops when the page loads and no input is present
+swiper.autoplay.stop();
