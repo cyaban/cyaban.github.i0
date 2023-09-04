@@ -8,15 +8,6 @@ function searchGames() {
   // Convert the search input value to lowercase for case-insensitive search
   var searchTerm = input.value.toLowerCase();
 
-  // Toggle autoplay based on search input
-  if (searchTerm.length > 0 && autoplayEnabled) {
-    swiper.autoplay.stop();
-    autoplayEnabled = false;
-  } else if (searchTerm.length === 0 && !autoplayEnabled) {
-    swiper.autoplay.start();
-    autoplayEnabled = true;
-  }
-
   // Loop through all game cards
   gameCards.forEach(function (card) {
     var title = card.querySelector('h2').textContent.toLowerCase(); // Get the game title
@@ -28,6 +19,13 @@ function searchGames() {
       card.style.display = 'none'; // Hide the card if it doesn't match
     }
   });
+
+  // Toggle autoplay based on search input
+  if (searchTerm.length > 0) {
+    swiper.autoplay.stop();
+  } else {
+    swiper.autoplay.start();
+  }
 }
 
 // Add an event listener to the search input
