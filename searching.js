@@ -22,8 +22,8 @@ function searchGames() {
 }
 
 // Add an event listener to the search input
-var searchInputListener = document.querySelector('.search-txt');
-searchInputListener.addEventListener('input', searchGames);
+var searchInput = document.querySelector('.search-txt');
+searchInput.addEventListener('input', searchGames);
 
 // The rest of your code remains unchanged
 let menu = document.querySelector('.menu-icon');
@@ -60,16 +60,3 @@ var swiper = new Swiper(".trending-content", {
     },
 });
 
-const favoriteButtons = document.querySelectorAll('.favorite-button');
-favoriteButtons.forEach(button => {
-    button.addEventListener('click', addToFavorites);
-});
-
-function addToFavorites(event) {
-    const gameId = event.target.dataset.gameId;
-
-    const xhr = new XMLHttpRequest();
-    xhr.open('POST', '/api/favorites', true);
-    xhr.setRequestHeader('Content-Type', 'application/json');
-    xhr.send(JSON.stringify({ gameId }));
-}
