@@ -3,9 +3,7 @@ let navbar = document.querySelector('.menu');
 menu.onclick = () => {
   navbar.classList.toggle('active');
   menu.classList.toggle('move');
-};
-
-var autoplayEnabled = true; // Flag to control autoplay
+}
 
 var swiper = new Swiper(".trending-content", {
   slidesPerView: 1,
@@ -52,16 +50,14 @@ function addToFavorites(event) {
 function searchGames() {
   // Get the search input element
   var input = document.querySelector('.search-txt');
-
-  if (autoplayEnabled) {
-    swiper.autoplay.stop();
-  }
-
   // Get the game cards
   var gameCards = document.querySelectorAll('.swiper-slide');
 
   // Convert the search input value to lowercase for case-insensitive search
   var searchTerm = input.value.toLowerCase();
+
+  // Pause autoplay when the search input is focused
+  swiper.autoplay.stop();
 
   // Loop through all game cards
   gameCards.forEach(function (card) {
@@ -80,11 +76,9 @@ function searchGames() {
 var searchInput = document.querySelector('.search-txt');
 searchInput.addEventListener('input', searchGames);
 
-// Resume autoplay when the search input is cleared
+// Resume autoplay when the search input is blurred
 searchInput.addEventListener('blur', function () {
-  if (autoplayEnabled) {
-    swiper.autoplay.start();
-  }
+  swiper.autoplay.start();
 });
 
 
