@@ -1,10 +1,7 @@
-let menu=document.querySelector('.menu-icon');
-let navbar=document.querySelector('.menu');
-menu.onclick=()=>{
-    navbar.classList.toggle('active');
-    menu.classList.toggle('move');
-}
-var swiper = new Swiper(".trending-content", {
+let swiper;
+
+document.addEventListener('DOMContentLoaded', function () {
+  swiper = new Swiper(".trending-content", {
     slidesPerView: 1,
     spaceBetween: 10,
     pagination: {
@@ -12,8 +9,8 @@ var swiper = new Swiper(".trending-content", {
       clickable: true,
     },
     autoplay: {
-    delay:3000,
-    disableOnInteraction: false,
+      delay: 3000,
+      disableOnInteraction: false,
     },
     breakpoints: {
       640: {
@@ -30,7 +27,15 @@ var swiper = new Swiper(".trending-content", {
       },
     },
   });
-const favoriteButtons = document.querySelectorAll('.favorite-button');
+
+  const menu = document.querySelector('.menu-icon');
+  const navbar = document.querySelector('.menu');
+  menu.onclick = () => {
+    navbar.classList.toggle('active');
+    menu.classList.toggle('move');
+  };
+
+  const favoriteButtons = document.querySelectorAll('.favorite-button');
   favoriteButtons.forEach(button => {
     button.addEventListener('click', addToFavorites);
   });
@@ -43,6 +48,7 @@ const favoriteButtons = document.querySelectorAll('.favorite-button');
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.send(JSON.stringify({ gameId }));
   }
+});
 
 
 
