@@ -1,32 +1,3 @@
-// Declare swiper variable
-var swiper = new Swiper(".trending-content", {
-    slidesPerView: 1,
-    spaceBetween: 10,
-    pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-    },
-    autoplay: {
-        delay: 3000,
-        disableOnInteraction: false,
-    },
-    breakpoints: {
-        640: {
-            slidesPerView: 2,
-            spaceBetween: 10,
-        },
-        768: {
-            slidesPerView: 3,
-            spaceBetween: 15,
-        },
-        1068: {
-            slidesPerView: 4,
-            spaceBetween: 20,
-        },
-    },
-});
-
-// Function to handle the search input
 function searchGames() {
     // Disable swiper
     swiper.autoplay.stop();
@@ -51,16 +22,11 @@ function searchGames() {
             card.style.display = 'none'; // Hide the card if it doesn't match
         }
     });
+    
+    // Re-enable swiper if the search input is empty
+    if (searchTerm === '') {
+        enableSwiper();
+    }
 }
 
-// Function to re-enable swiper after searching
-function enableSwiper() {
-    swiper.autoplay.start();
-    swiper.allowTouchMove = true;
-}
-
-// Add an event listener to the search input
-var searchInput = document.querySelector('.search-txt');
-searchInput.addEventListener('input', searchGames);
-searchInput.addEventListener('blur', enableSwiper); // Re-enable swiper when the input loses focus
 
