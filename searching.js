@@ -1,3 +1,6 @@
+// ...
+
+// Function to handle the search input
 function searchGames() {
   // Get the search input element
   var input = document.querySelector('.search-txt');
@@ -7,7 +10,7 @@ function searchGames() {
   // Convert the search input value to lowercase for case-insensitive search
   var searchTerm = input.value.toLowerCase();
 
-  // Pause the Swiper autoplay while searching
+  // Stop autoplay immediately when there's any input in the search bar
   swiper.autoplay.stop();
 
   // Loop through all game cards
@@ -21,11 +24,19 @@ function searchGames() {
       card.style.display = 'none'; // Hide the card if it doesn't match
     }
   });
-
-  // Resume the Swiper autoplay after the search
-  swiper.autoplay.start();
 }
 
+// ...
 
+// Pause autoplay when the search input is focused
+searchInput.addEventListener('focus', function () {
+  swiper.autoplay.stop();
+});
 
+// Resume autoplay when the search input is blurred
+searchInput.addEventListener('blur', function () {
+  swiper.autoplay.start();
+});
+
+// ...
 
