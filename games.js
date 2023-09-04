@@ -5,6 +5,8 @@ menu.onclick = () => {
   menu.classList.toggle('move');
 };
 
+var autoplayEnabled = true; // Flag to control autoplay
+
 var swiper = new Swiper(".trending-content", {
   slidesPerView: 1,
   spaceBetween: 10,
@@ -51,8 +53,9 @@ function searchGames() {
   // Get the search input element
   var input = document.querySelector('.search-txt');
 
-  // Pause autoplay during search
-  swiper.autoplay.stop();
+  if (autoplayEnabled) {
+    swiper.autoplay.stop();
+  }
 
   // Get the game cards
   var gameCards = document.querySelectorAll('.swiper-slide');
@@ -79,7 +82,9 @@ searchInput.addEventListener('input', searchGames);
 
 // Resume autoplay when the search input is cleared
 searchInput.addEventListener('blur', function () {
-  swiper.autoplay.start();
+  if (autoplayEnabled) {
+    swiper.autoplay.start();
+  }
 });
 
 
