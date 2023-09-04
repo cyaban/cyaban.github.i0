@@ -8,9 +8,10 @@ function searchGames() {
     // Convert the search input value to lowercase for case-insensitive search
     var searchTerm = input.value.toLowerCase();
 
-    // Disable swiper
-    swiper.autoplay.stop();
-    swiper.detachEvents();
+    // Destroy the swiper instance
+    if (swiper) {
+        swiper.destroy();
+    }
 
     // Loop through all game cards
     gameCards.forEach(function(card) {
@@ -24,11 +25,64 @@ function searchGames() {
         }
     });
 
-    // Re-enable swiper
-    swiper.autoplay.start();
-    swiper.attachEvents();
+    // Reinitialize the swiper instance
+    swiper = new Swiper(".trending-content", {
+        slidesPerView: 1,
+        spaceBetween: 10,
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+        autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+        },
+        breakpoints: {
+            640: {
+                slidesPerView: 2,
+                spaceBetween: 10,
+            },
+            768: {
+                slidesPerView: 3,
+                spaceBetween: 15,
+            },
+            1068: {
+                slidesPerView: 4,
+                spaceBetween: 20,
+            },
+        },
+    });
 }
+
+// Declare swiper variable
+var swiper = new Swiper(".trending-content", {
+    slidesPerView: 1,
+    spaceBetween: 10,
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+    },
+    autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+    },
+    breakpoints: {
+        640: {
+            slidesPerView: 2,
+            spaceBetween: 10,
+        },
+        768: {
+            slidesPerView: 3,
+            spaceBetween: 15,
+        },
+        1068: {
+            slidesPerView: 4,
+            spaceBetween: 20,
+        },
+    },
+});
 
 // Add an event listener to the search input
 var searchInput = document.querySelector('.search-txt');
 searchInput.addEventListener('input', searchGames);
+
