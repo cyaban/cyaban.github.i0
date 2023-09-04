@@ -37,10 +37,23 @@ favoriteButtons.forEach(button => {
   button.addEventListener('click', addToFavorites);
 });
 
+function addToFavorites(event) {
+  const gameId = event.target.dataset.gameId;
+
+  const xhr = new XMLHttpRequest();
+  xhr.open('POST', '/api/favorites', true);
+  xhr.setRequestHeader('Content-Type', 'application/json');
+  xhr.send(JSON.stringify({ gameId }));
+}
+
 // Function to handle the search input
 function searchGames() {
   // Get the search input element
   var input = document.querySelector('.search-txt');
+
+  // Pause autoplay during search
+  swiper.autoplay.stop();
+
   // Get the game cards
   var gameCards = document.querySelectorAll('.swiper-slide');
 
@@ -64,12 +77,7 @@ function searchGames() {
 var searchInput = document.querySelector('.search-txt');
 searchInput.addEventListener('input', searchGames);
 
-// Disable autoplay when the search input is focused
-searchInput.addEventListener('focus', function () {
-  swiper.autoplay.stop();
-});
-
-// Resume autoplay when the search input is blurred
+// Resume autoplay when the search input is cleared
 searchInput.addEventListener('blur', function () {
   swiper.autoplay.start();
 });
