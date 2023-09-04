@@ -47,11 +47,11 @@ function addToFavorites(event) {
     xhr.send(JSON.stringify({ gameId }));
 }
 
+// Flag to track whether swiper should be disabled
+let swiperDisabled = false;
+
 // Function to handle the search input
 function searchGames() {
-    // Pause the swiper when searching
-    swiper.autoplay.stop();
-
     // Get the search input element
     var input = document.querySelector('.search-txt');
     // Get the game cards
@@ -80,13 +80,16 @@ function searchGames() {
     if (displayedCardCount === 1 || displayedCardCount === 2) {
         // Handle when 1 or 2 cards are displayed (e.g., disable swiping)
         swiper.allowSlidePrev = swiper.allowSlideNext = false;
+        swiperDisabled = true;
     } else {
         // Enable swiping when more than 2 cards are displayed
         swiper.allowSlidePrev = swiper.allowSlideNext = true;
+        swiperDisabled = false;
     }
-    
-    // Resume autoplay if search is complete
-    if (swiper.allowSlidePrev && swiper.allowSlideNext) {
+
+    // If swiper was disabled and search is complete, re-enable it
+    if (!swiperDisabled) {
+        swiper.slideTo(0); // Reset swiper to the first slide
         swiper.autoplay.start();
     }
 }
@@ -94,6 +97,5 @@ function searchGames() {
 // Add an event listener to the search input to trigger search on input change
 var searchInput = document.querySelector('.search-txt');
 searchInput.addEventListener('input', searchGames);
-
 
 
