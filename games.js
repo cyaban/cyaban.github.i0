@@ -56,9 +56,6 @@ function searchGames() {
   // Convert the search input value to lowercase for case-insensitive search
   var searchTerm = input.value.toLowerCase();
 
-  // Pause autoplay when the search input is focused
-  swiper.autoplay.stop();
-
   // Loop through all game cards
   gameCards.forEach(function (card) {
     var title = card.querySelector('h2').textContent.toLowerCase(); // Get the game title
@@ -75,11 +72,6 @@ function searchGames() {
 // Add an event listener to the search input
 var searchInput = document.querySelector('.search-txt');
 searchInput.addEventListener('input', searchGames);
-
-// Resume autoplay when the search input is blurred
-searchInput.addEventListener('blur', function () {
-  swiper.autoplay.start();
-});
 
 
 
