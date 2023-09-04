@@ -56,6 +56,13 @@ function searchGames() {
   // Convert the search input value to lowercase for case-insensitive search
   var searchTerm = input.value.toLowerCase();
 
+  // Pause autoplay when the search input is focused
+  if (searchTerm.length > 0) {
+    swiper.autoplay.stop();
+  } else {
+    swiper.autoplay.start();
+  }
+
   // Loop through all game cards
   gameCards.forEach(function (card) {
     var title = card.querySelector('h2').textContent.toLowerCase(); // Get the game title
@@ -67,20 +74,10 @@ function searchGames() {
       card.style.display = 'none'; // Hide the card if it doesn't match
     }
   });
-
-  // Pause autoplay when the search input is focused
-  if (searchTerm.length > 0) {
-    swiper.autoplay.stop();
-  } else {
-    swiper.autoplay.start();
-  }
 }
 
 // Add an event listener to the search input
 var searchInput = document.querySelector('.search-txt');
 searchInput.addEventListener('input', searchGames);
-
-// Ensure autoplay stops when the page loads
-swiper.autoplay.stop();
 
 
