@@ -1,34 +1,26 @@
-<script>
-    // Function to set the background image
-    function setCustomBackground() {
-        const backgroundInput = document.getElementById("background-input");
-        const allCards = document.querySelector(".allcards");
+document.addEventListener("DOMContentLoaded", function() {
+  var saveButton = document.getElementById("save-button");
+  saveButton.addEventListener("click", function() {
+    var backgroundInput = document.getElementById("background-input");
+    var imageURL = backgroundInput.value;
 
-        // Get the URL entered by the user
-        const imageUrl = backgroundInput.value;
-
-        // Check if the URL is not empty
-        if (imageUrl.trim() !== "") {
-            allCards.style.backgroundImage = `url('${imageUrl}')`;
-        } else {
-            alert("Please enter a valid image URL.");
-        }
-
-        // Clear the input field
-        backgroundInput.value = "";
+    if (imageURL !== "") {
+      localStorage.setItem("backgroundImage", imageURL);
+      document.querySelector(".allcards").style.backgroundImage = "url('" + imageURL + "')";
+      backgroundInput.value = "";
+    } else {
+      alert("Please enter a valid image URL.");
     }
+  });
 
-    // Function to reset the background to default
-    function resetBackground() {
-        const allCards = document.querySelector(".allcards");
-        allCards.style.backgroundImage = "none";
-    }
+  var resetButton = document.getElementById("reset-button");
+  resetButton.addEventListener("click", function() {
+    localStorage.removeItem("backgroundImage");
+    document.querySelector(".allcards").style.backgroundImage = "none";
+  });
 
-    // Event listener for the "Save" button
-    const saveButton = document.getElementById("save-button");
-    saveButton.addEventListener("click", setCustomBackground);
-
-    // Event listener for the "Reset" button
-    const resetButton = document.getElementById("reset-button");
-    resetButton.addEventListener("click", resetBackground);
-</script>
+  var savedBackgroundImage = localStorage.getItem("backgroundImage");
+  if (savedBackgroundImage) {
+    document.querySelector(".allcards").style.backgroundImage = "url('" + savedBackgroundImage + "')";
+  }
+});
