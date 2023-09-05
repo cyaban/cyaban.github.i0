@@ -1,33 +1,24 @@
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        var saveButton = document.getElementById("save-button");
-        var resetButton = document.getElementById("reset-button");
-        var allCards = document.querySelector(".allcards");
-    
-        // Load the saved background image from localStorage
-        var savedBackgroundImage = localStorage.getItem("backgroundImage");
-        if (savedBackgroundImage) {
-            allCards.style.backgroundImage = "url('" + savedBackgroundImage + "')";
-        }
-    
-        // Save button click event
-        saveButton.addEventListener("click", function() {
-            var backgroundInput = document.getElementById("background-input");
-            var imageURL = backgroundInput.value;
-    
-            if (imageURL.trim() !== "") {
-                localStorage.setItem("backgroundImage", imageURL);
-                allCards.style.backgroundImage = "url('" + imageURL + "')";
-                backgroundInput.value = "";
-            } else {
-                alert("Please enter a valid image URL.");
-            }
-        });
-    
-        // Reset button click event
-        resetButton.addEventListener("click", function() {
-            localStorage.removeItem("backgroundImage");
-            allCards.style.backgroundImage = "none";
-        });
+// JavaScript
+document.addEventListener("DOMContentLoaded", function () {
+    const card = document.querySelector(".card");
+    const backgroundInput = document.getElementById("background-input");
+    const saveButton = document.getElementById("save-button");
+    const resetButton = document.getElementById("reset-button");
+
+    // Function to set the background image
+    function setBackgroundImage(url) {
+        card.style.backgroundImage = `url(${url})`;
+    }
+
+    // Event listener for the Save button
+    saveButton.addEventListener("click", function () {
+        const imageUrl = backgroundInput.value;
+        setBackgroundImage(imageUrl);
     });
-</script>
+
+    // Event listener for the Reset button
+    resetButton.addEventListener("click", function () {
+        backgroundInput.value = "";
+        card.style.backgroundImage = "none";
+    });
+});
