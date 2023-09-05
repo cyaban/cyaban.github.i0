@@ -33,7 +33,7 @@
   <script>
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('sw.js');
-      navigator.serviceWorker.register('/uv.sw.js', {
+      navigator.serviceWorker.register('register-sw.js', {
           scope: '/uv/service/',
       });
     };
