@@ -7,5 +7,5 @@ self.__uv$config = {
     client: '/uv/uv.client.js',
     bundle: '/uv/uv.bundle.js',
     config: '/uv/uv.config.js',
-    sw: 'sw.js',
+    sw: '/uv/uv.sw.js',
 };
