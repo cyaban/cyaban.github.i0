@@ -1,21 +1,34 @@
-const cardContainer = document.getElementById('card-container');
-        const backgroundInput = document.getElementById('background-input');
-        const saveButton = document.getElementById('save-button');
-        const resetButton = document.getElementById('reset-button');
+<script>
+    // Function to set the background image
+    function setCustomBackground() {
+        const backgroundInput = document.getElementById("background-input");
+        const allCards = document.querySelector(".allcards");
 
-        // Function to set the background of the card container
-        function setBackground(backgroundURL) {
-            cardContainer.style.backgroundImage = `url(${backgroundURL})`;
+        // Get the URL entered by the user
+        const imageUrl = backgroundInput.value;
+
+        // Check if the URL is not empty
+        if (imageUrl.trim() !== "") {
+            allCards.style.backgroundImage = `url('${imageUrl}')`;
+        } else {
+            alert("Please enter a valid image URL.");
         }
 
-        // Event listener for the Save button
-        saveButton.addEventListener('click', () => {
-            const imageURL = backgroundInput.value;
-            setBackground(imageURL);
-        });
+        // Clear the input field
+        backgroundInput.value = "";
+    }
 
-        // Event listener for the Reset button
-        resetButton.addEventListener('click', () => {
-            backgroundInput.value = ''; // Clear the input field
-            cardContainer.style.backgroundImage = 'none'; // Reset background
-        });
+    // Function to reset the background to default
+    function resetBackground() {
+        const allCards = document.querySelector(".allcards");
+        allCards.style.backgroundImage = "none";
+    }
+
+    // Event listener for the "Save" button
+    const saveButton = document.getElementById("save-button");
+    saveButton.addEventListener("click", setCustomBackground);
+
+    // Event listener for the "Reset" button
+    const resetButton = document.getElementById("reset-button");
+    resetButton.addEventListener("click", resetBackground);
+</script>
