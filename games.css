@@ -553,3 +553,5 @@ transition: .4s;
 line-height: 30px;
 width: 300px;
 }
+/* Set background color to red with 50% transparency */
+background-color: rgba(255, 0, 0, 0.5);
