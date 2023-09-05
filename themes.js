@@ -1,32 +1,23 @@
-// Function to save the custom background to local storage
+// Function to save background image URL to local storage
 document.getElementById('save-button').addEventListener('click', function () {
-    const backgroundImageUrl = document.getElementById('background-input').value;
-    localStorage.setItem('customBackground', backgroundImageUrl);
-    applyCustomBackground(backgroundImageUrl);
+    const backgroundImageURL = document.getElementById('background-input').value;
+    localStorage.setItem('customBackground', backgroundImageURL);
+    // Apply the background image to your theme here
+    document.body.style.backgroundImage = `url('${backgroundImageURL}')`;
 });
 
-// Function to reset the custom background to the default
+// Function to reset background image and clear local storage
 document.getElementById('reset-button').addEventListener('click', function () {
     localStorage.removeItem('customBackground');
-    applyCustomBackground(null); // Reset to default
+    // Reset the background image to the default here
+    document.body.style.backgroundImage = 'none';
+    document.getElementById('background-input').value = '';
 });
 
-// Function to apply the custom background
-function applyCustomBackground(backgroundImageUrl) {
-    const body = document.body;
-    if (backgroundImageUrl) {
-        body.style.backgroundImage = `url('${backgroundImageUrl}')`;
-        body.style.backgroundSize = 'cover';
-    } else {
-        // Reset to default background
-        body.style.backgroundImage = 'none';
-        body.style.backgroundColor = '#fff';
-    }
-}
-
-// Check if a custom background is stored in local storage and apply it
+// Check if there's a saved background image in local storage
 const savedBackground = localStorage.getItem('customBackground');
 if (savedBackground) {
+    // Apply the saved background image to your theme here
+    document.body.style.backgroundImage = `url('${savedBackground}')`;
     document.getElementById('background-input').value = savedBackground;
-    applyCustomBackground(savedBackground);
 }
