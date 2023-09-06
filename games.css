@@ -504,9 +504,8 @@ cursor: pointer;
 .search-container {
     width: 100%;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
     padding: 20px 0; /* Adjust padding to control the gap */
     background: rgba(0, 0, 0, 0.6);
     position: relative;
@@ -515,7 +514,6 @@ cursor: pointer;
 
 .search-box {
     background: #2f3640;
-    height: 50px;
     border-radius: 50px;
     padding: 10px 15px;
     display: flex;
@@ -550,16 +548,14 @@ cursor: pointer;
     border: none;
     background: none;
     outline: none;
-    float: left;
     flex: 1;
     padding: 0;
     color: white;
     font-size: 16px;
-    padding: 24px 20px;
-    transition: .4s;
     line-height: 30px;
     width: 300px;
 }
+
 
 
 
