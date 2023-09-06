@@ -503,7 +503,7 @@ cursor: pointer;
 }
 .search-container {
     width: 100%;
-    height: 80vh; /* Use the full viewport height */
+    height: 50vh; /* Use the full viewport height */
     display: flex;
     flex-direction: column; /* Stack items vertically */
     align-items: center;
