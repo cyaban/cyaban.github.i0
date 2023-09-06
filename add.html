@@ -10,3 +10,55 @@
     <script src="addons.js"></script>
 </body>
 </html>
+ <div class="section" data-section="addons">
+299	      <h2>Addons</h2>
+300	      <div class="addon-controls">
+301	        <label for="addon-category">Category:</label>
+302	        <select id="addon-category" name="addonCategory">
+303	          <option value="all">All</option>
+304	          <option value="plugins">Plugins</option>
+305	          <option value="themes">Themes</option>
+306	        </select>
+307	        <input type="text" id="addon-search" placeholder="Search Addons">
+308	        <button onclick="window.open('https://forms.gle/QcnfUxXCc3UjChaG8', '_blank');">Submit New Addon</button>
+309	        <div class="settings-item">
+310	          <label for="use-proxy-checkbox">Use Proxy:</label>
+311	          <input type="checkbox" id="use-proxy-checkbox" onchange="saveUseProxySetting(this.checked)">
+312	        </div>            
+313	      </div>
+314	      <div class="addon-grid">
+315	      </div>
+316	      <!--div id="submission-form" style="display: none;">
+317	        <h3>Submit New Addon</h3>
+318	        <form id="addon-form">
+319	          <label for="addon-name">Name:</label>
+320	          <input type="text" id="addon-name" required><br>
+321	          
+322	          <label for="addon-category">Category:</label>
+323	          <select id="addon-category" required>
+324	            <option value="plugins">Plugin</option>
+325	            <option value="themes">Theme</option>
+326	          </select><br>
+327	          
+328	          <label for="addon-description">Description:</label>
+329	          <textarea id="addon-description" required></textarea><br>
+330	          
+331	          <label for="addon-publisher">Publisher:</label>
+332	          <input type="text" id="addon-publisher" required><br>
+333	          
+334	          <label for="addon-url">URL:</label>
+335	          <input type="url" id="addon-url" required><br>
+336	          
+337	          <button type="submit">Submit</button>
+338	        </form>
+339	      </div-->
+340	      <script src="addons.js"></script>
+341	      <!--script>
+342	        const submitAddonButton = document.getElementById('submit-addon-button');
+343	        const submissionForm = document.getElementById('submission-form');
+344	 
+345	        submitAddonButton.addEventListener('click', () => {
+346	          submissionForm.style.display = 'block';
+347	        });
+348	      </script-->
+349	    </div>
