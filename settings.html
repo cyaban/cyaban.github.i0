@@ -198,6 +198,38 @@
             });
         </script>
     </div>
+    <script>
+        // Function to apply the custom background image
+        function applyBackgroundImage() {
+            const imageUrl = document.getElementById('background-input').value;
+            
+            // Apply the background image to the body
+            document.body.style.backgroundImage = `url('${imageUrl}')`;
+            
+            // Save the selected image URL to local storage
+            localStorage.setItem('customBackgroundImage', imageUrl);
+        }
+
+        // Function to reset the background image
+        function resetBackgroundImage() {
+            // Remove the background image from the body
+            document.body.style.backgroundImage = 'none';
+            
+            // Clear the background image URL from local storage
+            localStorage.removeItem('customBackgroundImage');
+        }
+
+        // Check if there's a previously selected background image URL in local storage
+        const storedImageUrl = localStorage.getItem('customBackgroundImage');
+        if (storedImageUrl) {
+            document.body.style.backgroundImage = `url('${storedImageUrl}')`;
+            document.getElementById('background-input').value = storedImageUrl;
+        }
+
+        // Add event listeners to buttons
+        document.getElementById('save-button').addEventListener('click', applyBackgroundImage);
+        document.getElementById('reset-button').addEventListener('click', resetBackgroundImage);
+    </script>
 </body>
 </html>
 <script src="games.js"></script>  
