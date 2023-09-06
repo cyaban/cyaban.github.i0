@@ -518,7 +518,7 @@ cursor: pointer;
     display: flex;
     align-items: center;
     position: relative; /* Remove absolute positioning */
-    top: 40vh; /* Adjust the value to lower the container */
+    top: 20vh; /* Adjust the value to lower the container */
 }
 
 .search-btn {
