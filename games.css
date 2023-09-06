@@ -508,7 +508,6 @@ cursor: pointer;
     flex-direction: column; /* Stack the elements vertically */
     align-items: center; /* Center horizontally */
     justify-content: flex-end; /* Align to the bottom of the container */
-    margin-top: 10vh; /* Adjust the margin to lower the container */
 }
 
 .search-box {
