@@ -503,11 +503,13 @@ cursor: pointer;
 }
 .search-container {
     width: 100%;
-    height: 100vh; /* Make the container take the full viewport height */
     display: flex;
-    flex-direction: column; /* Stack the elements vertically */
-    align-items: center; /* Center horizontally */
-    justify-content: flex-end; /* Align to the bottom of the container */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    padding: 20px 0; /* Add padding to the top and bottom to control the gap */
+    background: rgba(0, 0, 0, 0.6); /* Add a semi-transparent background */
+    position: relative; /* Add this to position the container */
+    z-index: 1; /* Add this to place it above other content */
 }
 
 .search-box {
