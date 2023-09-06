@@ -503,7 +503,7 @@ cursor: pointer;
 }
 .search-container {
     width: 100%;
-    height: 50vh; /* Use the full viewport height */
+    height: 100vh; /* Use the full viewport height */
     display: flex;
     flex-direction: column; /* Stack items vertically */
     align-items: center;
@@ -518,6 +518,7 @@ cursor: pointer;
     display: flex;
     align-items: center;
     position: relative; /* Remove absolute positioning */
+    top: 40vh; /* Adjust the value to lower the container */
 }
 
 .search-btn {
@@ -557,5 +558,3 @@ cursor: pointer;
     line-height: 30px;
     width: 300px;
 }
-
-/* Add any additional styling you need */
