@@ -501,127 +501,61 @@ cursor: pointer;
     color: #f22b77;
 cursor: pointer;
 }
-.search-container{
+.search-container {
     width: 100%;
-display: flex;
-align-items: center;
-justify-content: center;
+    height: 100vh; /* Use the full viewport height */
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center;
+    justify-content: center;
 }
-.search-box{
-    position: absolute;
-    top: 18%;
+
+.search-box {
     background: #2f3640;
-    height:50px;
+    height: 50px;
     border-radius: 50px;
     padding: 10px 15px;
     display: flex;
     align-items: center;
+    position: relative; /* Remove absolute positioning */
+}
 
-}
-.search-btn{
+.search-btn {
     color: #f22b77;
-float: right;
-height: 40px;
-width: 40px;
-border-radius: 50%;
-background:#2f3640;
-display: flex;
-justify-content: center;
-align-items: center;
-transition: .2s;
-cursor: pointer;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background: #2f3640;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.2s;
+    cursor: pointer;
+    margin-left: 10px; /* Add some spacing */
 }
-.search-btn:hover{
-transform: scale(1.1);
-background: white;
-color:#0d81ec ;
+
+.search-btn:hover {
+    transform: scale(1.1);
+    background: white;
+    color: #0d81ec;
 }
-.search-btn i{
+
+.search-btn i {
     font-size: 20px;
 }
-.search-txt{
+
+.search-txt {
     border: none;
     background: none;
     outline: none;
-float: left;
-flex: 1;
-padding: 0;
-color: white;
-font-size: 16px;
-padding: 24px 20px;
-transition: .4s;
-line-height: 30px;
-width: 300px;
-}
-/* Set background color to red with 50% transparency */
-background-color: rgba(255, 0, 0, 0.5);
-/* Basic styling for the container */
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-/* Styling for the header */
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-/* Styling for the filter section */
-.filter {
-    display: flex;
-    align-items: center;
-}
-
-label {
-    margin-right: 10px;
-}
-
-select, input[type="text"] {
-    padding: 5px;
-    margin-right: 10px;
-}
-
-/* Styling for the addon grid */
-.addon-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 20px;
-}
-
-/* Styling for addon items */
-.addon-item {
-    border: 1px solid #ddd;
-    padding: 10px;
-    text-align: center;
-}
-
-.addon-item h3 {
-    font-size: 1.2rem;
-    margin: 0;
-}
-
-.addon-item p {
-    margin: 10px 0;
-}
-
-.addon-publisher {
-    font-style: italic;
-}
-
-.download-button, .uninstall-button {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-    margin-top: 10px;
-}
-
-.download-button:hover, .uninstall-button:hover {
-    background-color: #0056b3;
+    flex: 1;
+    padding: 0;
+    color: white;
+    font-size: 16px;
+    padding: 24px 20px;
+    transition: 0.4s;
+    line-height: 30px;
+    width: 300px;
 }
 
 /* Add any additional styling you need */
