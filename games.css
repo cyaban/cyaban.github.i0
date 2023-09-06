@@ -507,7 +507,7 @@ cursor: pointer;
     display: flex;
     flex-direction: column; /* Stack items vertically */
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start; /* Align content at the top of the container */
 }
 
 .search-box {
@@ -517,8 +517,8 @@ cursor: pointer;
     padding: 10px 15px;
     display: flex;
     align-items: center;
-    position: relative; /* Remove absolute positioning */
-    top: 20vh; /* Adjust the value to lower the container */
+    position: relative;
+    top: 30vh; /* Adjust the value to position the search box further down */
 }
 
 .search-btn {
@@ -558,3 +558,4 @@ cursor: pointer;
     line-height: 30px;
     width: 300px;
 }
+
