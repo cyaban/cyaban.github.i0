@@ -511,7 +511,7 @@ cursor: pointer;
 
 .search-box {
     position: absolute;
-    top: 18%;
+    top: 10%; /* Adjust this value to position it higher */
     background: #2f3640;
     height: 50px;
     border-radius: 50px;
@@ -558,6 +558,7 @@ cursor: pointer;
     line-height: 30px;
     width: 300px;
 }
+
 
 
 
