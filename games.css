@@ -555,3 +555,73 @@ width: 300px;
 }
 /* Set background color to red with 50% transparency */
 background-color: rgba(255, 0, 0, 0.5);
+/* Basic styling for the container */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Styling for the header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Styling for the filter section */
+.filter {
+    display: flex;
+    align-items: center;
+}
+
+label {
+    margin-right: 10px;
+}
+
+select, input[type="text"] {
+    padding: 5px;
+    margin-right: 10px;
+}
+
+/* Styling for the addon grid */
+.addon-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+}
+
+/* Styling for addon items */
+.addon-item {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+.addon-item h3 {
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+.addon-item p {
+    margin: 10px 0;
+}
+
+.addon-publisher {
+    font-style: italic;
+}
+
+.download-button, .uninstall-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.download-button:hover, .uninstall-button:hover {
+    background-color: #0056b3;
+}
+
+/* Add any additional styling you need */
