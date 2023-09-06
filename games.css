@@ -503,11 +503,11 @@ cursor: pointer;
 }
 .search-container {
     width: 100%;
-    height: 100vh; /* Use the full viewport height */
+    height: 100vh; /* Make the container take the full viewport height */
     display: flex;
-    flex-direction: column; /* Stack items vertically */
-    align-items: center;
-    justify-content: flex-start; /* Align content at the top of the container */
+    flex-direction: column; /* Stack the elements vertically */
+    align-items: center; /* Center horizontally */
+    justify-content: center; /* Center vertically */
 }
 
 .search-box {
@@ -517,12 +517,11 @@ cursor: pointer;
     padding: 10px 15px;
     display: flex;
     align-items: center;
-    position: relative;
-    top: 30vh; /* Adjust the value to position the search box further down */
 }
 
 .search-btn {
     color: #f22b77;
+    float: right;
     height: 40px;
     width: 40px;
     border-radius: 50%;
@@ -530,9 +529,8 @@ cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: 0.2s;
+    transition: .2s;
     cursor: pointer;
-    margin-left: 10px; /* Add some spacing */
 }
 
 .search-btn:hover {
@@ -549,12 +547,13 @@ cursor: pointer;
     border: none;
     background: none;
     outline: none;
+    float: left;
     flex: 1;
     padding: 0;
     color: white;
     font-size: 16px;
     padding: 24px 20px;
-    transition: 0.4s;
+    transition: .4s;
     line-height: 30px;
     width: 300px;
 }
