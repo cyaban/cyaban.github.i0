@@ -11,10 +11,6 @@ var swiper = new Swiper(".trending-content", {
       el: ".swiper-pagination",
       clickable: true,
     },
-    autoplay: {
-    delay:3000,
-    disableOnInteraction: false,
-    },
     breakpoints: {
       640: {
         slidesPerView: 2,
