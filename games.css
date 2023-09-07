@@ -20,8 +20,8 @@
  :root {
   --main-color: #f22b77;
   /* --second-color: #0d81ec; */
-  --dark-color: rgba(0, 0, 0, 0.5); /* Set the alpha value to control transparency */
-  --light-color: rgba(0, 0, 0, 0.5); /* Set the alpha value to control transparency */
+  --dark-color: rgba(0, 0, 0, 0.5); /* Keep the same alpha value for transparency */
+  --light-color: rgba(0, 0, 0, 0.5); /* Keep the same alpha value for transparency */
   --text-color: rgb(243, 238, 238);
 }
 
@@ -42,6 +42,7 @@ body {
   color: var(--text-color);
   background: var(--dark-color);
 }
+
 
 
 
