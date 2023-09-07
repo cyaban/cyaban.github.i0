@@ -565,7 +565,9 @@ cursor: pointer;
     line-height: 30px;
     width: 300px;
 }
-
+body {
+  background-color: #000000; /* Black color */
+}
 
 
 
