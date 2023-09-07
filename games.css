@@ -20,8 +20,8 @@
  :root {
   --main-color: #f22b77;
   /* --second-color: #0d81ec; */
-  --dark-color: rgba(0, 0, 0, 0.5); /* Keep the same alpha value for transparency */
-  --light-color: rgba(0, 0, 0, 0.5); /* Keep the same alpha value for transparency */
+  --dark-color: rgba(0, 0, 0, 0); /* Set alpha to 0 for full transparency */
+  --light-color: rgba(0, 0, 0, 0.5); /* Adjust alpha value for light color transparency */
   --text-color: rgb(243, 238, 238);
 }
 
@@ -40,8 +40,9 @@ img {
 
 body {
   color: var(--text-color);
-  background: var(--dark-color);
+  background: var(--dark-color); /* This will be fully transparent but remain black (#000000) */
 }
+
 
 
 
