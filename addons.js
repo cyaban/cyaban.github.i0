@@ -25,7 +25,7 @@ const addons = [
       category: 'plugins',
       description: 'Make all pages dark so your eyes can rejoice!',
       publisher: '✅ Fusion Addons',
-      url: 'dark.js',
+      url: 'https://please-b5o2.onrender.com/dark.js',
     },
     {
       name: 'Youtube Downloader',
