@@ -25,7 +25,7 @@ const addons = [
       category: 'plugins',
       description: 'Make all pages dark so your eyes can rejoice!',
       publisher: '✅ Fusion Addons',
-      url: 'https://cdn.z1g-project.repl.co/sodium/plugins/darkmode.js',
+      url: 'dark.js',
     },
     {
       name: 'Youtube Downloader',
