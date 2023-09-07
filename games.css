@@ -17,29 +17,34 @@
     background: linear-gradient(#f22b77,#0d81ec );
     border-radius: 6px;
  }
- 
+ :root {
+  --main-color: #f22b77;
+  /* --second-color: #0d81ec; */
+  --dark-color: rgba(0, 0, 0, 0.5); /* Set the alpha value to control transparency */
+  --light-color: rgba(0, 0, 0, 0.5); /* Set the alpha value to control transparency */
+  --text-color: rgb(243, 238, 238);
+}
 
- :root{
-    --main-color:#f22b77;
-    /**- second color:#0d81ec  -**/
---dark-color:#0000; 
---light-color:#0000;
---text-color:rgb(243, 238, 238);
+::selection {
+  color: var(--text-color);
+  background: var(--main-color);
 }
-::selection{
-color: var(--text-color);
-background: var(--main-color);
+
+section {
+  padding: 4rem 0 3rem;
 }
-section{
-    padding:4rem 0 3rem ;
+
+img {
+  width: 100%;
 }
-img{
-    width: 100%;
+
+body {
+  color: var(--text-color);
+  background: var(--dark-color);
 }
-body{
-    color: var(--text-color);
-    background: var(--dark-color);
-}
+
+
+
 
 
 
