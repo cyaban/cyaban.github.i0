@@ -3,8 +3,8 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   padding: 20px;
-  justify-items: center; /* Center items horizontally */
-  align-items: center; /* Center items vertically */
+  margin: 0 auto; /* Add this line to horizontally center the grid */
+  max-width: 800px; /* Adjust the max-width to your preference */
 }
 
 .addon-item {
@@ -14,3 +14,4 @@
 }
 
 /* XSTARS was here lol */
+
