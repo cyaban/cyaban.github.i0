@@ -12,11 +12,6 @@
   border: 1px solid #ddd;
   padding: 20px;
   text-align: center;
-  width: calc((100% / 3) - 40px); /* Adjusted width to create squares */
-  height: 0;
-  padding-top: 100%; /* Set the height based on the width */
-  position: relative; /* Required for padding-top to work as a percentage of width */
 }
 
-/* XSTARS was here lol */
-
+/* XSTARS was here lol */ Make it more square 
