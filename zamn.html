@@ -9,9 +9,8 @@
     <link rel="shortcut icon" href="img/fav.png" type="image/x-icon">
     <link rel="stylesheet" href="set.css">
     <link rel="stylesheet" href="games.css">
-   <link rel="stylesheet" href="add.css">
+   <link rel="stylesheet" href=".css">
     <script src="panic.js"></script>
-    <script src="games.js"></script>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="unpkg.com_swiper@7.3.1_swiper-bundle.min.css">
@@ -39,9 +38,22 @@
         </div>
        </div>
      </div>
-    
-
-            
+   
+            <h2>Addons</h2>
+      <div class="addon-controls">
+        <label for="addon-category">Category:</label>
+        <select id="addon-category" name="addonCategory" class="config-select">
+          <option value="all">All</option>
+          <option value="plugins">Plugins</option>
+          <option value="themes">Themes</option>
+        </select>
+        <input type="text" id="addon-search" class="config-input" placeholder="Search Addons">
+        <button onclick="window.open('https://forms.gle/QcnfUxXCc3UjChaG8', '_blank');">Submit New Addon</button>
+        <div class="settings-item">
+          <label for="use-proxy-checkbox">Use Proxy:</label>
+          <input type="checkbox" id="use-proxy-checkbox" onchange="saveUseProxySetting(this.checked)">
+        </div>            
+      </div>
       <div class="addon-grid">
       </div>
       <script src="addons.js"></script>
@@ -50,8 +62,7 @@
         </div>
         <div id="output"></div>
         <script>
-            
-      
+              </script>
 </body>
 </html>
 <script src="games.js"></script>  
