@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+
+    <link rel="shortcut icon" href="img/fav.png" type="image/x-icon">
+    <link rel="stylesheet" href="set.css">
+    <link rel="stylesheet" href="games.css">
+   <link rel="stylesheet" href=".css">
+    <script src="panic.js"></script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="unpkg.com_swiper@7.3.1_swiper-bundle.min.css">
+</head>
+<body>
+    <header>
+        <div class="nav container">
+            <a href="index.html" class="logo">Fu<span>sio</span>n</a>
+       <div class="nav-icons">
+        <a href="tabz/index.html" class="btn-1" id="btn-1">Browse</a>
+        <i class="bx bx-download"></i>
+        <div class="menu-icon">
+            <div class="lineA"></div>
+            <div class="lineB"></div>
+            <div class="lineC"></div>
+    
+      </div>
+       </div>
+       <div class="menu">
+        <img src="E98786D7-B719-441A-9343-65B147D1A7C7.gif">
+        <div class="navbar">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html">Games</a></li>
+            <li><a href="settings.html">Settings</a></li>  
+        </div>
+       </div>
+     </div>
+    
+
+            <h2>Addons</h2>
+      <div class="addon-controls">
+        <label for="addon-category">Category:</label>
+        <select id="addon-category" name="addonCategory" class="config-select">
+          <option value="all">All</option>
+          <option value="plugins">Plugins</option>
+          <option value="themes">Themes</option>
+        </select>
+        <input type="text" id="addon-search" class="config-input" placeholder="Search Addons">
+        <button onclick="window.open('https://forms.gle/QcnfUxXCc3UjChaG8', '_blank');">Submit New Addon</button>
+        <div class="settings-item">
+          <label for="use-proxy-checkbox">Use Proxy:</label>
+          <input type="checkbox" id="use-proxy-checkbox" onchange="saveUseProxySetting(this.checked)">
+        </div>            
+      </div>
+      <div class="addon-grid">
+      </div>
+      <script src="addons.js"></script>
+      
+   
+<script src="games.js"></script>  
+<script src="themes.js"></script> 
