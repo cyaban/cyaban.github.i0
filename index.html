@@ -1,913 +1,387 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"><meta http-equiv="content-type" content="text/html;charset=utf-8" />
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
 
-    <link rel="shortcut icon" href="img/fav.png" type="image/x-icon">
+<title>Math is Fun</title>
+<link rel="icon" type="logo.svg" href="">
+<meta name="description" content="Math explained in easy language, plus puzzles, games, worksheets and an illustrated dictionary. For K-12 kids, teachers and parents.">
+<link rel="canonical" href="games.html">
 
-    <link rel="stylesheet" href="games.css">
 
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+<meta name="google-site-verification" content="1QExqN4_rIfOH5A4sCJ1NrcMQM3EM-Z5of_F4WSN1vM">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<style type="text/css">
 
-    <link rel="stylesheet" href="unpkg.com_swiper@7.3.1_swiper-bundle.min.css">
+	#whi {display: inherit;}
+	#wlo {display: none;}
+
+@media (max-width: 690px) {   
+	#whi {display: none;}
+	#wlo {display: inherit;}
+}
+
+.boxa {
+	text-align: center;
+	display: inline-block;
+	vertical-align: top;
+	background: linear-gradient(to bottom right, rgba(0,0,150,0.1) 0%, rgba(0,0,150,0) 100%); 
+	border-radius: 8px;
+}
+
+.boxb {
+	display: inline-block;
+	width: 140px;
+	font-size: 18px  !important;
+	font-weight: normal  !important;
+	padding: 8px 0px 8px 0px  !important;
+	margin: 3px;
+}
+.boxb a {
+	text-decoration: none;
+}
+
+.boxc {
+	text-align: right;
+	display: inline-block;
+	border: 1px solid #aaa;
+	vertical-align: top;
+	width: 190px;
+	height: 40px;
+	font-size: 18px;
+	font-weight: normal;
+	color: #333;
+	padding: 4px 10px 10px 0px;
+	margin: 5px;
+	text-shadow: 1px 1px 0px #fff;
+	cursor: pointer;
+	border-radius: 4px;
+	box-shadow: 2px 2px 2px #ccf;
+	background: linear-gradient(to bottom, #feffff 0%, #d6dbff 100%);
+}
+#index .boxc {
+	background: url(images/style/icon-geometry.gif) no-repeat left top, linear-gradient(to bottom, #feffff 0%, #d6dbff 100%);
+}
+.boxc:hover {
+	background: linear-gradient(to bottom, #fffce7 0%, #fdfd9f 100%);
+}
+.boxc a {
+	text-decoration: none;
+}
+.boxsay {
+	text-align: left;
+	display: inline-block;
+	vertical-align: top;
+font: italic 15px/23px Verdana, sans-serif; 
+	
+border-radius: 5px;
+	height: 120px;
+
+}
+#none {
+}
+#data {
+	background: url(images/F8EF1F0C-55A4-4BBF-B559-8E7C277DA290.gif) no-repeat left top;
+	height: 50px;
+}
+#geom {
+	background: url(20CCA3A7-C26D-4031-8F83-E90D2382ECC8.gif) no-repeat left top;
+	height: 50px;
+}
+#nmbr {
+	background: url(9361BF7C-F8B2-4169-81E4-1D8FCC86857C.gif) no-repeat left top;
+	height: 50px;
+	margin: 0 0 0 10px;
+}
+#puzz {
+	background: url(images/75EB84E4-4FC4-4994-A9D6-FE40CA39702D.gif) no-repeat left top;
+	height: 50px;
+	margin: 0 0 0 20px;
+}
+#mony {
+	background: url(images/F9FD5AE3-FAAF-4AAB-86F9-C1BD3A66BF4F.gif) no-repeat left top;
+	height: 50px;
+}
+
+#algb {
+	background: url(images/4A6D005A-5FE7-49DB-8AD5-D13FD5821414.gif) no-repeat left top;
+	height: 50px;
+}
+#calc {
+	background: url(images/C009CAB8-6594-4688-81F5-285CAAF270F5.gif) no-repeat left top;
+	height: 50px;
+}
+#phys {
+	background: url(images/0E4412E9-875D-488C-BAF4-1E411B450955.gif) no-repeat left top;
+	height: 50px;
+}
+
+#game {
+	background: url(images/77C68E4E-EE38-446E-B25E-ACDE15913092.gif) no-repeat left top;
+	height: 50px;
+}
+#dict {
+	background: url(images/744E00CF-5CC5-4151-93B6-E30F600209C1.gif) no-repeat left top;
+	height: 50px;
+}
+#work {
+	background: url(images/E8F5DE1C-CF78-4111-A48C-C1E51A013ADC.gif) no-repeat left top;
+	height: 50px;
+}
+
+#meas {
+	background: url(images/936F5718-C22E-4C75-A3E6-D400423CBE95.gif) no-repeat left top;
+	height: 50px;
+}
+#actv {
+	background: url(images/456247F9-A8C9-4FBD-BBFE-6C7C514BEA2F.gif) no-repeat left top;
+	height: 50px;
+}
+</style>
+<!-- #EndEditable -->
+<meta name="keywords" content="math, maths, mathematics, school, homework, education">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<meta name="HandheldFriendly" content="true">
+<meta name="referrer" content="always">
+	<link rel="preload" href="logo.svg" as="font" type="font/ttf" crossorigin="">
+	<link rel="preload" href="style4.css" as="style">
+	<link rel="preload" href="main4.js" as="script">
+<link rel="stylesheet" href="style4.css">
+<script src="main4.js" defer="defer"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-29771508-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-29771508-1');
+</script>
 </head>
 
-     <header>
-        <div class="nav container">
-            <a href="home.html" class="logo">Fu<span>sio</span>n</a>
-       <div class="nav-icons">
-        <a href="tabz/index.html" class="btn-1" id="btn-1">Browse</a>
-        <i class='bx bx-download'></i>
-        <div class="menu-icon">
-            <div class="lineA"></div>
-            <div class="lineB"></div>
-            <div class="lineC"></div>
-    </div>
-       </div>
-       <div class="menu">
-        <img src="E98786D7-B719-441A-9343-65B147D1A7C7.gif" >
-<div class="navbar">
-    <li><a href="home.html">Home</a></li>
-    <li><a href="games.html">Games</a></li>
-    <li><a href="settings.html">Settings</a></li>
-    <li><a href="apps.html">Apps</a></li>
+<body id="bodybg">
+
+	<div id="stt"></div>
+	<div id="adTop"></div>
+	<header>
+	<div id="hdr"></div>
+	<div id="tran"></div>
+	<div id="adHide"></div>
+	<div id="cookOK"></div>
+	</header>
+	
+	<div class="mid">
+
+	<nav>
+		<div id="menuWide" class="menu"></div>
+		<div id="logo"><a href="worksheets/index.html"><img src="logo.svg" alt="Math is Fun"></a></div>
+
+		<div id="search" role="search"> </div>
+		<div id="linkto"></div>
+	
+		<div id="menuSlim" class="menu"></div>
+		<div id="menuTiny" class="menu"></div>
+	</nav>
+	
+	<div id="extra"></div>
+
+<article id="content" role="main">
+
+<!-- #BeginEditable "Body" -->
+      <div></div>
+      <div id="whi" class="center80" style="opacity: 0.8; text-align:center; border-radius: 30px; padding: 25px 8px 15px 8px; margin: -30px auto 10px auto; max-width:700px; ">
+        <div style="text-align:center; width:100%; margin: 0 0 10px 0;">
+<a href="games.html"><div class="boxc">
+<div id="none">Index</div></div></a>
+<a href="games.html"><div class="boxc">
+<div id="data">Data</div></div></a>
+<a href="games.html"><div class="boxc">
+<div id="games.html">Geometry</div></div></a>
+<a href="games.html"><div class="boxc">
+<div id="nmbr">Numbers</div></div></a>
+<a href="games.html"><div class="boxc">
+<div id="puzz">Puzzles</div></div></a>
+<a href="games.html"><div class="boxc">
+<div id="mony">Money</div></div></a>
+<a href="games.html"><div class="boxc">
+<div id="algb">Algebra</div></div></a>
+<a href="games.html"><div class="boxc">
+<div id="calc">Calculus</div></div></a>
+<a href="games.html"><div class="boxc">
+<div id="phys">Physics</div></div></a>
+<a href="games.html"><div class="boxc">
+<div id="game">Games</div></div></a>
+<a href="games.html"><div class="boxc">
+<div id="dict">Dictionary</div></div></a>
+<a href="games.html"><div class="boxc">
+<div id="work">Worksheets</div></div></a>
+<a href="games.html"><div class="boxc">
+<div id="meas">Measurement</div></div></a>
+<a href="games.html"><div class="boxc">
+<div id="actv">Activities</div></div></a>
+        </div>
+      </div>
+      <div id="wlo">
+        <div style="text-align:center; width:100%; margin: -20px 0 10px 0;">
+<a href="games.html"><div class="btn boxb">Index</div></a>
+<a href="games.html"><div class="btn boxb">Data</div></a>
+<a href="games.html"><div class="btn boxb">Geometry</div></a>
+<a href="games.html"><div class="btn boxb">Numbers</div></a>
+<a href="games.html"><div class="btn boxb">Puzzles</div></a>
+<a href="games.html"><div class="btn boxb">Money</div></a>
+<a href="games.html"><div class="btn boxb">Algebra</div></a>
+<a href="games.html"><div class="btn boxb">Calculus</div></a>
+<a href="games.html"><div class="btn boxb">Physics</div></a>
+<a href="games.html"><div class="btn boxb">Games</div></a>
+<a href="games.html"><div class="btn boxb">Dictionary</div></a>
+<a href="games.html"><div class="btn boxb">Worksheets</div></a>
+<a href="games.html"><div class="btn boxb">Measurement</div></a>
+<a href="games.html"><div class="btn boxb">Activities</div></a>
+ </div>
+      </div>
+      <div style="text-align:center; width:100%;">
+Messages from visitors:<br>
+<div class="words" style="width:380px; height:120px; text-align:left;
+	 vertical-align: top; font: italic 15px/23px Verdana, sans-serif; 
+	margin: 0 auto 10px auto; overflow: hidden; text-overflow: ellipsis;">
+<span id="textrotator">&nbsp;</span>
 </div>
-    </div>
+<script>
+  // QUOTATIONS
+  Quotation = [
+'I just want to say a very BIG thank you for this wonderful site. I am using it to refresh my math skills and to teach my kids maths. Once again thank you very very much for making mathematics as simple as A B C bravo',
+'You guys have created an amazing website. I have been using it for years to understand math concepts. The quizzes really help solidify the content, and everything is thoroughly explained. Thanks for all you do!', 'I have a PhD in Computer Science but occasionally access your website for a good refresher. Thanks a lot for your quality content!',
+'... I love you so much because I have a 20 in math right now so your website really help me out.',
+'This is one of the best math websites!  Your expertise is very much appreciated!',
+'I just discovered your site and used it to help me solve a spreadsheet problem.  Explanations here are brilliant. Read once and understood the first time.  I continued to explore the topic beyond what I needed (variance/deviation)and this, I`ve never done with math.  This will really be useful for my 2 home-school seniors. Thank you.',
+'Normally I never do these sorts of things. But Math is Fun, let me tell you, that the content on your Matrices page was far more helpful than my college textbook. So thank you for being a free source that was far more superior than that 85 dollar book. Keep it up all of you.',
+'Thank you for creating this. It has been very helpful in my pursuit to become an electrical engineer.',
+'Amazing! I have never seen a site making math so much fun and easy to understand. Why isn`t it taught like this in schools? Thank you all!',
+'A fantastic website, me and my son spent all night on this learning new things, we loved the bonding time together.',
+'... my gratitude for explaining complex problems in such an easy to understand manner!',
+'This is one of the best math websites I`ve come across, especially the various interactive tools which are embedded. This site helps me a lot. So, thank you. Keep up the good work!',
+'This is the Best Math site. A Big Thank you.',
+'I`m a college student and I`ve used this site for a long time now. It always seems to come in handy. I love the way you teach. I love the way things are organized. Good organization = flow to learning = easy learning. Plus everything is well explained. Thank you!',
+'Thanks for this website! I am using it to review Algebra and, eventually I hope, Calculus. This website is very clear and helpful, as it explains mathematical concepts in a way which I find much easier to understand than most of the textbooks I`ve come across.',
+'I wish this is how maths was taught when I was in school. Absolutely love your site. Relearning the basics now and actually having fun!',
+'I just love your website. its so reliable and I just really want to say thank you for all the things you built on this website. It helped me do my homework AND it is RELEVANT to the stuff we are learning. THANK YOU!!!',
+'Thank you so much for all your math stuff. Whenever I need to know something math related, I know I can come to your site and find a right and accurate explanation. Math Is Fun!!',
+'I love your website. The explanations are so well done. I`m a parent who has always adhered to your premise that math is fun, but sometimes I need a refresher when faced with the need to explain concepts to my children. I`ve never been disappointed turning to your website.',
+'I would like to take a minute to thank you so much for helping me to understand limits, probability, and asymptotes! I absolutely love and appreciate your work!',
+'I thank you so much for this precious site.',
+'I looove this site! it is simple and easy to understand. You saved my report card!! Keep it up!!',
+'OH MY GOSH you`ve helped me so much i`m now getting A s instead of C s in math thank you so much :)',
+'Great site!!!!! I use it in class all the time THANK YOUUUUU',
+'I struggled in Math and then I discovered Mathisfun.com which is easy and the best source to learn and improve Math skills. I share to people who were struggling like me and they are Improving a lot ... Thank You Mathisfun.',
+'I think your site is truly wonderful.  It is comprehensive, accurate and intuitive. And, most importantly for me - the explanations are beautiful.  As simple as they can be',
+'Thanks for the amazing site! I`ve used this site since secondary school and now am well into working life but I still come here occasionally to refresh some concepts. Keep up the great work :)',
+'Thanks, this site has given the best mathematics experience to me. As a professional teacher I find it easier to explain concepts using your models. Thanks again :-)',
+'Your website made me like maths. I am now top in the grade and got full marks. Thank you.',
+'This website is awesome and has helped me learn so much! The explanations are simple, direct, and concise ... I cannot say thank you enough and hope you continue to keep the website going!',
+'hey, you people are doing great job. Maths is really fun with your site. thank you, keep doing well',
+'... I always visit your website whenever i can`t understand something related to math. i hope you continue helping more students. I will highly recommend this to my friends, 10/10',
+'This website is great!!!! I am learning so much & my baby child will know of this website before twitter or facebook.',
+'Thank you! This helps me with all my math assignments (which were really confusing before!)',
+'I love this website. I realize that I can do math. Thank you so very much!!!!!!! :)',
+'this web site has been a blessing to my home school. Thanks for all your wonderful worksheets and tutorials.',
+'Oh my word this is a great site! I used your article on writing equations for parallel and perp. lines and it helped sooo much! The teaching is clear and has examples and is awesome! Keep it up!',
+'I am a math teacher. I teach at GED level. Just want to say that your program or website is fantastic, it is great, it is wonderful. Any time I have difficulty of way of explanation, I immediately apply to your website. I thank you very much.',
+'I`m sure people write to tell you this all the time, but your site is pretty amazing. Thank you for explaining math in such an accessible way. It`s been my site of choice for ages, and explains concepts equally clearly, whether for fifth grade or GCSE math.',
+'Your website has helped me so much.... Keep up the great work... thanks a million.',
+'Thank you for creating this website. I discovered it last year ... and I come at least once a day on this website. For example, when I need to study for a math test I just come here to review. :) This is my favorite math website.',
+'I would just like to thank you for the very helpful Unit Circle page. I was having trouble memorizing the sin/cos/tan values, and the `1-2-3` trick was really helpful. I got an A on my test. :)',
+'Thank you SO MUCH for this site. I missed out on developing any kind of basis in maths in high school and have had trouble getting personal tutoring now I`m all grown up and need maths for statistical work. This site explains it so that I get it.',
+'Man! your site is fabulous, The way you have described each single concept has helped me a lot in my studies Thanks a lot.',
+'Thank you for making this website available. I am currently a teacher - tutor of children from about age 8 to 14. Your site explains math concepts and examples in a very clear way. ',
+'Really liked your website! I am a tutor and it helps me a lot while i prepare myself before trying ti teach new concepts!',
+'Thank you very much for this website :) I`ve been using this site from my GCSE years and even during my degree! Thank you once again!',
+'Whenever I search for a math-related term, I am happy when mathisfun shows up in the search results, because I know I will get an explanation that allows me to understand it.',
+'Your website is such a great help! Reading this in about five minutes gives me much more clarity than I have had all year. I am reviewing for my AP Calculus AB exam and this is going to be a life saver. Thank you very much!',
+'i thank you guys because i passed my matric last year because of your help ....'];
+Array.prototype.shuffle = function() {
+  var i = this.length, j, temp;
+  if ( i == 0 ) return this;
+  while ( --i ) {
+     j = Math.floor( Math.random() * ( i + 1 ) );
+     temp = this[i];
+     this[i] = this[j];
+     this[j] = temp;
+  }
+  return this;
+}
+Quotation.shuffle();
+var alpha = 1;
+var alphaTgt = 0;
+var quoteNo = 0;
+//var hold = 2;
+function rotateMe() {
+alpha = alpha*0.8+alphaTgt*0.2;
+if (alpha>0.9999) alphaTgt = 0;
+if (alpha<0.1) {
+  alphaTgt = 1;
+  //var quoteNo = parseInt(Math.random()*Quotation.length);
+  document.getElementById('textrotator').innerHTML = ' &nbsp; &nbsp; "' + Quotation[quoteNo] + '"';
+//quoteNo = Math.floor(Math.random() * Quotation.length);
+quoteNo++;
+if (quoteNo>Quotation.length-1) quoteNo = 0;
+}
+document.getElementById('textrotator').style.opacity = alpha;
+setTimeout('rotateMe()', 100);
+}
+rotateMe();
+</script>
 </div>
-    </header>
-
-</section>
-<div class="search-container"> <div class="search-box"> <input class="search-txt" type="text" placeholder="Type to search"> <a class="search-btn" href="#"> <i class="fa-solid fa-magnifying-glass"></i> </a> </div> </div>
-    
-    <section class="trending container" id="trending">
-    <div class="heading">
-        <a href="io.html"><i class="fa-solid fa-star"></i></a>
-
-        <h2>IO Games</h2><h5 class="view-more">View more <a href="io.html"><i class="fa-solid fa-angles-right"></i></a></h5>
-    </div>
-    <div class="trending-content swiper">
+      <div style="text-align:center; width:100%;">
+        <div class="boxa" style="width:170px;">
        
-        <div class="swiper-wrapper">
-            <div class="swiper-slide">
-                <div class="box">
-                    <img src="https://krunkerio.io/data/image/lolbeansio.png" alt="">
-                    <div class="box-text">
-                        <h2>LolBeans.io</h2>
-                        <h3>Action</h3>
-                        <a href="./iframe.html" onclick="localStorage.setItem('iframeurl', 'embed.html#https://lolbeans.io'); localStorage.setItem('staturl', './iframe.html')" class="box-btn"><i class="fa-solid fa-download"></i></a>
-                    </div>
-                </div>
-            </div>
+          <p><a href="games.html" class="large">Teacher's Page</a></p> 
+          <p><a href="games.html><img src="images/apple.svg" alt="apple"></a></p>
+          <p>Inspire your class,<br>
+read our suggestions!</p>
+        </div>
+        <div class="boxa" style="width:280px;">
+          <p><a href="worksheets/index.html" class="large">Colorable Number Chart</a></p>
+<p><a href="games.html"><img src="images/09068654-9FC4-433C-9CD5-B074BDB3D09F.jpeg" alt="Colorable Number Chart" height="143" width="200"></a></p>
+        </div>
+        <div class="boxa" style="width:150px;">
 
-            <div class="swiper-slide">
-                <div class="box">
-                    <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/f17ed6c8-149f-4e81-b18e-d3c7db206d5d/dffnzy8-0e5bdcd2-d5c7-47c6-8fe7-a15a33ed1120.png/v1/fill/w_992,h_806,q_70,strp/taming_io_2nd_anniversary_by_quinnexox_dffnzy8-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9OTc1IiwicGF0aCI6IlwvZlwvZjE3ZWQ2YzgtMTQ5Zi00ZTgxLWIxOGUtZDNjN2RiMjA2ZDVkXC9kZmZuenk4LTBlNWJkY2QyLWQ1YzctNDdjNi04ZmU3LWExNWEzM2VkMTEyMC5wbmciLCJ3aWR0aCI6Ijw9MTIwMCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.JGFK6Bt5kbG4Ir9ghgIT89faUGFCzixnhv8CrikAhAw" alt="">
-                    <div class="box-text">
-                        <h2>Taming.io</h2>
-                        <h3>Action</h3>
-                         <a href="./iframe.html" onclick="localStorage.setItem('iframeurl', 'embed.html#https://bloxd.io'); localStorage.setItem('staturl', './iframe.html')" class="box-btn"><i class="fa-solid fa-download"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="swiper-slide">
-                <div class="box">
-                    <img src="https://img.poki.com/cdn-cgi/image/quality=78,width=600,height=600,fit=cover,f=auto/d2708e8aa31df3fe7b211bca36405d6d.png" alt="">
-                    <div class="box-text">
-                        <h2>Paper.io</h2>
-                        <h3>Action</h3>
-                        <a href="./iframe.html" onclick="localStorage.setItem('iframeurl', 'embed.html#https://paper.io'); localStorage.setItem('staturl', './iframe.html')" class="box-btn"><i class="fa-solid fa-download"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="swiper-slide">
-                <div class="box">
-                    <img src="https://img.gamepix.com/games/super-bandit-rip/icon/super-bandit-rip.png" alt="">
-                    <div class="box-text">
-                        <h2>Bandit.rip</h2>
-                        <h3>Action</h3>
-                        <a href="./iframe.html" onclick="localStorage.setItem('iframeurl', 'embed.html#https://bandit.rip'); localStorage.setItem('staturl', './iframe.html')" class="box-btn"><i class="fa-solid fa-download"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="swiper-slide">
-                <div class="box">
-                    <img src="https://play-lh.googleusercontent.com/_9anWd4maxFYgGPMyJzN4G3FjCbWuP0fPlOT0wiioQ4HYjL2915Lufr53Aezg-IFqg" alt="">
-                    <div class="box-text">
-                        <h2>TheLast.io</h2>
-                        <h3>Action</h3>
-                        <a href="./iframe.html" onclick="localStorage.setItem('iframeurl', 'embed.html#https://thelast.io'); localStorage.setItem('staturl', './iframe.html')" class="box-btn"><i class="fa-solid fa-download"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="swiper-slide">
-                <div class="box">
-                    <img src="https://play-lh.googleusercontent.com/6lO401fxwNTk919VwTKOdKGot82kf1WFBYGdhnVgDVsmkdK6Nv6d2ZDpmKBVO9CW2s8" alt="">
-                    <div class="box-text">
-                        <h2>Diep.io</h2>
-                        <h3>Action</h3>
-                         <a href="./iframe.html" onclick="localStorage.setItem('iframeurl', 'embed.html#https://diep.io'); localStorage.setItem('staturl', './iframe.html')" class="box-btn"><i class="fa-solid fa-download"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="swiper-slide">
-                <div class="box">
-                    <img src="https://i.pinimg.com/550x/65/59/2f/65592fdbd27f342cd220483a1231232a.jpg" alt="">
-                    <div class="box-text">
-                        <h2>Krunker.io</h2>
-                        <h3>Action</h3>
-                         <a href="./iframe.html" onclick="localStorage.setItem('iframeurl', 'embed.html#https://krunker.io'); localStorage.setItem('staturl', './iframe.html')" class="box-btn"><i class="fa-solid fa-download"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="swiper-slide">
-                <div class="box">
-                    <img src="https://i.insider.com/57239d2c91058426008bfd7a?width=1000&format=jpeg&auto=webp" alt="">
-                    <div class="box-text">
-                        <h2>Slither.io</h2>
-                        <h3>Action</h3>
-                         <a href="./iframe.html" onclick="localStorage.setItem('iframeurl', 'embed.html#https://slither.io'); localStorage.setItem('staturl', './iframe.html')" class="box-btn"><i class="fa-solid fa-download"></i></a>
-                    </div>
-                </div>
-            </div>
-
-        <div class="swiper-slide">
-                <div class="box">
-                    <img src="images/34B485B5-1F29-408D-8F18-7648199DC8C2.jpeg" alt="">
-                    <div class="box-text">
-                        <h2>Imposter.io</h2>
-                        <h3>Action</h3>
-                         <a href="./iframe.html" onclick="localStorage.setItem('iframeurl', 'embed.html#https://impostor.io'); localStorage.setItem('staturl', './iframe.html')" class="box-btn"><i class="fa-solid fa-download"></i></a>
-                    </div>
-                </div>
-            </div>
-     
-</section>
-</section>
-<section class="trending container" id="trending">
-    <div class="heading">
-        <i class="fa-solid fa-star"></i>
-        <h2>Sports</h2>
-    </div>
-    <div class="trending-content swiper">
-       
-        <div class="swiper-wrapper">
-            <div class="swiper-slide">
-                <div class="box">
-                    <img src="https://img.poki.com/cdn-cgi/image/quality=78,width=600,height=600,fit=cover,f=auto/bc02c9cdfc5b424ddf343b01edf791ce.png" alt="">
-                    <div class="box-text">
-                        <h2>BasketBall Stars</h2>
-                        <h3>Action</h3>
-                        <a href="./iframe.html" onclick="localStorage.setItem('iframeurl', 'embed.html#https://adfree3kh0.github.io/projects/basketball-stars/index.html'); localStorage.setItem('staturl', './iframe.html')" class="box-btn"><i class="fa-solid fa-download"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="swiper-slide">
-                <div class="box">
-                    <img src="https://img.poki.com/cdn-cgi/image/quality=78,width=600,height=600,fit=cover,f=auto/7336e7ac04f8c0a88fac674d112ad77c.png" alt="">
-                    <div class="box-text">
-                        <h2>Football Legends</h2>
-                        <h3>Action</h3>
-                         <a href="./iframe.html" onclick="localStorage.setItem('iframeurl', 'embed.html#https://extrememath.dev/gamefiles/football-legends-2021/'); localStorage.setItem('staturl', './iframe.html')" class="box-btn"><i class="fa-solid fa-download"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="swiper-slide">
-                <div class="box">
-                    <img src="https://play-lh.googleusercontent.com/WRM5Y1xZmzcCP1YtO5zl6G2g7CU5c5ZfjX4UVrgi1bpNgkfy-wuB-bQx3kkeRfaGYQ" alt="">
-                    <div class="box-text">
-                        <h2>Retro Bowl</h2>
-                        <h3>Action</h3>
-                        <a href="./iframe.html" onclick="localStorage.setItem('iframeurl', 'embed.html#https://mathgames66.github.io/543b0e1f-c5dd-42e6-8885-98b9c8116d07/content/unblocked1889.github.io/Retr0b0wl/index.html'); localStorage.setItem('staturl', './iframe.html')" class="box-btn"><i class="fa-solid fa-download"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="swiper-slide">
-                <div class="box">
-                    <img src="https://play-lh.googleusercontent.com/gP8T5Z1O-ngxIloiwcBZzrzyLPYDp0R_1BDNKUDZboIRPVImeyWI8-7aExvB9gAGNKc" alt="">
-                    <div class="box-text">
-                        <h2>Basket Random</h2>
-                        <h3>Action</h3>
-                        <a href="./iframe.html" onclick="localStorage.setItem('iframeurl', 'embed.html#https://extrememath.dev/gamefiles/basketrandom/'); localStorage.setItem('staturl', './iframe.html')" class="box-btn"><i class="fa-solid fa-download"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="swiper-slide">
-                <div class="box">
-                    <img src="https://kevin.games/assets/images/new/basketbros-io.jpg" alt="">
-                    <div class="box-text">
-                        <h2>BasketBros</h2>
-                        <h3>Action</h3>
-                        <a href="./iframe.html" onclick="localStorage.setItem('iframeurl', 'embed.html#https://basketbros.io'); localStorage.setItem('staturl', './iframe.html')" class="box-btn"><i class="fa-solid fa-download"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="swiper-slide">
-                <div class="box">
-                    <img src="https://jelly-truck.github.io/assets/logo/penalty-kick-online.png" alt="">
-                    <div class="box-text">
-                        <h2>Penalty kick</h2>
-                        <h3>Action</h3>
-                         <a href="./iframe.html" onclick="localStorage.setItem('iframeurl', 'embed.html#https://webglmath.github.io/penalty-kick-online/'); localStorage.setItem('staturl', './iframe.html')" class="box-btn"><i class="fa-solid fa-download"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="swiper-slide">
-                <div class="box">
-                    <img src="https://jelly-truck.github.io/assets/logo/dunkbrush.png" alt="">
-                    <div class="box-text">
-                        <h2>DunkRush</h2>
-                        <h3>Action</h3>
-                         <a href="./iframe.html" onclick="localStorage.setItem('iframeurl', 'embed.html#https://ubg77.github.io/fix/dunkbrush/'); localStorage.setItem('staturl', './iframe.html')" class="box-btn"><i class="fa-solid fa-download"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="swiper-slide">
-                <div class="box">
-                    <img src="https://img.poki.com/cdn-cgi/image/quality=78,width=600,height=600,fit=cover,f=auto/7b6f54cf-e1b2-4e69-a84e-1c1f49e54c53.png" alt="">
-                    <div class="box-text">
-                        <h2>Penalty Shooter 2</h2>
-                        <h3>Action</h3>
-                         <a href="./iframe.html" onclick="localStorage.setItem('iframeurl', 'embed.html#https://ubg77.github.io/edit/penalty-shooters-2/'); localStorage.setItem('staturl', './iframe.html')" class="box-btn"><i class="fa-solid fa-download"></i></a>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="swiper-slide">
-                <div class="box">
-                    <img src="images/311D5DC9-992E-4E50-871E-25BCCAD6F83E.webp" alt="">
-                    <div class="box-text">
-                        <h2>A Small World Cup</h2>
-                        <h3>Action</h3>
-                         <a href="./iframe.html" onclick="localStorage.setItem('iframeurl', 'embed.html#https://slay3rzz.github.io/fc4e8813-3c89-4a21-bd68-18eb126e4e38/content/v6p9d9t4.ssl.hwcdn.net/html/1643267/index.html'); localStorage.setItem('staturl', './iframe.html')" class="box-btn"><i class="fa-solid fa-download"></i></a>
-                    </div>
-                </div>
-            </div>
-          </div>
-    </div>
-</section>
-<section class="trending container" id="trending">
-    <div class="heading">
-        <i class="fa-solid fa-star"></i>
-        <h2>Shooter</h2>
-    </div>
-    <div class="trending-content swiper">
-       
-        <div class="swiper-wrapper">
-            <div class="swiper-slide">
-                <div class="box">
-                    <img src="https://cdn-images.threadless.com/threadless-media/artist_shops/shops/bluewizard/products/1617669/original-1621960642-2ac607f273a319bd81ac2f36de28fac5.png?v=3&d=eyJvcHMiOiBbWyJ0cmltIiwgW2ZhbHNlLCBmYWxzZV0sIHt9XSwgWyJyZXNpemUiLCBbXSwgeyJ3aWR0aCI6IDk5Ni4wLCAiYWxsb3dfdXAiOiBmYWxzZSwgImhlaWdodCI6IDk5Ni4wfV0sIFsiY2FudmFzX2NlbnRlcmVkIiwgWzEyMDAsIDEyMDBdLCB7ImJhY2tncm91bmQiOiAiZmZmZmZmIn1dLCBbInJlc2l6ZSIsIFs4MDBdLCB7fV0sIFsiY2FudmFzX2NlbnRlcmVkIiwgWzgwMCwgODAwLCAiI2ZmZmZmZiJdLCB7fV0sIFsiZW5jb2RlIiwgWyJqcGciLCA4NV0sIHt9XV0sICJmb3JjZSI6IGZhbHNlLCAib25seV9tZXRhIjogZmFsc2V9" alt="">
-                    <div class="box-text">
-                        <h2>Shell Shockers</h2>
-                        <h3>Action</h3>
-                        <a href="./iframe.html" onclick="localStorage.setItem('iframeurl', 'embed.html#https://shellshock.io'); localStorage.setItem('staturl', './iframe.html')" class="box-btn"><i class="fa-solid fa-download"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="swiper-slide">
-                <div class="box">
-                    <img src="https://wallpapers.com/images/hd/cs-go-mobile-xb9ovth229qs5qud.jpg" alt="">
-                    <div class="box-text">
-                        <h2>CSGO Browser</h2>
-                        <h3>Action</h3>
-                         <a href="./iframe.html" onclick="localStorage.setItem('iframeurl', 'embed.html#https://play-cs.com'); localStorage.setItem('staturl', './iframe.html')" class="box-btn"><i class="fa-solid fa-download"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="swiper-slide">
-                <div class="box">
-                    <img src="https://is2-ssl.mzstatic.com/image/thumb/Purple114/v4/8f/06/7c/8f067c78-2993-3e9e-0d64-ea4722c00092/AppIcon-0-0-1x_U007emarketing-0-0-0-5-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.jpeg/512x512bb.jpeg" alt="">
-                    <div class="box-text">
-                        <h2>Venge.IO</h2>
-                        <h3>Action</h3>
-                        <a href="./iframe.html" onclick="localStorage.setItem('iframeurl', 'embed.html#https://venge.io'); localStorage.setItem('staturl', './iframe.html')" class="box-btn"><i class="fa-solid fa-download"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="swiper-slide">
-                <div class="box">
-                    <img src="https://red-ball4.com/data/image/battledudes.io-game.jpg" alt="">
-                    <div class="box-text">
-                        <h2>Battle Dudes</h2>
-                        <h3>Action</h3>
-                        <a href="./iframe.html" onclick="localStorage.setItem('iframeurl', 'embed.html#https://battledudes.uo'); localStorage.setItem('staturl', './iframe.html')" class="box-btn"><i class="fa-solid fa-download"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="swiper-slide">
-                <div class="box">
-                    <img src="https://assets.polkastarter.gg/photo_2022_12_08_01_06_06_11f6710b15/photo_2022_12_08_01_06_06_11f6710b15.jpg" alt="">
-                    <div class="box-text">
-                        <h2>Ev.io</h2>
-                        <h3>Action</h3>
-                        <a href="./iframe.html" onclick="localStorage.setItem('iframeurl', 'embed.html#https://ev.io'); localStorage.setItem('staturl', './iframe.html')" class="box-btn"><i class="fa-solid fa-download"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="swiper-slide">
-                <div class="box">
-                    <img src="https://play-lh.googleusercontent.com/hxeNM0b_zVBvHNJJoApRCyATVRwDC--WoDe6fiuflKUb4HWTABMdIWRZUb7-yoA-43U=w240-h480-rw" alt="">
-                    <div class="box-text">
-                        <h2>Narrow.one</h2>
-                        <h3>Action</h3>
-                         <a href="./iframe.html" onclick="localStorage.setItem('iframeurl', 'embed.html#https://gry.io/game/narrowone/'); localStorage.setItem('staturl', './iframe.html')" class="box-btn"><i class="fa-solid fa-download"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="swiper-slide">
-                <div class="box">
-                    <img src="https://taming-io.co/upload/imgs/build-royale.png" alt="">
-                    <div class="box-text">
-                        <h2>Build Royale</h2>
-                        <h3>Action</h3>
-                         <a href="./iframe.html" onclick="localStorage.setItem('iframeurl', 'embed.html#https://ubg77.github.io/fix/dunkbrush/'); localStorage.setItem('staturl', './iframe.html')" class="box-btn"><i class="fa-solid fa-download"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="swiper-slide">
-                <div class="box">
-                    <img src="https://play-lh.googleusercontent.com/4yqjsxq9ntZ2dftqxChXmsm-kZ293L6tBc8bghIFxvMn6T8v8jdGqld1CT_vuocU6g" alt="">
-                    <div class="box-text">
-                        <h2>Yohoho.io</h2>
-                        <h3>Action</h3>
-                         <a href="./iframe.html" onclick="localStorage.setItem('iframeurl', 'embed.html#https://yohoho.io'); localStorage.setItem('staturl', './iframe.html')" class="box-btn"><i class="fa-solid fa-download"></i></a>
-                    </div>
-                </div>
-            </div>
-
-          </div>
-    </div>
-</section>
-</section>
-<section class="trending container" id="trending">
-    <div class="heading">
-        <i class="fa-solid fa-star"></i>
-        <h2>Grind</h2><h5 class="view-more">View more <a href="math5.html"><i class="fa-solid fa-angles-right"></i></a></h5>
-    </div>
-    <div class="trending-content swiper">
-       
-        <div class="swiper-wrapper">
-            <div class="swiper-slide">
-                <div class="box">
-                    <img src="https://crowdrun3d.games235.com/crowd-run-3d.png" alt="">
-                    <div class="box-text">
-                        <h2>Crowd Run 3D</h2>
-                        <h3>Action</h3>
-                        <a href="./iframe.html" onclick="localStorage.setItem('iframeurl', 'embed.html#https://slope-game.github.io/rungame/crowd-run-3d/'); localStorage.setItem('staturl', './iframe.html')" class="box-btn"><i class="fa-solid fa-download"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="swiper-slide">
-                <div class="box">
-                    <img src="https://geometrydashmeltdown.com/upload/imgs/monkey-mart.jpg" alt="">
-                    <div class="box-text">
-                        <h2>Monkey Mart</h2>
-                        <h3>Action</h3>
-                         <a href="./iframe.html" onclick="localStorage.setItem('iframeurl', 'embed.html#https://slope-game.github.io/newgame/monkey-mart/'); localStorage.setItem('staturl', './iframe.html')" class="box-btn"><i class="fa-solid fa-download"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="swiper-slide">
-                <div class="box">
-                    <img src="https://jelly-truck.github.io/assets/logo/color-road.png" alt="">
-                    <div class="box-text">
-                        <h2>Color Road 2</h2>
-                        <h3>Action</h3>
-                        <a href="./iframe.html" onclick="localStorage.setItem('iframeurl', 'embed.html#https://slope-game.github.io/newgame/color-road-2/'); localStorage.setItem('staturl', './iframe.html')" class="box-btn"><i class="fa-solid fa-download"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="swiper-slide">
-                <div class="box">
-                    <img src="data:image/png;base64,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" alt="">
-                    <div class="box-text">
-                        <h2>Bottle Flip</h2>
-                        <h3>Action</h3>
-                        <a href="./iframe.html" onclick="localStorage.setItem('iframeurl', 'embed.html#https://webglmath.github.io/bottle-flip-3d/'); localStorage.setItem('staturl', './iframe.html')" class="box-btn"><i class="fa-solid fa-download"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="swiper-slide">
-                <div class="box">
-                    <img src="https://image.winudf.com/v2/image1/Y29tLnJoaXp0YW5hLmNhbmR5anVtcGNvbG91cmdhbWVfc2NyZWVuXzFfMTU1MzQ4MTI5OF8wNzQ/screen-1.jpg?fakeurl=1&type=.webp" alt="">
-                    <div class="box-text">
-                        <h2>Candy Jump</h2>
-                        <h3>Action</h3>
-                        <a href="./iframe.html" onclick="localStorage.setItem('iframeurl', 'embed.html#https://webglmath.github.io/candy-jump/'); localStorage.setItem('staturl', './iframe.html')" class="box-btn"><i class="fa-solid fa-download"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="swiper-slide">
-                <div class="box">
-                    <img src="https://img.gamedistribution.com/1377b99c10284c229423118a941af3b1-512x512.jpeg" alt="">
-                    <div class="box-text">
-                        <h2>OvO</h2>
-                        <h3>Action</h3>
-                         <a href="./iframe.html" onclick="localStorage.setItem('iframeurl', 'embed.html#https://mathgames66.github.io/ovo1.4.4/index.html'); localStorage.setItem('staturl', './iframe.html')" class="box-btn"><i class="fa-solid fa-download"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="swiper-slide">
-                <div class="box">
-                    <img src="https://izigames.net/uploads/2023/7/ovo-2.png" alt="">
-                    <div class="box-text">
-                        <h2>OvO 2</h2>
-                        <h3>Action</h3>
-                         <a href="./iframe.html" onclick="localStorage.setItem('iframeurl', 'embed.html#https://mathgames66.github.io/b1178621-f4f3-4740-9214-ea982c3dab7c/content/dedragames.com/games/ovo2/0.2alpha/index.html'); localStorage.setItem('staturl', './iframe.html')" class="box-btn"><i class="fa-solid fa-download"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="swiper-slide">
-                <div class="box">
-                    <img src="https://66games.io/public/upload/game/cJABM0qXqb.png" alt="">
-                    <div class="box-text">
-                        <h2>OvO 3</h2>
-                        <h3>Action</h3>
-                         <a href="./iframe.html" onclick="localStorage.setItem('iframeurl', 'embed.html#https://mathgames66.github.io/ovo3/index.html'); localStorage.setItem('staturl', './iframe.html')" class="box-btn"><i class="fa-solid fa-download"></i></a>
-                    </div>
-                </div>
-            </div>
-
-          <div class="swiper-slide">
-                <div class="box">
-                    <img src="ADB80762-F3CB-41BA-8499-ABC85CB0A34E.webp" alt="">
-                    <div class="box-text">
-                        <h2>Endless Truck</h2>
-                        <h3>Action</h3>
-                         <a href="./iframe.html" onclick="localStorage.setItem('iframeurl', 'embed.html#https://endlesstruck.github.io'); localStorage.setItem('staturl', './iframe.html')" class="box-btn"><i class="fa-solid fa-download"></i></a>
-                    </div>
-                </div>
-            </div>
-          </div>
-    </div>
-</section>
-    <!-- </div> -->
-</section>
-<section class="trending container" id="trending">
-    <div class="heading">
-        <i class="fa-solid fa-star"></i></a>
-        <h2>Emulations</h2><h5 class="view-more">View more <a href="emulator.html"><i class="fa-solid fa-angles-right"></i></a></h5>
-        
-    </div>
-    <div class="trending-content swiper">
-      
-        
-
-      
-        <div class="swiper-wrapper">
-            <div class="swiper-slide">
-                <div class="box">
-                    <img src="images/BCE56D2E-23CA-4062-807F-9A15CF4D4A66.jpeg" alt="">
-                    <div class="box-text">
-                        <h2>1 On 1 Soccer</h2>
-                        <h3>Action</h3>
-                        <a href="./iframe.html" onclick="localStorage.setItem('iframeurl', 'embed.html#https://cyamanz.github.io/play/flash/?swf=1on1soccer.swf'); localStorage.setItem('staturl', './iframe.html')" class="box-btn"><i class="fa-solid fa-download"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="swiper-slide">
-                <div class="box">
-                    <img src="https://m.media-amazon.com/images/I/61HprBgSYVL._AC_UF1000,1000_QL80_.jpg" alt="">
-                    <div class="box-text">
-                        <h2>Advance War</h2>
-                        <h3>Action</h3>
-                         <a href="./iframe.html" onclick="localStorage.setItem('iframeurl', 'embed.html#https://bobzgames.github.io/GBA/launcher.html#advancewars'); localStorage.setItem('staturl', './iframe.html')" class="box-btn"><i class="fa-solid fa-download"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="swiper-slide">
-                <div class="box">
-                    <img src="https://upload.wikimedia.org/wikipedia/en/e/e4/Aw2box.jpg" alt="">
-                    <div class="box-text">
-                        <h2>Advance War 2</h2>
-                        <h3>Action</h3>
-                        <a href="./iframe.html" onclick="localStorage.setItem('iframeurl', 'embed.html#https://bobzgames.github.io/GBA/launcher.html#advancewars2'); localStorage.setItem('staturl', './iframe.html')" class="box-btn"><i class="fa-solid fa-download"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="swiper-slide">
-                <div class="box">
-                    <img src="https://m.media-amazon.com/images/I/61WZ95Q2KJL.jpg" alt="">
-                    <div class="box-text">
-                        <h2>Aladdin</h2>
-                        <h3>Action</h3>
-                        <a href="./iframe.html" onclick="localStorage.setItem('iframeurl', 'embed.html#https://bobzgames.github.io/GBA/launcher.html#aladdin'); localStorage.setItem('staturl', './iframe.html')" class="box-btn"><i class="fa-solid fa-download"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="swiper-slide">
-                <div class="box">
-                    <img src="https://commondatastorage.googleapis.com/images.pricecharting.com/AMIfv96WlImkMCcw2RJFNUyChCjikglxNi_QQq9AAzjeZfb9_gKv_p9BR6RAAsUbM0mL-xmkbVu4wbYE3tE-H2OqsNIeum92iOrYFy_ohNHiJ_m3BM3S1gBaujfAA6sPEjQKhFxkYapzkXRxe3YD0Z02pQk9whJAnQ/240.jpg" alt="">
-                    <div class="box-text">
-                        <h2>Alien Hominid</h2>
-                        <h3>Action</h3>
-                        <a href="./iframe.html" onclick="localStorage.setItem('iframeurl', 'embed.html#https://bobzgames.github.io/GBA/launcher.html#alienhominid'); localStorage.setItem('staturl', './iframe.html')" class="box-btn"><i class="fa-solid fa-download"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="swiper-slide">
-                <div class="box">
-                    <img src="https://m.media-amazon.com/images/I/71tWwaNT+QL._AC_UF1000,1000_QL80_.jpg" alt="">
-                    <div class="box-text">
-                        <h2>Atari</h2>
-                        <h3>Action</h3>
-                         <a href="./iframe.html" onclick="localStorage.setItem('iframeurl', 'embed.html#https://bobzgames.github.io/GBA/launcher.html#atari'); localStorage.setItem('staturl', './iframe.html')" class="box-btn"><i class="fa-solid fa-download"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="swiper-slide">
-                <div class="box">
-                    <img src="https://upload.wikimedia.org/wikipedia/en/3/30/Bomberman_Max_2_Blue_Advance_box.jpg" alt="">
-                    <div class="box-text">
-                        <h2>BomberMan 2</h2>
-                        <h3>Action</h3>
-                         <a href="./iframe.html" onclick="localStorage.setItem('iframeurl', 'embed.html#https://bobzgames.github.io/GBA/launcher.html#bomberman_max2blue'); localStorage.setItem('staturl', './iframe.html')" class="box-btn"><i class="fa-solid fa-download"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="swiper-slide">
-                <div class="box">
-                    <img src="https://upload.wikimedia.org/wikipedia/en/d/d6/Bomberman_Tournament_cover_art.jpg" alt="">
-                    <div class="box-text">
-                        <h2>BomberMan tournament </h2>
-                        <h3>Action</h3>
-                         <a href="./iframe.html" onclick="localStorage.setItem('iframeurl', 'embed.html#https://bobzgames.github.io/GBA/launcher.html#bomberman_tournament'); localStorage.setItem('staturl', './iframe.html')" class="box-btn"><i class="fa-solid fa-download"></i></a>
-                    </div>
-                </div>
-            </div>
-
-           <div class="swiper-slide">
-                <div class="box">
-                    <img src="images/" alt="">
-                    <div class="box-text">
-                        <h2>Add Your Own Rom </h2>
-                        <h3>Action</h3>
-                         <a href="./iframe.html" onclick="localStorage.setItem('iframeurl', 'custom.html'); localStorage.setItem('staturl', './iframe.html')" class="box-btn"><i class="fa-solid fa-download"></i></a>
-                    </div>
-                </div>
-            </div>
-
-          </div>
-    </div>
-</section>
-         
-        
+<p><a href="games.html">4 In A Line</a></p>
+<p><a href="games.html"><img src="images/4306B2AF-569D-416E-9E98-26EF020B9EDD.jpeg" alt="Play Connect 4 - Can you beat it!" height="102" width="101"></a></p>
+          <p>Can you beat it?</p>
         
         </div>
-    </div>
-</section>
-</section>
-<section class="trending container" id="trending">
-    <div class="heading">
-    <i class="fa-solid fa-star"></i>
-    <h2>Misc</h2><h5 class="view-more">View more <a href="math4.html"><i class="fa-solid fa-angles-right"></i></a></h5>
-        
-    </div>
-    <div class="trending-content swiper">
-       
-        <div class="swiper-wrapper">
-            <div class="swiper-slide">
-                <div class="box">
-                    <img src="https://upload.wikimedia.org/wikipedia/en/f/f8/Everything_or_Nothing.jpg" alt="">
-                    <div class="box-text">
-                        <h2>Everything Or Nothing</h2>
-                        <h3>Action</h3>
-                        <a href="./iframe.html" onclick="localStorage.setItem('iframeurl', 'embed.html#https://bobzgames.github.io/GBA/launcher.html#007'); localStorage.setItem('staturl', './iframe.html')" class="box-btn"><i class="fa-solid fa-download"></i></a>
-                    </div>
-                </div>
-            </div>
+        <div class="boxa" style="width:200px; ">
+          <p><b>Last Updated<br>
+5 Aug 2021</b></p>
+          <p class="large">Helping people learn for <b>21 Years</b></p>
+          <p>Started 19th April 2000<br>
+See <a href="games.html">Recent Additions</a></p>
+        </div>
+        <div class="boxa" style="width:200px;">
 
-            <div class="swiper-slide">
-                <div class="box">
-                    <img src="images/DE216A50-774D-48AD-964E-03309BCF826B.ico" alt="">
-                    <div class="box-text">
-                        <h2>2048 Cupcake</h2>
-                        <h3>Action</h3>
-                         <a href="./iframe.html" onclick="localStorage.setItem('iframeurl', 'embed.html#https://cyamanz.github.io/play/2048-cupcakes/index.html'); localStorage.setItem('staturl', './iframe.html')" class="box-btn"><i class="fa-solid fa-download"></i></a>
-                    </div>
-                </div>
-            </div>
+<h3>Times Tables</h3>
+          <p>Print out <a href="worksheets/index.html"><span class="center">The Times Tables</span></a> and stick them in your exercise book.</p>
+          <p><a href="games.html"><span class="center"> Test Your Tables</span></a> with an interactive quiz.</p>
+        </div>
+        <div class="boxa" style="width:200px; ">
+          <p>Play with the <a href="worksheets/index.html"> Properties of the equation
+            of a straight line</a></p>
+          <p>Visit the <a href="games.html">Math is Fun Forum</a></p>
+        </div>
+      </div>
+      <div style="clear:both"></div>
+      <p>&nbsp;</p>
+      <p class="center"><a href="games.html">Math Tools</a> :: <a href="games.html">Math Links</a><br>
+<i>Mathematics</i> is commonly called <i>Math</i> in the US and <i>Maths</i> in the UK.</p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <!-- #EndEditable -->
 
-            <div class="swiper-slide">
-                <div class="box">
-                    <img src="https://upload.wikimedia.org/wikipedia/en/e/e4/Aw2box.jpg" alt="">
-                    <div class="box-text">
-                        <h2>Advance War 2</h2>
-                        <h3>Action</h3>
-                        <a href="./iframe.html" onclick="localStorage.setItem('iframeurl', 'embed.html#https://bobzgames.github.io/GBA/launcher.html#advancewars2'); localStorage.setItem('staturl', './iframe.html')" class="box-btn"><i class="fa-solid fa-download"></i></a>
-                    </div>
-                </div>
-            </div>
+</article>
 
-            <div class="swiper-slide">
-                <div class="box">
-                    <img src="images/E6F3E157-3470-4509-A4B6-26A7A2694AB2.jpeg" alt="">
-                    <div class="box-text">
-                        <h2>3D Tanks</h2>
-                        <h3>Action</h3>
-                        <a href="./iframe.html" onclick="localStorage.setItem('iframeurl', 'embed.html#https://cyamanz.github.io/play/flash/?swf=3dtanks.swf'); localStorage.setItem('staturl', './iframe.html')" class="box-btn"><i class="fa-solid fa-download"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="swiper-slide">
-                <div class="box">
-                    <img src="https://commondatastorage.googleapis.com/images.pricecharting.com/AMIfv96WlImkMCcw2RJFNUyChCjikglxNi_QQq9AAzjeZfb9_gKv_p9BR6RAAsUbM0mL-xmkbVu4wbYE3tE-H2OqsNIeum92iOrYFy_ohNHiJ_m3BM3S1gBaujfAA6sPEjQKhFxkYapzkXRxe3YD0Z02pQk9whJAnQ/240.jpg" alt="">
-                    <div class="box-text">
-                        <h2>Alien Hominid</h2>
-                        <h3>Action</h3>
-                        <a href="./iframe.html" onclick="localStorage.setItem('iframeurl', 'embed.html#https://bobzgames.github.io/GBA/launcher.html#alienhominid'); localStorage.setItem('staturl', './iframe.html')" class="box-btn"><i class="fa-solid fa-download"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="swiper-slide">
-                <div class="box">
-                    <img src="images/EFED8466-FFB6-4A97-A9E3-9F831DA81450.png" alt="">
-                    <div class="box-text">
-                        <h2>Stickman Hook</h2>
-                        <h3>Action</h3>
-                         <a href="./iframe.html" onclick="localStorage.setItem('iframeurl', 'embed.html#https://cyamanz.github.io/play/stickmanhook/index.html'); localStorage.setItem('staturl', './iframe.html')" class="box-btn"><i class="fa-solid fa-download"></i></a>
-                    </div>
-                </div>
-            </div>
-               <div class="swiper-slide">
-                <div class="box">
-                    <img src="images/EB49BF12-821A-4298-8D2F-A6646B8C4842.jpeg" alt="">
-                    <div class="box-text">
-                        <h2>Sketchbook</h2>
-                        <h3>Action</h3>
-                         <a href="./iframe.html" onclick="localStorage.setItem('iframeurl', 'embed.html#https://pog-sys-ux.github.io/Sketchbook'); localStorage.setItem('staturl', './iframe.html')" class="box-btn"><i class="fa-solid fa-download"></i></a>
-                    </div>
-                </div>
-            </div>
-        </section>
-<section class="trending container" id="trending">
-    <div class="heading">
-        <a href="io.html"><i class="fa-solid fa-star"></i></a>
-
-        <h2>IO Games</h2><h5 class="view-more">View more <a href="io.html"><i class="fa-solid fa-angles-right"></i></a></h5>
-    </div>
-    <div class="trending-content swiper">
-       
-        <div class="swiper-wrapper">
-            <div class="swiper-slide">
-                <div class="box">
-                    <img src="images/17ED453D-301A-4E07-84B8-1CFD4DD993D9.png" alt="">
-                    <div class="box-text">
-                        <h2>Papas Burgeria</h2>
-                        <h3>Action</h3>
-                        <a href="./iframe.html" onclick="localStorage.setItem('iframeurl', 'embed.html#https://cyaban.github.io/lbannana.github.io/lbannana-assets/flash/index.html?swf=burgeria.swf'); localStorage.setItem('staturl', './iframe.html')" class="box-btn"><i class="fa-solid fa-download"></i></a>
-                    </div>
-                </div>
-            </div>
-
-  
-
-            <div class="swiper-slide">
-                <div class="box">
-                    <img src="images/FBE3ABC2-3901-423C-A0E4-D3A28DA7A47C.png" alt="">
-                    <div class="box-text">
-                        <h2>Papas Cupcakeria</h2>
-                        <h3>Action</h3>
-                        <a href="./iframe.html" onclick="localStorage.setItem('iframeurl', 'embed.html#https://cyaban.github.io/lbannana.github.io/lbannana-assets/flash/index.html?swf=papascupcakeria.swf'); localStorage.setItem('staturl', './iframe.html')" class="box-btn"><i class="fa-solid fa-download"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="swiper-slide">
-                <div class="box">
-                    <img src="images/19C4BB33-590E-4939-9717-724AA7A8A176.png" alt="">
-                    <div class="box-text">
-                        <h2>Papa Donuteria</h2>
-                        <h3>Action</h3>
-                        <a href="./iframe.html" onclick="localStorage.setItem('iframeurl', 'embed.html#https://cyaban.github.io/lbannana.github.io/lbannana-assets/flash/index.html?swf=papasdonuteria.swf'); localStorage.setItem('staturl', './iframe.html')" class="box-btn"><i class="fa-solid fa-download"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="swiper-slide">
-                <div class="box">
-                    <img src="images/4822A573-1157-4094-A637-98FBA4F3D6D5.png" alt="">
-                    <div class="box-text">
-                        <h2>Papas Hot Doggeria</h2>
-                        <h3>Action</h3>
-                        <a href="./iframe.html" onclick="localStorage.setItem('iframeurl', 'embed.html#https://cyaban.github.io/lbannana.github.io/lbannana-assets/flash/index.html?swf=papashotdoggeria.swf'); localStorage.setItem('staturl', './iframe.html')" class="box-btn"><i class="fa-solid fa-download"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="swiper-slide">
-                <div class="box">
-                    <img src="images/C0063E53-2A3C-4294-84B4-2377C6BA1D0C.png" alt="">
-                    <div class="box-text">
-                        <h2>Papas Freezeria</h2>
-                        <h3>Action</h3>
-                         <a href="./iframe.html" onclick="localStorage.setItem('iframeurl', 'embed.html#https://cyaban.github.io/lbannana.github.io/lbannana-assets/flash/index.html?swf=Papas%20Freezeria.swf'); localStorage.setItem('staturl', './iframe.html')" class="box-btn"><i class="fa-solid fa-download"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="swiper-slide">
-                <div class="box">
-                    <img src="images/87AC6526-0D32-42F2-8226-7252E93CC872.png" alt="">
-                    <div class="box-text">
-                        <h2>Papas Pizzeria</h2>
-                        <h3>Action</h3>
-                         <a href="./iframe.html" onclick="localStorage.setItem('iframeurl', 'embed.html#https://cyaban.github.io/lbannana.github.io/lbannana-assets/flash/index.html?swf=Papas Pizzeria.swf'); localStorage.setItem('staturl', './iframe.html')" class="box-btn"><i class="fa-solid fa-download"></i></a>
-                    </div>
-                </div>
-            </div>
-
-          
-</section>
-</section>
-<section class="trending container" id="trending">
-    <div class="heading">
-        <a href="io.html"><i class="fa-solid fa-star"></i></a>
-
-        <h2>IO Games</h2><h5 class="view-more">View more <a href="flash2.html"><i class="fa-solid fa-angles-right"></i></a></h5>
-    </div>
-    <div class="trending-content swiper">
-       
-        <div class="swiper-wrapper">
-            <div class="swiper-slide">
-                <div class="box">
-                    <img src="images/27D0B1A4-6941-4EB4-95B3-920039D8BBED.webp" alt="">
-                    <div class="box-text">
-                        <h2>Abobbos Big Adventure</h2>
-                        <h3>Action</h3>
-                        <a href="./iframe.html" onclick="localStorage.setItem('iframeurl', 'embed.html#https://cyamanz.github.io/play/flash/?swf=abobosbigadventure.swf'); localStorage.setItem('staturl', './iframe.html')" class="box-btn"><i class="fa-solid fa-download"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="swiper-slide">
-                <div class="box">
-                    <img src="images/785A1542-D558-4C0C-8382-DA4396BB1C20.webp" alt="">
-                    <div class="box-text">
-                        <h2>Achievement Unlocked</h2>
-                        <h3>Action</h3>
-                         <a href="./iframe.html" onclick="localStorage.setItem('iframeurl', 'embed.html#https://cyamanz.github.io/play/flash/?swf=achievementunlocked.swf'); localStorage.setItem('staturl', './iframe.html')" class="box-btn"><i class="fa-solid fa-download"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="swiper-slide">
-                <div class="box">
-                    <img src="images/DB177CD7-49BE-4430-9873-52AC26CC51A0.webp" alt="">
-                    <div class="box-text">
-                        <h2>Achievement Unlocked 2</h2>
-                        <h3>Action</h3>
-                        <a href="./iframe.html" onclick="localStorage.setItem('iframeurl', 'embed.html#https://cyamanz.github.io/play/flash/?swf=achievementunlocked2.swf'); localStorage.setItem('staturl', './iframe.html')" class="box-btn"><i class="fa-solid fa-download"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="swiper-slide">
-                <div class="box">
-                    <img src="https://img.gamepix.com/games/super-bandit-rip/icon/super-bandit-rip.png" alt="">
-                    <div class="box-text">
-                        <h2>Achievement Unlocked 3</h2>
-                        <h3>Action</h3>
-                        <a href="./iframe.html" onclick="localStorage.setItem('iframeurl', 'embed.html#https://cyamanz.github.io/play/flash/?swf=achievementunlocked3.swf'); localStorage.setItem('staturl', './iframe.html')" class="box-btn"><i class="fa-solid fa-download"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="swiper-slide">
-                <div class="box">
-                    <img src="images/EEF36BDB-93D4-4981-8710-217FED0182EB.jpeg" alt="">
-                    <div class="box-text">
-                        <h2>Action Turnip</h2>
-                        <h3>Action</h3>
-                        <a href="./iframe.html" onclick="localStorage.setItem('iframeurl', 'embed.html#https://cyamanz.github.io/play/flash/?swf=actionturnip.swf'); localStorage.setItem('staturl', './iframe.html')" class="box-btn"><i class="fa-solid fa-download"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="swiper-slide">
-                <div class="box">
-                    <img src="images/D5BC4E63-6068-4D4C-A988-053CCAA45302.jpeg" alt="">
-                    <div class="box-text">
-                        <h2>Adaran</h2>
-                        <h3>Action</h3>
-                         <a href="./iframe.html" onclick="localStorage.setItem('iframeurl', 'embed.html#https://cyamanz.github.io/play/flash/?swf=adaran.swf'); localStorage.setItem('staturl', './iframe.html')" class="box-btn"><i class="fa-solid fa-download"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="swiper-slide">
-                <div class="box">
-                    <img src="images/869CB543-196F-4D35-B052-83CF5CE99616.jpeg" alt="">
-                    <div class="box-text">
-                        <h2>Adrenaline</h2>
-                        <h3>Action</h3>
-                         <a href="./iframe.html" onclick="localStorage.setItem('iframeurl', 'embed.html#https://cyamanz.github.io/play/flash/?swf=adrenaline.swf'); localStorage.setItem('staturl', './iframe.html')" class="box-btn"><i class="fa-solid fa-download"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="swiper-slide">
-                <div class="box">
-                    <img src="images/1B255D05-ABFF-4022-9911-1A78FB888A74.jpeg" alt="">
-                    <div class="box-text">
-                        <h2>American Racing</h2>
-                        <h3>Action</h3>
-                         <a href="./iframe.html" onclick="localStorage.setItem('iframeurl', 'embed.html#https://cyamanz.github.io/play/flash/?swf=americanracing1.swf'); localStorage.setItem('staturl', './iframe.html')" class="box-btn"><i class="fa-solid fa-download"></i></a>
-                    </div>
-                </div>
-            </div>
-           
-            
-            <div class="swiper-slide">
-                <div class="box">
-                    <img src="images/9E8E3CBC-3396-42BF-8763-2E9934A8AC2D.png" alt="">
-                    <div class="box-text">
-                        <h2>Whack Your Ex</h2>
-                        <h3>Action</h3>
-                         <a href="./iframe.html" onclick="localStorage.setItem('iframeurl', 'embed.html#https://cyaban.github.io/lbannana.github.io/lbannana-assets/flash/index.html?swf=whack_your_ex.swf'); localStorage.setItem('staturl', './iframe.html')" class="box-btn"><i class="fa-solid fa-download"></i></a>
-                    </div>
-                </div>
-            </div>
-
-          </div>
-    </div>
-          </div>
-    </div>
-          </section>
-
-
-            
-
-          </div>
-    </div>
-    <div class="pagination">
-    <li class="page-item previous-page disable"><a class="page-link" href="index.html">Prev</a></li>
-    <li class="page-item current-page active"><a class="page-link" href="page2.html">1</a></li>
-    <li class="page-item current-page"><a class="page-link" href="math2.html">2</a></li>
-    <li class="page-item current-page"><a class="page-link" href="math4.html">3</a></li>
-    <li class="page-item next-page"><a class="page-link" href="#">Next</a></li>
+<div id="adend" class="centerfull noprint"></div>
+<footer id="footer" class="centerfull noprint"></footer>
+<div id="copyrt">Copyright © 2021 MathsIsFun.com</div>
 
 </div>
-
-
-
-
-
-</section>
-
-<div class="copyright container">
-    <a href="#" class="logo">Fu<span>sio</span>n</a>
-    <p>&#169; Team Fusion All Rights Reserved</p>
-</div>
-
-
-<script src="unpkg.com_swiper@7.3.1_swiper-bundle.min.js"></script>
-    <script src="games.js"></script>      
-    <script src="panic.js"></script>
-    <script src="searching.js"></script>
-    <script src="back.js"></script>
-
 </body>
 </html>
-<script>
 
