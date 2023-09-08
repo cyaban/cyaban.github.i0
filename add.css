@@ -1,18 +1,11 @@
-/* Center the .addon-grid horizontally and vertically */
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin: 0;
-}
-
+/* Center the .addon-grid horizontally */
 .addon-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   padding: 20px;
   max-width: 800px;
+  margin: 0 auto; /* Center horizontally */
 }
 
 .addon-item {
@@ -22,5 +15,3 @@ body {
 }
 
 /* XSTARS was here lol */
-
-
