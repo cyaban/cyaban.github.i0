@@ -1,2 +1,0 @@
-# drift-hunters
-epic drift
