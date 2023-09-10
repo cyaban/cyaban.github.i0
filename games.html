@@ -891,6 +891,17 @@
           </div>
     </div>
           </section>
+          <div class="widget1 activite">
+    <div class="text5">Recent activity</div>
+    <div class="activity">
+        <a id="staturl" href=""><div id="image" class="imgcont"></div><div id="box" class="swiper-slide"></div></a>
+    </div>
+    <script>
+        document.getElementById("image").style = "background-image: url('" + localStorage.getItem('image') + "')";
+        document.getElementById("staturl").href = localStorage.getItem('staturl');
+        document.getElementById("box").innerHTML = localStorage.getItem('box')
+    </script>
+</div>
 
 
             
