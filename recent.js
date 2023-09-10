@@ -2,6 +2,29 @@ document.addEventListener('DOMContentLoaded', function () {
     // Get all game links with the class "box-btn"
     const gameLinks = document.querySelectorAll('.box-btn');
 
+    // Function to add a recent activity entry
+    function addRecentActivity(title, imageUrl) {
+        const recentContent = document.querySelector('.recent-content');
+
+        // Create elements for the recent activity entry
+        const recentActivityItem = document.createElement('div');
+        recentActivityItem.classList.add('recent-activity-item');
+
+        const image = document.createElement('img');
+        image.src = imageUrl;
+        image.alt = title;
+
+        const titleElement = document.createElement('h3');
+        titleElement.textContent = title;
+
+        // Append elements to the recent activity entry
+        recentActivityItem.appendChild(image);
+        recentActivityItem.appendChild(titleElement);
+
+        // Prepend the recent activity entry to the recent content container
+        recentContent.prepend(recentActivityItem);
+    }
+
     // Add click event listeners to each game link
     gameLinks.forEach(function (link) {
         link.addEventListener('click', function (event) {
@@ -12,24 +35,8 @@ document.addEventListener('DOMContentLoaded', function () {
             const gameTitle = gameBox.querySelector('h2').textContent;
             const gameImage = gameBox.querySelector('img').src;
 
-            // Create an array to hold recent activities (if it doesn't exist yet)
-            let recentActivities = JSON.parse(localStorage.getItem('recentActivities')) || [];
-
-            // Add the current game to the recent activities list
-            recentActivities.unshift({ title: gameTitle, imageUrl: gameImage });
-
-            // Limit the list to a certain number of items (e.g., 5)
-            const maxRecentItems = 5;
-            recentActivities = recentActivities.slice(0, maxRecentItems);
-
-            // Store the updated recent activities list in localStorage
-            localStorage.setItem('recentActivities', JSON.stringify(recentActivities));
-
-            // Redirect to the iframe page (if needed)
-            const iframeUrl = link.getAttribute('href');
-            if (iframeUrl) {
-                window.location.href = iframeUrl;
-            }
+            // Add the recent activity entry to the "recent.html" page
+            addRecentActivity(gameTitle, gameImage);
         });
     });
 });
