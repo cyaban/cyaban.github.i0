@@ -891,17 +891,70 @@
           </div>
     </div>
           </section>
-          <div class="widget1 activite">
-    <div class="text5">Recent activity</div>
-    <div class="activity">
-        <a id="staturl" href=""><div id="image" class="imgcont"></div><div id="box" class="swiper-slide"></div></a>
-    </div>
+        <section class="recent-activity">
+        <h2>Recent Activity</h2>
+        <ul id="recentList">
+            <!-- Recent activity items will be added here dynamically -->
+        </ul>
+    </section>
+
     <script>
-        document.getElementById("image").style = "background-image: url('" + localStorage.getItem('image') + "')";
-        document.getElementById("staturl").href = localStorage.getItem('staturl');
-        document.getElementById("box").innerHTML = localStorage.getItem('box')
+        function addToRecentActivity(gameName, gameLink) {
+            // Check if localStorage is supported
+            if (typeof(Storage) !== "undefined") {
+                // Get the existing recent activity list from localStorage
+                let recentActivity = JSON.parse(localStorage.getItem("recentActivity")) || [];
+
+                // Check if the game is already in recent activity
+                const isAlreadyInRecent = recentActivity.some(item => item.name === gameName);
+
+                if (!isAlreadyInRecent) {
+                    // Add the game to recent activity
+                    recentActivity.unshift({ name: gameName, link: gameLink });
+
+                    // Limit the recent activity list to a certain number of items (e.g., 5)
+                    if (recentActivity.length > 5) {
+                        recentActivity.pop();
+                    }
+
+                    // Save the updated recent activity list to localStorage
+                    localStorage.setItem("recentActivity", JSON.stringify(recentActivity));
+
+                    // Refresh the recent activity list on the page
+                    refreshRecentActivityList();
+                }
+            } else {
+                alert("Sorry, your browser does not support web storage. Recent activity cannot be saved.");
+            }
+        }
+
+        function refreshRecentActivityList() {
+            // Get the recent activity list from localStorage
+            let recentActivity = JSON.parse(localStorage.getItem("recentActivity")) || [];
+
+            // Get the UL element where we will display recent activity
+            const recentList = document.getElementById("recentList");
+
+            // Clear the current recent activity list on the page
+            recentList.innerHTML = "";
+
+            // Add each recent activity item to the list
+            recentActivity.forEach(item => {
+                const li = document.createElement("li");
+                const a = document.createElement("a");
+                a.href = item.link;
+                a.textContent = item.name;
+                li.appendChild(a);
+                recentList.appendChild(li);
+            });
+        }
+
+        // Initialize the recent activity list on page load
+        refreshRecentActivityList();
     </script>
-</div>
+</body>
+</html>
+
 
 
             
