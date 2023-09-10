@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Website</title>
+</head>
+<body>
+    <section class="trending container" id="trending">
+        <div class="heading">
+            <a href="io.html"><i class="fa-solid fa-star"></i></a>
+            <h2>IO Games</h2>
+            <h5 class="view-more">View more <a href="io.html"><i class="fa-solid fa-angles-right"></i></a></h5>
+        </div>
+        <div class="trending-content swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="box">
+                        <img src="https://krunkerio.io/data/image/lolbeansio.png" alt="">
+                        <div class="box-text">
+                            <h2>LolBeans.io</h2>
+                            <h3>Action</h3>
+                            <a href="#" class="box-btn" onclick="addToRecentActivity('LolBeans.io', 'https://lolbeans.io')"><i class="fa-solid fa-download"></i> Play</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="recent-activity">
+        <h2>Recent Activity</h2>
+        <ul id="recentList">
+            <!-- Recent activity items will be added here dynamically -->
+        </ul>
+    </section>
+
+    <script>
+        function addToRecentActivity(gameName, gameLink) {
+            // Check if localStorage is supported
+            if (typeof(Storage) !== "undefined") {
+                // Get the existing recent activity list from localStorage
+                let recentActivity = JSON.parse(localStorage.getItem("recentActivity")) || [];
+
+                // Check if the game is already in recent activity
+                const isAlreadyInRecent = recentActivity.some(item => item.name === gameName);
+
+                if (!isAlreadyInRecent) {
+                    // Add the game to recent activity
+                    recentActivity.unshift({ name: gameName, link: gameLink });
+
+                    // Limit the recent activity list to a certain number of items (e.g., 5)
+                    if (recentActivity.length > 5) {
+                        recentActivity.pop();
+                    }
+
+                    // Save the updated recent activity list to localStorage
+                    localStorage.setItem("recentActivity", JSON.stringify(recentActivity));
+
+                    // Refresh the recent activity list on the page
+                    refreshRecentActivityList();
+                }
+            } else {
+                alert("Sorry, your browser does not support web storage. Recent activity cannot be saved.");
+            }
+        }
+
+        function refreshRecentActivityList() {
+            // Get the recent activity list from localStorage
+            let recentActivity = JSON.parse(localStorage.getItem("recentActivity")) || [];
+
+            // Get the UL element where we will display recent activity
+            const recentList = document.getElementById("recentList");
+
+            // Clear the current recent activity list on the page
+            recentList.innerHTML = "";
+
+            // Add each recent activity item to the list
+            recentActivity.forEach(item => {
+                const li = document.createElement("li");
+                const a = document.createElement("a");
+                a.href = item.link;
+                a.textContent = item.name;
+                li.appendChild(a);
+                recentList.appendChild(li);
+            });
+        }
+
+        // Initialize the recent activity list on page load
+        refreshRecentActivityList();
+    </script>
+</body>
+</html>
