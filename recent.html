@@ -3,79 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Game Website</title>
+    <title>Recent Activities</title>
 </head>
 <body>
-    <section class="trending container" id="trending">
-        <!-- ... Your IO Games content ... -->
+    <section class="recent-activities container" id="recent-activities">
+        <div class="heading">
+            <h2>Recent Activities</h2>
+        </div>
+        <div class="recent-content">
+            <ul id="recent-list">
+                <!-- Recent activities will be added here dynamically using JavaScript -->
+            </ul>
+        </div>
     </section>
-    
-    <section class="recent-activity">
-        <h2>Recent Activity</h2>
-        <ul id="recentList">
-            <!-- Recent activity items will be added here dynamically -->
-        </ul>
-    </section>
 
-    <script>
-        function addToRecentActivity(gameName, gameLink, gameImage) {
-            // Check if localStorage is supported
-            if (typeof(Storage) !== "undefined") {
-                // Get the existing recent activity list from localStorage
-                let recentActivity = JSON.parse(localStorage.getItem("recentActivity")) || [];
-
-                // Check if the game is already in recent activity
-                const isAlreadyInRecent = recentActivity.some(item => item.name === gameName);
-
-                if (!isAlreadyInRecent) {
-                    // Add the game to recent activity
-                    recentActivity.unshift({ name: gameName, link: gameLink, image: gameImage });
-
-                    // Limit the recent activity list to a certain number of items (e.g., 5)
-                    if (recentActivity.length > 5) {
-                        recentActivity.pop();
-                    }
-
-                    // Save the updated recent activity list to localStorage
-                    localStorage.setItem("recentActivity", JSON.stringify(recentActivity));
-
-                    // Refresh the recent activity list on the page
-                    refreshRecentActivityList();
-                }
-            } else {
-                alert("Sorry, your browser does not support web storage. Recent activity cannot be saved.");
-            }
-        }
-
-        function refreshRecentActivityList() {
-            // Get the recent activity list from localStorage
-            let recentActivity = JSON.parse(localStorage.getItem("recentActivity")) || [];
-
-            // Get the UL element where we will display recent activity
-            const recentList = document.getElementById("recentList");
-
-            // Clear the current recent activity list on the page
-            recentList.innerHTML = "";
-
-            // Add each recent activity item to the list
-            recentActivity.forEach(item => {
-                const li = document.createElement("li");
-                const a = document.createElement("a");
-                const img = document.createElement("img");
-
-                a.href = item.link;
-                a.textContent = item.name;
-                img.src = item.image;
-                img.alt = item.name;
-
-                li.appendChild(img);
-                li.appendChild(a);
-                recentList.appendChild(li);
-            });
-        }
-
-        // Initialize the recent activity list on page load
-        refreshRecentActivityList();
-    </script>
+    <script src="recent.js"></script>
 </body>
 </html>
