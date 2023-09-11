@@ -52,3 +52,4 @@ searchInput.addEventListener('input', searchGames);
 // Initial search to hide "IO Games" and "View more" if no results
 searchGames();
 
+
