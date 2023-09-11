@@ -4,8 +4,6 @@ function searchGames() {
     var input = document.querySelector('.search-txt');
     // Get the game cards
     var gameCards = document.querySelectorAll('.swiper-slide');
-    // Get the elements where you want to display the "No results found" message
-    var noResultsMessage = document.querySelector('.no-results-message');
     // Get the elements containing "IO Games" and "View more"
     var ioGamesHeader = document.querySelector('h2');
     var viewMoreLink = document.querySelector('.view-more');
@@ -29,6 +27,7 @@ function searchGames() {
     });
 
     // Hide or show the "No results found" message based on the flag
+    var noResultsMessage = document.querySelector('.no-results-message');
     if (resultsFound) {
         noResultsMessage.style.display = 'none'; // Hide the message if results were found
         ioGamesHeader.style.display = 'block'; // Show the "IO Games" header
