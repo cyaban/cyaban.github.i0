@@ -33,11 +33,9 @@ function searchGames() {
         noResultsMessage.style.display = 'none'; // Hide the message if results were found
     } else {
         noResultsMessage.style.display = 'block'; // Show the message if no results were found
+        ioGamesHeading.style.display = 'none'; // Hide the IO Games heading
+        viewMoreLink.style.display = 'none'; // Hide the View more link
     }
-
-    // Hide the <h2>IO Games</h2> and <h5 class="view-more"> elements when no results are found
-    ioGamesHeading.style.display = resultsFound ? 'block' : 'none';
-    viewMoreLink.style.display = resultsFound ? 'block' : 'none';
 }
 
 // Add an event listener to the search input
