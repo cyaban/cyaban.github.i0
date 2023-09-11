@@ -4,8 +4,10 @@ function searchGames() {
     var input = document.querySelector('.search-txt');
     // Get the game cards
     var gameCards = document.querySelectorAll('.swiper-slide');
-    // Get the element where you want to display the "No results found" message
-    var noResultsMessage = document.querySelector('.no-results-message');
+    // Get the <h2> element
+    var h2Element = document.querySelector('.io-games h2');
+    // Get the <h5> element
+    var h5Element = document.querySelector('.io-games h5');
 
     // Convert the search input value to lowercase for case-insensitive search
     var searchTerm = input.value.toLowerCase();
@@ -25,22 +27,14 @@ function searchGames() {
         }
     });
 
-    // Hide or show the "No results found" message based on the flag
+    // Hide or show the <h2> element, <h5> element, and the "fa-solid fa-angles-right" icon based on the flag
     if (resultsFound) {
-        noResultsMessage.style.display = 'none'; // Hide the message if results were found
+        h2Element.style.display = 'block'; // Show the <h2> element if results were found
+        h5Element.style.display = 'block'; // Show the <h5> element if results were found
     } else {
-        noResultsMessage.style.display = 'block'; // Show the message if no results were found
+        h2Element.style.display = 'none'; // Hide the <h2> element if no results were found
+        h5Element.style.display = 'none'; // Hide the <h5> element if no results were found
     }
-
-    // Hide the <a> elements with class "view-more" if no results were found
-    var viewMoreLinks = document.querySelectorAll('.view-more a');
-    viewMoreLinks.forEach(function(link) {
-        if (!resultsFound) {
-            link.style.display = 'none';
-        } else {
-            link.style.display = 'block';
-        }
-    });
 }
 
 // Add an event listener to the search input
