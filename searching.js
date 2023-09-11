@@ -5,7 +5,7 @@ function searchGames() {
     var gameCards = document.querySelectorAll('.swiper-slide');
     // Get the element where you want to display the "No results found" message
     var noResultsMessage = document.querySelector('.no-results-message');
-    // Get the specific <h2> element you want to hide the text of
+    // Get the specific <h2> element you want to hide when no results are found
     var ioGamesHeader = document.querySelector('.swiper-slide h2');
     
     // Convert the search input value to lowercase for case-insensitive search
@@ -29,11 +29,9 @@ function searchGames() {
     // Hide or show the "No results found" message based on the flag
     noResultsMessage.style.display = resultsFound ? 'none' : 'block';
     
-    // Hide or show the text within the specific <h2> element with the text "IO Games" based on the flag
-    if (resultsFound) {
-        ioGamesHeader.textContent = 'IO Games'; // Set the text
-    } else {
-        ioGamesHeader.textContent = ''; // Clear the text
+    // Remove the <h2> element when no results are found
+    if (!resultsFound) {
+        ioGamesHeader.parentNode.removeChild(ioGamesHeader);
     }
     
     // Hide or show other elements based on the flag
