@@ -18,11 +18,19 @@ function searchGames() {
         // Check if the game title contains the search term
         if (title.includes(searchTerm)) {
             card.style.display = 'block'; // Show the card if it matches the search term
-            card.querySelector('h2').style.display = 'block'; // Show the h2 element
             resultsFound = true; // Set the flag to true since a result was found
         } else {
             card.style.display = 'none'; // Hide the card if it doesn't match
-            card.querySelector('h2').style.display = 'none'; // Hide the h2 element
+        }
+    });
+
+    // Loop through all h2 elements in game cards and hide them when no results are found
+    gameCards.forEach(function(card) {
+        var h2 = card.querySelector('h2'); // Get the h2 element
+        if (!resultsFound) {
+            h2.style.display = 'none'; // Hide the h2 element if no results were found
+        } else {
+            h2.style.display = 'block'; // Show the h2 element if results were found
         }
     });
 
@@ -66,5 +74,3 @@ function searchGames() {
 // Add an event listener to the search input
 var searchInput = document.querySelector('.search-txt');
 searchInput.addEventListener('input', searchGames);
-
-
