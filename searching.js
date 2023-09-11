@@ -6,6 +6,8 @@ function searchGames() {
     var gameCards = document.querySelectorAll('.swiper-slide');
     // Get the element where you want to display the "No results found" message
     var noResultsMessage = document.querySelector('.no-results-message');
+    // Get the headings to be hidden
+    var headingsToHide = document.querySelectorAll('.heading');
 
     // Convert the search input value to lowercase for case-insensitive search
     var searchTerm = input.value.toLowerCase();
@@ -23,11 +25,15 @@ function searchGames() {
         } else {
             card.style.display = 'none'; // Hide the card if it doesn't match
         }
+    });
 
-        // Check if the card contains the specific <a> element to hide
-        var starLink = card.querySelector('a[href="io.html"] i.fa-solid.fa-star');
-        if (starLink) {
-            starLink.parentElement.style.display = 'none'; // Hide the <a> element with the star icon
+    // Loop through all headings and hide them if they contain the search term
+    headingsToHide.forEach(function(heading) {
+        var headingText = heading.querySelector('h2').textContent.toLowerCase();
+        if (headingText.includes(searchTerm)) {
+            heading.style.display = 'none'; // Hide the heading if it contains the search term
+        } else {
+            heading.style.display = 'block'; // Show the heading if it doesn't contain the search term
         }
     });
 
