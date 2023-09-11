@@ -4,7 +4,7 @@ function searchGames() {
     var input = document.querySelector('.search-txt');
     // Get the game cards
     var gameCards = document.querySelectorAll('.swiper-slide');
-    // Get the element where you want to display the "No results found" message
+    // Get the elements where you want to display the "No results found" message
     var noResultsMessage = document.querySelector('.no-results-message');
     // Get the elements containing "IO Games" and "View more"
     var ioGamesHeader = document.querySelector('h2');
@@ -46,4 +46,3 @@ searchInput.addEventListener('input', searchGames);
 
 // Initial search to hide "IO Games" and "View more" if no results
 searchGames();
-
