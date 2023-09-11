@@ -9,7 +9,7 @@ function searchGames() {
 
     // Convert the search input value to lowercase for case-insensitive search
     var searchTerm = input.value.toLowerCase();
-    
+
     var resultsFound = false; // Flag to track if any results were found
 
     // Loop through all game cards
@@ -25,12 +25,22 @@ function searchGames() {
         }
     });
 
-    // Display or hide the "No results found" message based on the flag
+    // Hide or show the "No results found" message based on the flag
     if (resultsFound) {
         noResultsMessage.style.display = 'none'; // Hide the message if results were found
     } else {
         noResultsMessage.style.display = 'block'; // Show the message if no results were found
     }
+
+    // Hide the <a> elements with class "view-more" if no results were found
+    var viewMoreLinks = document.querySelectorAll('.view-more a');
+    viewMoreLinks.forEach(function(link) {
+        if (!resultsFound) {
+            link.style.display = 'none';
+        } else {
+            link.style.display = 'block';
+        }
+    });
 }
 
 // Add an event listener to the search input
