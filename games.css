@@ -568,7 +568,10 @@ cursor: pointer;
 body {
   background-color: #000000; /* Black color */
 }
-
+/* CSS */
+.hidden {
+    display: none;
+}
 
 
 
