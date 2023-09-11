@@ -20,10 +20,8 @@ gameCards.forEach(function(card) {
     if (title.includes(searchTerm)) {
         card.style.display = 'block'; // Show the card if it matches the search term
         resultsFound = true; // Set the flag to true since a result was found
-        card.querySelector('h2').style.display = 'block'; // Show the h2 text
     } else {
         card.style.display = 'none'; // Hide the card if it doesn't match
-        card.querySelector('h2').style.display = 'none'; // Hide the h2 text
     }
 });
 
@@ -34,6 +32,10 @@ if (resultsFound) {
 } else {
     noResultsMessage.style.display = 'block'; // Show the message if no results were found
     ioGamesSection.style.display = 'none'; // Hide the IO Games section if no results were found
+    // Hide all h2 text
+    gameCards.forEach(function(card) {
+        card.querySelector('h2').textContent = ''; // Set the h2 text to an empty string
+    });
 }
 
 // Hide the <a> elements with class "view-more" if no results were found
@@ -45,6 +47,7 @@ viewMoreLinks.forEach(function(link) {
         link.style.display = 'block';
     }
 });
+
 
 
 
