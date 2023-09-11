@@ -22,24 +22,14 @@ function searchGames() {
         } else {
             card.style.display = 'none'; // Hide the card if it doesn't match
         }
-    });
 
-    // Loop through all h2 elements in game cards and hide them when no results are found
-    gameCards.forEach(function(card) {
-        var h2 = card.querySelector('h2'); // Get the h2 element
-        if (!resultsFound) {
-            h2.style.display = 'none'; // Hide the h2 element if no results were found
-        } else {
-            h2.style.display = 'block'; // Show the h2 element if results were found
-        }
+        // Hide or show the h2 element within the card based on the same condition
+        var h2 = card.querySelector('h2');
+        h2.style.display = resultsFound ? 'block' : 'none';
     });
 
     // Hide or show the "No results found" message based on the flag
-    if (resultsFound) {
-        noResultsMessage.style.display = 'none'; // Hide the message if results were found
-    } else {
-        noResultsMessage.style.display = 'block'; // Show the message if no results were found
-    }
+    noResultsMessage.style.display = resultsFound ? 'none' : 'block';
 
     // Hide or show other elements based on the flag
     var viewMoreLinks = document.querySelectorAll('.view-more a');
