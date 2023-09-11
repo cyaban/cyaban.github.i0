@@ -6,19 +6,18 @@ function searchGames() {
     var gameCards = document.querySelectorAll('.swiper-slide');
     // Get the element where you want to display the "No results found" message
     var noResultsMessage = document.querySelector('.no-results-message');
-    
-    // Get the container element for the IO Games section
-    var ioGamesContainer = document.querySelector('.io-games-container');
-    
+    // Get the element containing the "IO Games" title and "View more" link
+    var ioGamesHeader = document.querySelector('.io-games-header');
+
     // Convert the search input value to lowercase for case-insensitive search
     var searchTerm = input.value.toLowerCase();
-    
+
     var resultsFound = false; // Flag to track if any results were found
-    
+
     // Loop through all game cards
     gameCards.forEach(function(card) {
         var title = card.querySelector('h2').textContent.toLowerCase(); // Get the game title
-        
+
         // Check if the game title contains the search term
         if (title.includes(searchTerm)) {
             card.style.display = 'block'; // Show the card if it matches the search term
@@ -27,21 +26,16 @@ function searchGames() {
             card.style.display = 'none'; // Hide the card if it doesn't match
         }
     });
-    
-    // Hide or show the "No results found" message based on the flag
+
+    // Hide or show the "No results found" message and the IO Games section based on the flag
     if (resultsFound) {
         noResultsMessage.style.display = 'none'; // Hide the message if results were found
+        ioGamesHeader.style.display = 'block'; // Show the IO Games section
     } else {
         noResultsMessage.style.display = 'block'; // Show the message if no results were found
+        ioGamesHeader.style.display = 'none'; // Hide the IO Games section
     }
-    
-    // Hide or show the IO Games section based on the flag
-    if (resultsFound) {
-        ioGamesContainer.style.display = 'block'; // Show the IO Games section if results were found
-    } else {
-        ioGamesContainer.style.display = 'none'; // Hide the IO Games section if no results were found
-    }
-    
+
     // Hide the <a> elements with class "view-more" if no results were found
     var viewMoreLinks = document.querySelectorAll('.view-more a');
     viewMoreLinks.forEach(function(link) {
