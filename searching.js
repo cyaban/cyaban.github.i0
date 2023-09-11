@@ -19,11 +19,11 @@ gameCards.forEach(function(card) {
     // Check if the game title contains the search term
     if (title.includes(searchTerm)) {
         card.style.display = 'block'; // Show the card if it matches the search term
-        card.querySelector('h2').textContent = title; // Set the text content to the original title
         resultsFound = true; // Set the flag to true since a result was found
+        card.querySelector('h2').style.display = 'block'; // Show the h2 text
     } else {
         card.style.display = 'none'; // Hide the card if it doesn't match
-        card.querySelector('h2').textContent = ''; // Set the text content to empty string
+        card.querySelector('h2').style.display = 'none'; // Hide the h2 text
     }
 });
 
