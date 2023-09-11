@@ -4,10 +4,8 @@ function searchGames() {
     var input = document.querySelector('.search-txt');
     // Get the game cards
     var gameCards = document.querySelectorAll('.swiper-slide');
-    // Get the "trending" section
-    var trendingSection = document.querySelector('.trending');
-    // Get the specified section you want to hide
-    var sportsSection = document.querySelector('.your-section'); // Replace '.your-section' with the actual class or ID of your section
+    // Get the element where you want to display the "No results found" message
+    var noResultsMessage = document.querySelector('.no-results-message');
 
     // Convert the search input value to lowercase for case-insensitive search
     var searchTerm = input.value.toLowerCase();
@@ -27,14 +25,32 @@ function searchGames() {
         }
     });
 
-    // Hide or show the "trending" section and the specified section based on the flag
+    // Hide or show the "No results found" message based on the flag
     if (resultsFound) {
-        trendingSection.style.display = 'block'; // Show the "trending" section if results were found
-        sportsSection.style.display = 'block'; // Show the specified section if results were found
+        noResultsMessage.style.display = 'none'; // Hide the message if results were found
     } else {
-        trendingSection.style.display = 'none'; // Hide the "trending" section if no results were found
-        sportsSection.style.display = 'none'; // Hide the specified section if no results were found
+        noResultsMessage.style.display = 'block'; // Show the message if no results were found
     }
+
+    // Hide or show the trending sections based on the flag
+    var trendingSections = document.querySelectorAll('.trending.container');
+    trendingSections.forEach(function(section) {
+        if (!resultsFound) {
+            section.style.display = 'none'; // Hide the section if no results were found
+        } else {
+            section.style.display = 'block'; // Show the section if results were found
+        }
+    });
+
+    // Hide the <a> elements with class "view-more" if no results were found
+    var viewMoreLinks = document.querySelectorAll('.view-more a');
+    viewMoreLinks.forEach(function(link) {
+        if (!resultsFound) {
+            link.style.display = 'none';
+        } else {
+            link.style.display = 'block';
+        }
+    });
 }
 
 // Add an event listener to the search input
