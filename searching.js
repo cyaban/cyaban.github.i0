@@ -5,16 +5,16 @@ function searchGames() {
     var gameCards = document.querySelectorAll('.swiper-slide');
     // Get the element where you want to display the "No results found" message
     var noResultsMessage = document.querySelector('.no-results-message');
-
+    
     // Convert the search input value to lowercase for case-insensitive search
     var searchTerm = input.value.toLowerCase();
-
+    
     var resultsFound = false; // Flag to track if any results were found
-
+    
     // Loop through all game cards
     gameCards.forEach(function(card) {
         var title = card.querySelector('h2').textContent.toLowerCase(); // Get the game title
-
+        
         // Check if the game title contains the search term
         if (title.includes(searchTerm)) {
             card.style.display = 'block'; // Show the card if it matches the search term
@@ -22,15 +22,19 @@ function searchGames() {
         } else {
             card.style.display = 'none'; // Hide the card if it doesn't match
         }
-
-        // Hide or show the h2 element within the card based on the same condition
-        var h2 = card.querySelector('h2');
-        h2.style.display = resultsFound ? 'block' : 'none';
     });
-
+    
+    // Hide or show the specific <h2> element with the text "IO Games"
+    var ioGamesHeader = document.querySelector('.swiper-slide h2');
+    if (ioGamesHeader.textContent.toLowerCase() === 'io games') {
+        ioGamesHeader.style.display = 'none';
+    } else {
+        ioGamesHeader.style.display = 'block';
+    }
+    
     // Hide or show the "No results found" message based on the flag
     noResultsMessage.style.display = resultsFound ? 'none' : 'block';
-
+    
     // Hide or show other elements based on the flag
     var viewMoreLinks = document.querySelectorAll('.view-more a');
     var starLinks = document.querySelectorAll('.fa-star');
@@ -66,4 +70,5 @@ function searchGames() {
 // Add an event listener to the search input
 var searchInput = document.querySelector('.search-txt');
 searchInput.addEventListener('input', searchGames);
+
 
