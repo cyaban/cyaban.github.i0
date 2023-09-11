@@ -10,7 +10,21 @@ function searchGames() {
     // Convert the search input value to lowercase for case-insensitive search
     var searchTerm = input.value.toLowerCase();
 
-    var resultsFound = false; // Flag to track if any results were found
+    var resultsFound = false;
+     // Get the pagination element
+    var pagination = document.querySelector('.pagination');
+
+    // Hide the pagination if there is text in the search input
+    if (input.value.length > 0) {
+        pagination.style.display = 'none';
+    } else {
+        pagination.style.display = 'block';
+    }
+}
+
+// Add an event listener to the search input
+var searchInput = document.querySelector('.search-txt');
+searchInput.addEventListener('input', searchGames);// Flag to track if any results were found
 
     // Loop through all game cards
     gameCards.forEach(function(card) {
