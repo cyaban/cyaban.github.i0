@@ -1,3 +1,4 @@
+// Function to handle the search input
 function searchGames() {
     // Get the search input element
     var input = document.querySelector('.search-txt');
@@ -5,8 +6,6 @@ function searchGames() {
     var gameCards = document.querySelectorAll('.swiper-slide');
     // Get the element where you want to display the "No results found" message
     var noResultsMessage = document.querySelector('.no-results-message');
-    // Get the element containing the IO Games section
-    var ioGamesSection = document.querySelector('.io-games-section');
 
     // Convert the search input value to lowercase for case-insensitive search
     var searchTerm = input.value.toLowerCase();
@@ -29,10 +28,8 @@ function searchGames() {
     // Hide or show the "No results found" message based on the flag
     if (resultsFound) {
         noResultsMessage.style.display = 'none'; // Hide the message if results were found
-        ioGamesSection.style.display = 'block'; // Show the IO Games section if results were found
     } else {
         noResultsMessage.style.display = 'block'; // Show the message if no results were found
-        ioGamesSection.style.display = 'none'; // Hide the IO Games section if no results were found
     }
 
     // Hide the <a> elements with class "view-more" if no results were found
@@ -45,4 +42,10 @@ function searchGames() {
         }
     });
 }
+
+// Add an event listener to the search input
+var searchInput = document.querySelector('.search-txt');
+searchInput.addEventListener('input', searchGames);
+
+
 
