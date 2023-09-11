@@ -19,11 +19,9 @@ function searchGames() {
         // Check if the game title text contains the search term
         if (titleText.includes(searchTerm)) {
             card.style.display = 'block'; // Show the card if it matches the search term
-            titleElement.style.display = 'block'; // Show the h2 element
             resultsFound = true; // Set the flag to true since a result was found
         } else {
             card.style.display = 'none'; // Hide the card if it doesn't match
-            titleElement.style.display = 'none'; // Hide the h2 element
         }
     });
 
