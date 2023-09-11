@@ -6,6 +6,9 @@ function searchGames() {
     var gameCards = document.querySelectorAll('.swiper-slide');
     // Get the element where you want to display the "No results found" message
     var noResultsMessage = document.querySelector('.no-results-message');
+    // Get the elements to hide when no results are found
+    var ioGamesHeading = document.querySelector('h2');
+    var viewMoreLink = document.querySelector('.view-more');
 
     // Convert the search input value to lowercase for case-insensitive search
     var searchTerm = input.value.toLowerCase();
@@ -28,20 +31,12 @@ function searchGames() {
     // Hide or show the "No results found" message based on the flag
     if (resultsFound) {
         noResultsMessage.style.display = 'none'; // Hide the message if results were found
+        ioGamesHeading.style.display = 'block'; // Show the IO Games heading
+        viewMoreLink.style.display = 'block'; // Show the View more link
     } else {
         noResultsMessage.style.display = 'block'; // Show the message if no results were found
-    }
-
-    // Hide the <h2>IO Games</h2> and <h5 class="view-more"> elements when no results are found
-    var ioGamesHeading = document.querySelector('h2');
-    var viewMoreLink = document.querySelector('.view-more');
-
-    if (!resultsFound) {
-        ioGamesHeading.style.display = 'none';
-        viewMoreLink.style.display = 'none';
-    } else {
-        ioGamesHeading.style.display = 'block';
-        viewMoreLink.style.display = 'block';
+        ioGamesHeading.style.display = 'none'; // Hide the IO Games heading
+        viewMoreLink.style.display = 'none'; // Hide the View more link
     }
 }
 
