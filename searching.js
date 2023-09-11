@@ -23,6 +23,12 @@ function searchGames() {
         } else {
             card.style.display = 'none'; // Hide the card if it doesn't match
         }
+
+        // Check if the card contains the specific <a> element to hide
+        var starLink = card.querySelector('a[href="io.html"] i.fa-solid.fa-star');
+        if (starLink) {
+            starLink.parentElement.style.display = 'none'; // Hide the <a> element with the star icon
+        }
     });
 
     // Hide or show the "No results found" message based on the flag
@@ -31,22 +37,6 @@ function searchGames() {
     } else {
         noResultsMessage.style.display = 'block'; // Show the message if no results were found
     }
-
-    // Hide or show the trending sections based on the flag
-    var trendingSections = document.querySelectorAll('.trending.container');
-    trendingSections.forEach(function(section) {
-        if (!resultsFound) {
-            section.style.display = 'none'; // Hide the section if no results were found
-        } else {
-            section.style.display = 'block'; // Show the section if results were found
-        }
-    });
-
-    // Exclude the following elements from being hidden
-    var excludedElements = document.querySelectorAll('.pagination, .no-results-container');
-    excludedElements.forEach(function(element) {
-        element.style.display = 'block';
-    });
 
     // Hide the <a> elements with class "view-more" if no results were found
     var viewMoreLinks = document.querySelectorAll('.view-more a');
