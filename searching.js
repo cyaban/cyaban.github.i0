@@ -41,30 +41,32 @@ function searchGames() {
         noResultsMessage.style.display = 'block'; // Show the message if no results were found
     }
 
-    // Hide the <a> elements with class "view-more" if no results were found
+    // Hide or show other elements based on the flag
     var viewMoreLinks = document.querySelectorAll('.view-more a');
-    viewMoreLinks.forEach(function(link) {
-        if (!resultsFound) {
-            link.style.display = 'none';
-        } else {
-            link.style.display = 'block';
-        }
-    });
-
-    // Hide the <a> elements with class "fa-star" and "fa-angles-right" if no results were found
     var starLinks = document.querySelectorAll('.fa-star');
     var anglesRightLinks = document.querySelectorAll('.fa-angles-right');
+    
     if (!resultsFound) {
+        viewMoreLinks.forEach(function(link) {
+            link.style.display = 'none';
+        });
+        
         starLinks.forEach(function(starLink) {
             starLink.style.display = 'none';
         });
+        
         anglesRightLinks.forEach(function(anglesRightLink) {
             anglesRightLink.style.display = 'none';
         });
     } else {
+        viewMoreLinks.forEach(function(link) {
+            link.style.display = 'block';
+        });
+        
         starLinks.forEach(function(starLink) {
             starLink.style.display = 'block';
         });
+        
         anglesRightLinks.forEach(function(anglesRightLink) {
             anglesRightLink.style.display = 'block';
         });
