@@ -23,28 +23,47 @@ function searchGames() {
             card.style.display = 'none'; // Hide the card if it doesn't match
         }
 
-        // Hide or show the h2 element within the card based on the card's display property
+        // Hide or show the h2 element within the card based on the same condition
         var h2 = card.querySelector('h2');
-        h2.style.display = card.style.display; // Set the h2's display property to match the card's display property
-        
-        // Hide or show the view more link and other elements within the card based on the card's display property
-        var viewMoreLink = card.querySelector('.view-more');
-        var starLink = card.querySelector('.fa-star');
-        var anglesRightLink = card.querySelector('.fa-angles-right');
-        
-        if (card.style.display === 'none') {
-            viewMoreLink.style.display = 'none';
-            starLink.style.display = 'none';
-            anglesRightLink.style.display = 'none';
-        } else {
-            viewMoreLink.style.display = 'block';
-            starLink.style.display = 'block';
-            anglesRightLink.style.display = 'block';
-        }
+        h2.style.display = resultsFound ? 'block' : 'none';
     });
 
     // Hide or show the "No results found" message based on the flag
     noResultsMessage.style.display = resultsFound ? 'none' : 'block';
+
+    // Hide or show other elements based on the flag
+    var viewMoreLinks = document.querySelectorAll('.view-more a');
+    var starLinks = document.querySelectorAll('.fa-star');
+    var anglesRightLinks = document.querySelectorAll('.fa-angles-right');
+    
+    if (!resultsFound) {
+        viewMoreLinks.forEach(function(link) {
+            link.style.display = 'none';
+        });
+        
+        starLinks.forEach(function(starLink) {
+            starLink.style.display = 'none';
+        });
+        
+        anglesRightLinks.forEach(function(anglesRightLink) {
+            anglesRightLink.style.display = 'none';
+        });
+    } else {
+        viewMoreLinks.forEach(function(link) {
+            link.style.display = 'block';
+        });
+        
+        starLinks.forEach(function(starLink) {
+            starLink.style.display = 'block';
+        });
+        
+        anglesRightLinks.forEach(function(anglesRightLink) {
+            anglesRightLink.style.display = 'block';
+        });
+    }
 }
 
+// Add an event listener to the search input
+var searchInput = document.querySelector('.search-txt');
+searchInput.addEventListener('input', searchGames);
 
