@@ -42,6 +42,12 @@ function searchGames() {
         }
     });
 
+    // Exclude the following elements from being hidden
+    var excludedElements = document.querySelectorAll('.pagination, .no-results-container');
+    excludedElements.forEach(function(element) {
+        element.style.display = 'block';
+    });
+
     // Hide the <a> elements with class "view-more" if no results were found
     var viewMoreLinks = document.querySelectorAll('.view-more a');
     viewMoreLinks.forEach(function(link) {
