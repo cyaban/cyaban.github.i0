@@ -31,9 +31,9 @@ function searchGames() {
     
     // Hide or show the text within the specific <h2> element with the text "IO Games" based on the flag
     if (resultsFound) {
-        ioGamesHeader.style.display = 'block'; // Show the text
+        ioGamesHeader.textContent = 'IO Games'; // Set the text
     } else {
-        ioGamesHeader.style.display = 'none'; // Hide the text
+        ioGamesHeader.textContent = ''; // Clear the text
     }
     
     // Hide or show other elements based on the flag
@@ -71,3 +71,4 @@ function searchGames() {
 // Add an event listener to the search input
 var searchInput = document.querySelector('.search-txt');
 searchInput.addEventListener('input', searchGames);
+
