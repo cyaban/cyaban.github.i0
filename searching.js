@@ -23,9 +23,9 @@ function searchGames() {
             card.style.display = 'none'; // Hide the card if it doesn't match
         }
 
-        // Hide or show the h2 element within the card based on the same condition
+        // Hide or show the h2 element within the card based on the card's display property
         var h2 = card.querySelector('h2');
-        h2.style.display = resultsFound ? 'block' : 'none';
+        h2.style.display = card.style.display; // Set the h2's display property to match the card's display property
     });
 
     // Hide or show the "No results found" message based on the flag
@@ -35,16 +35,16 @@ function searchGames() {
     var viewMoreLinks = document.querySelectorAll('.view-more a');
     var starLinks = document.querySelectorAll('.fa-star');
     var anglesRightLinks = document.querySelectorAll('.fa-angles-right');
-    
+
     if (!resultsFound) {
         viewMoreLinks.forEach(function(link) {
             link.style.display = 'none';
         });
-        
+
         starLinks.forEach(function(starLink) {
             starLink.style.display = 'none';
         });
-        
+
         anglesRightLinks.forEach(function(anglesRightLink) {
             anglesRightLink.style.display = 'none';
         });
@@ -52,11 +52,11 @@ function searchGames() {
         viewMoreLinks.forEach(function(link) {
             link.style.display = 'block';
         });
-        
+
         starLinks.forEach(function(starLink) {
             starLink.style.display = 'block';
         });
-        
+
         anglesRightLinks.forEach(function(anglesRightLink) {
             anglesRightLink.style.display = 'block';
         });
