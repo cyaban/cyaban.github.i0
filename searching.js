@@ -15,18 +15,19 @@ function searchGames() {
     // Loop through all game cards
     gameCards.forEach(function(card) {
         var title = card.querySelector('h2').textContent.toLowerCase(); // Get the game title
+        var h5Element = card.querySelector('h5.view-more'); // Get the corresponding h5 element
 
         // Check if the game title contains the search term
         if (title.includes(searchTerm)) {
             card.style.display = 'block'; // Show the card if it matches the search term
+            if (h5Element) {
+                h5Element.style.display = 'block'; // Show the corresponding h5 element
+            }
             resultsFound = true; // Set the flag to true since a result was found
         } else {
             card.style.display = 'none'; // Hide the card if it doesn't match
-
-            // Hide the h2 text when no results are found
-            var h2Element = card.querySelector('h2');
-            if (h2Element) {
-                h2Element.style.display = 'none';
+            if (h5Element) {
+                h5Element.style.display = 'none'; // Hide the corresponding h5 element
             }
         }
     });
@@ -42,5 +43,4 @@ function searchGames() {
 // Add an event listener to the search input
 var searchInput = document.querySelector('.search-txt');
 searchInput.addEventListener('input', searchGames);
-
 
