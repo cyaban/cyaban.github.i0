@@ -1,3 +1,9 @@
+document.addEventListener('DOMContentLoaded', function () {
+    // Add an event listener to the search input
+    var searchInput = document.querySelector('.search-txt');
+    searchInput.addEventListener('input', searchGames);
+});
+
 function searchGames() {
     // Get the search input element
     var input = document.querySelector('.search-txt');
@@ -63,6 +69,3 @@ function searchGames() {
     }
 }
 
-// Add an event listener to the search input
-var searchInput = document.querySelector('.search-txt');
-searchInput.addEventListener('input', searchGames);
