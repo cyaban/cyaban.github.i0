@@ -53,6 +53,24 @@ function searchGames() {
     });
 }
 
+function searchGames() {
+    // Get the search input element
+    var input = document.querySelector('.search-txt');
+    // Get the pagination element
+    var pagination = document.querySelector('.pagination');
+
+    // Hide the pagination if there is text in the search input
+    if (input.value.length > 0) {
+        pagination.style.display = 'none';
+    } else {
+        pagination.style.display = 'block';
+    }
+}
+
+// Add an event listener to the search input
+var searchInput = document.querySelector('.search-txt');
+searchInput.addEventListener('input', searchGames);
+
 // Add an event listener to the search input
 var searchInput = document.querySelector('.search-txt');
 searchInput.addEventListener('input', searchGames);
