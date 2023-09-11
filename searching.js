@@ -1,5 +1,5 @@
 function searchGames() {
-    // Get the search input element
+    // Get the search input element 
     var input = document.querySelector('.search-txt');
     // Get the game cards
     var gameCards = document.querySelectorAll('.swiper-slide');
