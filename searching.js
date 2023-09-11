@@ -12,7 +12,7 @@ function searchGames() {
     var resultsFound = false; // Flag to track if any results were found
 
     // Loop through all game cards
-    gameCards.forEach(function(card) {
+    gameCards.forEach(function (card) {
         var titleElement = card.querySelector('h2'); // Get the h2 element
         var titleText = titleElement.textContent.toLowerCase(); // Get the game title text
 
@@ -32,4 +32,5 @@ function searchGames() {
         noResultsMessage.style.display = 'block'; // Show the message if no results were found
     }
 }
+
 
