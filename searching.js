@@ -34,14 +34,14 @@ function searchGames() {
     
     // Hide the "IO Games" header and "View more" link if no results were found
     var ioGamesHeader = document.querySelector('h2');
-    var viewMoreLink = document.querySelector('.view-more');
+    var viewMoreLink = document.querySelector('.view-more a');
     
     if (!resultsFound) {
-        ioGamesHeader.classList.add('hidden');
-        viewMoreLink.classList.add('hidden');
+        ioGamesHeader.style.display = 'none';
+        viewMoreLink.style.display = 'none';
     } else {
-        ioGamesHeader.classList.remove('hidden');
-        viewMoreLink.classList.remove('hidden');
+        ioGamesHeader.style.display = 'block';
+        viewMoreLink.style.display = 'block';
     }
 }
 
@@ -51,5 +51,4 @@ searchInput.addEventListener('input', searchGames);
 
 // Initial search to hide "IO Games" and "View more" if no results
 searchGames();
-
 
