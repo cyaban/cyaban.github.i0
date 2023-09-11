@@ -15,28 +15,52 @@ function searchGames() {
     // Loop through all game cards
     gameCards.forEach(function(card) {
         var title = card.querySelector('h2').textContent.toLowerCase(); // Get the game title
-        var h5Element = card.querySelector('h5.view-more'); // Get the corresponding h5 element
 
         // Check if the game title contains the search term
         if (title.includes(searchTerm)) {
             card.style.display = 'block'; // Show the card if it matches the search term
-            if (h5Element) {
-                h5Element.style.display = 'block'; // Show the corresponding h5 element
-            }
+            card.querySelector('h2').style.display = 'block'; // Show the h2 element
             resultsFound = true; // Set the flag to true since a result was found
         } else {
             card.style.display = 'none'; // Hide the card if it doesn't match
-            if (h5Element) {
-                h5Element.style.display = 'none'; // Hide the corresponding h5 element
-            }
+            card.querySelector('h2').style.display = 'none'; // Hide the h2 element
         }
     });
 
-    // Display or hide the "No results found" message based on the flag
+    // Hide or show the "No results found" message based on the flag
     if (resultsFound) {
         noResultsMessage.style.display = 'none'; // Hide the message if results were found
     } else {
         noResultsMessage.style.display = 'block'; // Show the message if no results were found
+    }
+
+    // Hide the <a> elements with class "view-more" if no results were found
+    var viewMoreLinks = document.querySelectorAll('.view-more a');
+    viewMoreLinks.forEach(function(link) {
+        if (!resultsFound) {
+            link.style.display = 'none';
+        } else {
+            link.style.display = 'block';
+        }
+    });
+
+    // Hide the <a> elements with class "fa-star" and "fa-angles-right" if no results were found
+    var starLinks = document.querySelectorAll('.fa-star');
+    var anglesRightLinks = document.querySelectorAll('.fa-angles-right');
+    if (!resultsFound) {
+        starLinks.forEach(function(starLink) {
+            starLink.style.display = 'none';
+        });
+        anglesRightLinks.forEach(function(anglesRightLink) {
+            anglesRightLink.style.display = 'none';
+        });
+    } else {
+        starLinks.forEach(function(starLink) {
+            starLink.style.display = 'block';
+        });
+        anglesRightLinks.forEach(function(anglesRightLink) {
+            anglesRightLink.style.display = 'block';
+        });
     }
 }
 
