@@ -1,3 +1,12 @@
+<!-- Wrap the elements you want to hide/show in a container div -->
+<div id="ioGamesContainer">
+    <h2>IO Games</h2>
+    <h5 class="view-more">View more <a href="io.html"><i class="fa-solid fa-angles-right"></i></a></h5>
+</div>
+
+<!-- Rest of your HTML content -->
+
+<script>
 // Function to handle the search input
 function searchGames() {
     // Get the search input element
@@ -6,9 +15,9 @@ function searchGames() {
     var gameCards = document.querySelectorAll('.swiper-slide');
     // Get the element where you want to display the "No results found" message
     var noResultsMessage = document.querySelector('.no-results-message');
-    // Get the IO Games header and view more link
-    var ioGamesHeader = document.getElementById('ioGamesHeader');
-    var viewMoreLink = document.getElementById('viewMoreLink');
+    
+    // Get the container div
+    var ioGamesContainer = document.getElementById('ioGamesContainer');
 
     // Convert the search input value to lowercase for case-insensitive search
     var searchTerm = input.value.toLowerCase();
@@ -31,18 +40,24 @@ function searchGames() {
     // Hide or show the "No results found" message based on the flag
     if (resultsFound) {
         noResultsMessage.style.display = 'none'; // Hide the message if results were found
-        ioGamesHeader.style.display = 'block'; // Show the IO Games header
-        viewMoreLink.style.display = 'block'; // Show the View more link
+        ioGamesContainer.style.display = 'block'; // Show the container if results were found
     } else {
         noResultsMessage.style.display = 'block'; // Show the message if no results were found
-        ioGamesHeader.style.display = 'none'; // Hide the IO Games header
-        viewMoreLink.style.display = 'none'; // Hide the View more link
+        ioGamesContainer.style.display = 'none'; // Hide the container if no results were found
     }
+
+    // Hide the <a> elements with class "view-more" if no results were found
+    var viewMoreLinks = document.querySelectorAll('.view-more a');
+    viewMoreLinks.forEach(function(link) {
+        if (!resultsFound) {
+            link.style.display = 'none';
+        } else {
+            link.style.display = 'block';
+        }
+    });
 }
 
 // Add an event listener to the search input
 var searchInput = document.querySelector('.search-txt');
 searchInput.addEventListener('input', searchGames);
-
-
-
+</script>
