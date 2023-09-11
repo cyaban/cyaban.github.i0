@@ -32,16 +32,34 @@ function searchGames() {
         noResultsMessage.style.display = 'block'; // Show the message if no results were found
     }
 
-    // Hide the specific <h2> elements when no results are found
-    var specificHeadings = document.querySelectorAll('.swiper-slide h2');
-    specificHeadings.forEach(function(heading) {
-        var headingText = heading.textContent.toLowerCase();
-        if (!resultsFound && (headingText === 'io games' || headingText === 'sports' || headingText === 'shooter' || headingText === 'emulations' || headingText === 'misc')) {
-            heading.style.display = 'none';
+    // Hide the <a> elements with class "view-more" if no results were found
+    var viewMoreLinks = document.querySelectorAll('.view-more a');
+    viewMoreLinks.forEach(function(link) {
+        if (!resultsFound) {
+            link.style.display = 'none';
         } else {
-            heading.style.display = 'block';
+            link.style.display = 'block';
         }
     });
+
+    // Hide the <a> elements with class "fa-star" and "fa-angles-right" if no results were found
+    var starLinks = document.querySelectorAll('.fa-star');
+    var anglesRightLinks = document.querySelectorAll('.fa-angles-right');
+    if (!resultsFound) {
+        starLinks.forEach(function(starLink) {
+            starLink.style.display = 'none';
+        });
+        anglesRightLinks.forEach(function(anglesRightLink) {
+            anglesRightLink.style.display = 'none';
+        });
+    } else {
+        starLinks.forEach(function(starLink) {
+            starLink.style.display = 'block';
+        });
+        anglesRightLinks.forEach(function(anglesRightLink) {
+            anglesRightLink.style.display = 'block';
+        });
+    }
 }
 
 // Add an event listener to the search input
