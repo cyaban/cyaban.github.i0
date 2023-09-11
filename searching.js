@@ -46,4 +46,3 @@ searchInput.addEventListener('input', searchGames);
 
 
 
-
