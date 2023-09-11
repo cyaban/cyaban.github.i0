@@ -7,10 +7,6 @@ function searchGames() {
     // Get the element where you want to display the "No results found" message
     var noResultsMessage = document.querySelector('.no-results-message');
     
-    // Get the elements you want to hide/show
-    var ioGamesHeader = document.querySelector('h2');
-    var viewMoreLink = document.querySelector('.view-more');
-    
     // Convert the search input value to lowercase for case-insensitive search
     var searchTerm = input.value.toLowerCase();
     
@@ -37,6 +33,9 @@ function searchGames() {
     }
     
     // Hide the "IO Games" header and "View more" link if no results were found
+    var ioGamesHeader = document.querySelector('h2');
+    var viewMoreLink = document.querySelector('.view-more a');
+    
     if (!resultsFound) {
         ioGamesHeader.style.display = 'none';
         viewMoreLink.style.display = 'none';
@@ -52,4 +51,3 @@ searchInput.addEventListener('input', searchGames);
 
 // Initial search to hide "IO Games" and "View more" if no results
 searchGames();
-
