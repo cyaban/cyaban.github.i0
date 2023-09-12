@@ -32,16 +32,11 @@ function searchGames() {
 
         // Hide the <a> and <h2> elements within the trending section
         var trendingSection = document.querySelector('.trending.container#trending');
-        var trendingLink = trendingSection.querySelector('a');
-        var trendingHeading = trendingSection.querySelector('h2');
+        var elementsToHide = trendingSection.querySelectorAll('a, h2');
         
-        if (trendingLink) {
-            trendingLink.style.display = 'none';
-        }
-
-        if (trendingHeading) {
-            trendingHeading.style.display = 'none';
-        }
+        elementsToHide.forEach(function(element) {
+            element.style.display = 'none';
+        });
     }
 
     // ... (rest of the code remains the same)
@@ -50,6 +45,3 @@ function searchGames() {
 // Add an event listener to the search input
 var searchInput = document.querySelector('.search-txt');
 searchInput.addEventListener('input', searchGames);
-
-
-
