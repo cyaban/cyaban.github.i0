@@ -30,11 +30,10 @@ function searchGames() {
     } else {
         noResultsMessage.style.display = 'block'; // Show the message if no results were found
 
-        // Hide the <a> element within the trending section
+        // Hide the entire trending section
         var trendingSection = document.querySelector('#trending');
-        var trendingLink = trendingSection.querySelector('a');
-        if (trendingLink) {
-            trendingLink.style.display = 'none';
+        if (trendingSection) {
+            trendingSection.style.display = 'none';
         }
     }
 
