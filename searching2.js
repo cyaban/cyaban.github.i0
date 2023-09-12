@@ -1,15 +1,5 @@
 function searchGames() {
-    // Get the search input element
-    var input = document.querySelector('.search-txt');
-    // Get the game cards
-    var gameCards = document.querySelectorAll('.swiper-slide');
-    // Get the element where you want to display the "No results found" message
-    var noResultsMessage = document.querySelector('.no-results-message');
-
-    // Convert the search input value to lowercase for case-insensitive search
-    var searchTerm = input.value.toLowerCase();
-
-    var resultsFound = false; // Flag to track if any results were found
+    // ... (previous code remains the same)
 
     // Loop through all game cards
     gameCards.forEach(function(card) {
@@ -22,12 +12,6 @@ function searchGames() {
         } else {
             card.style.display = 'none'; // Hide the card if it doesn't match
         }
-
-        // Check if the card contains an <a> element with href="io.html" within the <h2> elements and hide it if necessary
-        var ioLinksInH2 = card.querySelectorAll('h2 a[href="io.html"]');
-        ioLinksInH2.forEach(function(ioLink) {
-            ioLink.style.display = 'none';
-        });
     });
 
     // Hide or show the "No results found" message based on the flag
@@ -35,39 +19,17 @@ function searchGames() {
         noResultsMessage.style.display = 'none'; // Hide the message if results were found
     } else {
         noResultsMessage.style.display = 'block'; // Show the message if no results were found
+
+        // Hide the <a> element within the trending section
+        var trendingSection = document.querySelector('#trending');
+        var trendingLink = trendingSection.querySelector('a');
+        if (trendingLink) {
+            trendingLink.style.display = 'none';
+        }
     }
 
-    // Hide or show the trending sections based on the flag
-    var trendingSections = document.querySelectorAll('.trending.container');
-    trendingSections.forEach(function(section) {
-        if (!resultsFound) {
-            section.style.display = 'none'; // Hide the section if no results were found
-        } else {
-            section.style.display = 'block'; // Show the section if results were found
-        }
-    });
-
-    // Hide the <a> elements with class "view-more" if no results were found
-    var viewMoreLinks = document.querySelectorAll('.view-more a');
-    viewMoreLinks.forEach(function(link) {
-        if (!resultsFound) {
-            link.style.display = 'none';
-        } else {
-            link.style.display = 'block';
-        }
-    });
-
-    // Hide the pagination if there is text in the search input
-    var pagination = document.querySelector('.pagination');
-    if (input.value.length > 0) {
-        pagination.style.display = 'none';
-    } else {
-        pagination.style.display = 'block';
-    }
+    // ... (rest of the code remains the same)
 }
 
-// Add an event listener to the search input
-var searchInput = document.querySelector('.search-txt');
-searchInput.addEventListener('input', searchGames);
 
 
