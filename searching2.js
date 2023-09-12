@@ -1,5 +1,15 @@
 function searchGames() {
-    // ... (previous code remains the same)
+    // Get the search input element
+    var input = document.querySelector('.search-txt');
+    // Get the game cards
+    var gameCards = document.querySelectorAll('.swiper-slide');
+    // Get the element where you want to display the "No results found" message
+    var noResultsMessage = document.querySelector('.no-results-message');
+
+    // Convert the search input value to lowercase for case-insensitive search
+    var searchTerm = input.value.toLowerCase();
+
+    var resultsFound = false; // Flag to track if any results were found
 
     // Loop through all game cards
     gameCards.forEach(function(card) {
@@ -28,8 +38,38 @@ function searchGames() {
         }
     }
 
-    // ... (rest of the code remains the same)
+    // Hide or show the trending sections based on the flag
+    var trendingSections = document.querySelectorAll('.trending.container');
+    trendingSections.forEach(function(section) {
+        if (!resultsFound) {
+            section.style.display = 'none'; // Hide the section if no results were found
+        } else {
+            section.style.display = 'block'; // Show the section if results were found
+        }
+    });
+
+    // Hide the <a> elements with class "view-more" if no results were found
+    var viewMoreLinks = document.querySelectorAll('.view-more a');
+    viewMoreLinks.forEach(function(link) {
+        if (!resultsFound) {
+            link.style.display = 'none';
+        } else {
+            link.style.display = 'block';
+        }
+    });
+
+    // Hide the pagination if there is text in the search input
+    var pagination = document.querySelector('.pagination');
+    if (input.value.length > 0) {
+        pagination.style.display = 'none';
+    } else {
+        pagination.style.display = 'block';
+    }
 }
+
+// Add an event listener to the search input
+var searchInput = document.querySelector('.search-txt');
+searchInput.addEventListener('input', searchGames);
 
 
 
