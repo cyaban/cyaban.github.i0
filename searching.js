@@ -5,9 +5,6 @@ function searchGames() {
     var gameCards = document.querySelectorAll('.swiper-slide');
     // Get the element where you want to display the "No results found" message
     var noResultsMessage = document.querySelector('.no-results-message');
-    
-    // Get the trending section element
-    var trendingSection = document.querySelector('#trending');
 
     // Convert the search input value to lowercase for case-insensitive search
     var searchTerm = input.value.toLowerCase();
@@ -34,12 +31,15 @@ function searchGames() {
         noResultsMessage.style.display = 'block'; // Show the message if no results were found
     }
 
-    // Hide or show the trending section based on the flag
-    if (!resultsFound) {
-        trendingSection.style.display = 'none'; // Hide the trending section if no results were found
-    } else {
-        trendingSection.style.display = 'block'; // Show the trending section if results were found
-    }
+    // Hide or show the trending sections based on the flag
+    var trendingSections = document.querySelectorAll('.trending.container');
+    trendingSections.forEach(function(section) {
+        if (!resultsFound) {
+            section.style.display = 'none'; // Hide the section if no results were found
+        } else {
+            section.style.display = 'block'; // Show the section if results were found
+        }
+    });
 
     // Hide the <a> elements with class "view-more" if no results were found
     var viewMoreLinks = document.querySelectorAll('.view-more a');
