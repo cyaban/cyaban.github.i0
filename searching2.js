@@ -22,12 +22,12 @@ function searchGames() {
         } else {
             card.style.display = 'none'; // Hide the card if it doesn't match
         }
-        
-        // Check if the card contains an <a> element with href="io.html" and hide it if necessary
-        var ioLink = card.querySelector('a[href="io.html"]');
-        if (ioLink) {
+
+        // Check if the card contains an <a> element with href="io.html" within the <h2> elements and hide it if necessary
+        var ioLinksInH2 = card.querySelectorAll('h2 a[href="io.html"]');
+        ioLinksInH2.forEach(function(ioLink) {
             ioLink.style.display = 'none';
-        }
+        });
     });
 
     // Hide or show the "No results found" message based on the flag
@@ -69,4 +69,5 @@ function searchGames() {
 // Add an event listener to the search input
 var searchInput = document.querySelector('.search-txt');
 searchInput.addEventListener('input', searchGames);
+
 
