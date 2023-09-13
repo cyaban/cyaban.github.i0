@@ -60,13 +60,21 @@ function searchGames() {
     }
 }
 
-var pagination = document.querySelector('.logo');
-    if (input.value.length > 0) {
-        pagination.style.display = 'none';
-    } else {
-        pagination.style.display = 'block';
-    }
+function findPaginationElement() {
+    return document.querySelector('.copyright container');
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    const paginationElement = findPaginationElement();
+
+    paginationElement.addEventListener('input', () => {
+        if (paginationElement.value.length > 0) {
+            paginationElement.style.display = 'none';
+        } else {
+            paginationElement.style.display = 'block';
+        }
+    });
+});
 
 // Add an event listener to the search input
 var searchInput = document.querySelector('.search-txt');
