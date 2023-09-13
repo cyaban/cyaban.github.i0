@@ -27,8 +27,10 @@ function resetTab() {
 }
 
 // Add event listeners
-document.getElementById("icon").addEventListener("keyup", function () {
-    setFavicon(this.value.trim());
+document.getElementById("icon").addEventListener("keyup", function (event) {
+    if (event.keyCode === 13) { // Check if Enter key was pressed
+        setFavicon(this.value.trim());
+    }
 });
 
 document.getElementById("resetBtn").addEventListener("click", resetTab);
