@@ -1,25 +1,16 @@
-// Function to reset the input field and open a website in a new tab
-function resetTab() {
-    // Create a Blob URL for the site you want to open
-    const siteURL = 'https://example.com'; // Replace with the URL you want to open
+function openBlob() {
+    // Create some sample data to be included in the blob (replace this with your actual data)
+    const data = "This is the content of the blob.";
 
-    // Fetch the website as a blob
-    fetch(siteURL)
-        .then(response => response.blob())
-        .then(blob => {
-            const blobURL = URL.createObjectURL(blob);
+    // Create a Blob object
+    const blob = new Blob([data], { type: 'text/plain' });
 
-            // Open the Blob URL in a new tab
-            const newTab = window.open(blobURL, '_blank');
+    // Create a URL for the blob
+    const blobURL = URL.createObjectURL(blob);
 
-            // Revoke the Blob URL after opening
-            URL.revokeObjectURL(blobURL);
-        })
-        .catch(error => {
-            console.error('Error fetching the site:', error);
-        });
+    // Open the blob URL in a new window/tab
+    window.open(blobURL);
+
+    // Revoke the blob URL after use to free up resources
+    URL.revokeObjectURL(blobURL);
 }
-
-// Add event listener for the reset button
-document.getElementById("resetBtn").addEventListener("click", resetTab);
-
