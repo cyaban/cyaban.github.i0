@@ -1,4 +1,4 @@
-Get the search input element
+
 var searchInput = document.querySelector('.search-txt');
 
 // Add an event listener to the search input
