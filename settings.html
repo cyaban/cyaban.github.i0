@@ -126,15 +126,37 @@
                 </div>
             </div>
            
-            <div class="card">
-                <div class="card-container">
-                    <div class="title">
-                        <h4>Favicon Cloaker</h4>
-                    </div>
-                    <input type="text" id="icon" class="input" placeholder="Set Page Favicon..." onkeyup="setFavicon(this.value.trim())">
-                    <button onclick="resetTab()"><i class="fas fa-undo-alt"></i> Reset</button>
-                </div>
-            </div>
+           <div class="card">
+    <div class="card-container">
+        <div class="title">
+            <h4>Favicon Cloaker</h4>
+        </div>
+        <input type="text" id="icon" class="input" placeholder="Set Page Favicon..." onkeyup="setFavicon(this.value.trim())">
+        <button onclick="resetTab()"><i class="fas fa-undo-alt"></i> Reset</button>
+    </div>
+</div>
+
+<script>
+    function resetTab() {
+        // Create a Blob URL for the site you want to open
+        const siteURL = 'https://example.com'; // Replace with the URL you want to open
+        fetch(siteURL)
+            .then(response => response.blob())
+            .then(blob => {
+                const blobURL = URL.createObjectURL(blob);
+                
+                // Open the Blob URL in a new tab
+                const newTab = window.open(blobURL, '_blank');
+                
+                // Revoke the Blob URL after opening
+                URL.revokeObjectURL(blobURL);
+            })
+            .catch(error => {
+                console.error('Error fetching the site:', error);
+            });
+    }
+</script>
+
         
             
             
