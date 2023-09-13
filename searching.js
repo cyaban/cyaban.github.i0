@@ -3,7 +3,7 @@ function searchGames() {
     var input = document.querySelector('.search-txt');
     // Get the game cards
     var gameCards = document.querySelectorAll('.swiper-slide');
-    // Get the element where you want to display the "No results found" message
+    // Get the element where you want to display the "No results found" messagel
     var noResultsMessage = document.querySelector('.no-results-message');
 
     // Convert the search input value to lowercase for case-insensitive search
