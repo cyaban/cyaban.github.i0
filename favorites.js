@@ -1,29 +1,25 @@
-// favorites.js
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        const favoritesSlider = document.getElementById('favorites-slider');
+        const queryParams = new URLSearchParams(window.location.search);
+        const title = queryParams.get('title');
+        const genre = queryParams.get('genre');
+        const downloadURL = queryParams.get('downloadURL');
+        const imageURL = queryParams.get('imageURL');
 
-function addToFavorites(title, genre, gameUrl, imageUrl) {
-    const favoriteGames = JSON.parse(localStorage.getItem('favoriteGames')) || [];
-    const gameData = { title, genre, gameUrl, imageUrl };
-    favoriteGames.push(gameData);
-    localStorage.setItem('favoriteGames', JSON.stringify(favoriteGames));
-}
-
-window.addEventListener('DOMContentLoaded', () => {
-    const favoritesSlider = document.getElementById('favorites-slider');
-    const favoriteGames = JSON.parse(localStorage.getItem('favoriteGames')) || [];
-
-    favoriteGames.forEach((game) => {
+        // Create a slide for the favorite game
         const gameSlide = document.createElement('div');
         gameSlide.className = 'swiper-slide';
         gameSlide.innerHTML = `
             <div class="box">
-                <img src="${game.imageUrl}" alt="${game.title}">
+                <img src="${imageURL}" alt="${title}">
                 <div class="box-text">
-                    <h2>${game.title}</h2>
-                    <h3>${game.genre}</h3>
-                    <a href="${game.gameUrl}" class="box-btn"><i class="fa-solid fa-download"></i></a>
+                    <h2>${title}</h2>
+                    <h3>${genre}</h3>
+                    <a href="${downloadURL}" class="box-btn"><i class="fa-solid fa-download"></i></a>
                 </div>
             </div>
         `;
         favoritesSlider.appendChild(gameSlide);
     });
-});
+</script>
