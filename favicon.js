@@ -6,27 +6,19 @@ function setFavicon(iconUrl) {
     }
 
     // Create a link element for the favicon
-    const faviconLink = document.createElement("link");
-    faviconLink.rel = "shortcut icon";
-    faviconLink.href = iconUrl;
+    const faviconLink = document.getElementById("favicon");
+    if (faviconLink) {
+        faviconLink.href = iconUrl;
 
-    // Find the existing favicon link and remove it
-    const existingFavicon = document.querySelector("link[rel='shortcut icon']");
-    if (existingFavicon) {
-        existingFavicon.remove();
+        // Save the favicon URL to local storage
+        localStorage.setItem("faviconUrl", iconUrl);
     }
-
-    // Append the new favicon link to the head of the document
-    document.head.appendChild(faviconLink);
-
-    // Save the favicon URL to local storage
-    localStorage.setItem("faviconUrl", iconUrl);
 }
 
 // Function to reset the input field and the favicon
 function resetTab() {
     document.getElementById("icon").value = "";
-    setFavicon(""); // Reset the favicon
+    setFavicon("default-favicon.ico"); // Reset the favicon to the default
     localStorage.removeItem("faviconUrl"); // Remove the stored favicon URL
 }
 
@@ -39,9 +31,11 @@ window.addEventListener("load", function () {
     }
 });
 
-// Add event listeners
-document.getElementById("icon").addEventListener("keyup", function () {
-    setFavicon(this.value.trim());
-});
+// Add event listeners after the document has loaded
+document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("icon").addEventListener("keyup", function () {
+        setFavicon(this.value.trim());
+    });
 
-document.getElementById("resetBtn").addEventListener("click", resetTab);
+    document.getElementById("resetBtn").addEventListener("click", resetTab);
+});
