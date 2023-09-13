@@ -60,6 +60,14 @@ function searchGames() {
     }
 }
 
+var copy = document.querySelector('.copyright container');
+    if (input.value.length > 0) {
+        pagination.style.display = 'none';
+    } else {
+        pagination.style.display = 'block';
+    }
+}
+
 // Add an event listener to the search input
 var searchInput = document.querySelector('.search-txt');
 searchInput.addEventListener('input', searchGames);
