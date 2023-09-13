@@ -54,7 +54,7 @@ viewMoreLinks.forEach(function(link) {
 
 // Hide the pagination if there is text in the search input
 var pagination = document.querySelector('.pagination');
-var copyrightContainer = document.querySelector('.copyright container');
+var copyrightContainer = document.querySelector('.copyright.container');
 if (input.value.length > 0) {
     pagination.style.display = 'none';
     copyrightContainer.style.display = 'none';
