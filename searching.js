@@ -60,7 +60,7 @@ function searchGames() {
     }
 }
 
-var pagination = document.querySelector('.copyright container');
+var pagination = document.querySelector('.logo');
     if (input.value.length > 0) {
         pagination.style.display = 'none';
     } else {
