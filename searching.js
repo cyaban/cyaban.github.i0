@@ -60,29 +60,6 @@ function searchGames() {
     }
 }
 
-var copy = document.querySelector('.copyright.container');
-    if (input.value.length > 0) {
-        pagination.style.display = 'none';
-    } else {
-        pagination.style.display = 'block';
-    }
-}
-
 // Add an event listener to the search input
 var searchInput = document.querySelector('.search-txt');
 searchInput.addEventListener('input', searchGames);
-// Hide or show the "No results found" message based on the flag
-if (resultsFound) {
-    noResultsMessage.style.display = 'none'; // Hide the message if results were found
-} else {
-    noResultsMessage.style.display = 'block'; // Show the message if no results were found
-}
-
-// Hide the copyright container if there is text in the search input
-var copyrightContainer = document.querySelector('.copyright.container'); // Corrected selector
-var input = document.getElementById('your-input-element-id'); // Replace 'your-input-element-id' with the actual ID of your input element
-if (input.value.length > 0) {
-    copyrightContainer.style.display = 'none';
-} else {
-    copyrightContainer.style.display = 'block';
-}
