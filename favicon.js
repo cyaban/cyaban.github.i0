@@ -27,8 +27,9 @@ function resetTab() {
 }
 
 // Add event listeners
-document.getElementById("icon").addEventListener("keyup", function (event) {
+document.getElementById("icon").addEventListener("keydown", function (event) {
     if (event.keyCode === 13) { // Check if Enter key was pressed
+        event.preventDefault(); // Prevent the default Enter key action (form submission)
         setFavicon(this.value.trim());
     }
 });
