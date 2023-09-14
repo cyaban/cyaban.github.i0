@@ -1,47 +1,41 @@
-// JavaScript code for Particle.js
-const button = document.getElementById('toggleParticles');
-let particlesEnabled = false;
-let particlesInstance = null;
-
-// Particle.js configuration
-const particlesConfig = {
+// Initialize Particle.js configuration
+particlesJS('particles-js', {
+    // Add your Particle.js configuration options here
+    // For example:
     particles: {
         number: {
             value: 100,
+            density: {
+                enable: true,
+                value_area: 800
+            }
         },
-        size: {
-            value: 3,
+        color: {
+            value: '#000000'
         },
-    },
-};
-
-// Function to initialize Particle.js
-function initializeParticles() {
-    particlesInstance = particlesJS('canvas', particlesConfig); // Use 'canvas' as the ID
-}
-
-// Function to destroy Particle.js
-function destroyParticles() {
-    if (particlesInstance !== null) {
-        particlesInstance.destroy();
-        particlesInstance = null;
-    }
-}
-
-// Toggle particles on button click
-button.addEventListener('click', () => {
-    particlesEnabled = !particlesEnabled;
-
-    if (particlesEnabled) {
-        // Check if particlesInstance is null before initializing
-        if (particlesInstance === null) {
-            initializeParticles();
-        }
-    } else {
-        // Disable particles
-        destroyParticles();
+        // Add more particle configurations as needed
     }
 });
 
-// Initialize particles on page load
-initializeParticles();
+// Initialize a variable to keep track of particle visibility
+let particlesVisible = true;
+
+// Function to toggle particles on/off
+function toggleParticles() {
+    const particlesContainer = document.getElementById('particles-js');
+    
+    if (particlesVisible) {
+        // Hide particles
+        particlesContainer.style.display = 'none';
+    } else {
+        // Show particles
+        particlesContainer.style.display = 'block';
+    }
+
+    // Toggle the state
+    particlesVisible = !particlesVisible;
+}
+
+// Attach click event listener to the "Toggle Particles" button
+const toggleButton = document.getElementById('toggleParticles');
+toggleButton.addEventListener('click', toggleParticles);
