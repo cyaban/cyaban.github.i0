@@ -52,13 +52,16 @@
         </div>
     </div>
 
-     <div class="container">
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+</head>
+<body>
+    <div class="container">
         <div class="card">
             <div class="card-container">
                 <div class="title">
                     <h4>Particles</h4>
                 </div>
-                <p>Clicking this button will enable particles</p>
+                <p>Clicking this button will toggle particles</p>
                 <button id="toggleParticles">Toggle Particles</button>
             </div>
         </div>
@@ -89,14 +92,14 @@
             if (particlesEnabled) {
                 // Enable particles
                 particlesJS('particles', particlesConfig);
-                button.textContent = 'Disable Particles';
             } else {
                 // Disable particles
                 particlesJS('particles', 'destroy');
-                button.textContent = 'Enable Particles';
             }
         });
     </script>
+</body>
+</html>
   
         
     
