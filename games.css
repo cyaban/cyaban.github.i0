@@ -582,19 +582,7 @@ body {
     color: white; /* Set text color to white */
 }
 
-.time-container {
-    position: absolute;
-    top: 50%; /* Move it down by 50% from the top */
-    left: 50%;
-    transform: translate(-50%, -50%); /* Center horizontally and vertically */
-}
-
-.time {
-    font-size: 24px;
-}
-
-
-
+\
 
 
 
