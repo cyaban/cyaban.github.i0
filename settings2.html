@@ -1,43 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-
-    <link rel="shortcut icon" href="img/fav.png" type="image/x-icon">
-    <link rel="stylesheet" href="set.css">
-    <link rel="stylesheet" href="games.css">
-    <!-- Add other CSS links here -->
-
-    <script src="panic.js"></script>
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="unpkg.com_swiper@7.3.1_swiper-bundle.min.css">
+    <!-- ... (your head content) ... -->
 </head>
 <body>
     <header>
-        <div class="nav container">
-            <a href="index.html" class="logo">Fu<span>sio</span>n</a>
-            <div class="nav-icons">
-                <a href="tabz/index.html" class="btn-1" id="btn-1">Browse</a>
-                <i class="bx bx-download"></i>
-                <div class="menu-icon">
-                    <div class="lineA"></div>
-                    <div class="lineB"></div>
-                    <div class="lineC"></div>
-                </div>
-            </div>
-            <div class="menu">
-                <img src="E98786D7-B719-441A-9343-65B147D1A7C7.gif">
-                <div class="navbar">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="index.html">Games</a></li>
-                    <li><a href="settings.html">Settings</a></li>  
-                </div>
-            </div>
-        </div>
+        <!-- ... (your header content) ... -->
     </header>
     <canvas id="canvas"></canvas>
     <div class="container">
@@ -52,9 +20,6 @@
         </div>
     </div>
 
-    <!-- Particle.js script -->
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    
     <div class="container">
         <div class="card">
             <div class="card-container">
@@ -66,10 +31,11 @@
             </div>
         </div>
     </div>
-</body>
-</html>
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
+
+    <!-- Particle.js script -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+    <script>
         const button = document.getElementById('toggleParticles');
         let particlesEnabled = false;
         let particlesInstance = null;
@@ -88,7 +54,7 @@
 
         // Function to initialize Particle.js
         function initializeParticles() {
-            particlesInstance = particlesJS('canvas', particlesConfig);
+            particlesInstance = particlesJS('canvas', particlesConfig); // Change 'particles' to 'canvas'
         }
 
         // Function to destroy Particle.js
@@ -114,51 +80,19 @@
 
         // Initialize particles on page load
         initializeParticles();
-    });
-</script>
+    </script>
 
+    <!-- JavaScript code for tab cloaker -->
+    <script>
+        document.getElementById("tabcloak").addEventListener("click", function() {
+            // ... (your tab cloaker code) ...
+        });
+    </script>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-<script>
-    // JavaScript code for tab cloaker
-    document.getElementById("tabcloak").addEventListener("click", function() {
-        // Open the specified URL in a blob tab
-        var url = "https://fusionw.pages.dev/";
-
-        // Create an empty Blob
-        var blob = new Blob([''], { type: 'text/html' });
-
-        // Create a Blob URL from the Blob object
-        var blobUrl = URL.createObjectURL(blob);
-
-        // Open the Blob URL in a new tab
-        var newTab = window.open(blobUrl, '_blank');
-
-        // When the new tab is ready, navigate to the desired URL
-        newTab.onload = function() {
-            newTab.location.href = url;
-        };
-
-        // Clean up the Blob URL when you're done with it (e.g., when the tab is closed)
-        URL.revokeObjectURL(blobUrl);
-    });
-</script>
-
-<!-- Add other JavaScript scripts here -->
-<script src="games.js"></script>
-<script src="themes.js"></script>
-<script src="favicon.js"></script>
-<script src="blob.js"></script>
-
+    <!-- Add other JavaScript scripts here -->
+    <script src="games.js"></script>
+    <script src="themes.js"></script>
+    <script src="favicon.js"></script>
+    <script src="blob.js"></script>
+</body>
+</html>
