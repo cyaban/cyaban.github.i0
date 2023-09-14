@@ -5,6 +5,9 @@ function searchGames() {
     var gameCards = document.querySelectorAll('.swiper-slide');
     // Get the element where you want to display the "No results found" message
     var noResultsMessage = document.querySelector('.no-results-message');
+    
+    // Hide the copyright div when search is triggered
+    var copyrightDiv = document.querySelector('.copyright.container');
 
     // Convert the search input value to lowercase for case-insensitive search
     var searchTerm = input.value.toLowerCase();
@@ -66,7 +69,6 @@ function searchGames() {
     }
 
     // Hide the copyright div when search is triggered
-    var copyrightDiv = document.querySelector('.copyright.container');
     if (resultsFound) {
         copyrightDiv.style.display = 'none';
     } else {
