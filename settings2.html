@@ -52,6 +52,59 @@
         </div>
     </div>
 
+     <div class="container">
+        <div class="card">
+            <div class="card-container">
+                <div class="title">
+                    <h4>Particles</h4>
+                </div>
+                <p>Clicking this button will enable particles</p>
+                <button id="toggleParticles">Toggle Particles</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const button = document.getElementById('toggleParticles');
+        let particlesEnabled = false;
+
+        // Particle.js configuration
+        const particlesConfig = {
+            particles: {
+                number: {
+                    value: 100,
+                },
+                size: {
+                    value: 3,
+                },
+            },
+        };
+
+        // Initialize Particle.js
+        particlesJS('particles', particlesConfig);
+
+        button.addEventListener('click', () => {
+            particlesEnabled = !particlesEnabled;
+
+            if (particlesEnabled) {
+                // Enable particles
+                particlesJS('particles', particlesConfig);
+                button.textContent = 'Disable Particles';
+            } else {
+                // Disable particles
+                particlesJS('particles', 'destroy');
+                button.textContent = 'Enable Particles';
+            }
+        });
+    </script>
+  
+        
+    
+    
+    
+    
+    
+    
     <script>
         document.getElementById("tabcloak").addEventListener("click", function() {
             // Open the specified URL in a blob tab
