@@ -33,8 +33,10 @@ button.addEventListener('click', () => {
     particlesEnabled = !particlesEnabled;
 
     if (particlesEnabled) {
-        // Enable particles
-        initializeParticles();
+        // Check if particlesInstance is null before initializing
+        if (particlesInstance === null) {
+            initializeParticles();
+        }
     } else {
         // Disable particles
         destroyParticles();
