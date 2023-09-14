@@ -20,7 +20,7 @@ const pinkParticlesConfig = {
 
 // Function to initialize Particle.js
 function initializeParticles() {
-    particlesInstance = particlesJS('particles', pinkParticlesConfig);
+    particlesInstance = particlesJS('canvas', pinkParticlesConfig); // Change 'particles' to 'canvas'
 }
 
 // Function to destroy Particle.js
