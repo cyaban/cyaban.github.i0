@@ -29,10 +29,9 @@ function searchGames() {
     // Hide or show the "No results found" message based on the flag
     if (resultsFound) {
         noResultsMessage.style.display = 'none'; // Hide the message if results were found
-        copyrightDiv.style.display = 'none'; // Hide the copyright div if results were found
     } else {
         noResultsMessage.style.display = 'block'; // Show the message if no results were found
-        copyrightDiv.style.display = 'block'; // Show the copyright div if no results were found
+        copyrightDiv.style.display = 'none'; // Hide the copyright div if no results were found
     }
 
     // Hide or show the trending sections based on the flag
@@ -67,6 +66,11 @@ function searchGames() {
 // Add an event listener to the search input
 var searchInput = document.querySelector('.search-txt');
 searchInput.addEventListener('input', searchGames);
+
+// Initially hide the copyright div
+var copyrightDiv = document.querySelector('.copyright.container');
+copyrightDiv.style.display = 'none';
+
 
 
 
