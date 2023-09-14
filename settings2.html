@@ -70,11 +70,12 @@
 </body>
 </html>
 
+
         <div class="allcards">
           <div class="card">
                 <div class="card-container">
                     <div class="title">
-                        <h4>Custom Backgrounds</h4>
+                        <h4>Time</h4>
                     </div>
                     <input type="text" id="background-input" placeholder="Enter image URL">
                     <div class="btn-container">
@@ -82,8 +83,45 @@
                         <button id="reset-button"><i class="fas fa-undo-alt"></i> Reset</button>
                     </div>
                 </div>
-            </div>
-               <div class="card">
+            </div> 
+             <!-- Time Display -->
+    <div class="time-container">
+        <div class="time" id="time-display"></div>
+    </div>
+
+    <script>
+        const timeDisplay = document.getElementById('time-display');
+        const saveButton = document.getElementById('save-button');
+        const resetButton = document.getElementById('reset-button');
+
+        // Function to display the current time
+        function displayTime() {
+            const now = new Date();
+            const hours = now.getHours().toString().padStart(2, '0');
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            const seconds = now.getSeconds().toString().padStart(2, '0');
+            const currentTime = `${hours}:${minutes}:${seconds}`;
+            timeDisplay.textContent = currentTime;
+        }
+
+        // Event listener for the Save button
+        saveButton.addEventListener('click', () => {
+            // Save the time or perform any desired action here
+        });
+
+        // Event listener for the Reset button
+        resetButton.addEventListener('click', () => {
+            timeDisplay.textContent = ''; // Clear the time display
+        });
+
+        // Display the time initially and update it every second
+        displayTime();
+        setInterval(displayTime, 1000);
+    </script>
+
+
+
+          <div class="card">
             <div class="card-container">
                 <div class="title">
                     <h4>Panic Button</h4>
