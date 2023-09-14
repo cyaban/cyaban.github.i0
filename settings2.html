@@ -69,6 +69,7 @@
 </body>
 </html>
 <script>
+    document.addEventListener("DOMContentLoaded", function () {
         const button = document.getElementById('toggleParticles');
         let particlesEnabled = false;
         let particlesInstance = null;
@@ -87,7 +88,7 @@
 
         // Function to initialize Particle.js
         function initializeParticles() {
-            particlesInstance = particlesJS('particles', particlesConfig);
+            particlesInstance = particlesJS('canvas', particlesConfig);
         }
 
         // Function to destroy Particle.js
@@ -113,9 +114,9 @@
 
         // Initialize particles on page load
         initializeParticles();
-    </script>
-</body>
-</html>
+    });
+</script>
+
 
 
 
