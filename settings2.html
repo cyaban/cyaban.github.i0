@@ -39,7 +39,36 @@
        </div>
      </div>
     </header>
-    
+    <canvas id="canvas"></canvas>
+    <div class="container">
+        <div class="card">
+            <div class="card-container">
+                <div class="title">
+                    <h4>Blob Cloaker</h4>
+                </div>
+                <p>Clicking this button will open your tab in a blob tab. It will stop extensions from seeing your screen.</p>
+                <button id="tabcloak">Blob Button</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("tabcloak").addEventListener("click", function() {
+            // Create a Blob with some content (e.g., an empty HTML document)
+            var blob = new Blob(['<html><body>Content for your blob tab</body></html>'], { type: 'text/html' });
+
+            // Create a Blob URL from the Blob object
+            var blobUrl = URL.createObjectURL(blob);
+
+            // Open the Blob URL in a new tab
+            window.open(blobUrl, '_blank');
+
+            // Clean up the Blob URL when you're done with it (e.g., when the tab is closed)
+            URL.revokeObjectURL(blobUrl);
+        });
+    </script>
+</body>
+</html>
 
         <div class="allcards">
           <div class="card">
@@ -64,52 +93,16 @@
             </div>
         </div>
 
-    <div class="card">
-    <div class="card-container">
-        <div class="title">
-            <h4>Blob</h4>
+        <div class="card">
+            <div class="card-container">
+                <div class="title">
+                    <h4>Set Page Title</h4>
+                </div>
+                <input type="text" id="title" class="input" placeholder="Set Page Title..." onkeyup="setTitle(this.value)">
+                <button onclick="resetTab()"><i class="fas fa-undo-alt"></i> Reset</button>
+            </div>
         </div>
-        <input type="text" id="title" class="input" placeholder="Set Page Title..." onkeyup="setTitle(this.value)">
-        <button onclick="openWebsiteInBlob('https://example.com')"><i class="fas fa-undo-alt"></i> Open as Blob</button>
-    </div>
-</div>
-
-<script>
-function openWebsiteInBlob(url) {
-    // Fetch the website content as a Blob
-    fetch(url)
-        .then(response => response.blob())
-        .then(blob => {
-            // Create a URL for the Blob
-            const blobUrl = URL.createObjectURL(blob);
-            
-            // Open the Blob URL in a new tab
-            window.open(blobUrl, '_blank');
-        })
-        .catch(error => {
-            console.error('Error fetching the website:', error);
-        });
-}
-
-function setTitle(value) {
-    // Your setTitle function logic goes here
-    // For example: document.title = value;
-}
-
-// Define your resetTab function if needed
-function resetTab() {
-    // Your resetTab function logic goes here
-}
-</script>
-
-         
-          
-          
-          
-          
-          
-          
-          <div class="card">
+            <div class="card">
                 <div class="card-container">
                     <div class="title">
                         <h4>Favicon Cloaker</h4>
