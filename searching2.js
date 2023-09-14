@@ -33,13 +33,6 @@ function searchGames() {
         }
     });
 
-    // Hide or show the "No results found" message based on the flag
-    if (resultsFound) {
-        noResultsMessage.style.display = 'none'; // Hide the message if results were found
-    } else {
-        noResultsMessage.style.display = 'block'; // Show the message if no results were found
-    }
-
     // Hide or show the trending sections based on the flag
     var trendingSections = document.querySelectorAll('.trending.container');
     trendingSections.forEach(function(section) {
@@ -68,11 +61,13 @@ function searchGames() {
         pagination.style.display = 'block';
     }
 
-    // Hide the copyright div when search is triggered
+    // Hide or show the "No results found" message and copyright div based on the flag
     if (resultsFound) {
-        copyrightDiv.style.display = 'none';
+        noResultsMessage.style.display = 'none'; // Hide the message if results were found
+        copyrightDiv.style.display = 'none'; // Hide the copyright div if results were found
     } else {
-        copyrightDiv.style.display = 'block';
+        noResultsMessage.style.display = 'block'; // Show the message if no results were found
+        copyrightDiv.style.display = 'block'; // Show the copyright div if no results were found
     }
 }
 
@@ -80,10 +75,3 @@ function searchGames() {
 var searchInput = document.querySelector('.search-txt');
 searchInput.addEventListener('input', searchGames);
 
- // Hide or show the "No results found" message based on the flag
-    if (resultsFound) {
-        noResultsMessage.style.display = 'none'; // Hide the message if results were found
-    } else {
-        noResultsMessage.style.display = 'block'; // Show the message if no results were found
-        copyrightDiv.style.display = 'none'; // Hide the copyright div if no results were found
-    }
