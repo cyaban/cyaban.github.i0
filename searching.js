@@ -72,3 +72,4 @@ function searchGames() {
 var searchInput = document.querySelector('.search-txt');
 searchInput.addEventListener('input', searchGames);
 
+
