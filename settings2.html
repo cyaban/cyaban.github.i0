@@ -9,7 +9,8 @@
     <link rel="shortcut icon" href="img/fav.png" type="image/x-icon">
     <link rel="stylesheet" href="set.css">
     <link rel="stylesheet" href="games.css">
-   <link rel="stylesheet" href=".css">
+    <!-- Add other CSS links here -->
+
     <script src="panic.js"></script>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -19,27 +20,26 @@
     <header>
         <div class="nav container">
             <a href="index.html" class="logo">Fu<span>sio</span>n</a>
-       <div class="nav-icons">
-        <a href="tabz/index.html" class="btn-1" id="btn-1">Browse</a>
-        <i class="bx bx-download"></i>
-        <div class="menu-icon">
-            <div class="lineA"></div>
-            <div class="lineB"></div>
-            <div class="lineC"></div>
-    
-      </div>
-       </div>
-       <div class="menu">
-        <img src="E98786D7-B719-441A-9343-65B147D1A7C7.gif">
-        <div class="navbar">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="index.html">Games</a></li>
-            <li><a href="settings.html">Settings</a></li>  
+            <div class="nav-icons">
+                <a href="tabz/index.html" class="btn-1" id="btn-1">Browse</a>
+                <i class="bx bx-download"></i>
+                <div class="menu-icon">
+                    <div class="lineA"></div>
+                    <div class="lineB"></div>
+                    <div class="lineC"></div>
+                </div>
+            </div>
+            <div class="menu">
+                <img src="E98786D7-B719-441A-9343-65B147D1A7C7.gif">
+                <div class="navbar">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html">Games</a></li>
+                    <li><a href="settings.html">Settings</a></li>  
+                </div>
+            </div>
         </div>
-       </div>
-     </div>
     </header>
-     <canvas id="canvas"></canvas>
+    <canvas id="canvas"></canvas>
     <div class="container">
         <div class="card">
             <div class="card-container">
@@ -52,9 +52,9 @@
         </div>
     </div>
 
-<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-</head>
-<body>
+    <!-- Particle.js script -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    
     <div class="container">
         <div class="card">
             <div class="card-container">
@@ -66,171 +66,37 @@
             </div>
         </div>
     </div>
+</body>
+</html>
 
-    <script>
-        const button = document.getElementById('toggleParticles');
-        let particlesEnabled = false;
+<script>
+    // JavaScript code for tab cloaker
+    document.getElementById("tabcloak").addEventListener("click", function() {
+        // Open the specified URL in a blob tab
+        var url = "https://fusionw.pages.dev/";
 
-        // Particle.js configuration
-        const particlesConfig = {
-            particles: {
-                number: {
-                    value: 100,
-                },
-                size: {
-                    value: 3,
-                },
-            },
+        // Create an empty Blob
+        var blob = new Blob([''], { type: 'text/html' });
+
+        // Create a Blob URL from the Blob object
+        var blobUrl = URL.createObjectURL(blob);
+
+        // Open the Blob URL in a new tab
+        var newTab = window.open(blobUrl, '_blank');
+
+        // When the new tab is ready, navigate to the desired URL
+        newTab.onload = function() {
+            newTab.location.href = url;
         };
 
-        // Initialize Particle.js
-        particlesJS('particles', particlesConfig);
+        // Clean up the Blob URL when you're done with it (e.g., when the tab is closed)
+        URL.revokeObjectURL(blobUrl);
+    });
+</script>
 
-        button.addEventListener('click', () => {
-            particlesEnabled = !particlesEnabled;
+<!-- Add other JavaScript scripts here -->
+<script src="games.js"></script>
+<script src="themes.js"></script>
+<script src="favicon.js"></script>
+<script src="blob.js"></script>
 
-            if (particlesEnabled) {
-                // Enable particles
-                particlesJS('particles', particlesConfig);
-            } else {
-                // Disable particles
-                particlesJS('particles', 'destroy');
-            }
-        });
-    </script>
-</body>
-</html>
-  
-        
-    
-    
-    
-    
-    
-    
-    <script>
-        document.getElementById("tabcloak").addEventListener("click", function() {
-            // Open the specified URL in a blob tab
-            var url = "https://fusionw.pages.dev/";
-            
-            // Create an empty Blob
-            var blob = new Blob([''], { type: 'text/html' });
-
-            // Create a Blob URL from the Blob object
-            var blobUrl = URL.createObjectURL(blob);
-
-            // Open the Blob URL in a new tab
-            var newTab = window.open(blobUrl, '_blank');
-
-            // When the new tab is ready, navigate to the desired URL
-            newTab.onload = function() {
-                newTab.location.href = url;
-            };
-
-            // Clean up the Blob URL when you're done with it (e.g., when the tab is closed)
-            URL.revokeObjectURL(blobUrl);
-        });
-    </script>
-    </div>
-    <div class="pagination">
-    <li class="page-item previous-page disable"><a class="page-link" href="">Prev</a></li>
-    <li class="page-item current-page active"><a class="page-link" href="">1</a></li>
-    <li class="page-item current-page"><a class="page-link" href="">2</a></li>
-    <li class="page-item current-page"><a class="page-link" href="">3</a></li>
-    <li class="page-item next-page"><a class="page-link" href="#">Next</a></li>
-
-</div>          
-      
-   
-        </div>
-        <div id="output"></div>
-        <script>
-            function setTitle(title) {
-                document.title = title;
-                localStorage.setItem('pageTitle', title);
-            }
-
-            function resetTab() {
-                document.title = '';
-                localStorage.removeItem('pageTitle');
-                document.getElementById('title').value = '';
-            }
-
-            document.addEventListener('DOMContentLoaded', function () {
-                var storedTitle = localStorage.getItem('pageTitle');
-                if (storedTitle) {
-                    setTitle(storedTitle);
-                    document.getElementById('title').value = storedTitle;
-                }
-            });
-
-            document.addEventListener('DOMContentLoaded', function () {
-                var storedPanicKey = localStorage.getItem('panicKey');
-                var storedWebsiteURL = localStorage.getItem('websiteURL');
-
-                var panicKeyInput = document.getElementById('panicKeyInput');
-                var websiteInput = document.getElementById('websiteInput');
-
-                if (storedPanicKey) {
-                    panicKeyInput.value = storedPanicKey;
-                }
-                if (storedWebsiteURL) {
-                    websiteInput.value = storedWebsiteURL;
-                }
-
-                document.addEventListener('keydown', function (event) {
-                    var panicKey = panicKeyInput.value.trim().toLowerCase();
-                    var pressedKey = event.key.toLowerCase(); // Convert pressed key to lowercase
-
-                    if (pressedKey === panicKey) {
-                        var websiteURL = websiteInput.value.trim();
-
-                        if (websiteURL !== '') {
-                            window.location.href = websiteURL;
-
-                            localStorage.setItem('panicKey', panicKey);
-                            localStorage.setItem('websiteURL', websiteURL);
-                        }
-                    }
-                });
-            });
-        </script>
-    </div>
-    <script>
-        // Function to apply the custom background image
-        function applyBackgroundImage() {
-            const imageUrl = document.getElementById('background-input').value;
-            
-            // Apply the background image to the body
-            document.body.style.backgroundImage = `url('${imageUrl}')`;
-            
-            // Save the selected image URL to local storage
-            localStorage.setItem('customBackgroundImage', imageUrl);
-        }
-
-        // Function to reset the background image
-        function resetBackgroundImage() {
-            // Remove the background image from the body
-            document.body.style.backgroundImage = 'none';
-            
-            // Clear the background image URL from local storage
-            localStorage.removeItem('customBackgroundImage');
-        }
-
-        // Check if there's a previously selected background image URL in local storage
-        const storedImageUrl = localStorage.getItem('customBackgroundImage');
-        if (storedImageUrl) {
-            document.body.style.backgroundImage = `url('${storedImageUrl}')`;
-            document.getElementById('background-input').value = storedImageUrl;
-        }
-
-        // Add event listeners to buttons
-        document.getElementById('save-button').addEventListener('click', applyBackgroundImage);
-        document.getElementById('reset-button').addEventListener('click', resetBackgroundImage);
-    </script>
-</body>
-</html>
-<script src="games.js"></script>  
-<script src="themes.js"></script> 
-<script src="favicon.js"></script> 
-<script src="blob.js"></script> 
