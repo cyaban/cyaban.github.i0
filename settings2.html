@@ -1,42 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-
-    <link rel="shortcut icon" href="img/fav.png" type="image/x-icon">
-    <link rel="stylesheet" href="set.css">
-    <link rel="stylesheet" href="games.css">
-    <!-- Add other CSS links here -->
-
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="unpkg.com_swiper@7.3.1_swiper-bundle.min.css">
+    <!-- ... (your existing head content) ... -->
 </head>
 <body>
     <header>
-        <div class="nav container">
-            <a href="index.html" class="logo">Fu<span>sio</span>n</a>
-            <div class="nav-icons">
-                <a href="tabz/index.html" class="btn-1" id="btn-1">Browse</a>
-                <i class="bx bx-download"></i>
-                <div class="menu-icon">
-                    <div class="lineA"></div>
-                    <div class="lineB"></div>
-                    <div class="lineC"></div>
-                </div>
-            </div>
-            <div class="menu">
-                <img src="E98786D7-B719-441A-9343-65B147D1A7C7.gif">
-                <div class="navbar">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="index.html">Games</a></li>
-                    <li><a href="settings.html">Settings</a></li>  
-                </div>
-            </div>
-        </div>
+        <!-- ... (your header content) ... -->
     </header>
     <canvas id="canvas"></canvas>
     <div class="container">
@@ -54,28 +23,6 @@
     <!-- Particle.js script -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     
-   
-    <!-- Include Particle.js library -->
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <!-- Include your custom JavaScript file -->
-    <script src="script.js"></script>
-</head>
-<body>
-    <div class="container">
-        <div class="card">
-            <div class="card-container">
-                <div class="title">
-                    <h4>Particles</h4>
-                </div>
-                <p>Clicking this button will toggle particles</p>
-                <button id="toggleParticles">Toggle Particles</button>
-            </div>
-        </div>
-    </div>
-</body>
-</html>
-
-
     <!-- JavaScript code for tab cloaker -->
     <script>
         document.getElementById("tabcloak").addEventListener("click", function() {
@@ -101,7 +48,21 @@
         });
     </script>
 
+    <!-- Include Particle.js library -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <!-- Include your custom JavaScript file -->
+    <script src="particles.js"></script>
+
+    <div class="container">
+        <div class="card">
+            <div class="card-container">
+                <div class="title">
+                    <h4>Particles</h4>
+                </div>
+                <p>Clicking this button will toggle particles</p>
+                <button id="toggleParticles">Toggle Particles</button>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
-<script src="particles.js"></script>
-
