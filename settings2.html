@@ -39,7 +39,7 @@
        </div>
      </div>
     </header>
-    <canvas id="canvas"></canvas>
+     <canvas id="canvas"></canvas>
     <div class="container">
         <div class="card">
             <div class="card-container">
@@ -54,22 +54,27 @@
 
     <script>
         document.getElementById("tabcloak").addEventListener("click", function() {
-            // Create a Blob with some content (e.g., an empty HTML document)
-            var blob = new Blob(['<html><body>Content for your blob tab</body></html>'], { type: 'text/html' });
+            // Open the specified URL in a blob tab
+            var url = "https://fusionw.pages.dev/";
+            
+            // Create an empty Blob
+            var blob = new Blob([''], { type: 'text/html' });
 
             // Create a Blob URL from the Blob object
             var blobUrl = URL.createObjectURL(blob);
 
             // Open the Blob URL in a new tab
-            window.open(blobUrl, '_blank');
+            var newTab = window.open(blobUrl, '_blank');
+
+            // When the new tab is ready, navigate to the desired URL
+            newTab.onload = function() {
+                newTab.location.href = url;
+            };
 
             // Clean up the Blob URL when you're done with it (e.g., when the tab is closed)
             URL.revokeObjectURL(blobUrl);
         });
     </script>
-</body>
-</html>
-
     </div>
     <div class="pagination">
     <li class="page-item previous-page disable"><a class="page-link" href="">Prev</a></li>
