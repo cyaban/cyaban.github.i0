@@ -38,9 +38,11 @@ button.addEventListener('click', () => {
     if (particlesEnabled) {
         // Enable particles
         initializeParticles();
+        button.innerText = 'Disable Particles'; // Change button text
     } else {
         // Disable particles
         destroyParticles();
+        button.innerText = 'Enable Particles'; // Change button text
     }
 });
 
