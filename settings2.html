@@ -68,6 +68,67 @@
     </div>
 </body>
 </html>
+<script>
+        const button = document.getElementById('toggleParticles');
+        let particlesEnabled = false;
+        let particlesInstance = null;
+
+        // Particle.js configuration
+        const particlesConfig = {
+            particles: {
+                number: {
+                    value: 100,
+                },
+                size: {
+                    value: 3,
+                },
+            },
+        };
+
+        // Function to initialize Particle.js
+        function initializeParticles() {
+            particlesInstance = particlesJS('particles', particlesConfig);
+        }
+
+        // Function to destroy Particle.js
+        function destroyParticles() {
+            if (particlesInstance !== null) {
+                particlesInstance.destroy();
+                particlesInstance = null;
+            }
+        }
+
+        // Toggle particles on button click
+        button.addEventListener('click', () => {
+            particlesEnabled = !particlesEnabled;
+
+            if (particlesEnabled) {
+                // Enable particles
+                initializeParticles();
+            } else {
+                // Disable particles
+                destroyParticles();
+            }
+        });
+
+        // Initialize particles on page load
+        initializeParticles();
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <script>
     // JavaScript code for tab cloaker
