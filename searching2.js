@@ -61,17 +61,24 @@ function searchGames() {
         pagination.style.display = 'block';
     }
 
-    // Hide the copyright section when no results were found
+    // Hide or show the "No results found" message and copyright div based on the flag
     if (resultsFound) {
         noResultsMessage.style.display = 'none'; // Hide the message if results were found
-        document.querySelector('.copyright.container').style.display = 'none'; // Hide the copyright section
+        copyrightDiv.style.display = 'none'; // Hide the copyright div if results were found
     } else {
         noResultsMessage.style.display = 'block'; // Show the message if no results were found
-        document.querySelector('.copyright.container').style.display = 'block'; // Show the copyright section
+        copyrightDiv.style.display = 'block'; // Show the copyright div if no results were found
     }
 }
 
 // Add an event listener to the search input
 var searchInput = document.querySelector('.search-txt');
 searchInput.addEventListener('input', searchGames);
+
+// Initially, hide the "No results found" message and copyright div
+var noResultsMessage = document.querySelector('.no-results-message');
+var copyrightDiv = document.querySelector('.copyright.container');
+noResultsMessage.style.display = 'none';
+copyrightDiv.style.display = 'none';
+
 
