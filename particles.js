@@ -1,10 +1,10 @@
-// JavaScript code for toggling and coloring particles
+// JavaScript code for Particle.js
 const button = document.getElementById('toggleParticles');
 let particlesEnabled = false;
 let particlesInstance = null;
 
-// Particle.js configuration with pink particles
-const pinkParticlesConfig = {
+// Particle.js configuration
+const particlesConfig = {
     particles: {
         number: {
             value: 100,
@@ -12,15 +12,12 @@ const pinkParticlesConfig = {
         size: {
             value: 3,
         },
-        color: {
-            value: '#FF69B4', // Pink color
-        },
     },
 };
 
 // Function to initialize Particle.js
 function initializeParticles() {
-    particlesInstance = particlesJS('canvas', pinkParticlesConfig); // Change 'particles' to 'canvas'
+    particlesInstance = particlesJS('canvas', particlesConfig); // Use 'canvas' as the ID
 }
 
 // Function to destroy Particle.js
@@ -38,11 +35,9 @@ button.addEventListener('click', () => {
     if (particlesEnabled) {
         // Enable particles
         initializeParticles();
-        button.innerText = 'Disable Particles'; // Change button text
     } else {
         // Disable particles
         destroyParticles();
-        button.innerText = 'Enable Particles'; // Change button text
     }
 });
 
