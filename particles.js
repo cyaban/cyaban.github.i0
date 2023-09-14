@@ -11,7 +11,7 @@ particlesJS('particles-js', {
             }
         },
         color: {
-            value: '#000000'
+            value: '#ff00ff' // Pink color
         },
         // Add more particle configurations as needed
     }
