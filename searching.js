@@ -19,16 +19,15 @@ function searchGames() {
         var starIcon = card.querySelector('i.fa-solid.fa-star'); // Get the star icon
         var viewMore = card.querySelector('h5.view-more'); // Get the view more element
 
-        // Check if the game title contains the search term
-        if (title.includes(searchTerm)) {
+        // Check if the game title contains the search term and it's not the term you want to hide
+        if (title.includes(searchTerm) && searchTerm !== 'fa-solid fa-star') {
             card.style.display = 'block'; // Show the card if it matches the search term
-            starIcon.style.display = 'block'; // Show the star icon
-            viewMore.style.display = 'block'; // Show the view more element
             resultsFound = true; // Set the flag to true since a result was found
         } else {
             card.style.display = 'none'; // Hide the card if it doesn't match
-            starIcon.style.display = 'none'; // Hide the star icon
-            viewMore.style.display = 'none'; // Hide the view more element
+            // Hide the star icon and view more element
+            if (starIcon) starIcon.style.display = 'none';
+            if (viewMore) viewMore.style.display = 'none';
         }
     });
 
@@ -77,6 +76,7 @@ searchInput.addEventListener('input', searchGames);
 // Initially hide the copyright div
 var copyrightDiv = document.querySelector('.copyright.container');
 copyrightDiv.style.display = 'none';
+
 
 
 
