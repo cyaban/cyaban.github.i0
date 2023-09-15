@@ -16,7 +16,7 @@ function searchGames() {
     // Loop through all game cards
     gameCards.forEach(function(card) {
         var title = card.querySelector('h2').textContent.toLowerCase(); // Get the game title
-        var starIcon = card.querySelector('i.fa-solid.fa-star'); // Get the star icon
+        var starIcons = card.querySelectorAll('i.fa-solid.fa-star'); // Get all the star icons
         var viewMore = card.querySelector('h5.view-more'); // Get the view more element
 
         // Check if the game title contains the search term and it's not the term you want to hide
@@ -25,8 +25,10 @@ function searchGames() {
             resultsFound = true; // Set the flag to true since a result was found
         } else {
             card.style.display = 'none'; // Hide the card if it doesn't match
-            // Hide the star icon and view more element
-            if (starIcon) starIcon.style.display = 'none';
+            // Hide the star icons and view more element
+            starIcons.forEach(function(icon) {
+                icon.style.display = 'none';
+            });
             if (viewMore) viewMore.style.display = 'none';
         }
     });
@@ -76,7 +78,6 @@ searchInput.addEventListener('input', searchGames);
 // Initially hide the copyright div
 var copyrightDiv = document.querySelector('.copyright.container');
 copyrightDiv.style.display = 'none';
-
 
 
 
