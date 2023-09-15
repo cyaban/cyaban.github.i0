@@ -23,6 +23,22 @@ function searchGames() {
             resultsFound = true; // Set the flag to true since a result was found
         } else {
             card.style.display = 'none'; // Hide the card if it doesn't match
+
+            // Hide specific elements when hiding the card
+            var starIcons = card.querySelectorAll('.fa-solid.fa-star');
+            starIcons.forEach(function(icon) {
+                icon.style.display = 'none';
+            });
+            var h2Elements = card.querySelectorAll('h2');
+            h2Elements.forEach(function(h2) {
+                if (h2.textContent === 'Sports' || h2.textContent === 'Shooter') {
+                    h2.style.display = 'none';
+                }
+            });
+            var viewMoreLinks = card.querySelectorAll('.view-more a');
+            viewMoreLinks.forEach(function(link) {
+                link.style.display = 'none';
+            });
         }
     });
 
