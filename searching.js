@@ -23,22 +23,6 @@ function searchGames() {
             resultsFound = true; // Set the flag to true since a result was found
         } else {
             card.style.display = 'none'; // Hide the card if it doesn't match
-
-            // Hide specific elements when hiding the card
-            var starIcons = card.querySelectorAll('.fa-solid.fa-star');
-            starIcons.forEach(function(icon) {
-                icon.style.display = 'none';
-            });
-            var h2Elements = card.querySelectorAll('h2');
-            h2Elements.forEach(function(h2) {
-                if (h2.textContent === 'Sports' || h2.textContent === 'Shooter') {
-                    h2.style.display = 'none';
-                }
-            });
-            var viewMoreLinks = card.querySelectorAll('.view-more a');
-            viewMoreLinks.forEach(function(link) {
-                link.style.display = 'none';
-            });
         }
     });
 
@@ -70,6 +54,12 @@ function searchGames() {
         }
     });
 
+    // Hide specific elements that should not be displayed when searching
+    var specialElements = document.querySelectorAll('.fa-solid.fa-star, h2:contains("Sports"), h2:contains("Shooter"), h2:contains("Emulations"), h2:contains("Misc")');
+    specialElements.forEach(function(element) {
+        element.style.display = 'none';
+    });
+
     // Hide the pagination if there is text in the search input
     var pagination = document.querySelector('.pagination');
     if (input.value.length > 0) {
@@ -78,14 +68,6 @@ function searchGames() {
         pagination.style.display = 'block';
     }
 }
-
-// Add an event listener to the search input
-var searchInput = document.querySelector('.search-txt');
-searchInput.addEventListener('input', searchGames);
-
-// Initially hide the copyright div
-var copyrightDiv = document.querySelector('.copyright.container');
-copyrightDiv.style.display = 'none';
 
 
 
