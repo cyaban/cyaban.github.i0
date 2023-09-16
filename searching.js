@@ -25,7 +25,7 @@ function searchGames() {
         } else {
             card.style.display = 'none'; // Hide the card if it doesn't match
 
-            // Hide the view more element if it contains "IO Games"
+            // Hide the view more element
             if (viewMore && viewMore.textContent.toLowerCase().includes("io games")) {
                 viewMore.style.display = 'none';
             }
@@ -77,7 +77,6 @@ searchInput.addEventListener('input', searchGames);
 // Initially hide the copyright div
 var copyrightDiv = document.querySelector('.copyright.container');
 copyrightDiv.style.display = 'none';
-
 
 
 
