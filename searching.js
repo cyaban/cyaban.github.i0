@@ -25,16 +25,10 @@ function searchGames() {
         } else {
             card.style.display = 'none'; // Hide the card if it doesn't match
 
-            // Hide the view more element
-            if (viewMore) viewMore.style.display = 'none';
-
-            // Check if the card contains an anchor with class "fa-solid fa-star" and hide it
-            var starAnchor = card.querySelector('a i.fa-solid.fa-star');
-            if (starAnchor) starAnchor.parentNode.style.display = 'none';
-
-            // Check if the card contains an anchor with href="io.html" and hide it
-            var ioAnchor = card.querySelector('a[href="io.html"]');
-            if (ioAnchor) ioAnchor.style.display = 'none';
+            // Hide the view more element if it contains "IO Games"
+            if (viewMore && viewMore.textContent.toLowerCase().includes("io games")) {
+                viewMore.style.display = 'none';
+            }
         }
     });
 
