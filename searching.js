@@ -30,7 +30,7 @@ function searchGames() {
                 icon.style.display = 'none';
             });
             if (viewMore) viewMore.style.display = 'none';
-            
+
             // Hide the specific elements you mentioned
             var specificElements = card.querySelectorAll('h2, h5.view-more, a[href="io.html"]');
             specificElements.forEach(function(element) {
@@ -51,3 +51,16 @@ function searchGames() {
     // ... (rest of the code remains the same)
 }
 
+// Add an event listener to the search input
+var searchInput = document.querySelector('.search-txt');
+searchInput.addEventListener('input', searchGames);
+
+// Initially hide the copyright div
+var copyrightDiv = document.querySelector('.copyright.container');
+copyrightDiv.style.display = 'none';
+
+// Initial hiding of the specific elements
+var specificElements = document.querySelectorAll('.swiper-slide h2, .swiper-slide h5.view-more, .swiper-slide a[href="io.html"]');
+specificElements.forEach(function(element) {
+    element.style.display = 'none';
+});
