@@ -30,9 +30,9 @@ function searchGames() {
                 icon.style.display = 'none';
             });
             if (viewMore) viewMore.style.display = 'none';
-
-            // Hide the specific elements you mentioned
-            var specificElements = card.querySelectorAll('h2, h5.view-more, a[href="io.html"]');
+            
+            // Hide specific elements with class "hide-on-search"
+            var specificElements = card.querySelectorAll('.hide-on-search');
             specificElements.forEach(function(element) {
                 element.style.display = 'none';
             });
@@ -48,7 +48,33 @@ function searchGames() {
         copyrightDiv.style.display = 'none'; // Hide the copyright div if no results were found
     }
 
-    // ... (rest of the code remains the same)
+    // Hide or show the trending sections based on the flag
+    var trendingSections = document.querySelectorAll('.trending.container');
+    trendingSections.forEach(function(section) {
+        if (!resultsFound) {
+            section.style.display = 'none'; // Hide the section if no results were found
+        } else {
+            section.style.display = 'block'; // Show the section if results were found
+        }
+    });
+
+    // Hide the <a> elements with class "view-more" if no results were found
+    var viewMoreLinks = document.querySelectorAll('.view-more a');
+    viewMoreLinks.forEach(function(link) {
+        if (!resultsFound) {
+            link.style.display = 'none';
+        } else {
+            link.style.display = 'block';
+        }
+    });
+
+    // Hide the pagination if there is text in the search input
+    var pagination = document.querySelector('.pagination');
+    if (input.value.length > 0) {
+        pagination.style.display = 'none';
+    } else {
+        pagination.style.display = 'block';
+    }
 }
 
 // Add an event listener to the search input
@@ -59,8 +85,8 @@ searchInput.addEventListener('input', searchGames);
 var copyrightDiv = document.querySelector('.copyright.container');
 copyrightDiv.style.display = 'none';
 
-// Initial hiding of the specific elements
-var specificElements = document.querySelectorAll('.swiper-slide h2, .swiper-slide h5.view-more, .swiper-slide a[href="io.html"]');
-specificElements.forEach(function(element) {
+// Initial hiding of the specific elements with class "hide-on-search"
+var hideOnSearchElements = document.querySelectorAll('.hide-on-search');
+hideOnSearchElements.forEach(function(element) {
     element.style.display = 'none';
 });
