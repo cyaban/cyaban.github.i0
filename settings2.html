@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- ... (your existing head content) ... -->
+</head>
+<body>
+    <header>
+        <!-- ... (your header content) ... -->
+    </header>
+    <canvas id="canvas"></canvas>
+    <div class="container">
+        <div class="card">
+            <div class="card-container">
+                <div class="title">
+                    <h4>Blob Cloaker</h4>
+                </div>
+                <p>Clicking this button will open your tab in a blob tab. It will stop extensions from seeing your screen.</p>
+                <button id="tabcloak">Blob Button</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Particle.js script -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    
+    <!-- JavaScript code for tab cloaker -->
+    <script>
+        document.getElementById("tabcloak").addEventListener("click", function() {
+            // Open the specified URL in a blob tab
+            var url = "https://fusionw.pages.dev/";
+
+            // Create an empty Blob
+            var blob = new Blob([''], { type: 'text/html' });
+
+            // Create a Blob URL from the Blob object
+            var blobUrl = URL.createObjectURL(blob);
+
+            // Open the Blob URL in a new tab
+            var newTab = window.open(blobUrl, '_blank');
+
+            // When the new tab is ready, navigate to the desired URL
+            newTab.onload = function() {
+                newTab.location.href = url;
+            };
+
+            // Clean up the Blob URL when you're done with it (e.g., when the tab is closed)
+            URL.revokeObjectURL(blobUrl);
+        });
+    </script>
+
+    <!-- Include Particle.js library -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <!-- Include your custom JavaScript file -->
+    <script src="particles.js"></script>
+
+    <div class="container">
+        <div class="card">
+            <div class="card-container">
+                <div class="title">
+                    <h4>Particles</h4>
+                </div>
+                <p>Clicking this button will toggle particles</p>
+                <button id="toggleParticles">Toggle Particles</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

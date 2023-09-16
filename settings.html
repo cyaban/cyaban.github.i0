@@ -9,6 +9,7 @@
     <link rel="shortcut icon" href="img/fav.png" type="image/x-icon">
     <link rel="stylesheet" href="set.css">
     <link rel="stylesheet" href="games.css">
+   <link rel="stylesheet" href=".css">
     <script src="panic.js"></script>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -154,8 +155,19 @@
       <div class="addon-grid">
       </div>
       <script src="addons.js"></script>
-      
-   
+          
+        
+</script>            
+</div>
+    </div>
+    <div class="pagination">
+    <li class="page-item previous-page disable"><a class="page-link" href="index.html">Prev</a></li>
+    <li class="page-item current-page active"><a class="page-link" href="setting2.html">1</a></li>
+    <li class="page-item current-page"><a class="page-link" href="adding2.html">2</a></li>
+    <li class="page-item current-page"><a class="page-link" href="">3</a></li>
+    <li class="page-item next-page"><a class="page-link" href="#">Next</a></li>
+
+</div>          
         </div>
         <div id="output"></div>
         <script>
@@ -194,7 +206,7 @@
 
                 document.addEventListener('keydown', function (event) {
                     var panicKey = panicKeyInput.value.trim().toLowerCase();
-                    var pressedKey = event.key.toLowerCase(); // Convert pressed key to lowercase
+                    var pressedKey = event.key.toLowerCase(); 
 
                     if (pressedKey === panicKey) {
                         var websiteURL = websiteInput.value.trim();
@@ -211,34 +223,26 @@
         </script>
     </div>
     <script>
-        // Function to apply the custom background image
         function applyBackgroundImage() {
             const imageUrl = document.getElementById('background-input').value;
             
-            // Apply the background image to the body
             document.body.style.backgroundImage = `url('${imageUrl}')`;
             
-            // Save the selected image URL to local storage
             localStorage.setItem('customBackgroundImage', imageUrl);
         }
 
-        // Function to reset the background image
         function resetBackgroundImage() {
-            // Remove the background image from the body
             document.body.style.backgroundImage = 'none';
             
-            // Clear the background image URL from local storage
             localStorage.removeItem('customBackgroundImage');
         }
 
-        // Check if there's a previously selected background image URL in local storage
         const storedImageUrl = localStorage.getItem('customBackgroundImage');
         if (storedImageUrl) {
             document.body.style.backgroundImage = `url('${storedImageUrl}')`;
             document.getElementById('background-input').value = storedImageUrl;
         }
 
-        // Add event listeners to buttons
         document.getElementById('save-button').addEventListener('click', applyBackgroundImage);
         document.getElementById('reset-button').addEventListener('click', resetBackgroundImage);
     </script>
@@ -247,3 +251,5 @@
 </html>
 <script src="games.js"></script>  
 <script src="themes.js"></script> 
+<script src="favicon.js"></script> 
+<script src="blob.js"></script> 

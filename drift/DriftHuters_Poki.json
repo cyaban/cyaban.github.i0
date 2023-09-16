@@ -1,0 +1,10 @@
+{
+"TOTAL_MEMORY": 536870912,
+"dataUrl": "DriftHuters_Poki.data.unityweb",
+"asmCodeUrl": "DriftHuters_Poki.asm.code.unityweb",
+"asmMemoryUrl": "DriftHuters_Poki.asm.memory.unityweb",
+"asmFrameworkUrl": "DriftHuters_Poki.asm.framework.unityweb.js",
+"backgroundUrl": "DriftHuters_Poki.jpg",
+"splashScreenStyle": "Light",
+"backgroundColor": "#FFFFFF"
+}
