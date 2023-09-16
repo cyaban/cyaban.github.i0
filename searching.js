@@ -31,6 +31,10 @@ function searchGames() {
             // Check if the card contains an anchor with class "fa-solid fa-star" and hide it
             var starAnchor = card.querySelector('a i.fa-solid.fa-star');
             if (starAnchor) starAnchor.parentNode.style.display = 'none';
+
+            // Check if the card contains an anchor with href="io.html" and hide it
+            var ioAnchor = card.querySelector('a[href="io.html"]');
+            if (ioAnchor) ioAnchor.style.display = 'none';
         }
     });
 
@@ -79,7 +83,6 @@ searchInput.addEventListener('input', searchGames);
 // Initially hide the copyright div
 var copyrightDiv = document.querySelector('.copyright.container');
 copyrightDiv.style.display = 'none';
-
 
 
 
