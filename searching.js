@@ -16,7 +16,6 @@ function searchGames() {
     // Loop through all game cards
     gameCards.forEach(function(card) {
         var title = card.querySelector('h2').textContent.toLowerCase(); // Get the game title
-        var starIcons = card.querySelectorAll('i.fa-solid.fa-star'); // Get all the star icons
         var viewMore = card.querySelector('h5.view-more'); // Get the view more element
 
         // Check if the game title contains the search term and it's not the term you want to hide
@@ -26,17 +25,12 @@ function searchGames() {
         } else {
             card.style.display = 'none'; // Hide the card if it doesn't match
 
-            // Hide the star icons and view more element
-            starIcons.forEach(function(icon) {
-                icon.style.display = 'none';
-            });
+            // Hide the view more element
             if (viewMore) viewMore.style.display = 'none';
 
-            // Hide <a> elements with class "fa-solid fa-star"
-            var starLinks = card.querySelectorAll('a i.fa-solid.fa-star');
-            starLinks.forEach(function(starLink) {
-                starLink.parentNode.style.display = 'none';
-            });
+            // Check if the card contains an anchor with class "fa-solid fa-star" and hide it
+            var starAnchor = card.querySelector('a i.fa-solid.fa-star');
+            if (starAnchor) starAnchor.parentNode.style.display = 'none';
         }
     });
 
@@ -85,6 +79,7 @@ searchInput.addEventListener('input', searchGames);
 // Initially hide the copyright div
 var copyrightDiv = document.querySelector('.copyright.container');
 copyrightDiv.style.display = 'none';
+
 
 
 
