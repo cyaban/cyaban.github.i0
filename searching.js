@@ -16,7 +16,6 @@ function searchGames() {
     // Loop through all game cards
     gameCards.forEach(function(card) {
         var title = card.querySelector('h2').textContent.toLowerCase(); // Get the game title
-        var viewMore = card.querySelector('h5.view-more'); // Get the view more element
 
         // Check if the game title contains the search term and it's not the term you want to hide
         if (title.includes(searchTerm) && searchTerm !== 'fa-solid fa-star') {
@@ -24,11 +23,6 @@ function searchGames() {
             resultsFound = true; // Set the flag to true since a result was found
         } else {
             card.style.display = 'none'; // Hide the card if it doesn't match
-
-            // Hide the view more element if it contains "IO Games"
-            if (viewMore && viewMore.textContent.toLowerCase().includes("io games")) {
-                viewMore.style.display = 'none';
-            }
         }
     });
 
@@ -68,6 +62,14 @@ function searchGames() {
     } else {
         pagination.style.display = 'block';
     }
+
+    // Hide specific elements with "IO Games"
+    var ioGamesElements = document.querySelectorAll('.swiper-slide h2, .swiper-slide h5.view-more');
+    ioGamesElements.forEach(function(element) {
+        if (element.textContent.toLowerCase().includes("io games")) {
+            element.style.display = 'none';
+        }
+    });
 }
 
 // Add an event listener to the search input
@@ -77,7 +79,6 @@ searchInput.addEventListener('input', searchGames);
 // Initially hide the copyright div
 var copyrightDiv = document.querySelector('.copyright.container');
 copyrightDiv.style.display = 'none';
-
 
 
 
