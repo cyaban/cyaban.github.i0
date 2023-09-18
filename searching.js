@@ -77,6 +77,18 @@ function searchGames() {
     }
 }
 
+// Count the number of visible game cards
+var visibleGameCards = Array.from(gameCards).filter(function(card) {
+    return card.style.display !== 'none';
+});
+
+// Check if there are no visible game cards
+if (visibleGameCards.length === 0) {
+    var trendingSection = document.getElementById('trending');
+    if (trendingSection) {
+        trendingSection.style.display = 'none'; // Hide the trending section if no visible game cards
+    }
+}
 // Add an event listener to the search input
 var searchInput = document.querySelector('.search-txt');
 searchInput.addEventListener('input', searchGames);
