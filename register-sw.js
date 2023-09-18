@@ -1,14 +1,31 @@
-/*global UVServiceWorker,__uv$config*/
-/*
- * Stock service worker script.
- * Users can provide their own sw.js if they need to extend the functionality of the service worker.
- * Ideally, this will be registered under the scope in uv.config.js so it will not need to be modified.
- * However, if a user changes the location of uv.bundle.js/uv.config.js or sw.js is not relative to them, they will need to modify this script locally.
+"use strict";
+/**
+ * Distributed with Ultraviolet and compatible with most configurations.
  */
-importScripts('uv.bundle.js');
-importScripts('uv.config.js');
-importScripts(__uv$config.sw || 'uv.sw.js');
+const stockSW = "/uv/sw.js";
 
-const sw = new UVServiceWorker();
+/**
+ * List of hostnames that are allowed to run serviceworkers on http://
+ */
+const swAllowedHostnames = ["localhost", "127.0.0.1"];
 
-self.addEventListener('fetch', (event) => event.respondWith(sw.fetch(event)));
+/**
+ * Global util
+ * Used in 404.html and index.html
+ */
+async function registerSW() {
+  if (!navigator.serviceWorker) {
+    if (
+      location.protocol !== "https:" &&
+      !swAllowedHostnames.includes(location.hostname)
+    )
+      throw new Error("Service workers cannot be registered without https.");
+
+    throw new Error("Your browser doesn't support service workers.");
+  }
+
+  // Ultraviolet has a stock `sw.js` script.
+  await navigator.serviceWorker.register(stockSW, {
+    scope: __uv$config.prefix,
+  });
+}
