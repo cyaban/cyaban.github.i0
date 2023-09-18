@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>DumbWays</title>
+<link rel="shortcut icon" href="TemplateData/favicon.ico">
+<link rel="stylesheet" href="TemplateData/style.css">
+<script src="sdk/UnityProgress.js"></script>
+<script src="Build/UnityLoader.js"></script>
+<script>
+      var gameInstance = UnityLoader.instantiate("gameContainer", "Build/dumb-ways-die.json", {onProgress: UnityProgress});
+    </script>
+</head>
+<body>
+<div class="webgl-content">
+<div id="gameContainer" style="width: 960px; height: 600px"></div>
+<div class="footer" style="display: none;">
+<div class="webgl-logo"></div>
+<div class="fullscreen" onclick="gameInstance.SetFullscreen(1)"></div>
+<div class="title">DumbWays</div>
+</div>
+</div>
+</body>
+<script>
+    gameSizeInit=function(){
+        var box=gameInstance.container;
+        box.style.height=window.innerHeight+ "px";
+        box.style.width=window.innerWidth+ "px";
+    }
+    window.onload=gameSizeInit;
+  </script>
+<script type="text/javascript" src="sdk/sdk.js"></script> <!--https://html5.iclouds.io/dumb-ways-die/-->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-136388757-2"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-136388757-2');
+  </script>
+</html>
