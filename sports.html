@@ -274,6 +274,21 @@
             </div>  
 </section>
 
+    <div class="activite">
+    <div class="text5">Reprendre son activité</div>
+    <div class="activity">
+        <a target="_blank" id="staturl" href="">
+            <div id="image" class="imgcont"></div>
+            <div id="appname" class="appname"></div>
+        </a>
+    </div>
+    <script>
+        document.getElementById("image").style.backgroundImage = "url('" + localStorage.getItem('image') + "')";
+        document.getElementById("staturl").href = localStorage.getItem('staturl');
+        document.getElementById("appname").innerHTML = localStorage.getItem('appname')
+    </script>
+</div>
+
    
 
 
