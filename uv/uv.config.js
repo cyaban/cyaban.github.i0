@@ -1,7 +1,7 @@
 
    self.__uv$config = {
     prefix: "/uv/service/",
-    bare: "https://21.yourmom.eu.org/content/",
+    bare: "https://2.yourmom.eu.org/content/",
     encodeUrl: Ultraviolet.codec.xor.encode,
     decodeUrl: Ultraviolet.codec.xor.decode,
     handler: "/uv/uv.handler.js",
