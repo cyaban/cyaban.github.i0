@@ -1,72 +1,51 @@
-// Selectors
-const searchInput = document.querySelector('.search-txt');
-const gameCards = document.querySelectorAll('.swiper-slide');
-const noResultsMessage = document.querySelector('.no-results-message'); 
-const copyrightDiv = document.querySelector('.copyright.container');
-const trendingSection = document.getElementById('trending');
-
-// Search function
 function searchGames() {
+    // Get the search input element
+    var input = document.querySelector('.search-txt');
+    // Get the game cards
+    var gameCards = document.querySelectorAll('.swiper-slide');
+    // Get the element where you want to display the "No results found" message
+    var noResultsMessage = document.querySelector('.no-results-message');
+    // Get the copyright div
+    var copyrightDiv = document.querySelector('.copyright.container');
 
-  // Convert search term to lowercase
-  const searchTerm = searchInput.value.toLowerCase();
+    // Convert the search input value to lowercase for case-insensitive search
+    var searchTerm = input.value.toLowerCase();
 
-  // Flag to track results found
-  let resultsFound = false;
+    var resultsFound = false; // Flag to track if any results were found
 
-  // Loop through cards
-  gameCards.forEach(card => {
+    // Loop through all game cards
+    gameCards.forEach(function(card) {
+        var title = card.querySelector('h2').textContent.toLowerCase(); // Get the game title
+        var starIcons = card.querySelectorAll('i.fa-solid.fa-star'); // Get all the star icons
+        var viewMore = card.querySelector('h5.view-more'); // Get the view more element
 
-    // Get title and star icons
-    const title = card.querySelector('h2').textContent.toLowerCase();
-    const starIcons = card.querySelectorAll('i.fa-solid.fa-star');
+        // Check if the game title contains the search term and it's not the term you want to hide
+        if (title.includes(searchTerm) && searchTerm !== 'fa-solid fa-star') {
+            card.style.display = 'block'; // Show the card if it matches the search term
+            resultsFound = true; // Set the flag to true since a result was found
+        } else {
+            card.style.display = 'none'; // Hide the card if it doesn't match
+            // Hide the star icons and view more element
+            starIcons.forEach(function(icon) {
+                icon.style.display = 'none';
+            });
+            if (viewMore) viewMore.style.display = 'none';
+            
+            // Hide specific elements with class "hide-on-search"
+            var specificElements = card.querySelectorAll('.hide-on-search');
+            specificElements.forEach(function(element) {
+                element.style.display = 'none';
+            });
+        }
+    });
 
-    // Check if title includes search term
-    if (title.includes(searchTerm)) {
-      card.style.display = 'block';
-      resultsFound = true;
-    } else {
-      // Hide non-matching card and star icons
-      card.style.display = 'none';
-      starIcons.forEach(icon => {
-        icon.style.display = 'none';
-      });
+    // Hide or show the trending sections based on the flag
+    var trendingSection = document.getElementById('trending');
+    if (trendingSection) {
+        trendingSection.style.display = resultsFound ? 'block' : 'none';
     }
-
-  });
-
-  // Get visible cards
-  const visibleCards = gameCards.filter(card => card.style.display !== 'none');
-
-  // Hide trending section if no cards
-  if (visibleCards.length === 0) {
-    trendingSection.style.display = 'none'; 
-  }
-
-  // Show/hide no results message
-  if (resultsFound) {
-    noResultsMessage.style.display = 'none';
-  } else {
-    noResultsMessage.style.display = 'block';
-  }
-
-  // Show/hide copyright
-  if (resultsFound) {
-    copyrightDiv.style.display = 'none';
-  } else {
-    copyrightDiv.style.display = 'none'; 
-  }
-
 }
 
-// Event listener
+// Add an event listener to the search input
+var searchInput = document.querySelector('.search-txt');
 searchInput.addEventListener('input', searchGames);
-
-// Hide initial elements
-trendingSection.style.display = 'none';
-copyrightDiv.style.display = 'none';
-
-// Hide elements with .hide-on-search class
-document.querySelectorAll('.hide-on-search').forEach(el => {
-  el.style.display = 'none';
-});
