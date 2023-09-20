@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link href="https://cdn.jsdelivr.net/gh/nate-games/waflash@main/style.css"
+        rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <script>
+        var gameConfig = {
+            swfUrl: "https://cdn.jsdelivr.net/gh/h3sj7v2f6k/jd832xj4la@70ee2487b8bdaf7f0b3769ee3135ab78cb6f796e/Kill%20Time%20in%20Your%20Office/kill-time-in-your-office.swf" //https://techypig99.github.io/games/papasburgeria/papasburgeria.swf
+        }
+    </script>
+    <div id="waflashContainer">
+        <canvas class="waflashCanvas" id="canvas" tabindex="1"></canvas>
+        <div id="waflashStatus" style="display: none;">Playing...</div>
+<script src="https://cdn.jsdelivr.net/gh/nate-games/waflash@main/main.js"  rossorigin="anonymous" type="module"></script>
+    </div>
+</body>
+
+</html>
