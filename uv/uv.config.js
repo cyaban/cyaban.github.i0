@@ -1,7 +1,7 @@
 
    self.__uv$config = {
     prefix: "/uv/service/",
-    bare: "https://ukpublicschoolsguide.uk.to/outerspace/",
+    bare: "https://s3g6.yourmom.eu.org/content/",
     encodeUrl: Ultraviolet.codec.xor.encode,
     decodeUrl: Ultraviolet.codec.xor.decode,
     handler: "/uv/uv.handler.js",
