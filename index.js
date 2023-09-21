@@ -1,78 +1,68 @@
-"use strict";
-/**
- * @type {HTMLFormElement}
- */
-const form = document.getElementById("uv-form");
-/**
- * @type {HTMLInputElement}
- */
-const address = document.getElementById("uv-address");
-/**
- * @type {HTMLInputElement}
- */
-const searchEngine = document.getElementById("uv-search-engine");
-/**
- * @type {HTMLParagraphElement}
- */
-const error = document.getElementById("uv-error");
-/**
- * @type {HTMLPreElement}
- */
-const errorCode = document.getElementById("uv-error-code");
+import express from "express";
+import http from "node:http";
+import createBareServer from "@tomphttp/bare-server-node";
+import path from "node:path";
+import * as dotenv from "dotenv";
+dotenv.config();
 
-form.addEventListener("submit", async (event) => {
-  event.preventDefault();
-  const url = search(address.value, searchEngine.value);
-  if (localStorage.getItem('openiframe')==="false"){
-    if (localStorage.getItem('searchmode')==="proxy"){
-    
+const __dirname = process.cwd();
+const server = http.createServer();
+const app = express(server);
+const bareServer = createBareServer("/outerspace/");
 
-      try {
-        await registerSW();
-      } catch (err) {
-        error.textContent = "Failed to register service worker.";
-        errorCode.textContent = err.toString();
-        throw err;
-      }
-        location.href = __uv$config.prefix + __uv$config.encodeUrl(url);
-      }else{
-        window.open(url)
-      }
-  }
-  if (localStorage.getItem('openiframe')==="true"){
-    if (localStorage.getItem('searchmode')==="proxy"){
-    
+app.use(express.json());
+app.use(
+  express.urlencoded({
+    extended: true,
+  })
+);
 
-      try {
-        await registerSW();
-      } catch (err) {
-        error.textContent = "Failed to register service worker.";
-        errorCode.textContent = err.toString();
-        throw err;
-      }
-        location.href = __uv$config.prefix + __uv$config.encodeUrl(url);
-      }else{
-        location.href = url
-      }
-  }
- 
-  
+app.use(express.static(path.join(__dirname, "static")));
+
+const routes = [
+  { path: "/", file: "index.html" },
+  { path: "/news", file: "apps.html" },
+  { path: "/algebra", file: "games.html" },
+  { path: "/settings", file: "settings.html" },
+  { path: "/tabs", file: "tabs.html" },
+  { path: "/tabinner", file: "tabinner.html" },
+  { path: "/go", file: "go.html" },
+  { path: "/loading", file: "loading.html" },
+  { path: "/404", file: "404.html" },
+];
+
+routes.forEach((route) => {
+  app.get(route.path, (req, res) => {
+    res.sendFile(path.join(__dirname, "static", route.file));
+  });
 });
 
-function openURL(value) {
-  window.navigator.serviceWorker.register("/uv/sw.js", {
-    scope: __uv$config.prefix
-  })
-  .then(() => {
-    console.log("Service worker registration successful");
+app.get("/*", (req, res) => {
+  res.redirect("/404");
+});
 
-    let url = value.trim();
-    if (!(url.startsWith("https://") || url.startsWith("http://"))) {
-      url = "https://" + url;
-    }
-    location.href = __uv$config.prefix + __uv$config.encodeUrl(url);
-  })
-  .catch((error) => {
-    console.error("Failed to register service worker.", error);
-  });
-}
+// Bare Server 
+server.on("request", (req, res) => {
+  if (bareServer.shouldRoute(req)) {
+    bareServer.routeRequest(req, res);
+  } else {
+    app(req, res);
+  }
+});
+
+server.on("upgrade", (req, socket, head) => {
+  if (bareServer.shouldRoute(req)) {
+    bareServer.routeUpgrade(req, socket, head);
+  } else {
+    socket.end();
+  }
+});
+
+server.on("listening", () => {
+  console.log(`Interstellar running at http://localhost:${process.env.PORT}`);
+});
+
+server.listen({
+  port: 8080,
+});
+
