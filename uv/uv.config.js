@@ -1,7 +1,7 @@
 
    self.__uv$config = {
     prefix: "/uv/service/",
-    bare: "https://xtremexinterstellar4597.onrender.com/outerspace/",
+    bare: "https://stopitrend3r.onrender.com/embed.html#https://tomp.app",
     encodeUrl: Ultraviolet.codec.xor.encode,
     decodeUrl: Ultraviolet.codec.xor.decode,
     handler: "/uv/uv.handler.js",
