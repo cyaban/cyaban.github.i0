@@ -25,27 +25,69 @@ function searchGames() {
             resultsFound = true; // Set the flag to true since a result was found
         } else {
             card.style.display = 'none'; // Hide the card if it doesn't match
+
             // Hide the star icons and view more element
             starIcons.forEach(function(icon) {
                 icon.style.display = 'none';
             });
             if (viewMore) viewMore.style.display = 'none';
-            
-            // Hide specific elements with class "hide-on-search"
-            var specificElements = card.querySelectorAll('.hide-on-search');
-            specificElements.forEach(function(element) {
-                element.style.display = 'none';
+
+            // Hide <a> elements with class "fa-solid fa-star"
+            var starLinks = card.querySelectorAll('a i.fa-solid.fa-star');
+            starLinks.forEach(function(starLink) {
+                starLink.parentNode.style.display = 'none';
             });
         }
     });
 
+    // Hide or show the "No results found" message based on the flag
+    if (resultsFound) {
+        noResultsMessage.style.display = 'none'; // Hide the message if results were found
+        copyrightDiv.style.display = 'none'; // Hide the copyright div if results were found
+    } else {
+        noResultsMessage.style.display = 'block'; // Show the message if no results were found
+        copyrightDiv.style.display = 'none'; // Hide the copyright div if no results were found
+    }
+
     // Hide or show the trending sections based on the flag
-    var trendingSection = document.getElementById('trending');
-    if (trendingSection) {
-        trendingSection.style.display = resultsFound ? 'block' : 'none';
+    var trendingSections = document.querySelectorAll('.trending.container');
+    trendingSections.forEach(function(section) {
+        if (!resultsFound) {
+            section.style.display = 'none'; // Hide the section if no results were found
+        } else {
+            section.style.display = 'block'; // Show the section if results were found
+        }
+    });
+
+    // Hide the <a> elements with class "view-more" if no results were found
+    var viewMoreLinks = document.querySelectorAll('.view-more a');
+    viewMoreLinks.forEach(function(link) {
+        if (!resultsFound) {
+            link.style.display = 'none';
+        } else {
+            link.style.display = 'block';
+        }
+    });
+
+    // Hide the pagination if there is text in the search input
+    var pagination = document.querySelector('.pagination');
+    if (input.value.length > 0) {
+        pagination.style.display = 'none';
+    } else {
+        pagination.style.display = 'block';
     }
 }
 
 // Add an event listener to the search input
 var searchInput = document.querySelector('.search-txt');
 searchInput.addEventListener('input', searchGames);
+
+// Initially hide the copyright div
+var copyrightDiv = document.querySelector('.copyright.container');
+copyrightDiv.style.display = 'none';
+
+
+
+
+
+
