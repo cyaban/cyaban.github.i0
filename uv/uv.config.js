@@ -1,7 +1,7 @@
 
    self.__uv$config = {
     prefix: "/uv/service/",
-    bare: "https://s3g6.yourmom.eu.org/content/",
+    bare: "https://xtremexinterstellar4597.onrender.com/outerspace/",
     encodeUrl: Ultraviolet.codec.xor.encode,
     decodeUrl: Ultraviolet.codec.xor.decode,
     handler: "/uv/uv.handler.js",
