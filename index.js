@@ -19,7 +19,7 @@ app.use("/uv/", express.static(uvPath));
 
 app.use((req, res, next) => {
   res.status(404);
-  res.sendFile(join(__dirname, "games.html", "404.html"));
+  res.sendFile(join(__dirname, "uv", "404.html"));
 });
 
 const server = createServer();
