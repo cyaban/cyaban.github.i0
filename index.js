@@ -1,68 +1,74 @@
+import { createBareServer } from "@tomphttp/bare-server-node";
 import express from "express";
-import http from "node:http";
-import createBareServer from "@tomphttp/bare-server-node";
-import path from "node:path";
-import * as dotenv from "dotenv";
-dotenv.config();
+import { createServer } from "node:http";
+import { uvPath } from "@titaniumnetwork-dev/ultraviolet";
+import { join } from "node:path";
+import { hostname } from "node:os";
+import { fileURLToPath } from 'url';
+import { dirname } from 'node:path';
 
-const __dirname = process.cwd();
-const server = http.createServer();
-const app = express(server);
-const bareServer = createBareServer("/outerspace/");
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
-app.use(express.json());
-app.use(
-  express.urlencoded({
-    extended: true,
-  })
-);
+const bare = createBareServer("/bare/");
+const app = express();
 
-app.use(express.static(path.join(__dirname, "static")));
+app.use(express.static("fusion-static"));
 
-const routes = [
-  { path: "/", file: "index.html" },
-  { path: "/news", file: "apps.html" },
-  { path: "/algebra", file: "games.html" },
-  { path: "/settings", file: "settings.html" },
-  { path: "/tabs", file: "tabs.html" },
-  { path: "/tabinner", file: "tabinner.html" },
-  { path: "/go", file: "go.html" },
-  { path: "/loading", file: "loading.html" },
-  { path: "/404", file: "404.html" },
-];
+app.use("/uv/", express.static(uvPath));
 
-routes.forEach((route) => {
-  app.get(route.path, (req, res) => {
-    res.sendFile(path.join(__dirname, "static", route.file));
-  });
+app.use((req, res, next) => {
+  res.status(404);
+  res.sendFile(join(__dirname, "fusion-static", "404.html"));
 });
 
-app.get("/*", (req, res) => {
-  res.redirect("/404");
-});
+const server = createServer();
 
-// Bare Server 
 server.on("request", (req, res) => {
-  if (bareServer.shouldRoute(req)) {
-    bareServer.routeRequest(req, res);
+  if (bare.shouldRoute(req)) {
+    bare.routeRequest(req, res);
   } else {
     app(req, res);
   }
 });
 
 server.on("upgrade", (req, socket, head) => {
-  if (bareServer.shouldRoute(req)) {
-    bareServer.routeUpgrade(req, socket, head);
+  if (bare.shouldRoute(req)) {
+    bare.routeUpgrade(req, socket, head);
   } else {
     socket.end();
   }
 });
 
+let port = parseInt(process.env.PORT || "");
+
+if (isNaN(port)) port = 8080;
+
 server.on("listening", () => {
-  console.log(`Interstellar running at http://localhost:${process.env.PORT}`);
+  const address = server.address();
+
+  console.log("Fusion is running on:");
+  console.log(`\thttp://localhost:${address.port}`);
+  console.log(`\thttp://${hostname()}:${address.port}`);
+  if (address.family === "IPv4") {
+    console.log(`\thttp://${address.address}:${address.port}`);
+  } else {
+    console.log(`\thttp://[${address.address}]:${address.port}`);
+  }  
 });
 
+process.on("SIGINT", shutdown);
+process.on("SIGTERM", shutdown);
+
+function shutdown() {
+  console.log("SIGTERM signal received: closing HTTP server");
+  server.close();
+  bare.close();
+  process.exit(0);
+}
+
 server.listen({
-  port: 8080,
+  port,
 });
+
 
