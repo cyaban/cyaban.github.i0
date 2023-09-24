@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fusion Addons</title>
+</head>
+<body>
+<div class="nav">
+    <div class="title">Extensions</div>
+    <div class="centeredContent">
+        <div class="search">
+            <div class="searchLogo">
+                <svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" role="none"><g>
+            <path fill="currentColor" d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z">
+            </path>
+          </g></svg>
+            </div>
+            <input id="searchInput" class="searchBox" placeholder="Search extensions" spellcheck="false">
+        </div>
+    </div>
+    <div class="moreActions">
+        <div class="devModeLabel">Developer mode</div>
+        <button class="devMode" onclick="toggleDevMode(this)">
+            <div class="devModeKnob"></div>
+        </button>
+    </div>
+</div>
+<div class="navShadow"></div>
+<div class="wrapper">
+    <div class="card" urldat="https://cdn.z1g-project.repl.co/sodium/plugins/duopower.js">
+        <div class="cardMain">
+            <img draggable="false" class="cardLogo" src="assets/img/ext.png">
+            <div class="cardContent">
+                <div class="cardTitleVersion">
+                    <div class="cardTitle">DuoPower for Fusion</div>
+                    <div class="cardVersion">1.0.0</div>
+                </div>
+                <div class="cardDescription">Its DuoPower for Fusion lol</div>
+                <div class="cardID">dpo9812843sadau</div>
+            </div>
+        </div>
+        <div class="cardBottom">
+            <div class="cardButtons">
+                <button class="cardButton install-button" data-type="plugins" data-url="https://cdn.z1g-project.repl.co/sodium/plugins/duopower.js">Install</button>
+                <button class="cardButton uninstall-button" data-type="plugins" data-url="https://cdn.z1g-project.repl.co/sodium/plugins/duopower.js">Uninstall</button>
+            </div>
+        </div>
+    </div>
+    <div class="card" urldat="https://cdn.z1g-project.repl.co/sodium/plugins/darkmode.js">
+        <div class="cardMain">
+            <img draggable="false" class="cardLogo" src="assets/img/ext.png">
+            <div class="cardContent">
+                <div class="cardTitleVersion">
+                    <div class="cardTitle">Darkmode</div>
+                    <div class="cardVersion">1.0.0</div>
+                </div>
+                <div class="cardDescription">A sleek and nice dark mode plugin for fusion</div>
+                <div class="cardID">7dgwgweeg7fq7f</div>
+            </div>
+        </div>
+        <div class="cardBottom">
+            <div class="cardButtons">
+                <button class="cardButton install-button" data-type="plugins" data-url="https://cdn.z1g-project.repl.co/sodium/plugins/darkmode.js">Install</button>
+                <button class="cardButton uninstall-button" data-type="plugins" data-url="https://cdn.z1g-project.repl.co/sodium/plugins/darkmode.js">Uninstall</button>
+            </div>
+        </div>
+    </div>
+    <div class="card" urldat="https://cdn.z1g-project.repl.co/sodium/plugins/yt.js">
+        <div class="cardMain">
+            <img draggable="false" class="cardLogo" src="assets/img/ext.png">
+            <div class="cardContent">
+                <div class="cardTitleVersion">
+                    <div class="cardTitle">Youtube Downloader</div>
+                    <div class="cardVersion">14.4.8</div>
+                </div>
+                <div class="cardDescription">Allows you to download youtube videos without premium</div>
+                <div class="cardID">782uwjsujas2wq</div>
+            </div>
+        </div>
+        <div class="cardBottom">
+            <div class="cardButtons">
+                <button class="cardButton install-button" data-type="plugins" data-url="https://cdn.z1g-project.repl.co/sodium/plugins/yt.js">Install</button>
+                <button class="cardButton uninstall-button" data-type="plugins" data-url="https://cdn.z1g-project.repl.co/sodium/plugins/yt.js">Uninstall</button>
+            </div>
+        </div>
+    </div>
+    <div class="card" urldat="https://cdn.z1g-project.repl.co/sodium/plugins/bingai.js">
+        <div class="cardMain">
+            <img draggable="false" class="cardLogo" src="assets/img/ext.png">
+            <div class="cardContent">
+                <div class="cardTitleVersion">
+                    <div class="cardTitle">BingAI</div>
+                    <div class="cardVersion">2.3.5</div>
+                </div>
+                <div class="cardDescription">Allows for BingAI to be ran! [Dynamic Exclusive!]</div>
+                <div class="cardID">6ye67ye7612w</div>
+            </div>
+        </div>
+        <div class="cardBottom">
+            <div class="cardButtons">
+                <button class="cardButton install-button" data-type="plugins" data-url="https://cdn.z1g-project.repl.co/sodium/plugins/bingai.js">Install</button>
+                <button class="cardButton uninstall-button" data-type="plugins" data-url="https://cdn.z1g-project.repl.co/sodium/plugins/bingai.js">Uninstall</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+body {
+    --background: #202124;
+    --search: #282828;
+    --search-hover: #373737;
+    --card: #292a2d;
+    --shadow: color-mix(in srgb, rgb(0, 0, 0 ) 30%, transparent) 0 1px 2px 0, color-mix(in srgb, rgb(0, 0, 0 ) 15%, transparent) 0 2px 6px 2px;
+    --highlight: #a8c7fa;
+    --highlight-hover: #e3e3e314;
+    --knob: #062e6f;
+    --unchecked: #444746;
+    --unchecked-secondary: #8e918f;
+    --text: #e3e3e3;
+    --grey: #c4c7c5;
+    --border: #00639b;
+    --font: 'Segoe UI', Tahoma, sans-serif;
+}
+
+body[light] {
+    --background: white;
+    --search: #6991d61f;
+    --search-hover: #1f1f1f14;
+    --card: white;
+    --shadow: color-mix(in srgb, rgb(0, 0, 0 ) 30%, transparent) 0 1px 2px 0, color-mix(in srgb, rgb(0, 0, 0 ) 15%, transparent) 0 2px 6px 2px;
+    --highlight: #0b57d0;
+    --highlight-hover: #1f1f1f14;
+    --knob: white;
+    --unchecked: #e1e3e1;
+    --unchecked-secondary: #747775;
+    --text: #202124;
+    --grey: #444746;
+    --border: #a8c7fa;
+    --font: 'Segoe UI', Tahoma, sans-serif;
+}
+
+body {
+    background: var(--background);
+    color: var(--text);
+    font-family: var(--font);
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overscroll-behavior: none;
+    font-size: 81.25%;
+}
+
+body::before {
+    content: "";
+    display: block;
+    height: 56px;
+    width: 100%;
+}
+
+body::-webkit-scrollbar {
+    width: 16px;
+    background: var(--background);
+}
+
+body::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    border: 4px solid transparent;
+    background: var(--highlight) content-box;
+}
+
+::placeholder {
+    user-select: none;
+}
+
+.nav {
+    height: 56px;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    right: 0;
+    left: 0;
+    top: 0;
+    background: var(--background);
+    z-index: 5;
+}
+
+.navShadow {
+    box-shadow: inset 0 5px 6px -3px rgba(0,0,0,.4);
+    height: 6px;
+    pointer-events: none;
+    transition: opacity .5s;
+    position: fixed;
+    top: 56px;
+    z-index: 10;
+    width: 100%;
+    opacity: 0;
+}
+
+body[scrollTop=true] .navShadow {
+    opacity: 1;
+}
+
+.title {
+    margin-inline-start: 27px;
+    padding-inline-end: 12px;
+    letter-spacing: .25px;
+    font-size: 170%;
+    font-weight: 500;
+}
+
+.centeredContent {
+    display: flex;
+    flex: 1 1 0;
+    justify-content: center;
+    flex-basis: 680px;
+}
+
+.search {
+    background: var(--search);
+    width: 100%;
+    height: 36px;
+    border-radius: 100px;
+    padding: 0 6px;
+    position: relative;
+    max-width: min(680px, calc(100% - 149.5px));
+    transition: background 150ms cubic-bezier(.4,0,.2,1),width 150ms cubic-bezier(.4,0,.2,1);
+}
+
+.search:hover:not(:focus-within) {
+    background: var(--search-hover);
+}
+
+.search:focus-within {
+    outline: 2px solid var(--highlight);
+    outline-offset: 2px;
+}
+
+.searchLogo {
+    height: 100%;
+    width: 40px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    user-select: none;
+}
+
+.searchLogo svg {
+    height: 20px;
+    width: 20px;
+    color: var(--grey);
+}
+
+.moreActions {
+    align-items: flex-end;
+    display: flex;
+    justify-content: flex-end;
+    flex-shrink: 0;
+    margin-right: 12px;
+}
+
+.devModeLabel {
+    margin-inline-end: 16px;
+}
+
+.devMode {
+    height: 16px;
+    width: 26px;
+    border-radius: 50px;
+    cursor: pointer;
+    position: relative;
+    background: var(--unchecked);
+    box-sizing: border-box;
+    border: 1px solid var(--unchecked-secondary);
+    transition: background linear 80ms;
+    display: grid;
+    outline: none;
+}
+
+.devModeKnob {
+    position: absolute;
+    border-radius: 50%;
+    top: 50%;
+    transform: translate(50%, -50%);
+    height: 8px;
+    width: 8px;
+    background: var(--unchecked-secondary);
+    transition: left linear 80ms, background linear 80ms, width linear 80ms, height linear 80ms, transform linear 80ms;
+    pointer-events: none;
+}
+
+.devMode[checked] {
+    background: var(--highlight);
+    border: none;
+}
+
+.devMode[checked] .devModeKnob {
+    transform: translate(100%, -50%);
+    width: 12px;
+    height: 12px;
+    background: var(--knob);
+}
+
+.searchBox {
+    position: absolute;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 185%;
+    bottom: 0;
+    right: 0;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--text);
+    padding: 0;
+    left: 35px;
+    top: 2px;
+}
+
+.searchBox::placeholder {
+    color: var(--text);
+    font-weight: 600;
+    font-family: var(--font);
+    color: var(--grey);
+}
+
+.wrapper {
+    padding: 24px 60px 64px;
+    display: grid;
+    grid-column-gap: 12px;
+    grid-row-gap: 12px;
+    grid-template-columns: repeat(auto-fill, 400px);
+    justify-content: center;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    background: var(--card);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    height: 160px;
+    transition: height .3s cubic-bezier(.25,.1,.25,1);
+    width: 400px;
+}
+
+body[dev=true] .card {
+    height: 208px;
+}
+
+.cardMain {
+    display: flex;
+    flex: 1;
+    padding: 16px 20px;
+    overflow: hidden;
+}
+
+.cardLogo {
+    height: 36px;
+    width: 36px;
+    margin: 6px;
+}
+
+.cardContent {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    margin-inline-start: 24px;
+    overflow: hidden;
+}
+
+.cardTitleVersion {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 6px;
+}
+
+.cardTitle {
+    margin-right: 8px;
+    white-space: pre;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.cardVersion {
+    white-space: pre;
+    display: none;
+    color: var(--grey);
+}
+
+body[dev=true] .cardVersion {
+    display: inherit;
+}
+
+.cardDescription {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: var(--grey);
+}
+
+.cardID {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: var(--grey);
+    flex-shrink: 0;
+    white-space: nowrap;
+    display: none;
+}
+
+body[dev=true] .cardID {
+    display: initial;
+}
+
+.cardID::before {
+    content: "ID: ";
+}
+
+.cardBottom {
+    display: flex;
+    box-sizing: border-box;
+    height: 48px;
+    padding-bottom: 8px;
+    padding-inline-end: 20px;
+    padding-top: 8px;
+    align-items: center;
+    flex-direction: row;
+}
+
+.cardButtons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex: 1;
+}
+
+.cardButton {
+    height: 36px;
+    border-radius: 100px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--highlight);
+    margin-inline-start: 8px;
+    padding: 8px 16px;
+    min-width: 5.14em;
+    flex-shrink: 0;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    overflow: hidden;
+    cursor: pointer;
+    outline: none;
+}
+
+.cardButton:hover {
+    background: var(--highlight-hover);
+}
+</style>
+
+<script>
+function toggleDevMode(element) {
+    var checked = element.toggleAttribute("checked")
+
+    if (checked) {
+        document.body.setAttribute("dev", "true")
+    } else {
+        document.body.removeAttribute("dev")
+    }
+}
+
+function toggleExtension(element) {
+  var checked = element.toggleAttribute("checked");
+
+  var card = element.parentElement.parentElement;
+  var cardUrl = card.getAttribute("urldat");
+
+  var enabledExtensions = JSON.parse(localStorage.getItem("enabledExtensions")) || [];
+
+  if (checked) {
+    enabledExtensions.push(cardUrl);
+  } else {
+    var index = enabledExtensions.indexOf(cardUrl);
+    if (index !== -1) {
+      enabledExtensions.splice(index, 1);
+    }
+  }
+
+  localStorage.setItem("enabledExtensions", JSON.stringify(enabledExtensions));
+
+  console.log("Toggled extension: " + checked, cardUrl);
+}
+
+
+document.body.setAttribute("scrollTop", window.scrollY !== 0)
+
+window.addEventListener("scroll", () => {
+    document.body.setAttribute("scrollTop", window.scrollY !== 0)
+})
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const installButtons = document.querySelectorAll('.install-button');
+        const uninstallButtons = document.querySelectorAll('.uninstall-button');
+    
+        installButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const addonType = button.getAttribute('data-type');
+                const addonUrl = button.getAttribute('data-url');
+    
+                if (addonType === 'themes') {
+                    localStorage.setItem('websiteCSS', addonUrl);
+                    console.log('Theme downloaded:', addonUrl);
+                } else if (addonType === 'plugins') {
+                    let websitePlugins = JSON.parse(localStorage.getItem('websitePlugins')) || [];
+                    websitePlugins.push(addonUrl);
+                    localStorage.setItem('websitePlugins', JSON.stringify(websitePlugins));
+                    console.log('Plugin downloaded:', addonUrl);
+                }
+            });
+        });
+    
+        uninstallButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const addonType = button.getAttribute('data-type');
+                const addonUrl = button.getAttribute('data-url');
+    
+                if (addonType === 'themes') {
+                    localStorage.removeItem('websiteCSS');
+                    console.log('Theme uninstalled:', addonUrl);
+                } else if (addonType === 'plugins') {
+                    let websitePlugins = JSON.parse(localStorage.getItem('websitePlugins')) || [];
+                    websitePlugins = websitePlugins.filter(pluginUrl => pluginUrl !== addonUrl);
+                    localStorage.setItem('websitePlugins', JSON.stringify(websitePlugins));
+                    console.log('Plugin uninstalled:', addonUrl);
+                }
+            });
+        });
+    });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+          const searchInput = document.getElementById('searchInput');
+      
+          searchInput.addEventListener('input', () => {
+            filterCards(searchInput.value.toLowerCase());
+          });
+        });
+      
+        function filterCards(searchText) {
+          const cards = document.querySelectorAll('.card');
+      
+          cards.forEach(card => {
+            const cardTitle = card.querySelector('.cardTitle').textContent.toLowerCase();
+            if (cardTitle.includes(searchText)) {
+              card.style.display = 'flex';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        }
+      </script>      
+</body>
+</html>
