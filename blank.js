@@ -4,18 +4,9 @@ var url = window.location;
 if (url) {
   var win;
 
-  document.querySelector('button').onclick = function() {
+  document.querySelector('cardButton install-button').onclick = function() {
     if (win) {
-      // Get the button element.
-      var button = document.querySelector('button');
-
-      // Create a new button element.
-      var newButton = document.createElement('button');
-      newButton.className = 'cardButton blank-button';
-      newButton.textContent = 'Install';
-
-      // Replace the existing button element with the new button element.
-      button.parentNode.replaceChild(newButton, button);
+      win.focus();
     } else {
       win = window.open();
       win.document.body.style.margin = '0';
