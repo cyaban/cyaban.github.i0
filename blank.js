@@ -4,7 +4,7 @@ var url = window.location;
 if (url) {
   var win;
 
-  document.querySelector('cardButton install-button').onclick = function() {
+  document.querySelector('.cardButton.blank-button').onclick = function() {
     if (win) {
       win.focus();
     } else {
