@@ -1,23 +1,23 @@
-function createIframeBlob(siteUrl) {
-  // Create a Blob object from the site URL.
-  const blob = new Blob([siteUrl], { type: 'text/html' });
+function openSiteInBlob(url) {
+  let button = document.querySelector('.cardButton.install-button');
+  let viewport = document.querySelector('#theaterViewport');
 
-  // Create a URL object from the Blob object.
-  const url = URL.createObjectURL(blob);
+  // Get the URL of the site to install from the button's `data-type` attribute.
+  let siteUrl = button.dataset.type;
 
-  // Create an iframe element.
-  const iframe = document.createElement('iframe');
+  // Create a blob of the site's HTML code.
+  let blob = new Blob(["<html><body><iframe src='{}' style='width: 100%; height: 100%; border: none; overflow: hidden;'></iframe></body></html>".format(siteUrl)], "text/html");
 
-  // Set the iframe's src attribute to the URL of the Blob object.
-  iframe.src = url;
+  // Create a URL for the blob.
+  let blobUrl = URL.createObjectURL(blob);
 
-  // Append the iframe element to the document body.
-  document.body.appendChild(iframe);
+  // Set the `src` attribute of the viewport iframe to the blob URL.
+  viewport.src = blobUrl;
+
+  // Request fullscreen mode for the viewport.
+  viewport.requestFullscreen();
 }
 
-// Add an event listener to the button to call the createIframeBlob() function when the button is clicked.
-const button = document.querySelector('.install-button');
-button.addEventListener('click', () => {
-  createIframeBlob(button.dataset.type);
-});
+// Add the following event listener to the button:
+document.querySelector('.cardButton.install-button').addEventListener('click', openSiteInBlob);
 
