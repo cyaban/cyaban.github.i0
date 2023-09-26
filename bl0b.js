@@ -1,13 +1,19 @@
-function openSiteInBlob(siteUrl) {
+function createIframeBlob(siteUrl) {
   // Create a Blob object from the site URL.
-  const blob = new Blob([siteUrl], { type: 'text/plain' });
+  const blob = new Blob([siteUrl], { type: 'text/html' });
 
   // Create a URL object from the Blob object.
   const url = URL.createObjectURL(blob);
 
-  // Open the URL in a new browser tab.
-  window.open(url);
+  // Create an iframe element.
+  const iframe = document.createElement('iframe');
+
+  // Set the iframe's src attribute to the URL of the Blob object.
+  iframe.src = url;
+
+  // Append the iframe element to the document body.
+  document.body.appendChild(iframe);
 }
 
-// Open https://fusionw.pages.dev/time in blob
-openSiteInBlob('https://fusionw.pages.dev/time');
+// Create an iframe for the site https://example.com.
+createIframeBlob('https://example.com');
