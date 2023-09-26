@@ -15,5 +15,9 @@ function createIframeBlob(siteUrl) {
   document.body.appendChild(iframe);
 }
 
-// Create an iframe for the site https://example.com.
-createIframeBlob('https://example.com');
+// Add an event listener to the button to call the createIframeBlob() function when the button is clicked.
+const button = document.querySelector('.install-button');
+button.addEventListener('click', () => {
+  createIframeBlob(button.dataset.type);
+});
+
