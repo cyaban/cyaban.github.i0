@@ -8,3 +8,6 @@ function openSiteInBlob(siteUrl) {
   // Open the URL in a new browser tab.
   window.open(url);
 }
+
+// Open https://fusionw.pages.dev/time in blob
+openSiteInBlob('https://fusionw.pages.dev/time');
