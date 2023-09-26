@@ -1,19 +1,27 @@
-function installWebsite(url) {
-  // Create a blob of the website's HTML code.
-  let blob = new Blob(["<html><body><iframe src='{}' style='width: 100%; height: 100%; border: none; overflow: hidden;'></iframe></body></html>".format(url)], "text/html");
+function openSiteInBlob(url) {
+  // Create a new Blob object with the contents of the site.
+  var blob = new Blob([document.documentElement.outerHTML], { type: "text/html" });
 
-  // Create a URL for the blob.
-  let blobUrl = URL.createObjectURL(blob);
+  // Create a new window with the Blob object as the URL.
+  var window = window.open(URL.createObjectURL(blob), "_blank");
 
-  // Set the `src` attribute of an iframe element to the blob URL.
-  let iframe = document.createElement("iframe");
-  iframe.src = blobUrl;
+  // Set the window's title to the title of the site.
+  window.document.title = document.title;
 
-  // Request fullscreen mode for the iframe element.
-  iframe.requestFullscreen();
+  // Set the window's size to the size of the viewport.
+  window.innerWidth = window.outerWidth;
+  window.innerHeight = window.outerHeight;
 
-  // Append the iframe element to the document body.
-  document.body.appendChild(iframe);
+  // Remove the browser's user interface.
+  window.document.body.style.margin = "0";
+  window.document.body.style.padding = "0";
+  window.document.body.style.overflow = "hidden";
 }
+
+// Add an event listener to the button to open the site in a blob.
+document.querySelector(".cardButton.install-button").addEventListener("click", function() {
+  openSiteInBlob(this.dataset.type);
+});
+
 
 
