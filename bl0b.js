@@ -1,27 +1,22 @@
-function openSiteInBlob(url) {
-  // Create a new Blob object with the contents of the site.
-  var blob = new Blob([document.documentElement.outerHTML], { type: "text/html" });
-
-  // Create a new window with the Blob object as the URL.
-  var window = window.open(URL.createObjectURL(blob), "_blank");
-
-  // Set the window's title to the title of the site.
-  window.document.title = document.title;
-
-  // Set the window's size to the size of the viewport.
-  window.innerWidth = window.outerWidth;
-  window.innerHeight = window.outerHeight;
-
-  // Remove the browser's user interface.
-  window.document.body.style.margin = "0";
-  window.document.body.style.padding = "0";
-  window.document.body.style.overflow = "hidden";
+function handleFullscreenClick(){
+let e = document.querySelector('.cardButton.install-button');
+e.requestFullscreen?e.requestFullscreen():e.mozRequestFullScreen?e.mozRequestFullScreen():e.webkitRequestFullscreen?e.webkitRequestFullscreen():e.msRequestFullscreen&&e.msRequestFullscreen();
 }
 
-// Add an event listener to the button to open the site in a blob.
-document.querySelector(".cardButton.install-button").addEventListener("click", function() {
-  openSiteInBlob(this.dataset.type);
-});
+ function Popout(){
+let e = document.querySelector('.cardButton.install-button').getAttribute('src');
+window.open(e);
+}
 
+function ABPopout(){
+let e = document.querySelector('.cardButton.install-button').getAttribute('src');
+var t=window.open('about:blank'),o=document.createElement('iframe');
+o.src=window.location.origin+e,o.style.width='100%',o.style.height='100%',o.style.border='none',o.style.overflow='hidden',t.document.body.appendChild(o);
+}
 
+function BlobPopout(){
+let e = document.querySelector('.cardButton.install-button').getAttribute('src');
+var t=window.open(URL.createObjectURL(new Blob(['<html><body></body></html>'],{type:'text/html'})),'_blank'),o=document.createElement('iframe');
+o.src=window.location.origin+e,o.style.width='100%',o.style.height='100%',o.style.border='none',o.style.overflow='hidden',t.onload=function(){t.onload=null,t.document.body.style.background='black',t.document.body.appendChild(o),t.document.body.style.width='100%',t.document.body.style.height='100%',t.document.body.style.margin='0',t.document.body.style.padding='0'};
+}
 
