@@ -473,29 +473,6 @@ function toggleDevMode(element) {
     }
 }
 
-function toggleExtension(element) {
-  var checked = element.toggleAttribute("checked");
-
-  var card = element.parentElement.parentElement;
-  var cardUrl = card.getAttribute("urldat");
-
-  var enabledExtensions = JSON.parse(localStorage.getItem("enabledExtensions")) || [];
-
-  if (checked) {
-    enabledExtensions.push(cardUrl);
-  } else {
-    var index = enabledExtensions.indexOf(cardUrl);
-    if (index !== -1) {
-      enabledExtensions.splice(index, 1);
-    }
-  }
-
-  localStorage.setItem("enabledExtensions", JSON.stringify(enabledExtensions));
-
-  console.log("Toggled extension: " + checked, cardUrl);
-}
-
-
 document.body.setAttribute("scrollTop", window.scrollY !== 0)
 
 window.addEventListener("scroll", () => {
