@@ -1,23 +1,17 @@
-function BlobPopout() {
-  // Get the URL of the install button.
-  const url = document.querySelector('.cardButton.install-button').getAttribute('src');
+function openSiteInBlob(type) {
+  // Create a blob object from the website's URL.
+  const blob = new Blob([`<iframe src="${type}" width="100%" height="100%"></iframe>`], {
+    type: "text/html",
+  });
 
-  // Create a new Blob object with the specified HTML code.
-  const blob = new Blob(['<html><body></body></html>'], { type: 'text/html' });
+  // Create a new URL object from the blob.
+  const blobUrl = URL.createObjectURL(blob);
 
-  // Create a new window.
-  const window = window.open(URL.createObjectURL(blob), '_blank');
+  // Create a new window and navigate it to the blob URL.
+  const newWindow = window.open(blobUrl);
 
-  // Create an iframe.
-  const iframe = document.createElement('iframe');
-
-  // Add an event listener to the iframe's load event.
-  iframe.onload = function() {
-    // Set the iframe's src attribute to the install button URL.
-    iframe.src = window.location.origin + url;
-  };
-
-  // Append the iframe to the window's document body.
-  window.document.body.appendChild(iframe);
+  // Close the blob URL when the new window is closed.
+  newWindow.addEventListener("close", () => {
+    URL.revokeObjectURL(blobUrl);
+  });
 }
-
