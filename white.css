@@ -207,7 +207,7 @@ clip-path: circle(0% at 100% 0%);
 .btn{
     margin-top: 30%;
     margin-right: 40%;
-    background:#f22b77;
+    background:#85dbff;
 padding: 10px 15px;
 color:var(--text-color) ;
 font-size: 1.5rem;
@@ -281,7 +281,7 @@ margin-bottom: 0.8rem;
     transition: 0.2s;
 }
 .box-btn i:hover{
-    background: #0d81ec;
+    background: #9de2ff;
     color: var(--text-color);
 }
 .new-content
@@ -363,7 +363,7 @@ width: 500px;
 .btn{
     margin-top: 30%;
     margin-right: 40%;
-    background:#f22b77;
+    background:#b6e9ff;
 padding: 8px 13px;
 color:var(--text-color) ;
 font-size: 1.2rem;
@@ -395,7 +395,7 @@ padding: 8px 0;
 .btn{
     margin-top: 30%;
     margin-right: 40%;
-    background:#f22b77;
+    background:#cef1ff;
 padding: 6px 11px;
 color:var(--text-color) ;
 font-size: 1.2rem;
@@ -456,7 +456,7 @@ margin: 0%;
     line-height: 45px;
 }
 .previous-page, .next-page{
-background: #00008B;
+background: #85dbff;
 width: 80px;
 border-radius: 45px;
 cursor: pointer;
@@ -476,7 +476,7 @@ cursor: pointer;
 transition: .1s ease;
 }
 .current-page:hover{
-    border: 1.9px solid #ADD8E6;
+    border: 1.9px solid #e7f8ff;
 
 }
 .view-more{
@@ -489,7 +489,7 @@ transition: .1s ease;
 font-weight: 500;
 }
 .view-more a:hover{
-    color: #f22b77;
+    color: #85dbff;
 cursor: pointer;
 }      .view-more i{
     color: white;
@@ -498,7 +498,7 @@ cursor: pointer;
     font-size:19px ;
 }
 .view-more i:hover{
-    color: #f22b77;
+    color: #b6e9ff;
 cursor: pointer;
 }
 .search-container {
@@ -512,7 +512,7 @@ cursor: pointer;
 .search-box {
     position: absolute;
     top: 10%; /* Adjust this value to position it higher */
-    background: #2f3640;
+    background: #;
     height: 50px;
     border-radius: 50px;
     padding: 10px 15px;
