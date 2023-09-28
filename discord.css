@@ -14,7 +14,7 @@
     width: 12px;
  }
  ::-webkit-scrollbar-thumb{
-    background: linear-gradient(#f22b77,#0d81ec );
+    background: linear-gradient(#282b30,#0d81ec );
     border-radius: 6px;
  }
  :root {
@@ -370,7 +370,7 @@ width: 500px;
 .btn{
     margin-top: 30%;
     margin-right: 40%;
-    background:#f22b77;
+    background:#7289da;
 padding: 8px 13px;
 color:var(--text-color) ;
 font-size: 1.2rem;
@@ -402,7 +402,7 @@ padding: 8px 0;
 .btn{
     margin-top: 30%;
     margin-right: 40%;
-    background:#f22b77;
+    background:#7289da;
 padding: 6px 11px;
 color:var(--text-color) ;
 font-size: 1.2rem;
