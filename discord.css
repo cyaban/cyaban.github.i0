@@ -18,7 +18,7 @@
     border-radius: 6px;
  }
  :root {
-  --main-color: #7289da;
+  --main-color: #424549;
   /* --second-color: #0d81ec; */
   --dark-color: rgba(0, 0, 0, 0.7); /* Set alpha to 0.7 for 70% transparency */
   --light-color: rgba(0, 0, 0, 0.5); /* Adjust alpha value for light color transparency */
@@ -463,7 +463,7 @@ margin: 0%;
     line-height: 45px;
 }
 .previous-page, .next-page{
-background: #f22b77;
+background: #7289da;
 width: 80px;
 border-radius: 45px;
 cursor: pointer;
@@ -566,7 +566,7 @@ cursor: pointer;
     width: 300px;
 }
 body {
-  background-color: #000000; /* Black color */
+  background-color: #424549; /* Black color */
 }
 .no-results-container {
     position: fixed;
