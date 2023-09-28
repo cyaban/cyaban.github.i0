@@ -18,7 +18,7 @@
     border-radius: 6px;
  }
  :root {
-  --main-color: #ADD8E6;
+  --main-color: #00008B;
   /* --second-color: #0d81ec; */
   --dark-color: rgba(0, 0, 0, 0.7); /* Set alpha to 0.7 for 70% transparency */
   --light-color: rgba(0, 0, 0, 0.5); /* Adjust alpha value for light color transparency */
@@ -456,7 +456,7 @@ margin: 0%;
     line-height: 45px;
 }
 .previous-page, .next-page{
-background: #f22b77;
+background: #00008B;
 width: 80px;
 border-radius: 45px;
 cursor: pointer;
@@ -476,7 +476,7 @@ cursor: pointer;
 transition: .1s ease;
 }
 .current-page:hover{
-    border: 1.9px solid #f22b77;
+    border: 1.9px solid #ADD8E6;
 
 }
 .view-more{
