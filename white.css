@@ -18,7 +18,7 @@
     border-radius: 6px;
  }
  :root {
-  --main-color: #f22b77;
+  --main-color: #454545;
   /* --second-color: #0d81ec; */
   --dark-color: rgba(0, 0, 0, 0.7); /* Set alpha to 0.7 for 70% transparency */
   --light-color: rgba(0, 0, 0, 0.5); /* Adjust alpha value for light color transparency */
@@ -370,7 +370,7 @@ width: 500px;
 .btn{
     margin-top: 30%;
     margin-right: 40%;
-    background:#f22b77;
+    background:#454545;
 padding: 8px 13px;
 color:var(--text-color) ;
 font-size: 1.2rem;
@@ -402,7 +402,7 @@ padding: 8px 0;
 .btn{
     margin-top: 30%;
     margin-right: 40%;
-    background:#f22b77;
+    background:#454545;
 padding: 6px 11px;
 color:var(--text-color) ;
 font-size: 1.2rem;
