@@ -283,12 +283,12 @@ margin-bottom: 0.8rem;
     padding: 8px;
     background-color: var(--text-color);
     border-radius: 5rem;
-    color: #0d81ec;
+    color: #000000;
     font-size: 20px;
     transition: 0.2s;
 }
 .box-btn i:hover{
-    background: #00000;
+    background: #000000;
     color: var(--text-color);
 }
 .new-content
