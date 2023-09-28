@@ -566,7 +566,7 @@ cursor: pointer;
     width: 300px;
 }
 body {
-  background-color: #8b9dc3; /* Black color */
+  background-color: #000000; /* Black color */
 }
 .no-results-container {
     position: fixed;
