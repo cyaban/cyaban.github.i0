@@ -18,7 +18,7 @@
     border-radius: 6px;
  }
  :root {
-  --main-color: #202225;
+  --main-color: #7289da;
   /* --second-color: #0d81ec; */
   --dark-color: rgba(0, 0, 0, 0.7); /* Set alpha to 0.7 for 70% transparency */
   --light-color: rgba(0, 0, 0, 0.5); /* Adjust alpha value for light color transparency */
@@ -566,7 +566,7 @@ cursor: pointer;
     width: 300px;
 }
 body {
-  background-color: #424549; /* Black color */
+  background-color: #282b30; /* Black color */
 }
 .no-results-container {
     position: fixed;
