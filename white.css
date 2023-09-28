@@ -288,7 +288,7 @@ margin-bottom: 0.8rem;
     transition: 0.2s;
 }
 .box-btn i:hover{
-    background: #0d81ec;
+    background: #00000;
     color: var(--text-color);
 }
 .new-content
