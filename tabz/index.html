@@ -23,7 +23,6 @@
   <meta name="googlebot" content="index, follow, snippet" />
   <meta name="theme-color" content="#000000">
   <title>Fusion Tabs</title>
-  
   <link href='tabz/css/main.css' rel='stylesheet'>
   <link href='tabz/css/chrome-tabs.css' rel='stylesheet'>
   <link href='tabz/css/chrome-tabs-dark-theme.css' rel='stylesheet'>
@@ -31,14 +30,8 @@
   <link rel="manifest" href="manifest.json" />
   <script src="uv/uv.bundle.js"></script>
   <script src="uv/uv.config.js"></script>
+  <script src="register-sw.js"></script>
   <script>
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('sw.js');
-      navigator.serviceWorker.register('register-sw.js', {
-          scope: '/uv/service/',
-      });
-    };
-
     document.addEventListener('keydown', key => {
       if (key.ctrlKey) {
         if (document.getElementsByClassName("chrome-tab")[key.key - 1]) {
