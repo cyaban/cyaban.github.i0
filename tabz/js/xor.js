@@ -20,5 +20,4 @@ class xor {
       .join("");
   }
 }
-
 path = "/uv/service/";

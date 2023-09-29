@@ -1,5 +1,3 @@
-// Fusion Tabs Core
-
 const useProxy = localStorage.getItem('useProxy') === 'true';
 const proxyOption = localStorage.getItem('proxyOption');
 const pluginUrls = JSON.parse(localStorage.getItem('websitePlugins')) || [];

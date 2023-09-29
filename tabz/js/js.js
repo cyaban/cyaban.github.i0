@@ -66,13 +66,13 @@ function getIcon(id) {
   );
   if (urlIco !== null) {
     if (urlIco.href.includes("data:image/png;base64")) return urlIco.href;
-    return "//" + location.host + path + Ultraviolet.codec.xor.encode(urlIco.href);
+    return "//" + location.host + path + xor.encode(urlIco.href);
   } else
     return (
       "//" +
       location.host +
       path +
-      Ultraviolet.codec.xor.encode(
+      xor.encode(
         "http://" +
         CONTENT_WINDOW(id).document.domain +
         "/favicon.ico"
@@ -125,12 +125,12 @@ function setInfo(frameId) {
   )
     document.getElementsByClassName(frameId)[0].firstChild.data = CONTENT_WINDOW(frameId).document.getElementsByTagName("title")[0].firstChild.textContent;
   else
-    document.getElementsByClassName(frameId)[0].firstChild.data = Ultraviolet.codec.xor.decode(
+    document.getElementsByClassName(frameId)[0].firstChild.data = xor.decode(
       regUrl.split(path).slice(1).join(path)
     );
   //set url bar
   if (getActiveFrameId() == frameId) {
-    URL_BAR.value = Ultraviolet.codec.xor.decode(
+    URL_BAR.value = xor.decode(
       regUrl.split(path).slice(1).join(path)
     );
   }
@@ -162,7 +162,7 @@ function showId(...x) {
   });
 }
 function toggleId(...x) {
-  // Toggles between two tabs
+  // Toggles between two hypertabs
   x.forEach((frame) => {
     if (getComputedStyle(document.getElementById(frame)).display === "none") {
       showId(frame);
@@ -207,7 +207,7 @@ function opencity(frame) {
   document.getElementById(frame).focus();
 
   let regUrl = ACTIVE_WINDOW().location.href;
-  URL_BAR.value = Ultraviolet.codec.xor.decode(
+  URL_BAR.value = xor.decode(
     regUrl.split(path).slice(1).join(path)
   );
   // listen for attribute changes with soon to be favicon (not done)
@@ -226,8 +226,9 @@ function skipAd() {
   };
 }
 let newTab = (url, uxor = true) => {
+  // creates a new hypertab!!
   chromeTabs.addTab({
-    title: "Fusion Start",
+    title: "New Tab",
     favicon: "favicon.ico",
   });
 
@@ -242,7 +243,7 @@ let newTab = (url, uxor = true) => {
   else if (uxor == false) {
     frame.setAttribute("src", url);
   } else {
-    frame.setAttribute("src", "//" + location.host + path + Ultraviolet.codec.xor.encode(url));
+    frame.setAttribute("src", "//" + location.host + path + xor.encode(url));
   }
 
   frame.setAttribute("allow", "fullscreen");
@@ -270,7 +271,7 @@ document.querySelector("#urlbar").addEventListener("keydown", (event) => {
     try {
       fetch(
         prefix +
-        Ultraviolet.codec.xor.encode(
+        xor.encode(
           `https://duckduckgo.com/ac?q=${URL_BAR.value
           }`
         )
@@ -324,7 +325,7 @@ document.querySelector("#urlbar").addEventListener("keydown", (event) => {
       "//" +
       location.host +
       path +
-      Ultraviolet.codec.xor.encode(
+      xor.encode(
         window.searchEngine +
         encodeURIComponent(URL_BAR.value)
       );
@@ -337,14 +338,14 @@ document.querySelector("#urlbar").addEventListener("keydown", (event) => {
       "//" +
       location.host +
       path +
-      Ultraviolet.codec.xor.encode("http://" + URL_BAR.value);
+      xor.encode("http://" + URL_BAR.value);
     document.getElementById(getActiveFrameId()).src = value;
   } else {
     value =
       "//" +
       location.host +
       path +
-      Ultraviolet.codec.xor.encode(URL_BAR.value);
+      xor.encode(URL_BAR.value);
     document.getElementById(getActiveFrameId()).src = value;
   }
 
@@ -508,4 +509,3 @@ let addEl = (a, b, c) =>
   Object.assign(b.appendChild(document.createElement(a)), c);
 
 newTab("ht://newtab");
-
