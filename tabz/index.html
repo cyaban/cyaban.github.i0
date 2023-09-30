@@ -129,15 +129,24 @@
               <path fill="#5f6368" d="m19.952755 17.43965l-6.645668 0l0 2.5196857l6.645668 0z" fill-rule="evenodd" />
               <path fill="#5f6368" d="m19.952755 19.946194l0 -6.645669l-2.5196838 0l0 6.645669z" fill-rule="evenodd" />
             </g>
-          </svg>
+          </svg> <button id='options'
+            onclick='openMenu("optionsdrop", "themedrop", "extensiondrop", "uadrop", "customtheme");'>&#x22ee;</button>
       </div>
       <div id='optionsdrop' class='dropdown-content'>
+         <a class="pointer" onclick='toggleId("optionsdrop");'>Back</a>
         <a class="pointer"
           onclick='toggleId("optionsdrop");document.querySelector("body").requestFullscreen()'>Fullscreen window</a>
         <a class="pointer"
           onclick='toggleId("optionsdrop");skipAd()'>Skip YT AD</a>
         <a class="pointer" onclick='toggleId("optionsdrop", "searchDrop")'>Set search engine</a>
         <a class="pointer" onclick='inspect(); toggleId("optionsdrop");'>Open devtools</a>
+      </div>
+      <div id="uadrop" class=dropdown-content>
+        <a class="pointer tooldivd" onclick='toggleId("uadrop", "optionsdrop");'>back</a>
+        <div class="dividersua"></div>
+        <a>Set The Useragent (currently not working)</a>
+        <a class="pointer inp"><input class="aa" id="ua" type='text' /></a>
+        <a class="pointer" onclick='document.cookie=`cua=${localStorage.getItem("ua")}`; toggleId("uadrop");'>Apply</a>
       </div>
       <div id="searchDrop" class="dropdown-content">
         <a class="pointer tooldivd" onclick='toggleId("searchDrop", "optionsdrop");'>back</a>
@@ -175,14 +184,13 @@
         <a class="pointer" onclick="newTab('ht://extensionsmarketplace')">Get extensions</a>
       </div>
     </div>
-    <script src='tabz/js/xor.js'></script>
-    <script src='tabz/js/draggabilly.pkgd.min.js'></script>
-    <script src='tabz/js/chrome-tabs.js'></script>
-    <script src='tabz/internal/manager.js'></script>
-    <script src='tabz/js/js.js'></script>
+    <script src='js/xor.js'></script>
+    <script src='js/draggabilly.pkgd.min.js'></script>
+    <script src='js/chrome-tabs.js'></script>
+    <script src='internal/manager.js'></script>
+    <script src='js/js.js'></script>
 
     <script>document.cookie = "oldsmobile=badcar"</script>
-    
   </div>
 </body>
 
