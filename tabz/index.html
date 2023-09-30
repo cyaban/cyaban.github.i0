@@ -15,21 +15,22 @@
 <html lang='en' class='dark-theme'>
 <head>
   <meta charset='utf-8'>
-  <base href="../../"></base>
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	<link rel="icon" type="image/png" href="tabz/images/Chrome.png">
-  <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+  <title>Fusion Tabs</title>
   <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no'>
   <meta name="googlebot" content="index, follow, snippet" />
-  <meta name="theme-color" content="#000000">
-  <title>Fusion Tabs</title>
-  <link href='/tabz/css/main.css' rel='stylesheet'>
-  <link href='/tabz/css/chrome-tabs.css' rel='stylesheet'>
-  <link href='/tabz/css/chrome-tabs-dark-theme.css' rel='stylesheet'>
+  <link id="favicon" rel="icon" type="image/png" href="tabz/favicon.ico">
+  <meta name="theme-color" content="#B48EAD">
+  <link href='tabz/css/main.css' rel='stylesheet'>
+  <link href='tabz/css/chrome-tabs.css' rel='stylesheet'>
+  <link href='tabz/css/chrome-tabs-dark-theme.css' rel='stylesheet'>
   <link href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet'>
-  <script src="/uv/uv.bundle.js"></script>
-  <script src="/uv/uv.config.js"></script>
-  <script src="/register-sw.js"></script>
+  <script id="proxcfg" src="../uv/uv.bundle.js" defer></script>
+  <script src="../uv/uv.config.js" defer></script>
+  <script id="proxsw" src="../register-sw.js" defer></script>
+  <script id="proxloader" src="../index.js" defer></script>
+  <script id="proxworker" defer></script>
+  <script src="../settings.js" defer></script>
+  <link rel="manifest" href="manifest.webmanifest"/>
   <script>
     document.addEventListener('keydown', key => {
       if (key.ctrlKey) {
@@ -183,11 +184,11 @@
         <a class="pointer" onclick="newTab('ht://extensionsmarketplace')">Get extensions</a>
       </div>
     </div>
-    <script src='/tabz/js/xor.js'></script>
-    <script src='/tabz/js/draggabilly.pkgd.min.js'></script>
-    <script src='/tabz/js/chrome-tabs.js'></script>
-    <script src='/tabz/internal/manager.js'></script>
-    <script src='/tabz/js/js.js'></script>
+    <script src='tabz/js/xor.js'></script>
+    <script src='tabz/js/draggabilly.pkgd.min.js'></script>
+    <script src='tabz/js/chrome-tabs.js'></script>
+    <script src='tabz/internal/manager.js'></script>
+    <script src='tabz/js/js.js'></script>
 
     <script>document.cookie = "oldsmobile=badcar"</script>
   </div>
