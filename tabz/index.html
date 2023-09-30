@@ -49,7 +49,6 @@
         if (document.querySelector(".extension_menu")) if (!pass.target.parentElement.classList.contains("extension_menu") && !pass.target.parentElement.parentElement.classList.contains("extension_menu") && !pass.target.classList.contains("extension_menu")) document.querySelector(".extension_menu").style.display = "none"
       }
     })
-
   </script>
   <meta name="theme-color" content="#252729" />
 </head>
@@ -132,25 +131,13 @@
             </g>
           </svg>
       </div>
-      <!-- todo, javascript based dropdown menu  -->
       <div id='optionsdrop' class='dropdown-content'>
-         <a class="pointer" onclick='toggleId("optionsdrop");'>back</a>
         <a class="pointer"
           onclick='toggleId("optionsdrop");document.querySelector("body").requestFullscreen()'>Fullscreen window</a>
         <a class="pointer"
           onclick='toggleId("optionsdrop");skipAd()'>Skip YT AD</a>
-        <!-- <a class="pointer" onclick='toggleId("optionsdrop", "uadrop");'>Set user agent</a> Disabled until I finish adding support-->
         <a class="pointer" onclick='toggleId("optionsdrop", "searchDrop")'>Set search engine</a>
         <a class="pointer" onclick='inspect(); toggleId("optionsdrop");'>Open devtools</a>
-        <!-- <a class="pointer" onclick='toggleId("themedrop", "optionsdrop");'>Themes</a> Disabled until themes have been reworked -->
-        <!-- <a class="pointer" onclick='toggleId("extensiondrop", "optionsdrop");'>Extensions</a> not yet :(-->
-      </div>
-      <div id="uadrop" class=dropdown-content>
-        <a class="pointer tooldivd" onclick='toggleId("uadrop", "optionsdrop");'>back</a>
-        <div class="dividersua"></div>
-        <a>Set The Useragent (currently not working)</a>
-        <a class="pointer inp"><input class="aa" id="ua" type='text' /></a>
-        <a class="pointer" onclick='document.cookie=`cua=${localStorage.getItem("ua")}`; toggleId("uadrop");'>Apply</a>
       </div>
       <div id="searchDrop" class="dropdown-content">
         <a class="pointer tooldivd" onclick='toggleId("searchDrop", "optionsdrop");'>back</a>
@@ -193,13 +180,8 @@
     <script src='tabz/js/chrome-tabs.js'></script>
     <script src='tabz/internal/manager.js'></script>
     <script src='tabz/js/js.js'></script>
-    <!-- <script src='js/extensions.js'></script> -->
-    <!-- <script src='js/x/sponsorblock.js'></script>  -->
-    <!-- <script src='js/x/DarkMode.js'></script> -->
 
     <script>document.cookie = "oldsmobile=badcar"</script>
-	      <script src="tabz/back.js"></script>
-
   </div>
 </body>
 
