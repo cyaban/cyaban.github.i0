@@ -1,3 +1,18 @@
+  @media (max-width: 768px) {
+    .logo {
+      width: 100px;
+      height: 100px;
+    }
+  
+    h1 {
+      font-size: 28px;
+    }
+  
+    .desc {
+      font-size: 20px;
+    }
+  }
+    
   body {
     background-color: rgba(0, 0, 0, 0.5);
     /*background-image: url("assets/img/layered-waves-haikei.png");*/
@@ -18,12 +33,6 @@
     align-items: center;
   }
   
-  .logo {
-    width: 150px;
-    height: 150px;
-    max-width: 80%;
-  }
-  
   h1 {
     margin-top: 20px;
     font-size: 38px;
@@ -31,31 +40,14 @@
     text-align: center;
   }
   
-  #uv-form {
-    margin-top: 30px;
-  }
-  
-  #uv-address {
-    background: #252525;
-    color: white;
-    width: 400px;
-    height: 45px;
-    font-size: 35px;
-    padding: 0 17px;
-    border: none;
-    border-radius: 12px;
+  .desc {
+    margin-top: 10px;
+    font-size: 24px;
+    text-align: center;
   }
   
   .left-margin {
     margin-left: 20px;
-  }
-  
-  footer a:hover {
-    transform: scale(1.1);
-  }
-  
-  footer span {
-    margin-left: auto;
   }
   
   button,
@@ -94,6 +86,8 @@
   
   textarea {
     width: 400px;
+    background-color: transparent;
+    color: white;
     height: 40px;
     font-size: 16px;
     padding: 0 10px;
@@ -102,3 +96,47 @@
     opacity: 0;
     animation: fade-in 0.5s ease-in-out forwards;
   }
+  
+  .fade-out {
+    animation: fade-out 0.5s ease-in-out forwards;
+  }
+  
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes fade-out {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  
+  .config-label {
+    font-weight: bold;
+    color: #ffffff;
+  }
+  
+  .config-input {
+    padding: 5px;
+    border: 1px solid #ccc;
+    color: #fff;
+    background-color: #333;
+    border-radius: 4px;
+  }
+  
+  .config-select {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    color: white;
+    background-color: #333;
+  }
+  
