@@ -8,7 +8,7 @@
 }
 body{
   height: 100vh;
-  background: -webkit-repeating-linear-gradient(-45deg, #f22b77, #f22b77, #f22b77, #f22b77, #f22b77, #f22b77, #f22b77);
+  background: -webkit-repeating-linear-gradient(-45deg, #000000, #000000, #000000, #000000, #000000, #000000, #000000);
   background-size: 400%;
 }
 #error-page{
