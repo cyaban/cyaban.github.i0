@@ -1,0 +1,13 @@
+{
+"companyName": "DumbWays",
+"productName": "DumbWays",
+"dataUrl": "dumb-ways-die.data.unityweb",
+"wasmCodeUrl": "dumb-ways-die.wasm.code.unityweb",
+"wasmFrameworkUrl": "dumb-ways-die.wasm.framework.unityweb",
+"TOTAL_MEMORY": 268435456,
+"graphicsAPI": ["WebGL 2.0", "WebGL 1.0"],
+"webglContextAttributes": {"preserveDrawingBuffer": false},
+"splashScreenStyle": "Dark",
+"backgroundColor": "#231F20",
+"cacheControl": {"default": "must-revalidate"}
+}

@@ -25,16 +25,17 @@ function searchGames() {
             resultsFound = true; // Set the flag to true since a result was found
         } else {
             card.style.display = 'none'; // Hide the card if it doesn't match
+
             // Hide the star icons and view more element
             starIcons.forEach(function(icon) {
                 icon.style.display = 'none';
             });
             if (viewMore) viewMore.style.display = 'none';
-            
-            // Hide specific elements with class "hide-on-search"
-            var specificElements = card.querySelectorAll('.hide-on-search');
-            specificElements.forEach(function(element) {
-                element.style.display = 'none';
+
+            // Hide <a> elements with class "fa-solid fa-star"
+            var starLinks = card.querySelectorAll('a i.fa-solid.fa-star');
+            starLinks.forEach(function(starLink) {
+                starLink.parentNode.style.display = 'none';
             });
         }
     });
@@ -85,8 +86,8 @@ searchInput.addEventListener('input', searchGames);
 var copyrightDiv = document.querySelector('.copyright.container');
 copyrightDiv.style.display = 'none';
 
-// Initial hiding of the specific elements with class "hide-on-search"
-var hideOnSearchElements = document.querySelectorAll('.hide-on-search');
-hideOnSearchElements.forEach(function(element) {
-    element.style.display = 'none';
-});
+
+
+
+
+

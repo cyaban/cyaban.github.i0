@@ -1,78 +1,74 @@
-"use strict";
-/**
- * @type {HTMLFormElement}
- */
-const form = document.getElementById("uv-form");
-/**
- * @type {HTMLInputElement}
- */
-const address = document.getElementById("uv-address");
-/**
- * @type {HTMLInputElement}
- */
-const searchEngine = document.getElementById("uv-search-engine");
-/**
- * @type {HTMLParagraphElement}
- */
-const error = document.getElementById("uv-error");
-/**
- * @type {HTMLPreElement}
- */
-const errorCode = document.getElementById("uv-error-code");
+import { createBareServer } from "@tomphttp/bare-server-node";
+import express from "express";
+import { createServer } from "node:http";
+import { uvPath } from "@titaniumnetwork-dev/ultraviolet";
+import { join } from "node:path";
+import { hostname } from "node:os";
+import { fileURLToPath } from 'url';
+import { dirname } from 'node:path';
 
-form.addEventListener("submit", async (event) => {
-  event.preventDefault();
-  const url = search(address.value, searchEngine.value);
-  if (localStorage.getItem('openiframe')==="false"){
-    if (localStorage.getItem('searchmode')==="proxy"){
-    
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
-      try {
-        await registerSW();
-      } catch (err) {
-        error.textContent = "Failed to register service worker.";
-        errorCode.textContent = err.toString();
-        throw err;
-      }
-        location.href = __uv$config.prefix + __uv$config.encodeUrl(url);
-      }else{
-        window.open(url)
-      }
-  }
-  if (localStorage.getItem('openiframe')==="true"){
-    if (localStorage.getItem('searchmode')==="proxy"){
-    
+const bare = createBareServer("/bare/");
+const app = express();
 
-      try {
-        await registerSW();
-      } catch (err) {
-        error.textContent = "Failed to register service worker.";
-        errorCode.textContent = err.toString();
-        throw err;
-      }
-        location.href = __uv$config.prefix + __uv$config.encodeUrl(url);
-      }else{
-        location.href = url
-      }
-  }
- 
-  
+app.use(express.static("fusion-static"));
+
+app.use("/uv/", express.static(uvPath));
+
+app.use((req, res, next) => {
+  res.status(404);
+  res.sendFile(join(__dirname, "/uv", "404.html"));
 });
 
-function openURL(value) {
-  window.navigator.serviceWorker.register("/uv/sw.js", {
-    scope: __uv$config.prefix
-  })
-  .then(() => {
-    console.log("Service worker registration successful");
+const server = createServer();
 
-    let url = value.trim();
-    if (!(url.startsWith("https://") || url.startsWith("http://"))) {
-      url = "https://" + url;
-    }
-    location.href = __uv$config.prefix + __uv$config.encodeUrl(url);
-  })
-  .catch((error) => {
-    console.error("Failed to register service worker.", error);
-  });
+server.on("request", (req, res) => {
+  if (bare.shouldRoute(req)) {
+    bare.routeRequest(req, res);
+  } else {
+    app(req, res);
+  }
+});
+
+server.on("upgrade", (req, socket, head) => {
+  if (bare.shouldRoute(req)) {
+    bare.routeUpgrade(req, socket, head);
+  } else {
+    socket.end();
+  }
+});
+
+let port = parseInt(process.env.PORT || "");
+
+if (isNaN(port)) port = 8080;
+
+server.on("listening", () => {
+  const address = server.address();
+
+  console.log("Fusion is running on:");
+  console.log(`\thttp://localhost:${address.port}`);
+  console.log(`\thttp://${hostname()}:${address.port}`);
+  if (address.family === "IPv4") {
+    console.log(`\thttp://${address.address}:${address.port}`);
+  } else {
+    console.log(`\thttp://[${address.address}]:${address.port}`);
+  }  
+});
+
+process.on("SIGINT", shutdown);
+process.on("SIGTERM", shutdown);
+
+function shutdown() {
+  console.log("SIGTERM signal received: closing HTTP server");
+  server.close();
+  bare.close();
+  process.exit(0);
 }
+
+server.listen({
+  port,
+});
+
+
