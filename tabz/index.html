@@ -15,23 +15,46 @@
 <html lang='en' class='dark-theme'>
 <head>
   <meta charset='utf-8'>
-  <base href="../"></base>
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	<link rel="icon" type="image/png" href="tabz/images/Chrome.png">
-  <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+  <title>Fusion Tabs</title>
   <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no'>
   <meta name="googlebot" content="index, follow, snippet" />
-  <meta name="theme-color" content="#000000">
-  <title>Fusion Tabs</title>
-  <link href='tabz/css/main.css' rel='stylesheet'>
-  <link href='tabz/css/chrome-tabs.css' rel='stylesheet'>
-  <link href='tabz/css/chrome-tabs-dark-theme.css' rel='stylesheet'>
+  <link id="favicon" rel="icon" type="image/png" href="tabz/favicon.ico">
+  <meta name="theme-color" content="#B48EAD">
+  <link href='css/main.css' rel='stylesheet'>
+  <link href='css/chrome-tabs.css' rel='stylesheet'>
+  <link href='css/chrome-tabs-dark-theme.css' rel='stylesheet'>
   <link href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet'>
-  <link rel="manifest" href="manifest.json" />
-  <script src="uv/uv.bundle.js"></script>
-  <script src="uv/uv.config.js"></script>
-  <script src="register-sw.js"></script>
+  <script id="proxcfg" src="../uv/uv.bundle.js" defer></script>
+  <script src="../uv/uv.config.js" defer></script>
+  <script id="proxsw" src="../register-sw.js" defer></script>
+  <script id="proxloader" src="../index.js" defer></script>
+  <script id="proxworker" defer></script>
+  <script src="../settings.js" defer></script>
+  <link rel="manifest" href="manifest.webmanifest"/>
   <script>
+    "use strict";
+    const stockSW = "/uv/sw.js";
+    const swAllowedHostnames = ["localhost", "127.0.0.1"];
+  
+    function registerSW() {
+      if (
+        location.protocol !== "https:" &&
+        !swAllowedHostnames.includes(location.hostname)
+      )
+        throw new Error("Service workers cannot be registered without https.");
+  
+      if (!navigator.serviceWorker)
+        throw new Error("Your browser doesn't support service workers.");
+  
+      navigator.serviceWorker.register(stockSW, {
+        scope: "/uv/service/",
+      });
+    }
+  
+    window.onload = registerSW;
+  </script>  
+  <script>
+
     document.addEventListener('keydown', key => {
       if (key.ctrlKey) {
         if (document.getElementsByClassName("chrome-tab")[key.key - 1]) {
@@ -49,7 +72,6 @@
         if (document.querySelector(".extension_menu")) if (!pass.target.parentElement.classList.contains("extension_menu") && !pass.target.parentElement.parentElement.classList.contains("extension_menu") && !pass.target.classList.contains("extension_menu")) document.querySelector(".extension_menu").style.display = "none"
       }
     })
-
   </script>
   <meta name="theme-color" content="#252729" />
 </head>
@@ -130,20 +152,17 @@
               <path fill="#5f6368" d="m19.952755 17.43965l-6.645668 0l0 2.5196857l6.645668 0z" fill-rule="evenodd" />
               <path fill="#5f6368" d="m19.952755 19.946194l0 -6.645669l-2.5196838 0l0 6.645669z" fill-rule="evenodd" />
             </g>
-          </svg>
+          </svg> <button id='options'
+            onclick='openMenu("optionsdrop", "themedrop", "extensiondrop", "uadrop", "customtheme");'>&#x22ee;</button>
       </div>
-      <!-- todo, javascript based dropdown menu  -->
       <div id='optionsdrop' class='dropdown-content'>
-         <a class="pointer" onclick='toggleId("optionsdrop");'>back</a>
+         <a class="pointer" onclick='toggleId("optionsdrop");'>Back</a>
         <a class="pointer"
           onclick='toggleId("optionsdrop");document.querySelector("body").requestFullscreen()'>Fullscreen window</a>
         <a class="pointer"
           onclick='toggleId("optionsdrop");skipAd()'>Skip YT AD</a>
-        <!-- <a class="pointer" onclick='toggleId("optionsdrop", "uadrop");'>Set user agent</a> Disabled until I finish adding support-->
         <a class="pointer" onclick='toggleId("optionsdrop", "searchDrop")'>Set search engine</a>
         <a class="pointer" onclick='inspect(); toggleId("optionsdrop");'>Open devtools</a>
-        <!-- <a class="pointer" onclick='toggleId("themedrop", "optionsdrop");'>Themes</a> Disabled until themes have been reworked -->
-        <!-- <a class="pointer" onclick='toggleId("extensiondrop", "optionsdrop");'>Extensions</a> not yet :(-->
       </div>
       <div id="uadrop" class=dropdown-content>
         <a class="pointer tooldivd" onclick='toggleId("uadrop", "optionsdrop");'>back</a>
@@ -188,18 +207,13 @@
         <a class="pointer" onclick="newTab('ht://extensionsmarketplace')">Get extensions</a>
       </div>
     </div>
-    <script src='tabz/js/xor.js'></script>
-    <script src='tabz/js/draggabilly.pkgd.min.js'></script>
-    <script src='tabz/js/chrome-tabs.js'></script>
-    <script src='tabz/internal/manager.js'></script>
-    <script src='tabz/js/js.js'></script>
-    <!-- <script src='js/extensions.js'></script> -->
-    <!-- <script src='js/x/sponsorblock.js'></script>  -->
-    <!-- <script src='js/x/DarkMode.js'></script> -->
+    <script src='js/xor.js'></script>
+    <script src='js/draggabilly.pkgd.min.js'></script>
+    <script src='js/chrome-tabs.js'></script>
+    <script src='internal/manager.js'></script>
+    <script src='js/js.js'></script>
 
     <script>document.cookie = "oldsmobile=badcar"</script>
-	      <script src="tabz/back.js"></script>
-
   </div>
 </body>
 
