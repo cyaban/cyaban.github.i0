@@ -8,7 +8,7 @@
 }
 body{
   height: 100vh;
-  background: -webkit-repeating-linear-gradient(-45deg, #000000, #0000, #0, #ee8176, #b98acc, #69a6ce, #9b59b6);
+  background: -webkit-repeating-linear-gradient(-45deg, #f22b77, #000000, #f22b77, #000000, #f22b77, #000000, #f22b77);
   background-size: 400%;
 }
 #error-page{
@@ -93,8 +93,8 @@ body{
   display: inline-block;
   margin: 0 10px;
   text-decoration: none;
-  border: 2px solid #69a6ce;
-  color: #69a6ce;
+  border: 2px solid #f22b77;
+  color: #f22b77;
   font-weight: 500;
   padding: 10px 25px;
   border-radius: 25px;
@@ -102,6 +102,6 @@ body{
   transition: all 0.3s ease;
 }
 .content .btns a:hover{
-  background: #0000;
-  color: #0000;
+  background: #f22b77;
+  color: #f22b77;
 }
