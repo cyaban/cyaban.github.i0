@@ -49,6 +49,7 @@
         if (document.querySelector(".extension_menu")) if (!pass.target.parentElement.classList.contains("extension_menu") && !pass.target.parentElement.parentElement.classList.contains("extension_menu") && !pass.target.classList.contains("extension_menu")) document.querySelector(".extension_menu").style.display = "none"
       }
     })
+
   </script>
   <meta name="theme-color" content="#252729" />
 </head>
@@ -129,17 +130,20 @@
               <path fill="#5f6368" d="m19.952755 17.43965l-6.645668 0l0 2.5196857l6.645668 0z" fill-rule="evenodd" />
               <path fill="#5f6368" d="m19.952755 19.946194l0 -6.645669l-2.5196838 0l0 6.645669z" fill-rule="evenodd" />
             </g>
-          </svg> <button id='options'
-            onclick='openMenu("optionsdrop", "themedrop", "extensiondrop", "uadrop", "customtheme");'>&#x22ee;</button>
+          </svg>
       </div>
+      <!-- todo, javascript based dropdown menu  -->
       <div id='optionsdrop' class='dropdown-content'>
-         <a class="pointer" onclick='toggleId("optionsdrop");'>Back</a>
+         <a class="pointer" onclick='toggleId("optionsdrop");'>back</a>
         <a class="pointer"
           onclick='toggleId("optionsdrop");document.querySelector("body").requestFullscreen()'>Fullscreen window</a>
         <a class="pointer"
           onclick='toggleId("optionsdrop");skipAd()'>Skip YT AD</a>
+        <!-- <a class="pointer" onclick='toggleId("optionsdrop", "uadrop");'>Set user agent</a> Disabled until I finish adding support-->
         <a class="pointer" onclick='toggleId("optionsdrop", "searchDrop")'>Set search engine</a>
         <a class="pointer" onclick='inspect(); toggleId("optionsdrop");'>Open devtools</a>
+        <!-- <a class="pointer" onclick='toggleId("themedrop", "optionsdrop");'>Themes</a> Disabled until themes have been reworked -->
+        <!-- <a class="pointer" onclick='toggleId("extensiondrop", "optionsdrop");'>Extensions</a> not yet :(-->
       </div>
       <div id="uadrop" class=dropdown-content>
         <a class="pointer tooldivd" onclick='toggleId("uadrop", "optionsdrop");'>back</a>
@@ -184,13 +188,18 @@
         <a class="pointer" onclick="newTab('ht://extensionsmarketplace')">Get extensions</a>
       </div>
     </div>
-    <script src='js/xor.js'></script>
-    <script src='js/draggabilly.pkgd.min.js'></script>
-    <script src='js/chrome-tabs.js'></script>
-    <script src='internal/manager.js'></script>
-    <script src='js/js.js'></script>
+    <script src='tabz/js/xor.js'></script>
+    <script src='tabz/js/draggabilly.pkgd.min.js'></script>
+    <script src='tabz/js/chrome-tabs.js'></script>
+    <script src='tabz/internal/manager.js'></script>
+    <script src='tabz/js/js.js'></script>
+    <!-- <script src='js/extensions.js'></script> -->
+    <!-- <script src='js/x/sponsorblock.js'></script>  -->
+    <!-- <script src='js/x/DarkMode.js'></script> -->
 
     <script>document.cookie = "oldsmobile=badcar"</script>
+	      <script src="tabz/back.js"></script>
+
   </div>
 </body>
 
