@@ -1,6 +1,6 @@
 self.__uv$config = {
     prefix: '/uv/service/',
-    bare: 'https://stingrayproxy.onrender.com/bare/',
+    bare: 'https://mathlearning.scottexteriors.com/bare/',
     encodeUrl: Ultraviolet.codec.xor.encode,
     decodeUrl: Ultraviolet.codec.xor.decode,
     handler: '/uv/uv.handler.js',
