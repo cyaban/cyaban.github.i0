@@ -90,3 +90,6 @@ img {
         transform: translateX(calc(-250px * 7));
     }
 }
+body {
+  background-color: #000000;
+}
