@@ -71,10 +71,9 @@ function searchGames() {
     pagination.style.display = 'block';
   }
 
-  // Hide or show the "No results found" message and copyright div based on the flag
-  if (resultsFound) {
-    noResultsMessage.style.display = 'none'; // Hide the message if results were found
-    copyrightDiv.style.display = 'none'; // Hide the copyright div if results were found
-  } else {
-    noResultsMessage.style.display = 'block'; // Show the message if no results were found
-    copyrightDiv.style.display = 'block'; // Show the copyright div if no results were found
+  // Hide the "IO Games" heading and "View more" link
+  var ioGamesHeading = document.querySelector('h2.io-games');
+  var ioGamesViewMoreLink = document.querySelector('.io-games .view-more');
+  ioGamesHeading.style.display = 'none';
+  ioGamesViewMoreLink.style.display = 'none';
+
