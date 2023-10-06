@@ -34,41 +34,10 @@ function searchGames() {
     }
   });
 
-  // Reset the category title and make all other categories not visible
-  trendingSections.forEach(function(section, index) {
-    if (index === 0) {
-      // Main trending section
-      if (resultsFound) {
-        section.querySelector('h2').textContent = 'Search Results'; // Change category title
-        section.style.display = 'block'; // Show the main section if results were found
-      } else {
-        section.querySelector('h2').textContent = 'IO Games'; // Reset category title
-        section.style.display = 'block'; // Show the main section if no results found
-      }
-    } else {
-      // Other trending sections
-      var sectionTitle = section.querySelector('h2').textContent.toLowerCase();
-      if (sectionTitle.includes(searchTerm)) {
-        section.querySelector('h2').textContent = 'Search Results';
-        section.style.display = 'block';
-      } else {
-        section.style.display = 'none'; // Hide other categories
-      }
-    }
-  });
-
-  // Hide the "View More" links
-  var viewMoreLinks = document.querySelectorAll('.view-more a');
-  viewMoreLinks.forEach(function(link) {
-    link.style.display = 'none';
-  });
-
-  // Hide the pagination if there is text in the search input
-  var pagination = document.querySelector('.pagination');
-  if (input.value.length > 0) {
-    pagination.style.display = 'none';
-  } else {
-    pagination.style.display = 'block';
+  // If no results were found, show the "No results found" message and copyright div
+  if (!resultsFound) {
+    noResultsMessage.style.display = 'block';
+    copyrightDiv.style.display = 'block';
   }
 
   // Hide the "IO Games" heading and "View more" link
@@ -76,4 +45,4 @@ function searchGames() {
   var ioGamesViewMoreLink = document.querySelector('.io-games .view-more');
   ioGamesHeading.style.display = 'none';
   ioGamesViewMoreLink.style.display = 'none';
-
+}
