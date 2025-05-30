@@ -1,368 +1,293 @@
-/* CHROME-LIKE TABS MAIN CSS */
-
-/* ==== BASE ==== */
-html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  font-family: 'Segoe UI', Arial, sans-serif;
+html {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   background: #f1f3f4;
-  overflow: hidden;
+  overflow-y: hidden;
 }
-html.dark-theme {
-  background: #202124;
-  color: #e8eaed;
-}
+
+html,
 body {
   height: 100%;
   margin: 0;
   padding: 0;
+  overflow: hidden;
 }
 
-/* ==== MAIN SURFACE ==== */
+html.dark-theme {
+  background: #000000;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.pointer:hover {
+  cursor: pointer;
+  background: #ffffff;
+}
+
 .surface {
+  box-sizing: border-box;
   display: flex;
-  flex-direction: column;
-  height: 100vh;
-}
-.mock-browser {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  background: #f8f9fa;
-  box-shadow: 0 2px 8px rgba(60,64,67,0.08);
-  border-radius: 12px 12px 0 0;
-  margin: 24px auto 0 auto;
-  max-width: 950px;
-  min-width: 320px;
-  min-height: 600px;
-  position: relative;
-  overflow: visible;
-}
-
-/* ==== CHROME TABS BAR ==== */
-.chrome-tabs {
-  position: relative;
-  height: 48px;
-  padding: 0 48px 0 8px;
-  background: #e3e6ea;
-  border-radius: 12px 12px 0 0;
-  box-shadow: 0 1px 0 #dadce0;
-  display: flex;
-  align-items: flex-end;
-  z-index: 20;
-  overflow-x: auto;
-  overflow-y: visible;
-}
-.chrome-tabs-dark-theme {
-  background: #252729;
-  box-shadow: 0 1px 0 #353739;
-}
-
-.chrome-tabs-content {
-  display: flex;
-  align-items: flex-end;
-  height: 100%;
   width: 100%;
-  position: relative;
-  z-index: 2;
-}
-
-/* ==== CHROME TAB SHAPE ==== */
-.chrome-tab {
-  position: relative;
-  display: flex;
-  align-items: center;
-  height: 38px;
-  width: 192px;
-  min-width: 92px;
-  margin-right: -24px; /* Overlap like Chrome */
-  padding-bottom: 0;
-  background: none;
-  border: none;
-  z-index: 1;
-  cursor: pointer;
-  user-select: none;
-  overflow: visible;
-  transition: z-index 0.2s;
-}
-.chrome-tab[active] {
-  z-index: 10;
-}
-.chrome-tab .chrome-tab-background {
-  position: absolute;
-  top: 0; left: 0; width: 100%; height: 100%;
-  z-index: 0;
-  pointer-events: none;
-}
-.chrome-tab .chrome-tab-background > svg {
-  width: 100%; height: 100%; display: block;
-}
-.chrome-tab .chrome-tab-background > svg .chrome-tab-geometry {
-  fill: #e3e6ea;
-  transition: fill 0.2s;
-}
-.chrome-tab[active] .chrome-tab-background > svg .chrome-tab-geometry {
-  fill: #fff;
-}
-.chrome-tabs-dark-theme .chrome-tab .chrome-tab-background > svg .chrome-tab-geometry {
-  fill: #353739;
-}
-.chrome-tabs-dark-theme .chrome-tab[active] .chrome-tab-background > svg .chrome-tab-geometry {
-  fill: #202124;
-}
-
-/* ==== TAB CONTENT ==== */
-.chrome-tab .chrome-tab-content {
-  position: relative;
-  display: flex;
-  align-items: center;
-  height: 100%;
-  z-index: 1;
-  padding: 0 12px 0 10px;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
-  overflow: hidden;
-  pointer-events: all;
-  margin-top: 2px;
-}
-.chrome-tab .chrome-tab-favicon {
-  height: 16px; width: 16px;
-  margin-right: 7px;
-  flex-shrink: 0;
-  background-size: contain;
-}
-.chrome-tab .chrome-tab-title {
-  flex: 1;
-  font-size: 14px;
-  color: #444;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  font-weight: 500;
-}
-.chrome-tab[active] .chrome-tab-title {
-  color: #111;
-}
-.chrome-tabs-dark-theme .chrome-tab .chrome-tab-title {
-  color: #bbb;
-}
-.chrome-tabs-dark-theme .chrome-tab[active] .chrome-tab-title {
-  color: #fff;
-}
-
-/* ==== TAB CLOSE BUTTON ==== */
-.chrome-tab .chrome-tab-close {
-  width: 20px; height: 20px;
-  margin-left: 7px;
-  border-radius: 50%;
-  background: none;
-  border: none;
-  display: flex; align-items: center; justify-content: center;
-  transition: background 0.16s;
-  cursor: pointer;
-  background-image: url("data:image/svg+xml;utf8,<svg fill='rgba(0,0,0,0.34)' xmlns='http://www.w3.org/2000/svg' height='20' width='20'><path d='M6 6l8 8M6 14L14 6' stroke='rgba(0,0,0,0.4)' stroke-width='2' stroke-linecap='round'/></svg>");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 13px;
-}
-.chrome-tab .chrome-tab-close:hover {
-  background: #ededed;
-}
-.chrome-tabs-dark-theme .chrome-tab .chrome-tab-close {
-  background-image: url("data:image/svg+xml;utf8,<svg fill='rgba(255,255,255,0.34)' xmlns='http://www.w3.org/2000/svg' height='20' width='20'><path d='M6 6l8 8M6 14L14 6' stroke='rgba(255,255,255,0.4)' stroke-width='2' stroke-linecap='round'/></svg>");
-}
-.chrome-tabs-dark-theme .chrome-tab .chrome-tab-close:hover {
-  background: #353739;
-}
-
-/* ==== ADD TAB BUTTON ==== */
-#createTab {
-  position: absolute;
-  right: 8px;
-  bottom: 8px;
-  z-index: 100;
-  background: #e3e6ea;
-  border: 1px solid #c2c6cb;
-  border-radius: 50%;
-  width: 32px; height: 32px;
-  font-size: 22px;
-  color: #5f6368;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 1px 2px rgba(60,64,67,0.07);
-  cursor: pointer;
-  outline: none;
-  transition: background 0.15s, border 0.15s;
-}
-#createTab:hover {
-  background: #fff;
-  border-color: #b1b3b6;
-}
-.chrome-tabs-dark-theme #createTab {
-  background: #353739;
-  border-color: #484a4c;
-  color: #bbb;
-}
-.chrome-tabs-dark-theme #createTab:hover {
-  background: #202124;
-  border-color: #888;
-}
-
-/* ==== TABS BAR BOTTOM SHADOW ==== */
-.chrome-tabs-bottom-bar {
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  height: 3px;
-  background: #dadce0;
-  z-index: 1;
-  border-radius: 0 0 10px 10px;
-}
-.chrome-tabs-dark-theme .chrome-tabs-bottom-bar {
-  background: #353739;
-}
-
-/* ==== PINNED TABS ==== */
-.chrome-tab.pin {
-  width: 48px !important;
-}
-.chrome-tab.pin .chrome-tab-close,
-.chrome-tab.pin .chrome-tab-title {
-  display: none;
-}
-.chrome-tab.pin .chrome-tab-favicon {
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* ==== CENTERED CONTENT ==== */
-.mock-browser-content {
-  display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  flex: 1;
-  background: transparent;
-  padding: 32px 0 0 0;
-  min-height: 450px;
-  border-radius: 0 0 12px 12px;
 }
-@media (max-width: 700px) {
+
+@media (min-width: 100%) {
+  .surface {
+    padding: 60px;
+  }
+
   .mock-browser {
-    margin: 0;
-    min-width: 0;
-    max-width: 100vw;
+    width: 100%;
+    background: #000000;
+    border-radius: 8px;
+    flex-shrink: 0;
+    overflow: hidden;
+  }
+
+  html.dark-theme .mock-browser {
+    background: #000000;
+  }
+
+  .mock-browser-content {
+    position: relative;
+    z-index: 1;
+    margin-top: -1px;
+    display: flex;
+  }
+
+  .chrome-tabs-optional-shadow-below-bottom-bar {
+    z-index: 2;
+  }
+}
+
+@media (max-width: 799px) {
+  html {
+    background: #000000;
+  }
+
+  html.dark-theme {
+    background: #000000;
+  }
+
+  .mock-browser .chrome-tabs {
     border-radius: 0;
   }
-  .mock-browser-content {
-    padding: 10px 0 0 0;
+}
+
+.aa {
+  background-color: #000000;
+  width: 100%;
+  color: white;
+  float: right;
+  border: 1px solid #000000;
+}
+
+button {
+  font-family: inherit;
+  display: inline-block;
+  cursor: pointer;
+  background: #000000;
+  font-size: 12px;
+  border-radius: 9999px;
+}
+
+@supports (-webkit-overflow-scrolling: touch) {
+  /* Prevent double tap to zoom on iOS https://stackoverflow.com/a/47131647 */
+  button {
+    touch-action: manipulation;
   }
 }
 
-/* ==== DROPDOWNS, URL BAR, BUTTONS ==== */
-#urlbar {
-  flex: 1;
-  height: 32px;
-  padding: 0 14px;
-  border-radius: 7px;
-  border: 1.5px solid #dadce0;
-  font-size: 15px;
-  margin: 0 10px;
+button:focus {
+  border-color: #000000;
   outline: none;
-  background: #fff;
-  transition: border 0.13s, box-shadow 0.13s;
-}
-#urlbar:focus {
-  border-color: #1a73e8;
-  box-shadow: 0 0 0 1.5px #1a73e8;
-}
-.chrome-tabs-dark-theme #urlbar,
-html.dark-theme #urlbar {
-  background: #232527;
-  color: #eee;
-  border-color: #484a4c;
-}
-#urlbutton {
-  background: none;
-  border: none;
-  padding: 5px;
-  margin: 0 2px;
-  border-radius: 50%;
-  cursor: pointer;
-  color: #5f6368;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background 0.15s;
-}
-#urlbutton:hover {
-  background: #ececec;
-}
-.chrome-tabs-dark-theme #urlbutton, html.dark-theme #urlbutton {
-  color: #bbb;
-}
-.chrome-tabs-dark-theme #urlbutton:hover, html.dark-theme #urlbutton:hover {
-  background: #353739;
 }
 
-/* Dropdowns */
-.dropdown-content {
-  display: none;
+.buttons {
+  margin-left: -0.5em;
+  text-align: center;
+}
+
+.buttons button {
+  margin: 0.5em;
+}
+
+html.dark-theme button {
+  -webkit-font-smoothing: antialiased;
+  background: transparent;
+  color: #ffffff;
+}
+
+html.dark-theme button:focus {
+  border-color: #000000;
+  outline: none;
+  border: none;
+}
+
+button:active {
+  outline: none;
+  border: none;
+}
+
+#createTab {
+  border: none;
   position: absolute;
-  background-color: #fff;
-  min-width: 168px;
-  box-shadow: 0 4px 16px 0 rgba(60,64,67,0.18);
-  z-index: 100;
-  border: 1px solid #dadce0;
-  border-radius: 8px;
-  overflow: hidden;
+  outline: none;
+  top: 0;
+  font-size: 20px;
+  -webkit-font-smoothing: antialiased;
 }
-html.dark-theme .dropdown-content {
-  background: #252729;
-  border: 1px solid #484a4c;
+
+.iframething {
+  width: 100%;
+  height: 92.3%;
+  outline: none;
+  border: 0;
+  overflow-y: hidden;
 }
+
+.container {
+  background: #000000;
+  display: inline;
+}
+
+.mock-browser-content {
+  background-color: #141414;
+  padding: 0em 0.5em 0.2em;
+  display: flex;
+}
+
+#urlbar {
+  width: 100%;
+  border: hidden;
+  background: #1c1c1c;
+  height: 26px;
+  outline: none;
+  color: rgb(255, 255, 255);
+  border-radius: 12px;
+  box-sizing: border-box;
+  padding-left: 10px;
+  font-size: small;
+}
+
+#extensionlist {
+  display: flex;
+}
+
+.extenico {
+  width: 24px;
+  height: 24px;
+  padding-top: 2px;
+  padding-left: 8px;
+  padding-right: 4px;
+}
+
+#urlbutton {
+  float: left;
+  display: flex;
+  outline: none;
+  border: 0;
+  font-size: large;
+}
+
+@media only screen and (max-width: 600px) {
+  #urlbutton {
+    font-size: 9px;
+  }
+  #createTab {
+    padding-right: 4px;
+  }
+  .iframething {
+    height: 89.9%;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .iframething {
+    height: 87.9%;
+  }
+}
+
+#options {
+  float: right;
+  outline: none;
+  border: 0;
+  font-size: large;
+}
+
+.dropdown-content {
+  background-color: #000000;
+  display: none;
+  right: 0;
+  border: solid 1px #1d1d1d;
+  position: absolute;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
 .dropdown-content a {
-  color: #232527;
-  padding: 10px 18px;
+  color: rgb(255, 255, 255);
+  padding: 12px 16px;
   text-decoration: none;
   display: block;
-  font-size: 15px;
-  transition: background 0.12s;
-}
-.dropdown-content a:hover {
-  background-color: #e8eaed;
-}
-html.dark-theme .dropdown-content a {
-  color: #e8eaed;
-}
-html.dark-theme .dropdown-content a:hover {
-  background: #353739;
-}
-.pointer { cursor: pointer; }
-
-/* ==== RESPONSIVE ==== */
-@media (max-width: 600px) {
-  .chrome-tabs { height: 38px; }
-  .chrome-tab { height: 28px; width: 120px; }
-  #urlbar { height: 26px; font-size: 13px; }
 }
 
-/* ==== IF YOU WANT TO CENTER IFRAME ==== */
-.mock-browser-content iframe {
-  display: block;
-  margin: 0 auto;
-  width: 90%;
-  max-width: 900px;
-  min-width: 280px;
-  min-height: 480px;
-  height: 70vh;
-  border: none;
-  border-radius: 8px;
-  background: #fff;
-  box-shadow: 0 2px 16px rgba(60,64,67,0.13);
+.dropdown-content .divider {
+  height: 1px;
+  width: 147px;
+  background: #000000;
+  margin-left: 6px;
 }
-html.dark-theme .mock-browser-content iframe {
-  background: #232527;
-  box-shadow: 0 2px 16px rgba(60,64,67,0.33);
+
+.dropdown-content .dividerext {
+  height: 1px;
+  width: 313px;
+  background: #000000;
+  margin-left: 6px;
+}
+
+.dropdown-content .dividerct {
+  height: 1px;
+  width: 284px;
+  background: #000000;
+  margin-left: 6px;
+}
+
+.dropdown-content .dividersua {
+  height: 1px;
+  width: 313px;
+  background: #000000;
+  margin-left: 6px;
+}
+
+.dropdown-content .inp {
+  position: relative;
+  top: -1px;
+  height: 20px;
+}
+
+.dropdown-content .inp:hover {
+  cursor: default;
+}
+
+div#customtheme {
+  height: 553px;
+}
+
+.th {
+  cursor: default;
+  margin-top: 7px;
+}
+
+.th:hover {
+  background: #000000;
+  cursor: default;
+}
+
+.bt {
+  position: relative;
+  top: 18px;
 }
