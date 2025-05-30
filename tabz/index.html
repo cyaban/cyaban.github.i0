@@ -54,7 +54,6 @@
     window.onload = registerSW;
   </script>  
   <script>
-
     document.addEventListener('keydown', key => {
       if (key.ctrlKey) {
         if (document.getElementsByClassName("chrome-tab")[key.key - 1]) {
@@ -95,6 +94,9 @@
         <div class='chrome-tabs-content' id='0'>
         </div>
         <div class='chrome-tabs-bottom-bar'></div>
+        <div id="createTabContainer">
+          <button class='material-icons chrome-tab' data-add-tab id='createTab' onclick='newTab("ht://newtab")'>add</button>
+        </div>
         <style>
           .chrome-tabs .chrome-tab {
             width: 258px;
@@ -107,10 +109,35 @@
           .chrome-tabs .chrome-tab:nth-child(2) {
             transform: translate3d(239px, 0, 0);
           }
+          
+          #createTabContainer {
+            position: absolute;
+            right: 0;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            padding-right: 8px;
+            background: #f2f2f2;
+          }
+          
+          #createTab {
+            margin: 0;
+            color: #5f6368;
+            background: transparent;
+            border: none;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+          }
+          
+          #createTab:hover {
+            color: #202124;
+          }
         </style>
       </div>
-      <button style='margin-left:0px;' class='material-icons chrome-tab' data-add-tab id='createTab'
-        onclick='newTab("ht://newtab")'>add</button>
       <div class='mock-browser-content'>
         <button id='urlbutton'
           onclick='document.getElementById(getActiveFrameId()).src = getBack(getActiveFrameId())'><svg
@@ -130,7 +157,7 @@
             <path
               d="M17.65 6.35A7.958 7.958 0 0 0 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08A5.99 5.99 0 0 1 12 18c-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
           </svg></button>
-        <input id='urlbar' list="searchsuggestions"/>
+        <input id='urlbar' list="searchsuggestions" style="color: #000000;"/>
         <datalist id="searchsuggestions"></datalist>
         <div id="extensionlist"></div>
         <button id='urlbutton' onclick='document.getElementById(getActiveFrameId()).requestFullscreen();'>
@@ -216,5 +243,4 @@
     <script>document.cookie = "oldsmobile=badcar"</script>
   </div>
 </body>
-
 </html>
