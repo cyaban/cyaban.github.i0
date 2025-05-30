@@ -1,293 +1,322 @@
+/* main.css */
 html {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
     Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   background: #f1f3f4;
-  overflow-y: hidden;
-}
-
-html,
-body {
   height: 100%;
-  margin: 0;
-  padding: 0;
   overflow: hidden;
 }
 
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
 html.dark-theme {
-  background: #000000;
+  background: #202124;
 }
 
-.pointer {
-  cursor: pointer;
-}
-
-.pointer:hover {
-  cursor: pointer;
-  background: #ffffff;
-}
-
-.surface {
+/* Chrome Tabs Styles */
+.chrome-tabs {
   box-sizing: border-box;
-  display: flex;
+  position: relative;
+  font-size: 12px;
+  height: 42px;
+  padding: 9px 8px 0;
+  background: #f1f3f4;
+  border-radius: 8px 8px 0 0;
+  overflow: hidden;
   width: 100%;
-  flex-direction: column;
 }
 
-@media (min-width: 100%) {
-  .surface {
-    padding: 60px;
-  }
+.chrome-tabs * {
+  box-sizing: inherit;
+  font: inherit;
+}
 
-  .mock-browser {
-    width: 100%;
-    background: #000000;
-    border-radius: 8px;
-    flex-shrink: 0;
-    overflow: hidden;
-  }
+.chrome-tabs .chrome-tabs-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
 
-  html.dark-theme .mock-browser {
-    background: #000000;
-  }
+.chrome-tab {
+  position: absolute;
+  left: 0;
+  height: 32px;
+  width: 240px;
+  border: 0;
+  margin: 0;
+  z-index: 1;
+  pointer-events: none;
+}
 
-  .mock-browser-content {
-    position: relative;
-    z-index: 1;
-    margin-top: -1px;
-    display: flex;
-  }
+.chrome-tab, .chrome-tab * {
+  user-select: none;
+  cursor: default;
+}
 
-  .chrome-tabs-optional-shadow-below-bottom-bar {
+.chrome-tab .chrome-tab-dividers {
+  position: absolute;
+  top: 6px;
+  bottom: 6px;
+  left: var(--tab-content-margin);
+  right: var(--tab-content-margin);
+}
+
+.chrome-tab .chrome-tab-dividers::before,
+.chrome-tab .chrome-tab-dividers::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: #d0d0d0;
+  opacity: 1;
+  transition: opacity 0.2s ease;
+}
+
+.chrome-tab .chrome-tab-dividers::before {
+  left: 0;
+}
+
+.chrome-tab .chrome-tab-dividers::after {
+  right: 0;
+}
+
+.chrome-tab:first-child .chrome-tab-dividers::before,
+.chrome-tab:last-child .chrome-tab-dividers::after {
+  opacity: 0;
+}
+
+.chrome-tab .chrome-tab-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.chrome-tab .chrome-tab-background > svg {
+  width: 100%;
+  height: 100%;
+}
+
+.chrome-tab .chrome-tab-background > svg .chrome-tab-geometry {
+  fill: #e6e8eb;
+}
+
+.chrome-tab[active] {
+  z-index: 5;
+}
+
+.chrome-tab[active] .chrome-tab-background > svg .chrome-tab-geometry {
+  fill: #ffffff;
+}
+
+.chrome-tab:not([active]) .chrome-tab-background {
+  transition: opacity 0.2s ease;
+  opacity: 0;
+}
+
+@media (hover: hover) {
+  .chrome-tab:not([active]):hover {
     z-index: 2;
   }
-}
-
-@media (max-width: 799px) {
-  html {
-    background: #000000;
-  }
-
-  html.dark-theme {
-    background: #000000;
-  }
-
-  .mock-browser .chrome-tabs {
-    border-radius: 0;
+  .chrome-tab:not([active]):hover .chrome-tab-background {
+    opacity: 1;
   }
 }
 
-.aa {
-  background-color: #000000;
-  width: 100%;
-  color: white;
-  float: right;
-  border: 1px solid #000000;
-}
-
-button {
-  font-family: inherit;
-  display: inline-block;
-  cursor: pointer;
-  background: #000000;
-  font-size: 12px;
-  border-radius: 9999px;
-}
-
-@supports (-webkit-overflow-scrolling: touch) {
-  /* Prevent double tap to zoom on iOS https://stackoverflow.com/a/47131647 */
-  button {
-    touch-action: manipulation;
-  }
-}
-
-button:focus {
-  border-color: #000000;
-  outline: none;
-}
-
-.buttons {
-  margin-left: -0.5em;
-  text-align: center;
-}
-
-.buttons button {
-  margin: 0.5em;
-}
-
-html.dark-theme button {
-  -webkit-font-smoothing: antialiased;
-  background: transparent;
-  color: #ffffff;
-}
-
-html.dark-theme button:focus {
-  border-color: #000000;
-  outline: none;
-  border: none;
-}
-
-button:active {
-  outline: none;
-  border: none;
-}
-
-#createTab {
-  border: none;
+.chrome-tab .chrome-tab-content {
   position: absolute;
-  outline: none;
-  top: 0;
-  font-size: 20px;
-  -webkit-font-smoothing: antialiased;
-}
-
-.iframething {
-  width: 100%;
-  height: 92.3%;
-  outline: none;
-  border: 0;
-  overflow-y: hidden;
-}
-
-.container {
-  background: #000000;
-  display: inline;
-}
-
-.mock-browser-content {
-  background-color: #141414;
-  padding: 0em 0.5em 0.2em;
   display: flex;
+  align-items: center;
+  top: 0;
+  bottom: 0;
+  left: var(--tab-content-margin);
+  right: var(--tab-content-margin);
+  padding: 0 8px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  overflow: hidden;
+  pointer-events: all;
+}
+
+.chrome-tab .chrome-tab-favicon {
+  position: relative;
+  flex-shrink: 0;
+  height: 16px;
+  width: 16px;
+  background-size: 16px;
+  margin-right: 6px;
+}
+
+.chrome-tab .chrome-tab-title {
+  flex: 1;
+  overflow: hidden;
+  white-space: nowrap;
+  color: #333;
+  text-overflow: ellipsis;
+}
+
+.chrome-tab[active] .chrome-tab-title {
+  color: #000;
+}
+
+.chrome-tab .chrome-tab-close {
+  flex-shrink: 0;
+  position: relative;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  margin-left: 4px;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'><path stroke='rgba(0, 0, 0, .65)' stroke-linecap='square' stroke-width='1.5' d='M0 0 L8 8 M8 0 L0 8'></path></svg>");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 8px;
+}
+
+.chrome-tab .chrome-tab-close:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.chrome-tabs-bottom-bar {
+  position: absolute;
+  bottom: 0;
+  height: 1px;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  z-index: 10;
+}
+
+/* Dark Theme */
+.chrome-tabs.chrome-tabs-dark-theme {
+  background: #202124;
+}
+
+.chrome-tabs.chrome-tabs-dark-theme .chrome-tab .chrome-tab-background > svg .chrome-tab-geometry {
+  fill: #292b2e;
+}
+
+.chrome-tabs.chrome-tabs-dark-theme .chrome-tab[active] .chrome-tab-background > svg .chrome-tab-geometry {
+  fill: #323639;
+}
+
+.chrome-tabs.chrome-tabs-dark-theme .chrome-tab .chrome-tab-title {
+  color: #9ca1a7;
+}
+
+.chrome-tabs.chrome-tabs-dark-theme .chrome-tab[active] .chrome-tab-title {
+  color: #f1f3f4;
+}
+
+.chrome-tabs.chrome-tabs-dark-theme .chrome-tab-close {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'><path stroke='rgba(154, 160, 166, .8)' stroke-linecap='square' stroke-width='1.5' d='M0 0 L8 8 M8 0 L0 8'></path></svg>");
+}
+
+.chrome-tabs.chrome-tabs-dark-theme .chrome-tab-close:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Browser Chrome UI */
+.mock-browser {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: #fff;
+}
+
+.mock-browser-bar {
+  display: flex;
+  padding: 8px;
+  background: #f1f3f4;
+  align-items: center;
 }
 
 #urlbar {
-  width: 100%;
-  border: hidden;
-  background: #1c1c1c;
-  height: 26px;
+  flex: 1;
+  height: 28px;
+  border-radius: 4px;
+  border: 1px solid #dadce0;
+  padding: 0 12px;
+  font-size: 13px;
+  margin: 0 8px;
   outline: none;
-  color: rgb(255, 255, 255);
-  border-radius: 12px;
-  box-sizing: border-box;
-  padding-left: 10px;
-  font-size: small;
 }
 
-#extensionlist {
+#urlbar:focus {
+  border-color: #1a73e8;
+  box-shadow: 0 0 0 1px #1a73e8;
+}
+
+.mock-browser-content {
+  flex: 1;
   display: flex;
+  flex-direction: column;
 }
 
-.extenico {
+.iframething {
+  flex: 1;
+  border: none;
+  background: #fff;
+}
+
+/* Add Tab Button */
+#createTab {
+  background: none;
+  border: none;
+  color: #5f6368;
+  font-size: 18px;
   width: 24px;
   height: 24px;
-  padding-top: 2px;
-  padding-left: 8px;
-  padding-right: 4px;
-}
-
-#urlbutton {
-  float: left;
   display: flex;
-  outline: none;
-  border: 0;
-  font-size: large;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-left: 4px;
 }
 
-@media only screen and (max-width: 600px) {
-  #urlbutton {
-    font-size: 9px;
+#createTab:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .chrome-tabs {
+    height: 38px;
+    padding-top: 6px;
   }
-  #createTab {
-    padding-right: 4px;
+  
+  .chrome-tab {
+    height: 28px;
   }
-  .iframething {
-    height: 89.9%;
-  }
-}
-
-@media only screen and (max-width: 400px) {
-  .iframething {
-    height: 87.9%;
+  
+  #urlbar {
+    height: 24px;
+    font-size: 12px;
   }
 }
 
-#options {
-  float: right;
-  outline: none;
-  border: 0;
-  font-size: large;
+/* Animations */
+@keyframes chrome-tab-was-just-added {
+  to {
+    top: 0;
+  }
 }
 
-.dropdown-content {
-  background-color: #000000;
-  display: none;
-  right: 0;
-  border: solid 1px #1d1d1d;
-  position: absolute;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
+.chrome-tab.chrome-tab-was-just-added {
+  top: 10px;
+  animation: chrome-tab-was-just-added 120ms forwards ease-in-out;
 }
 
-.dropdown-content a {
-  color: rgb(255, 255, 255);
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
-
-.dropdown-content .divider {
-  height: 1px;
-  width: 147px;
-  background: #000000;
-  margin-left: 6px;
-}
-
-.dropdown-content .dividerext {
-  height: 1px;
-  width: 313px;
-  background: #000000;
-  margin-left: 6px;
-}
-
-.dropdown-content .dividerct {
-  height: 1px;
-  width: 284px;
-  background: #000000;
-  margin-left: 6px;
-}
-
-.dropdown-content .dividersua {
-  height: 1px;
-  width: 313px;
-  background: #000000;
-  margin-left: 6px;
-}
-
-.dropdown-content .inp {
-  position: relative;
-  top: -1px;
-  height: 20px;
-}
-
-.dropdown-content .inp:hover {
-  cursor: default;
-}
-
-div#customtheme {
-  height: 553px;
-}
-
-.th {
-  cursor: default;
-  margin-top: 7px;
-}
-
-.th:hover {
-  background: #000000;
-  cursor: default;
-}
-
-.bt {
-  position: relative;
-  top: 18px;
+.chrome-tabs.chrome-tabs-is-sorting .chrome-tab:not(.chrome-tab-is-dragging),
+.chrome-tabs:not(.chrome-tabs-is-sorting) .chrome-tab.chrome-tab-was-just-dragged {
+  transition: transform 120ms ease-in-out;
 }
