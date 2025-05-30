@@ -1,9 +1,10 @@
 /* main.css */
 html {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
-    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   background: #f1f3f4;
   height: 100%;
+  margin: 0;
+  padding: 0;
   overflow: hidden;
 }
 
@@ -15,19 +16,21 @@ body {
 
 html.dark-theme {
   background: #202124;
+  color: #e8eaed;
 }
 
-/* Chrome Tabs Styles */
+/* Chrome Tabs Container */
 .chrome-tabs {
   box-sizing: border-box;
   position: relative;
-  font-size: 12px;
   height: 42px;
   padding: 9px 8px 0;
   background: #f1f3f4;
   border-radius: 8px 8px 0 0;
   overflow: hidden;
-  width: 100%;
+  width: calc(100% - 40px); /* Leave space for add tab button */
+  display: inline-block;
+  vertical-align: top;
 }
 
 .chrome-tabs * {
@@ -35,21 +38,27 @@ html.dark-theme {
   font: inherit;
 }
 
-.chrome-tabs .chrome-tabs-content {
+.chrome-tabs-dark-theme {
+  background: #202124;
+}
+
+/* Tab Content Area */
+.chrome-tabs-content {
   position: relative;
   width: 100%;
   height: 100%;
 }
 
+/* Individual Tab */
 .chrome-tab {
   position: absolute;
-  left: 0;
   height: 32px;
   width: 240px;
   border: 0;
   margin: 0;
   z-index: 1;
   pointer-events: none;
+  transform: translate3d(0, 0, 0);
 }
 
 .chrome-tab, .chrome-tab * {
@@ -57,6 +66,7 @@ html.dark-theme {
   cursor: default;
 }
 
+/* Tab Dividers */
 .chrome-tab .chrome-tab-dividers {
   position: absolute;
   top: 6px;
@@ -78,19 +88,15 @@ html.dark-theme {
   transition: opacity 0.2s ease;
 }
 
-.chrome-tab .chrome-tab-dividers::before {
-  left: 0;
-}
-
-.chrome-tab .chrome-tab-dividers::after {
-  right: 0;
-}
+.chrome-tab .chrome-tab-dividers::before { left: 0; }
+.chrome-tab .chrome-tab-dividers::after { right: 0; }
 
 .chrome-tab:first-child .chrome-tab-dividers::before,
 .chrome-tab:last-child .chrome-tab-dividers::after {
   opacity: 0;
 }
 
+/* Tab Background */
 .chrome-tab .chrome-tab-background {
   position: absolute;
   top: 0;
@@ -110,6 +116,7 @@ html.dark-theme {
   fill: #e6e8eb;
 }
 
+/* Active Tab */
 .chrome-tab[active] {
   z-index: 5;
 }
@@ -118,6 +125,7 @@ html.dark-theme {
   fill: #ffffff;
 }
 
+/* Inactive Tab States */
 .chrome-tab:not([active]) .chrome-tab-background {
   transition: opacity 0.2s ease;
   opacity: 0;
@@ -132,6 +140,7 @@ html.dark-theme {
   }
 }
 
+/* Tab Content */
 .chrome-tab .chrome-tab-content {
   position: absolute;
   display: flex;
@@ -147,6 +156,7 @@ html.dark-theme {
   pointer-events: all;
 }
 
+/* Tab Favicon */
 .chrome-tab .chrome-tab-favicon {
   position: relative;
   flex-shrink: 0;
@@ -156,18 +166,21 @@ html.dark-theme {
   margin-right: 6px;
 }
 
+/* Tab Title */
 .chrome-tab .chrome-tab-title {
   flex: 1;
   overflow: hidden;
   white-space: nowrap;
   color: #333;
   text-overflow: ellipsis;
+  font-size: 12px;
 }
 
 .chrome-tab[active] .chrome-tab-title {
   color: #000;
 }
 
+/* Tab Close Button */
 .chrome-tab .chrome-tab-close {
   flex-shrink: 0;
   position: relative;
@@ -185,6 +198,7 @@ html.dark-theme {
   background-color: rgba(0, 0, 0, 0.1);
 }
 
+/* Bottom Bar */
 .chrome-tabs-bottom-bar {
   position: absolute;
   bottom: 0;
@@ -195,33 +209,50 @@ html.dark-theme {
   z-index: 10;
 }
 
-/* Dark Theme */
-.chrome-tabs.chrome-tabs-dark-theme {
-  background: #202124;
-}
-
-.chrome-tabs.chrome-tabs-dark-theme .chrome-tab .chrome-tab-background > svg .chrome-tab-geometry {
+/* Dark Theme Styles */
+.chrome-tabs-dark-theme .chrome-tab .chrome-tab-background > svg .chrome-tab-geometry {
   fill: #292b2e;
 }
 
-.chrome-tabs.chrome-tabs-dark-theme .chrome-tab[active] .chrome-tab-background > svg .chrome-tab-geometry {
+.chrome-tabs-dark-theme .chrome-tab[active] .chrome-tab-background > svg .chrome-tab-geometry {
   fill: #323639;
 }
 
-.chrome-tabs.chrome-tabs-dark-theme .chrome-tab .chrome-tab-title {
+.chrome-tabs-dark-theme .chrome-tab .chrome-tab-title {
   color: #9ca1a7;
 }
 
-.chrome-tabs.chrome-tabs-dark-theme .chrome-tab[active] .chrome-tab-title {
+.chrome-tabs-dark-theme .chrome-tab[active] .chrome-tab-title {
   color: #f1f3f4;
 }
 
-.chrome-tabs.chrome-tabs-dark-theme .chrome-tab-close {
+.chrome-tabs-dark-theme .chrome-tab-close {
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'><path stroke='rgba(154, 160, 166, .8)' stroke-linecap='square' stroke-width='1.5' d='M0 0 L8 8 M8 0 L0 8'></path></svg>");
 }
 
-.chrome-tabs.chrome-tabs-dark-theme .chrome-tab-close:hover {
+.chrome-tabs-dark-theme .chrome-tab-close:hover {
   background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Add Tab Button */
+[data-add-tab] {
+  background: none;
+  border: none;
+  color: #5f6368;
+  font-size: 18px;
+  width: 24px;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+  vertical-align: top;
+  margin-top: 9px;
+}
+
+[data-add-tab]:hover {
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 /* Browser Chrome UI */
@@ -232,13 +263,15 @@ html.dark-theme {
   background: #fff;
 }
 
-.mock-browser-bar {
+.mock-browser-content {
   display: flex;
   padding: 8px;
   background: #f1f3f4;
   align-items: center;
+  border-bottom: 1px solid #dadce0;
 }
 
+/* URL Bar */
 #urlbar {
   flex: 1;
   height: 28px;
@@ -248,6 +281,7 @@ html.dark-theme {
   font-size: 13px;
   margin: 0 8px;
   outline: none;
+  background: #fff;
 }
 
 #urlbar:focus {
@@ -255,39 +289,52 @@ html.dark-theme {
   box-shadow: 0 0 0 1px #1a73e8;
 }
 
-.mock-browser-content {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-.iframething {
-  flex: 1;
-  border: none;
-  background: #fff;
-}
-
-/* Add Tab Button */
-#createTab {
+/* Navigation Buttons */
+#urlbutton {
   background: none;
   border: none;
+  padding: 4px;
+  cursor: pointer;
   color: #5f6368;
-  font-size: 18px;
-  width: 24px;
-  height: 24px;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 50%;
-  cursor: pointer;
-  margin-left: 4px;
 }
 
-#createTab:hover {
+#urlbutton:hover {
   background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
 }
 
-/* Responsive */
+/* Dropdown Menus */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #202124;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  border: 1px solid #3c4043;
+  border-radius: 4px;
+}
+
+.dropdown-content a {
+  color: #e8eaed;
+  padding: 8px 16px;
+  text-decoration: none;
+  display: block;
+  font-size: 13px;
+}
+
+.dropdown-content a:hover {
+  background-color: #3c4043;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+/* Responsive Adjustments */
 @media (max-width: 600px) {
   .chrome-tabs {
     height: 38px;
