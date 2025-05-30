@@ -319,7 +319,6 @@
   outline: none;
   background-color: #f8f9fa;
   transition: background-color 0.2s, box-shadow 0.2s;
-  color: #000000; /* Added black text color */
 }
 
 #urlbar:focus {
@@ -353,11 +352,6 @@
   margin: 0 8px;
   cursor: pointer;
   color: #5f6368;
-  position: relative;
-  top: 8px; /* Adjusted to center vertically */
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 #createTab:hover {
@@ -376,18 +370,4 @@
   width: 100%;
   height: calc(100% - 92px);
   border: none;
-}
-
-/* Chrome tabs container adjustments */
-.chrome-tabs {
-  display: flex;
-  align-items: center;
-}
-
-/* Add tab button container */
-#createTabContainer {
-  display: flex;
-  align-items: center;
-  height: 100%;
-  padding-right: 8px;
 }
