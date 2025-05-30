@@ -20,6 +20,20 @@ html.dark-theme {
 }
 
 /* Chrome Tabs Container */
+.surface {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.mock-browser {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: #fff;
+}
+
+/* Tabs Container */
 .chrome-tabs {
   box-sizing: border-box;
   position: relative;
@@ -28,14 +42,9 @@ html.dark-theme {
   background: #f1f3f4;
   border-radius: 8px 8px 0 0;
   overflow: hidden;
-  width: calc(100% - 40px); /* Leave space for add tab button */
   display: inline-block;
   vertical-align: top;
-}
-
-.chrome-tabs * {
-  box-sizing: inherit;
-  font: inherit;
+  width: calc(100% - 40px); /* Leave space for add tab button */
 }
 
 .chrome-tabs-dark-theme {
@@ -235,7 +244,7 @@ html.dark-theme {
 }
 
 /* Add Tab Button */
-[data-add-tab] {
+#createTab {
   background: none;
   border: none;
   color: #5f6368;
@@ -249,20 +258,16 @@ html.dark-theme {
   cursor: pointer;
   vertical-align: top;
   margin-top: 9px;
+  margin-left: 8px;
+  position: absolute;
+  right: 8px;
 }
 
-[data-add-tab]:hover {
+#createTab:hover {
   background-color: rgba(0, 0, 0, 0.1);
 }
 
 /* Browser Chrome UI */
-.mock-browser {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  background: #fff;
-}
-
 .mock-browser-content {
   display: flex;
   padding: 8px;
@@ -366,4 +371,22 @@ html.dark-theme {
 .chrome-tabs.chrome-tabs-is-sorting .chrome-tab:not(.chrome-tab-is-dragging),
 .chrome-tabs:not(.chrome-tabs-is-sorting) .chrome-tab.chrome-tab-was-just-dragged {
   transition: transform 120ms ease-in-out;
+}
+
+/* Pinned Tabs */
+.chrome-tab.pin {
+  width: 47px !important;
+}
+
+.chrome-tab.pin .chrome-tab-close {
+  display: none;
+}
+
+.chrome-tab.pin .chrome-tab-title {
+  display: none;
+}
+
+.chrome-tab.pin .chrome-tab-favicon {
+  margin-left: auto;
+  margin-right: auto;
 }
